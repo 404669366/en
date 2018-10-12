@@ -52,6 +52,9 @@
                         <a href="#slider">HOME</a>
                     </li>
                     <li>
+                        <a href="#contact">CONTACT US</a>
+                    </li>
+                    <li>
                         <a href="#about">ABOUT</a>
                     </li>
                     <li>
@@ -80,15 +83,126 @@
 </header>
 <!-- Header End -->
 
-<section class="slider-pro slider sp-horizontal sp-has-buttons" id="slider" style="width: 100%; max-width: 100%;">
-    <div class="sp-slides-container">
-        <div class="sp-mask sp-grab">
-         
+
+<section class="slider-pro slider" id="slider">
+    <div class="sp-slides">
+
+        <!-- Slides -->
+        <div class="sp-slide main-slides">
+            <div class="img-overlay"></div>
+
+            <img class="sp-image" src="images/slider/slider-img-1.jpg" alt="Slider 1"/>
+
+            <h1 class="sp-layer slider-text-big"
+                data-position="center" data-show-transition="left" data-hide-transition="right" data-show-delay="100"
+                data-hide-delay="100">
+                <span class="highlight-texts">We love Design</span>
+            </h1>
+
+            <p class="sp-layer"
+               data-position="center" data-vertical="15%" data-show-delay="0" data-hide-delay="100"
+               data-show-transition="left" data-hide-transition="right">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+            </p>
         </div>
+        <!-- Slides End -->
+
+        <!-- Slides -->
+        <div class="sp-slide main-slides">
+            <div class="img-overlay"></div>
+            <img class="sp-image" src="images/slider/slider-img-2.jpg" alt="Slider 2"/>
+
+            <h1 class="sp-layer slider-text-big"
+                data-position="center" data-show-transition="left" data-hide-transition="right" data-show-delay="100"
+                data-hide-delay="100">
+                <span class="highlight-texts">Business Solutions</span>
+            </h1>
+
+            <p class="sp-layer"
+               data-position="center" data-vertical="15%" data-show-delay="0" data-hide-delay="100"
+               data-show-transition="left" data-hide-transition="right">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+            </p>
+        </div>
+        <!-- Slides End -->
+
+        <!-- Slides -->
+        <div class="sp-slide main-slides">
+            <div class="img-overlay"></div>
+
+            <img class="sp-image" src="images/slider/slider-img-3.jpg" alt="Slider 3"/>
+
+            <h1 class="sp-layer slider-text-big"
+                data-position="center" data-show-transition="left" data-hide-transition="right" data-show-delay="100"
+                data-hide-delay="100">
+                <span class="highlight-texts">Responsive Website</span>
+            </h1>
+
+            <p class="sp-layer"
+               data-position="center" data-vertical="15%" data-show-delay="0" data-hide-delay="100"
+               data-show-transition="left" data-hide-transition="right">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit
+            </p>
+        </div>
+        <!-- Slides End -->
+
     </div>
 </section>
 <!-- Main Slider End -->
+<!-- Contact Section -->
+<section id="contact" class="section-wrapper contact-section" data-stellar-background-ratio="0.5">
+    <div class="parallax-overlay"></div>
+    <div class="container">
+        <div class="row">
 
+            <!-- Section Header -->
+            <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+                <h2><span class="highlight-text">Contact Us</span></h2>
+
+                <p class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">We love feedback. Fill out the
+                    form below and we'll get back to you as soon as possible. in minus distinctio dolores ipsam.</p>
+            </div>
+            <!-- Section Header End -->
+
+            <div class="contact-details">
+
+
+                <!-- Contact Form -->
+                <div class="contact-form wow bounceInRight">
+
+                    <!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control"
+                                   placeholder="Full Name" id="name" required
+                                   data-validation-required-message="Please enter your name"/>
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" placeholder="Email"
+                                   id="email" required
+                                   data-validation-required-message="Please enter your email"/>
+                        </div>
+
+                        <div class="col-md-12">
+	<textarea rows="10" cols="100" class="form-control"
+              placeholder="Message" id="message" required
+              data-validation-required-message="Please enter your message" minlength="5"
+              data-validation-minlength-message="Min 5 characters"
+              maxlength="999" style="resize:none"></textarea>
+                        </div>
+
+                        <div class="col-md-4 col-md-offset-5"><br>
+                            <div id="success"></div>
+                            <button type="submit" class="btn btn-primary">Submit Message</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+</section>
+<!-- Contact Section End -->
 
 <section id="about" class="about-sec section-wrapper description">
     <div class="container">
@@ -652,8 +766,7 @@
         </div>
     </div><!-- Container Ends -->
 </section>
-
-<!-- Contact Section End -->
+<!-- Client Section End -->
 <section class="footer-container">
     <div class="container">
         <div class="row footer-containertent">
