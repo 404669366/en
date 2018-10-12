@@ -1,0 +1,1051 @@
+2018-09-21 15:58:51 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\yii2-h+...', 388, Array)
+#1 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\yii2-h+\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', 'vaqf')
+#5 D:\work\yii2-h+\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\yii2-h+\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\yii2-h+\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\yii2-h+\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-09-21 15:58:51 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '___rl__test__cookies' => '1537515821246'
+    'OUTFOX_SEARCH_USER_ID_NCOO' => '1106107993.47589'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;D:\\APP\\Git\\cmd;C:\\WINDOWS\\System32\\OpenSSH\\;D:\\APP\\composer;D:\\APP\\WinSCP\\;C:\\Users\\40466\\Desktop\\php-7.0.30-ts\\;C:\\Users\\40466\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\40466\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '61907'
+    'SCRIPT_FILENAME' => 'D:/work/yii2-h+/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/yii2-h+/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/yii2-h+/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.new.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_COOKIE' => '___rl__test__cookies=1537515821246; ___rl__test__cookies=1537501983524; OUTFOX_SEARCH_USER_ID_NCOO=1106107993.47589'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.new.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.new.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1537516731.5097
+    'REQUEST_TIME' => 1537516731
+]
+2018-09-21 15:58:54 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\yii2-h+...', 388, Array)
+#1 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\yii2-h+\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', '7pz0')
+#5 D:\work\yii2-h+\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\yii2-h+\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\yii2-h+\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\yii2-h+\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-09-21 15:58:54 [127.0.0.1][-][-][info][application] $_GET = [
+    '0_3189522365114281' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '___rl__test__cookies' => '1537515821246'
+    'OUTFOX_SEARCH_USER_ID_NCOO' => '1106107993.47589'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;D:\\APP\\Git\\cmd;C:\\WINDOWS\\System32\\OpenSSH\\;D:\\APP\\composer;D:\\APP\\WinSCP\\;C:\\Users\\40466\\Desktop\\php-7.0.30-ts\\;C:\\Users\\40466\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\40466\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code?0.3189522365114281'
+    'QUERY_STRING' => '0.3189522365114281'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => '0.3189522365114281'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '61907'
+    'SCRIPT_FILENAME' => 'D:/work/yii2-h+/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/yii2-h+/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/yii2-h+/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.new.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_COOKIE' => '___rl__test__cookies=1537515821246; ___rl__test__cookies=1537501983524; OUTFOX_SEARCH_USER_ID_NCOO=1106107993.47589'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.new.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.new.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1537516734.2977
+    'REQUEST_TIME' => 1537516734
+]
+2018-09-21 15:58:56 [127.0.0.1][-][-][error][yii\web\HttpException:400] yii\web\BadRequestHttpException: 您提交的数据无法被验证。 in D:\work\yii2-h+\vendor\yiisoft\yii2\web\Controller.php:166
+Stack trace:
+#0 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Controller.php(155): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#1 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('login', Array)
+#2 D:\work\yii2-h+\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/lo...', Array)
+#3 D:\work\yii2-h+\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#4 D:\work\yii2-h+\web\index.php(11): yii\base\Application->run()
+#5 {main}
+2018-09-21 15:58:56 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '___rl__test__cookies' => '1537515821246'
+    'OUTFOX_SEARCH_USER_ID_NCOO' => '1106107993.47589'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;D:\\APP\\Git\\cmd;C:\\WINDOWS\\System32\\OpenSSH\\;D:\\APP\\composer;D:\\APP\\WinSCP\\;C:\\Users\\40466\\Desktop\\php-7.0.30-ts\\;C:\\Users\\40466\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\40466\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/login'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/member/login/login'
+    'REMOTE_PORT' => '61907'
+    'SCRIPT_FILENAME' => 'D:/work/yii2-h+/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/yii2-h+/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/yii2-h+/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.new.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\WINDOWS'
+    'HTTP_COOKIE' => '___rl__test__cookies=1537515821246; ___rl__test__cookies=1537501983524; OUTFOX_SEARCH_USER_ID_NCOO=1106107993.47589'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.new.com/member/login/login'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://www.new.com'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'CONTENT_LENGTH' => '0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.new.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1537516736.1738
+    'REQUEST_TIME' => 1537516736
+]
+2018-10-09 11:53:44 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "layouts.html".' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('layouts.html', Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-10-09 11:53:43 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.aaa.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://www.aaa.com/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j PHP/5.4.45'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'REMOTE_PORT' => '52438'
+    'REDIRECT_URL' => '/layouts.html'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/layouts.html'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539057223.947
+    'REQUEST_TIME' => 1539057223
+]
+2018-10-09 11:54:02 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "h /css/bootstrap.min.css.map".' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('h /css/bootstra...', Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-10-09 11:54:02 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.aaa.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j PHP/5.4.45'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'REMOTE_PORT' => '52449'
+    'REDIRECT_URL' => '/h+/css/bootstrap.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/h+/css/bootstrap.min.css.map'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539057242.281
+    'REQUEST_TIME' => 1539057242
+]
+2018-10-09 11:54:06 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "h /css/bootstrap.min.css.map".' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('h /css/bootstra...', Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-10-09 11:54:06 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.aaa.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Mobile Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j PHP/5.4.45'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'REMOTE_PORT' => '52452'
+    'REDIRECT_URL' => '/h+/css/bootstrap.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/h+/css/bootstrap.min.css.map'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539057246.518
+    'REQUEST_TIME' => 1539057246
+]
+2018-10-09 11:54:07 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "h /css/bootstrap.min.css.map".' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('h /css/bootstra...', Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-10-09 11:54:07 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.aaa.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Mobile Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j PHP/5.4.45'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'REMOTE_PORT' => '52452'
+    'REDIRECT_URL' => '/h+/css/bootstrap.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/h+/css/bootstrap.min.css.map'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539057247.021
+    'REQUEST_TIME' => 1539057247
+]
+2018-10-09 11:54:11 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "layouts.html".' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('layouts.html', Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-10-09 11:54:11 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.aaa.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Mobile Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://www.aaa.com/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j PHP/5.4.45'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'REMOTE_PORT' => '52452'
+    'REDIRECT_URL' => '/layouts.html'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/layouts.html'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539057251.007
+    'REQUEST_TIME' => 1539057251
+]
+2018-10-09 11:54:14 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "index_v1.html".' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('index_v1.html', Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-10-09 11:54:14 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.aaa.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Mobile Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://www.aaa.com/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j PHP/5.4.45'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'REMOTE_PORT' => '52449'
+    'REDIRECT_URL' => '/index_v1.html'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/index_v1.html'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539057254.683
+    'REQUEST_TIME' => 1539057254
+]
+2018-10-10 11:38:53 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\Yii2-ba...', 388, Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', 'vquj')
+#5 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\Yii2-basis-master\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-10-10 11:38:53 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '57628'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.aaa.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.aaa.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539142733.3535
+    'REQUEST_TIME' => 1539142733
+]
+2018-10-10 11:38:56 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\Yii2-ba...', 388, Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', '6cst')
+#5 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\Yii2-basis-master\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-10-10 11:38:56 [127.0.0.1][-][-][info][application] $_GET = [
+    '0_4280384208057333' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code?0.4280384208057333'
+    'QUERY_STRING' => '0.4280384208057333'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => '0.4280384208057333'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '57628'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.aaa.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.aaa.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539142736.9075
+    'REQUEST_TIME' => 1539142736
+]
+2018-10-10 11:38:57 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\Yii2-ba...', 388, Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', 'arx0')
+#5 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\Yii2-basis-master\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-10-10 11:38:57 [127.0.0.1][-][-][info][application] $_GET = [
+    '0_4280384208057333?0_4256671954153637' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code?0.4280384208057333?0.4256671954153637'
+    'QUERY_STRING' => '0.4280384208057333?0.4256671954153637'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => '0.4280384208057333?0.4256671954153637'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '57628'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.aaa.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.aaa.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539142737.4593
+    'REQUEST_TIME' => 1539142737
+]
+2018-10-10 11:39:00 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\Yii2-ba...', 388, Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', 'u0yt')
+#5 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\Yii2-basis-master\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-10-10 11:39:00 [127.0.0.1][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '57628'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.aaa.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.aaa.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539142740.0878
+    'REQUEST_TIME' => 1539142740
+]
+2018-10-10 11:39:01 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\Yii2-ba...', 388, Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', 'falv')
+#5 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\Yii2-basis-master\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-10-10 11:39:01 [127.0.0.1][-][-][info][application] $_GET = [
+    '0_8341653017826938' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code?0.8341653017826938'
+    'QUERY_STRING' => '0.8341653017826938'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => '0.8341653017826938'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '57628'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.aaa.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.aaa.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539142741.4835
+    'REQUEST_TIME' => 1539142741
+]
+2018-10-10 11:39:01 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\Yii2-ba...', 388, Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', 'v4ld')
+#5 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\Yii2-basis-master\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-10-10 11:39:01 [127.0.0.1][-][-][info][application] $_GET = [
+    '0_8341653017826938?0_5567713630269968' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code?0.8341653017826938?0.5567713630269968'
+    'QUERY_STRING' => '0.8341653017826938?0.5567713630269968'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => '0.8341653017826938?0.5567713630269968'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '57628'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.aaa.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.aaa.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539142741.8509
+    'REQUEST_TIME' => 1539142741
+]
+2018-10-10 11:39:02 [127.0.0.1][-][-][error][yii\base\ErrorException:2] yii\base\ErrorException: session_set_cookie_params(): Cannot change session cookie parameters when headers already sent in D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php:388
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'session_set_coo...', 'D:\\work\\Yii2-ba...', 388, Array)
+#1 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(388): session_set_cookie_params(0, '/', '', false, true)
+#2 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(135): yii\web\Session->setCookieParamsInternal()
+#3 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Session.php(624): yii\web\Session->open()
+#4 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(108): yii\web\Session->set('Login', '528q')
+#5 D:\work\Yii2-basis-master\vendor\helpers\CaptchaCode.php(124): vendor\helpers\CaptchaCode->setCode('Login')
+#6 D:\work\Yii2-basis-master\controllers\member\LoginController.php(32): vendor\helpers\CaptchaCode->doimg('Login')
+#7 [internal function]: app\controllers\member\LoginController->actionCode()
+#8 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#9 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#10 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('code', Array)
+#11 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('member/login/co...', Array)
+#12 D:\work\Yii2-basis-master\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#13 D:\work\Yii2-basis-master\web\index.php(11): yii\base\Application->run()
+#14 {main}
+2018-10-10 11:39:02 [127.0.0.1][-][-][info][application] $_GET = [
+    '0_8341653017826938?0_5567713630269968?0_3299297812013622' => ''
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Users\\miku\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/APP/phpStudy/PHPTutorial/php/php-7.2.1-nts/'
+    '_FCGI_SHUTDOWN_EVENT_' => '2148'
+    'SCRIPT_NAME' => '/index.php'
+    'REQUEST_URI' => '/member/login/code?0.8341653017826938?0.5567713630269968?0.3299297812013622'
+    'QUERY_STRING' => '0.8341653017826938?0.5567713630269968?0.3299297812013622'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REDIRECT_QUERY_STRING' => '0.8341653017826938?0.5567713630269968?0.3299297812013622'
+    'REDIRECT_URL' => '/member/login/code'
+    'REMOTE_PORT' => '57628'
+    'SCRIPT_FILENAME' => 'D:/work/Yii2-basis-master/web/index.php'
+    'SERVER_ADMIN' => 'admin@php.cn'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/work/Yii2-basis-master/web'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'www.aaa.com'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) OpenSSL/1.0.2j mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.aaa.com/member/login/login'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 UBrowser/6.2.4094.1 Safari/537.36'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => 'www.aaa.com'
+    'REDIRECT_STATUS' => '200'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1539142742.1304
+    'REQUEST_TIME' => 1539142742
+]
