@@ -31,7 +31,6 @@ class Msg
     public static function run()
     {
         if ($msg = \Yii::$app->session->get('BackstageMsg', false)) {
-            exit();
             \Yii::$app->session->set('BackstageMsg',null);
             echo "<script>layer.msg('$msg');</script>";
         }
