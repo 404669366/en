@@ -1,3 +1,4 @@
 .project
+/backstage/config/db.php
 /backstage/runtime/
 /backstage/web/assets/
