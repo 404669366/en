@@ -22,6 +22,7 @@ class LoginController extends BasisController
      */
     public function actionLogin()
     {
+        var_dump(111);exit();
         $this->layout = false;
         if (\Yii::$app->request->isPost) {
             $data = \Yii::$app->request->post();
