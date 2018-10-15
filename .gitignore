@@ -1,3 +1,4 @@
 .project
-./backstage/runtime/
-./backstage/web/assets/
+backstage/runtime/
+backstage/runtime/debug/
+backstage/web/assets/
