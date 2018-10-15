@@ -32,7 +32,9 @@ $this->beginPage();
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">
                                 <span class="text-muted text-xs block">
-                                    <strong class="font-bold">Beaut-zihan</strong>
+                                    <strong class="font-bold">
+                                        <?=$data['username']?>
+                                    </strong>
                                     <b class="caret"></b>
                                 </span>
                             </span>
@@ -45,7 +47,21 @@ $this->beginPage();
                         </ul>
                     </div>
                 </li>
-                <li>
+                <?php foreach ($data['menus'] as $v):?>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">主页</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <?php foreach ($v['sons'] as $son):?>
+                                <li><a class="J_menuItem" href="index_v1.html">主页示例一</a></li>
+                            <?php endforeach;?>
+                        </ul>
+                    </li>
+                <?php endforeach;?>
+                <!--<li>
                     <a href="#">
                         <i class="fa fa-home"></i>
                         <span class="nav-label">主页</span>
@@ -61,7 +77,7 @@ $this->beginPage();
                         <i class="fa fa-columns"></i>
                         <span class="nav-label">布局</span>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </div>
     </nav>

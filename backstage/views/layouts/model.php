@@ -14,6 +14,7 @@ $this->beginPage();
 <body class="gray-bg">
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
+<?php \vendor\helpers\Msg::run()?>
 <?= $content ?>
 </body>
 </html>

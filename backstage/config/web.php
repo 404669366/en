@@ -43,6 +43,17 @@ $config = [
             'rules' => [
             ],
         ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => '47.99.36.149',
+            'password' => 'fi9^BRLHschX%V96',
+            'port' => 6379,
+            'database' => 0,
+        ],
+        'user' => [
+            'identityClass' => 'vendor\en\EnMemberBase',
+            'enableAutoLogin' => true,
+        ],
     ],
     'params' => $params,
 ];

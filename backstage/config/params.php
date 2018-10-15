@@ -5,4 +5,5 @@ return [
     'defaultRoute'=>'index/index/menu',
     'indexRoute'=>'index/index/index',
     'logoutRoute'=>'member/login/logout',
+    'loginRoute'=>'member/login/login',
 ];

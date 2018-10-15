@@ -22,6 +22,7 @@ $this->beginPage();
 <body class="signin">
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
+<?php \vendor\helpers\Msg::run()?>
 <div class="signinpanel">
     <div class="row">
         <div class="col-sm-7">
@@ -35,11 +36,12 @@ $this->beginPage();
         </div>
         <div class="col-sm-5">
             <form method="post" action="">
+                <input type="hidden" name="_csrf" value="<?=Yii::$app->request->csrfToken?>"/>
                 <h4 class="no-margins">登录：</h4>
-                <input type="text" class="form-control uname" placeholder="用户名"/>
-                <input type="password" class="form-control pword" placeholder="密码"/>
+                <input type="text" class="form-control uname" name="username" placeholder="用户名"/>
+                <input type="password" class="form-control pword" name="pwd" placeholder="密码"/>
                 <div>
-                    <input type="text" class="form-control ji m-b" placeholder="验证码"/>
+                    <input type="text" class="form-control ji m-b" name="code" placeholder="验证码"/>
                     <img class="form-control code" src="/member/login/code" onclick="this.src+='?'+Math.random()">
                 </div>
                 <button class="btn btn-success btn-block">登录</button>

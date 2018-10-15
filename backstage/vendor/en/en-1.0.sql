@@ -10,10 +10,27 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-15 11:21:03
+Date: 2018-10-15 16:01:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for en_job
+-- ----------------------------
+DROP TABLE IF EXISTS `en_job`;
+CREATE TABLE `en_job` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `no` varchar(8) DEFAULT '' COMMENT '职位编码',
+  `job` varchar(30) DEFAULT '' COMMENT '职位名',
+  `last` int(11) unsigned DEFAULT '0' COMMENT '上级',
+  `powers` varchar(1000) DEFAULT '' COMMENT '拥有权限',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户职位表';
+
+-- ----------------------------
+-- Records of en_job
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for en_member
@@ -23,13 +40,32 @@ CREATE TABLE `en_member` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(30) DEFAULT '' COMMENT '用户名',
   `tel` varchar(11) DEFAULT '' COMMENT '手机号',
-  `password` varchar(40) DEFAULT '' COMMENT '密码',
+  `password` varchar(80) DEFAULT '' COMMENT '密码',
   `job_id` int(10) unsigned DEFAULT '0' COMMENT '职位id',
   `status` tinyint(1) unsigned DEFAULT '1' COMMENT '状态 1启用 2禁用 3删除',
   `created_at` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='后台用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='后台用户表';
 
 -- ----------------------------
 -- Records of en_member
+-- ----------------------------
+INSERT INTO `en_member` VALUES ('1', 'root', '', '$2y$13$oczZWZ1LIoqn9Gdr.oHEX.pCOegfysciA7ZaxONwsNfkwChW92jUO', '0', '1', '1539588593');
+
+-- ----------------------------
+-- Table structure for en_power
+-- ----------------------------
+DROP TABLE IF EXISTS `en_power`;
+CREATE TABLE `en_power` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `last` int(11) unsigned DEFAULT '0' COMMENT '上级id',
+  `no` varchar(8) DEFAULT '' COMMENT '权限标识',
+  `type` tinyint(1) unsigned DEFAULT '1' COMMENT '权限类型 1菜单2按钮3接口',
+  `name` varchar(30) DEFAULT '' COMMENT '权限名',
+  `url` varchar(100) DEFAULT '' COMMENT '权限路由',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+
+-- ----------------------------
+-- Records of en_power
 -- ----------------------------

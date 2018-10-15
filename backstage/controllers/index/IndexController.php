@@ -15,7 +15,12 @@ class IndexController extends CommonController
     public function actionMenu()
     {
         $this->layout = false;
-        return $this->render('menu');
+        $user = \Yii::$app->user->getIdentity() ? \Yii::$app->user->getIdentity(): '';
+        $data = [
+            'username'=> $user? $user->username : '',
+            'menus'=>[],
+        ];
+        return $this->render('menu',['data'=>$data]);
     }
 
     public function actionIndex()
