@@ -494,6 +494,7 @@ li.social-links a {
 
 .navbar-nav li {
     position: relative;
+    margin-right: 0.2rem;
 }
 
 .navbar-nav span {
