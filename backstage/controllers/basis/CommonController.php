@@ -15,6 +15,7 @@ class CommonController extends BasisController
 {
     public function beforeAction($action)
     {
+        var_dump(111);exit();
         $re = parent::beforeAction($action);
         if (\Yii::$app->user->isGuest) {
             Msg::set('请先登录');
