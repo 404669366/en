@@ -32,6 +32,7 @@ class EnMemberBase extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            [['username', 'tel'], 'unique'],
             [['job_id', 'status', 'created_at'], 'integer'],
             [['username'], 'string', 'max' => 30],
             [['tel'], 'string', 'max' => 11],
