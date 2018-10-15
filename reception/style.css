@@ -445,8 +445,8 @@ body.realestate_version .social-links:hover a{
 }
 
 .header_style_01 .navbar-default .navbar-nav > li a.active {
-	background-color: #a8cf45;
-	color: #ffffff;
+	background-color: #076799;
+	color: whitesmoke!important;
 	border-radius: 2px;
 }
 
@@ -2668,6 +2668,12 @@ select.mobile-device {
 	text-transform: capitalize;
 	color: #aaa;
 	font-weight: 400;
+}
+#navbar ul li a{
+    color: #a8cf45;
+}
+#navbar ul li a:hover{
+    color: whitesmoke;
 }
 
 
