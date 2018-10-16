@@ -27,6 +27,7 @@ class LoginController extends BasisController
             $data = \Yii::$app->request->post();
             if (CaptchaCode::validate($data['code'], 'Login')) {
                 if (EnMemberBase::accountLogin($data['username'], $data['pwd'])) {
+                    Msg::set('登录成功');
                     return $this->redirect([\Yii::$app->params['defaultRoute']]);
                 }
                 Msg::set('账号不存在');
