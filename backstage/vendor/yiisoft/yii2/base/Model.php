@@ -455,7 +455,7 @@ class Model extends Component implements StaticInstanceInterface, IteratorAggreg
             if ($rule instanceof Validator) {
                 $validators->append($rule);
             } elseif (is_array($rule) && isset($rule[0], $rule[1])) { // attributes, validator type
-                $validator = Validator::createValidator($rule[1], $this, (array) $rule[0], array_slice($rule, 2));
+                $validator = Validator::createValidator($rule[1], $this, (array)$rule[0], array_slice($rule, 2));
                 $validators->append($validator);
             } else {
                 throw new InvalidConfigException('Invalid validation rule: a rule must specify both attribute names and validator type.');
@@ -1037,5 +1037,27 @@ class Model extends Component implements StaticInstanceInterface, IteratorAggreg
     public function offsetUnset($offset)
     {
         $this->$offset = null;
+    }
+
+    /**
+     * 返回所有错误信息
+     * @return array|string
+     */
+    public function errors()
+    {
+        $attr = $this->attributeLabels();
+        $errors = $this->getErrors() ? $this->getErrors() : '';
+        if ($errors) {
+            $str = '';
+            foreach ($errors as $k => $v) {
+                $k = isset($attr[$k]) ? $attr[$k] : $k;
+                $str .= $k . ' : ';
+                foreach ($v as $err) {
+                    $str .= $err . '<br>';
+                }
+            }
+            $errors = $str;
+        }
+        return $errors;
     }
 }

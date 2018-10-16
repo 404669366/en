@@ -422,7 +422,7 @@ class Query extends Component implements QueryInterface, ExpressionInterface
         $params = $command->params;
         $command->setSql($command->db->getQueryBuilder()->selectExists($command->getSql()));
         $command->bindValues($params);
-        return (bool) $command->queryScalar();
+        return (bool)$command->queryScalar();
     }
 
     /**
@@ -1307,5 +1307,36 @@ PATTERN;
     public function __toString()
     {
         return serialize($this);
+    }
+
+    /**
+     * 自定义分页方法
+     * @param array $pageWhere
+     * @return mixed
+     */
+    public function page($pageWhere = [])
+    {
+        if ($pageWhere) {
+            foreach ($pageWhere as $k => $v) {
+                $search = Yii::$app->request->get('search', []);
+                if ($search && isset($search[$k]) && $search[$k]) {
+                    $where = ['or'];
+                    for ($i = 1; $i < count($v); $i++) {
+                        array_push($where, [$v[0], $v[$i], $search[$k]]);
+                    }
+                    $this->andWhere($where);
+                }
+            }
+        }
+        $order = Yii::$app->request->get('order', '');
+        $sort = Yii::$app->request->get('sort', '');
+        if ($order && $sort) {
+            $this->orderBy($order . ' ' . $sort);
+        }
+        $this->limit(Yii::$app->request->get('length', 0));
+        $this->offset(Yii::$app->request->get('start', 0));
+        $data['data'] = $this->createCommand()->queryAll();
+        $data['total'] = $this->count();
+        return $data;
     }
 }

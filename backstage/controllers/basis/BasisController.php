@@ -13,5 +13,26 @@ use yii\web\Controller;
 
 class BasisController extends Controller
 {
+    /**
+     * 返回json数据
+     * @param array $data
+     * @param bool $type
+     * @return string
+     */
+    public function rJson($data = [], $type = true)
+    {
+        echo json_encode(['type' => $type, 'data' => $data], JSON_UNESCAPED_UNICODE);
+        exit();
+    }
 
+    /**
+     * 返回适合dataTable的数据
+     * @param array $data
+     * @return string
+     */
+    public function rTableData($data = [])
+    {
+        echo json_encode(['total' => $data['total'], 'data' => $data['data']], JSON_UNESCAPED_UNICODE);
+        exit();
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Constant;
 use Yii;
 use yii\web\IdentityInterface;
 
@@ -33,6 +34,7 @@ class EnMemberBase extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'tel'], 'unique'],
+            [['username', 'tel','password'], 'required'],
             [['job_id', 'status', 'created_at'], 'integer'],
             [['username'], 'string', 'max' => 30],
             [['tel'], 'string', 'max' => 11],
@@ -75,6 +77,28 @@ class EnMemberBase extends \yii\db\ActiveRecord implements IdentityInterface
             }
         }
         return false;
+    }
+
+    /**
+     * 用户管理分页数据
+     * @return mixed
+     */
+    public static function getPageData()
+    {
+        $data = self::find()->alias('m')
+            ->leftJoin(EnJobBase::tableName() . ' j', 'm.job_id=j.id')
+            ->select(['m.*', 'j.job'])
+            ->page([
+                'username' => ['like', 'm.username'],
+                'tel' => ['like', 'm.tel'],
+                'job' => ['=', 'j.id'],
+                'status' => ['=', 'm.status'],
+            ]);
+        foreach ($data['data'] as &$v) {
+            $v['transStatus'] = Constant::memberStatus()[$v['status']];
+            $v['created_at'] = date('Y-m-d H:i:s', $v['created_at']);
+        }
+        return $data;
     }
 
     //todo**********************  登录接口实现  ***************************

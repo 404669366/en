@@ -12,6 +12,10 @@ use app\controllers\basis\CommonController;
 
 class IndexController extends CommonController
 {
+    /**
+     * 框架菜单
+     * @return string
+     */
     public function actionMenu()
     {
         $this->layout = false;
@@ -23,6 +27,10 @@ class IndexController extends CommonController
         return $this->render('menu',['data'=>$data]);
     }
 
+    /**
+     * 默认首页
+     * @return string
+     */
     public function actionIndex()
     {
         return $this->render('index');

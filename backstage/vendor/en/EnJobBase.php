@@ -2,13 +2,13 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Helper;
 use Yii;
 
 /**
  * This is the model class for table "en_job".
  *
  * @property string $id
- * @property string $no 职位编码
  * @property string $job 职位名
  * @property string $last 上级
  * @property string $powers 拥有权限
@@ -30,7 +30,6 @@ class EnJobBase extends \yii\db\ActiveRecord
     {
         return [
             [['last'], 'integer'],
-            [['no'], 'string', 'max' => 8],
             [['job'], 'string', 'max' => 30],
             [['powers'], 'string', 'max' => 1000],
         ];
@@ -43,10 +42,48 @@ class EnJobBase extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'no' => '职位编码',
             'job' => '职位名',
             'last' => '上级',
             'powers' => '拥有权限',
         ];
+    }
+
+    /**
+     * 分页数据
+     * @return mixed
+     */
+    public static function getPageData()
+    {
+        $data = self::find()->alias('j1')
+            ->leftJoin(self::tableName() . ' j2', 'j1.last=j2.id')
+            ->select(['j1.*', 'j2.job as lastJob'])
+            ->page([
+                'job' => ['like', 'j1.job'],
+                'last' => ['like', 'j2.job'],
+            ]);
+        foreach ($data['data'] as &$v) {
+            $v['powers'] = explode(',', $v['powers']);
+            $v['powers'] = EnPowerBase::find()
+                ->where(['id' => $v['powers']])
+                ->select(['name'])
+                ->asArray()->all();
+            $v['powers'] = array_column($v['powers'], 'name');
+            $v['powers'] = Helper::arrToStr($v['powers'], ' , ', '10');
+        }
+        return $data;
+    }
+
+    /**
+     * 返回顶级职位
+     * @param bool $notSelf
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getTopJobs($notSelf = false)
+    {
+        $data = self::find()->where(['last' => 0]);
+        if ($notSelf) {
+            $data->andWhere(['<>', 'id', $notSelf]);
+        }
+        return $data->select(['id', 'job'])->asArray()->all();
     }
 }

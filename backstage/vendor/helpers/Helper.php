@@ -381,7 +381,7 @@ class Helper
      * @param int $wrap 换行位置
      * @return string
      */
-    public static function ArrToStr($arr = [], $link = '', $wrap = 0)
+    public static function arrToStr($arr = [], $link = '', $wrap = 0)
     {
         $str = '';
         if ($arr) {
@@ -406,7 +406,7 @@ class Helper
      * @param string $endKey
      * @return array
      */
-    public static function ArrSlice($arr = [], $beginKey = '', $endKey = '')
+    public static function arrSlice($arr = [], $beginKey = '', $endKey = '')
     {
         if ($arr && $beginKey) {
             $i = 0;
@@ -437,7 +437,7 @@ class Helper
      * @param string $key
      * @return bool|mixed
      */
-    public static function ArrGetV(&$data = [], $key = '')
+    public static function arrGetV(&$data = [], $key = '')
     {
         if ($data && $key && isset($data[$key])) {
             $value = $data[$key];
