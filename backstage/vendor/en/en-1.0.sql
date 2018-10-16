@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-15 16:01:22
+Date: 2018-10-16 18:00:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,16 +21,16 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `en_job`;
 CREATE TABLE `en_job` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `no` varchar(8) DEFAULT '' COMMENT '职位编码',
   `job` varchar(30) DEFAULT '' COMMENT '职位名',
   `last` int(11) unsigned DEFAULT '0' COMMENT '上级',
   `powers` varchar(1000) DEFAULT '' COMMENT '拥有权限',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户职位表';
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户职位表';
 
 -- ----------------------------
 -- Records of en_job
 -- ----------------------------
+INSERT INTO `en_job` VALUES ('1', 'admin', '0', '1,2');
 
 -- ----------------------------
 -- Table structure for en_member
@@ -42,7 +42,7 @@ CREATE TABLE `en_member` (
   `tel` varchar(11) DEFAULT '' COMMENT '手机号',
   `password` varchar(80) DEFAULT '' COMMENT '密码',
   `job_id` int(10) unsigned DEFAULT '0' COMMENT '职位id',
-  `status` tinyint(1) unsigned DEFAULT '1' COMMENT '状态 1启用 2禁用 3删除',
+  `status` tinyint(1) unsigned DEFAULT '1' COMMENT '状态 1启用 2禁用',
   `created_at` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='后台用户表';
@@ -63,9 +63,13 @@ CREATE TABLE `en_power` (
   `type` tinyint(1) unsigned DEFAULT '1' COMMENT '权限类型 1菜单2按钮3接口',
   `name` varchar(30) DEFAULT '' COMMENT '权限名',
   `url` varchar(100) DEFAULT '' COMMENT '权限路由',
+  `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 -- ----------------------------
 -- Records of en_power
 -- ----------------------------
+INSERT INTO `en_power` VALUES ('1', '0', '353varQx', '1', '组织架构', '/job', '0');
+INSERT INTO `en_power` VALUES ('2', '1', 'a89l9knd', '1', '职位管理', '/job/job/list', '1');
+INSERT INTO `en_power` VALUES ('3', '1', 'n1qqc9fu', '1', '权限管理', '/job/power/list', '0');
