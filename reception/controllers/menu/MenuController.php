@@ -14,6 +14,10 @@ use vendor\helpers\Menu;
 
 class MenuController extends BasisController
 {
+    /**
+     * 首页
+     * @return string
+     */
     public function actionIndex()
     {
         Menu::setNow('首页');
