@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-17 14:19:35
+Date: 2018-10-17 14:30:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ CREATE TABLE `en_job` (
 -- ----------------------------
 -- Records of en_job
 -- ----------------------------
-INSERT INTO `en_job` VALUES ('1', 'admin', '0', '1,2,3');
+INSERT INTO `en_job` VALUES ('1', 'admin', '0', '1,2,3,4');
 
 -- ----------------------------
 -- Table structure for en_member
@@ -50,7 +50,7 @@ CREATE TABLE `en_member` (
 -- ----------------------------
 -- Records of en_member
 -- ----------------------------
-INSERT INTO `en_member` VALUES ('1', 'root', '18683509267', '', '1', '1', '1539588593');
+INSERT INTO `en_member` VALUES ('1', 'root', '18683509267', '$2y$13$jS5psKZ3DusBGXFH.gcUju9y/.TZo6Ahjyga2JJQTYlvLUoUknROG', '1', '1', '1539588593');
 INSERT INTO `en_member` VALUES ('2', 'admin', '18308412675', '$2y$13$l3ZgiX.CZVN/6Hz18lKhZuQlYjqMwui8q0wyqD7gqkrEVmCajOpwC', '1', '1', '1539739444');
 
 -- ----------------------------
@@ -66,7 +66,7 @@ CREATE TABLE `en_power` (
   `url` varchar(100) DEFAULT '' COMMENT '权限路由',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 -- ----------------------------
 -- Records of en_power
@@ -74,3 +74,4 @@ CREATE TABLE `en_power` (
 INSERT INTO `en_power` VALUES ('1', '0', '353varQx', '1', '组织架构', '/job', '0');
 INSERT INTO `en_power` VALUES ('2', '1', 'a89l9knd', '1', '职位管理', '/job/job/list', '1');
 INSERT INTO `en_power` VALUES ('3', '1', 'n1qqc9fu', '1', '权限管理', '/job/power/list', '0');
+INSERT INTO `en_power` VALUES ('4', '1', 'x8oblwsw', '1', '用户管理', '/member/member/list', '2');

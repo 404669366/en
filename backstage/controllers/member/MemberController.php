@@ -72,6 +72,8 @@ class MemberController extends CommonController
             $post = \Yii::$app->request->post();
             if (isset($post['password']) && $post['password']) {
                 $post['password'] = \Yii::$app->security->generatePasswordHash($post['password']);
+            } else {
+                $post['password'] = $model->password;
             }
             if ($model->load(['EnMemberBase' => $post]) && $model->validate() && $model->save()) {
                 Msg::set('保存成功');
