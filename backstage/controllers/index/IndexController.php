@@ -9,6 +9,7 @@
 namespace app\controllers\index;
 
 use app\controllers\basis\CommonController;
+use vendor\helpers\redis;
 
 class IndexController extends CommonController
 {
@@ -19,12 +20,12 @@ class IndexController extends CommonController
     public function actionMenu()
     {
         $this->layout = false;
-        $user = \Yii::$app->user->getIdentity() ? \Yii::$app->user->getIdentity(): '';
+        $user = \Yii::$app->user->getIdentity() ? \Yii::$app->user->getIdentity() : '';
         $data = [
-            'username'=> $user? $user->username : '',
-            'menus'=>[],
+            'username' => $user ? $user->username : '',
+            'menus' => redis::app()->hGet('BackstageMenu', $user ? $user->job_id : 0),
         ];
-        return $this->render('menu',['data'=>$data]);
+        return $this->render('menu', ['data' => $data]);
     }
 
     /**

@@ -43,8 +43,11 @@ class JobController extends CommonController
         $model = new EnJobBase();
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
-            $post['powers'] = implode(',', $post['powers']);
+            if (isset($post['powers']) && $post['powers']) {
+                $post['powers'] = implode(',', $post['powers']);
+            }
             if ($model->load(['EnJobBase' => $post]) && $model->validate() && $model->save()) {
+                $model->updateRule();
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
@@ -66,8 +69,11 @@ class JobController extends CommonController
         $model = EnJobBase::findOne($id);
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
-            $post['powers'] = implode(',', $post['powers']);
+            if (isset($post['powers']) && $post['powers']) {
+                $post['powers'] = implode(',', $post['powers']);
+            }
             if ($model->load(['EnJobBase' => $post]) && $model->validate() && $model->save()) {
+                $model->updateRule();
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
@@ -90,6 +96,7 @@ class JobController extends CommonController
         $model = EnJobBase::findOne($id);
         Msg::set('删除失败');
         if ($model) {
+            $model->updateRule($id);
             $model->delete();
             Msg::set('删除成功');
         }

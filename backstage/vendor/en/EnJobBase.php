@@ -3,6 +3,7 @@
 namespace vendor\en;
 
 use vendor\helpers\Helper;
+use vendor\helpers\redis;
 use Yii;
 
 /**
@@ -86,4 +87,47 @@ class EnJobBase extends \yii\db\ActiveRecord
         }
         return $data->select(['id', 'job'])->asArray()->all();
     }
+
+    /**
+     * 返回职位树
+     * @return array
+     */
+    public static function getJobsTree()
+    {
+        $data = [];
+        $tops = self::getTopJobs();
+        foreach ($tops as $v) {
+            $one['key'] = $v['job'];
+            $one['value'] = $v['id'];
+            $one['son'] = self::find()->where(['last' => $v['id']])
+                ->select(['id as value', 'job as key'])
+                ->asArray()->all();
+            array_push($data, $one);
+        }
+        return $data;
+    }
+
+    /**
+     * 返回所有职位
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getJobs()
+    {
+        return self::find()->select(['id', 'job'])->asArray()->all();
+    }
+
+    /**
+     * 更新权限缓存
+     * @param bool $isDelete
+     */
+    public function updateRule($isDelete = false)
+    {
+        if ($isDelete) {
+            redis::app()->hDel('BackstageMenu', $isDelete);
+        } else {
+            $menu = EnPowerBase::getMenu($this->powers);
+            redis::app()->hSet('BackstageMenu', $this->id, $menu);
+        }
+    }
+
 }

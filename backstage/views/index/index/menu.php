@@ -47,20 +47,7 @@ $this->beginPage();
                         </ul>
                     </div>
                 </li>
-                <?php foreach ($data['menus'] as $v):?>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-home"></i>
-                            <span class="nav-label">主页</span>
-                            <span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <?php foreach ($v['sons'] as $son):?>
-                                <li><a class="J_menuItem" href="index_v1.html">主页示例一</a></li>
-                            <?php endforeach;?>
-                        </ul>
-                    </li>
-                <?php endforeach;?>
+                <?=$data['menus']?>
                 <!--<li>
                     <a href="#">
                         <i class="fa fa-home"></i>

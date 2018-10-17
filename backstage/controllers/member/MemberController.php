@@ -10,6 +10,7 @@ namespace app\controllers\member;
 
 
 use app\controllers\basis\CommonController;
+use vendor\en\EnJobBase;
 use vendor\en\EnMemberBase;
 use vendor\helpers\Constant;
 use vendor\helpers\Msg;
@@ -24,7 +25,7 @@ class MemberController extends CommonController
     {
         return $this->render('list', [
             'status' => Constant::memberStatus(),
-            'jobs' => [],
+            'jobs' => EnJobBase::getJobs(),
         ]);
     }
 
@@ -55,6 +56,7 @@ class MemberController extends CommonController
             Msg::set($model->errors());
         }
         return $this->render('add', [
+            'jobs' => json_encode(EnJobBase::getJobsTree()),
         ]);
     }
 
@@ -79,7 +81,27 @@ class MemberController extends CommonController
         }
         return $this->render('edit', [
             'model' => $model,
+            'jobs' => json_encode(EnJobBase::getJobsTree()),
         ]);
+    }
+
+    /**
+     * 禁用/启用后台用户
+     * @param $id
+     * @param $st
+     * @return \yii\web\Response
+     */
+    public function actionStop($id, $st)
+    {
+        $model = EnMemberBase::findOne($id);
+        Msg::set('保存失败');
+        if ($model) {
+            $model->status = $st;
+            if ($model->save()) {
+                Msg::set('保存成功');
+            }
+        }
+        return $this->redirect(['list']);
     }
 
     /**

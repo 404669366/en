@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-16 18:00:30
+Date: 2018-10-17 14:19:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ CREATE TABLE `en_job` (
 -- ----------------------------
 -- Records of en_job
 -- ----------------------------
-INSERT INTO `en_job` VALUES ('1', 'admin', '0', '1,2');
+INSERT INTO `en_job` VALUES ('1', 'admin', '0', '1,2,3');
 
 -- ----------------------------
 -- Table structure for en_member
@@ -45,12 +45,13 @@ CREATE TABLE `en_member` (
   `status` tinyint(1) unsigned DEFAULT '1' COMMENT '状态 1启用 2禁用',
   `created_at` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='后台用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='后台用户表';
 
 -- ----------------------------
 -- Records of en_member
 -- ----------------------------
-INSERT INTO `en_member` VALUES ('1', 'root', '', '$2y$13$oczZWZ1LIoqn9Gdr.oHEX.pCOegfysciA7ZaxONwsNfkwChW92jUO', '0', '1', '1539588593');
+INSERT INTO `en_member` VALUES ('1', 'root', '18683509267', '', '1', '1', '1539588593');
+INSERT INTO `en_member` VALUES ('2', 'admin', '18308412675', '$2y$13$l3ZgiX.CZVN/6Hz18lKhZuQlYjqMwui8q0wyqD7gqkrEVmCajOpwC', '1', '1', '1539739444');
 
 -- ----------------------------
 -- Table structure for en_power
