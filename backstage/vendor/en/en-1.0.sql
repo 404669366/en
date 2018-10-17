@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 本地
+Source Server         : localhost_3306
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : en
@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-16 18:00:30
+Date: 2018-10-17 15:34:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for en_info
+-- ----------------------------
+DROP TABLE IF EXISTS `en_info`;
+CREATE TABLE `en_info` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) DEFAULT '' COMMENT '用户名',
+  `tel` int(11) DEFAULT '0' COMMENT '电话号码',
+  `type` tinyint(1) DEFAULT '0' COMMENT '业务类型',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='前台用户信息';
+
+-- ----------------------------
+-- Records of en_info
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for en_job

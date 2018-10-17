@@ -103,19 +103,18 @@
                     <form id="contactform" class="row" action="contact.php" name="contactform" method="post">
                         <fieldset class="row-fluid">
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-                                <input type="text" name="first_name" id="first_name" class="form-control"
-                                       placeholder="姓名">
+                                <input type="text" name="name" id="first_name" class="form-control" placeholder="姓名" onchange="data()">
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-                                <input type="email" name="email" id="email" class="form-control" placeholder="电话">
+                                <input type="tel" name="text" id="tel" class="form-control" placeholder="电话" onchange="data()">
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-                                <select name="select_service" id="select_service" class="selectpicker form-control"
+                                <select name="business" id="type" class="selectpicker form-control"
                                         data-style="btn-white">
-                                    <option value="Weekdays">业务类型</option>
-                                    <option value="Weekdays">Weekdays</option>
-                                    <option value="Weekend">Weekend</option>
-                                    <option value="Weekend">Weekend</option>
+                                    <option value="0">业务类型</option>
+                                    <option value="1" onchange="data()">Weekdays</option>
+                                    <option value="2" onchange="data()">Weekend</option>
+                                    <option value="3" onchange="data()">Weekend</option>
                                 </select>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">

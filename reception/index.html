@@ -99,18 +99,18 @@
                         <form id="contactform1" class="row" name="contactform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="name" id="first_name1" class="form-control x" placeholder="姓名" onchange="data()">
+                                    <input type="text" name="name" id="name" class="form-control x" placeholder="姓名" onchange="data()">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" name="tel" id="tel" class="form-control" placeholder="电话">
+                                    <input type="text" name="tel" id="tel" class="form-control" placeholder="电话" onchange="data()">
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <label class="sr-only">Select Time</label>
-                                    <select name="business" id="select_service1" class="selectpicker form-control" data-style="btn-white">
-                                        <option value="selecttime">业务</option>
-                                        <option value="Weekdays">Weekdays</option>
-                                        <option value="Weekend">Weekend</option>
-                                        <option value="Weekend">Weekend</option>
+                                    <select name="business" id="type" class="selectpicker form-control" data-style="btn-white" onchange="data()">
+                                        <option value="0">业务</option>
+                                        <option value="1">Weekdays</option>
+                                        <option value="2">Weekend</option>
+                                        <option value="3">Weekend</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
@@ -120,15 +120,28 @@
                         </form>
                         <script>
                              function data() {
-                                 var x = document.getElementById("first_name1");
-                                 var x = document.getElementById("tel");
-                                 var x = document.getElementById("first_name1");
-                                 console.debug(x.value);
+                                 var name = document.getElementById("name");
+                                 var tel = document.getElementById("tel");
+                                 var type = document.getElementById("type");
+                                 $.ajax({
+                                     type: "GET",
+                                     url: "",
+                                     data: {name:name.value, tel:name.value, type:type.value},
+                                     dataType: "json",
+                                     success: function(data){
+                                         $('#resText').empty();   //清空resText里面的所有内容
+                                         var html = '';
+                                         $.each(data, function(commentIndex, comment){
+                                             html += '<div class="comment"><h6>' + comment['username']
+                                                 + ':</h6><p class="para"' + comment['content']
+                                                 + '</p></div>';
+                                         });
                              }
                         </script>
                     </div>
                 </div>
 				<div class="col-md-6 col-sm-12">
+                    //1111111111111111111111111111
                     <div class="big-tagline clearfix">
                         <h2 class="home1">Sell Your Property with CITY Real Estate</h2>
                         <p class="lead home2">With CITY Real Estate responsive landing page template, you can promote your all property & real estate projects. </p>
@@ -182,6 +195,7 @@
                     </div><!-- end media -->
                 </div>
 				<div class="col-md-6">
+                    //222222222222222222222222222222222222
 					<div class="message-box right-ab">
                         <h4 class="home11">Awards Winning Real Estate Company</h4>
                         <h2 class="home12">Welcome to CITY Real Estate</h2>
@@ -197,6 +211,7 @@
     <div id="agent" class="parallax section db parallax-off" style="background-image:url('uploads/parallax_02.png');">
         <div class="container">
             <div class="section-title row text-center">
+                //3333333333333333333333333333333333
                 <div class="col-md-8 col-md-offset-2">
                     <h3>Agent Details</h3>
                     <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
@@ -239,6 +254,7 @@
     <div id="testimonials" class="section lb">
         <div class="container">
             <div class="section-title row text-center">
+                //4444444444444444444444444444444444
                 <div class="col-md-8 col-md-offset-2">
                     <h3>Happy Customers</h3>
                     <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
@@ -335,6 +351,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="widget clearfix">
+                        //5555555555555555555555555
                         <div class="widget-title">
                             <img src="images/logos/logo-realestate.png" alt="">
                         </div>
@@ -362,6 +379,7 @@
 				
 				<div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="widget clearfix">
+                        //666666666666666666666666666
                         <div class="widget-title">
                             <h3>Contact Details</h3>
                         </div>
