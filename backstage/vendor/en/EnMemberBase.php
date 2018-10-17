@@ -34,7 +34,13 @@ class EnMemberBase extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'tel'], 'unique'],
-            [['username', 'tel','password'], 'required'],
+            [
+                'tel',
+                'match',
+                'pattern' => '/^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$/',
+                'message' => '手机号格式不正确'
+            ],
+            [['username', 'tel', 'job_id'], 'required'],
             [['job_id', 'status', 'created_at'], 'integer'],
             [['username'], 'string', 'max' => 30],
             [['tel'], 'string', 'max' => 11],
@@ -52,7 +58,7 @@ class EnMemberBase extends \yii\db\ActiveRecord implements IdentityInterface
             'username' => '用户名',
             'tel' => '手机号',
             'password' => '密码',
-            'job_id' => '职位id',
+            'job_id' => '职位',
             'status' => '状态 1启用 2禁用 3删除',
             'created_at' => 'Created At',
         ];
@@ -66,9 +72,9 @@ class EnMemberBase extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function accountLogin($account = '', $pwd = '')
     {
-        $member = self::findOne(['username' => $account]);
+        $member = self::findOne(['username' => $account, 'status' => 1]);
         if (!$member) {
-            $member = self::findOne(['tel' => $account]);
+            $member = self::findOne(['tel' => $account, 'status' => 1]);
         }
         if ($member) {
             if (Yii::$app->security->validatePassword($pwd, $member->password)) {

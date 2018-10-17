@@ -10,8 +10,8 @@
                 </span>
                 <span class="tableSpan">
                     职位: <select class="searchField" name="job">
-                                <?php foreach ($jobs as $k => $job): ?>
-                                    <option value="<?= $k ?>"><?= $job ?></option>
+                                <?php foreach ($jobs as $job): ?>
+                                    <option value="<?= $job['id'] ?>"><?= $job['job'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                 </span>
@@ -60,8 +60,12 @@
             {"data": "transStatus"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/member/member/edit?id=' + data + '">修改</a>&emsp;';
-                str += '<a class="btn btn-sm btn-danger" href="/member/member/del?id=' + data + '">删除</a>';
+                var str = '<a class="btn btn-sm btn-warning" href="/member/member/edit?id=' + data + '">修改</a>';
+                if (row.status === '1') {
+                    str += '&emsp;<a class="btn btn-sm btn-danger" href="/member/member/stop?st=2&id=' + data + '">禁用</a>';
+                }else {
+                    str += '&emsp;<a class="btn btn-sm btn-info" href="/member/member/stop?st=1&id=' + data + '">启用</a>';
+                }
                 return str;
             }
             }
