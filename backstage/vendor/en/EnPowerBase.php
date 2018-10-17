@@ -119,13 +119,13 @@ class EnPowerBase extends \yii\db\ActiveRecord
             $ids = explode(',', $ids);
             $powers = self::find()->where(['id' => $ids, 'last' => 0, 'type' => 1])
                 ->select(['id', 'name', 'url'])
-                ->orderBy(['sort' => 'desc'])
+                ->orderBy('sort desc')
                 ->asArray()->all();
             foreach ($powers as $v) {
                 $menu .= "<li><a href='#'><span class='nav-label'>{$v['name']}</span><span class='fa arrow'></span></a>";
                 $sons = self::find()->where(['last' => $v['id'], 'id' => $ids, 'type' => 1])
                     ->select(['name', 'url'])
-                    ->orderBy(['sort' => 'desc'])
+                    ->orderBy('sort desc')
                     ->asArray()->all();
                 $menu .= '<ul class="nav nav-second-level">';
                 foreach ($sons as $son) {
