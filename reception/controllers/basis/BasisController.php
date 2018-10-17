@@ -24,15 +24,4 @@ class BasisController extends Controller
         echo json_encode(['type' => $type, 'msg' => $msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
         exit();
     }
-
-    /**
-     * 返回适合dataTable的数据
-     * @param array $data
-     * @return string
-     */
-    public function rTableData($data = [])
-    {
-        echo json_encode(['total' => $data['total'], 'data' => $data['data']], JSON_UNESCAPED_UNICODE);
-        exit();
-    }
 }
