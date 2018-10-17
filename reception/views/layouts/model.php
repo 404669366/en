@@ -1,52 +1,34 @@
+<?php
+\app\assets\ModelAsset::register($this);
+\app\assets\ModelAsset::offDeBug();
+$this->beginPage();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<!-- Mobile Metas -->
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<!-- Site Metas -->
 <title>CITY Real Estate - Responsive HTML5 Landing Page Template</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-
-<!-- Site Icons -->
-<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<!-- Site CSS -->
-<link rel="stylesheet" href="style.css">
-<!-- Colors CSS -->
-<link rel="stylesheet" href="css/colors.css">
-<!-- ALL VERSION CSS -->
-<link rel="stylesheet" href="css/versions.css">
-<!-- Responsive CSS -->
-<link rel="stylesheet" href="css/responsive.css">
-<!-- Custom CSS -->
-<link rel="stylesheet" href="css/custom.css">
-
-<!-- Modernizer for Portfolio -->
-<script src="js/modernizer.js"></script>
-
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+<link rel="apple-touch-icon" href="/resource/images/apple-touch-icon.png">
+<?php $this->head(); ?>
+<script src="/resource/js/modernizer.js"></script>
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
 </head>
 <body class="realestate_version">
+<?php $this->beginBody(); ?>
+<?php $this->endBody(); ?>
+<?php \vendor\helpers\Msg::run() ?>
 
-<!-- LOADER -->
 <div id="preloader">
     <span class="loader"><span class="loader-inner"></span></span>
-</div><!-- end loader -->
-<!-- END LOADER -->
+</div>
 
 <header class="header header_style_01">
     <nav class="megamenu navbar navbar-default">
@@ -59,79 +41,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="images/logos/logo.png" alt="image"></a>
+                <a class="navbar-brand" href="/menu/menu/index"><img src="/resource/images/logos/logo.png" alt="image"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="about.html">About us </a></li>
-                    <li><a href="service.html">Service</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="properties.html">Properties</a></li>
-                    <li><a class="active" href="contact.html">Contact</a></li>
+                    <li><a href="/menu/menu/index" class="active">首页</a></li>
+                    <li><a href="/menu/menu/about">About us</a></li>
+                    <li><a href="/menu/menu/service">Service</a></li>
+                    <li><a href="/menu/menu/gallery">Gallery</a></li>
+                    <li><a href="/menu/menu/properties">Properties</a></li>
+                    <li><a href="/menu/menu/contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
 
-<div class="all-title-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Contact</h2>
-                <!-- Breadcrumbs -->
+<?php \vendor\helpers\Menu::nowMenuRun() ?>
 
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="support" class="section wb">
-    <div class="container">
-        <div class="section-title text-center">
-            <h3>联系方式</h3>
-            <p class="lead">
-                Contact information
-            </p>
-        </div><!-- end title -->
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="contact_form">
-                    <div id="message"></div>
-                    <form id="contactform" class="row" action="contact.php" name="contactform" method="post">
-                        <fieldset class="row-fluid">
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-                                <input type="text" name="name" id="first_name" class="form-control" placeholder="姓名" onchange="data()">
-                            </div>
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-                                <input type="tel" name="text" id="tel" class="form-control" placeholder="电话" onchange="data()">
-                            </div>
-                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-                                <select name="business" id="type" class="selectpicker form-control"
-                                        data-style="btn-white">
-                                    <option value="0">业务类型</option>
-                                    <option value="1" onchange="data()">Weekdays</option>
-                                    <option value="2" onchange="data()">Weekend</option>
-                                    <option value="3" onchange="data()">Weekend</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
-                                <button type="submit" value="SEND" id="submit"
-                                        class="btn btn-light btn-radius btn-brd grd1 btn-block">提交
-                                </button>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div><!-- end col -->
-
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
-
-<!--<div id="map"></div>-->
+<?= $content ?>
 
 <div id="testimonials" class="section lb">
     <div class="container">
@@ -140,8 +68,8 @@
                 <h3>Happy Customers</h3>
                 <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non
                     aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-            </div><!-- end col -->
-        </div><!-- end title -->
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -155,14 +83,12 @@
 
                         </div>
                         <div class="testi-meta">
-                            <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
+                            <img src="/resource/uploads/testi_01.png" alt="" class="img-responsive alignleft">
                             <h4>James Fernando
                                 <small>- Manager of Racer</small>
                             </h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
@@ -172,31 +98,27 @@
                                 praising pain was born and I will give you completed.</p>
                         </div>
                         <div class="testi-meta">
-                            <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
+                            <img src="/resource/uploads/testi_02.png" alt="" class="img-responsive alignleft">
                             <h4>Jacques Philips
                                 <small>- Designer</small>
                             </h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
                             <h3><i class="fa fa-quote-left"></i> Great & Talented Team! <i
-                                    class="fa fa-quote-right"></i></h3>
+                                        class="fa fa-quote-right"></i></h3>
                             <p class="lead">The master-builder of human happines no one rejects, dislikes avoids
                                 pleasure itself, because it is very pursue pleasure. </p>
                         </div>
                         <div class="testi-meta">
-                            <img src="uploads/testi_03.png" alt="" class="img-responsive alignleft">
+                            <img src="/resource/uploads/testi_03.png" alt="" class="img-responsive alignleft">
                             <h4>Venanda Mercy
                                 <small>- Newyork City</small>
                             </h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
                     <div class="testimonial clearfix">
                         <div class="desc">
                             <h3><i class="fa fa-quote-left"></i> Wonderful Support! <i class="fa fa-quote-right"></i>
@@ -205,7 +127,7 @@
                                 skilled, and experienced & professional team.</p>
                         </div>
                         <div class="testi-meta">
-                            <img src="uploads/testi_01.png" alt="" class="img-responsive alignleft">
+                            <img src="/resource/uploads/testi_01.png" alt="" class="img-responsive alignleft">
                             <h4>James Fernando
                                 <small>- Manager of Racer</small>
                             </h4>
@@ -222,7 +144,7 @@
                                 praising pain was born and I will give you completed.</p>
                         </div>
                         <div class="testi-meta">
-                            <img src="uploads/testi_02.png" alt="" class="img-responsive alignleft">
+                            <img src="/resource/uploads/testi_02.png" alt="" class="img-responsive alignleft">
                             <h4>Jacques Philips
                                 <small>- Designer</small>
                             </h4>
@@ -234,23 +156,22 @@
                     <div class="testimonial clearfix">
                         <div class="desc">
                             <h3><i class="fa fa-quote-left"></i> Great & Talented Team! <i
-                                    class="fa fa-quote-right"></i></h3>
+                                        class="fa fa-quote-right"></i></h3>
                             <p class="lead">The master-builder of human happines no one rejects, dislikes avoids
                                 pleasure itself, because it is very pursue pleasure. </p>
                         </div>
                         <div class="testi-meta">
-                            <img src="uploads/testi_03.png" alt="" class="img-responsive alignleft">
+                            <img src="/resource/uploads/testi_03.png" alt="" class="img-responsive alignleft">
                             <h4>Venanda Mercy
                                 <small>- Newyork City</small>
                             </h4>
                         </div>
-                        <!-- end testi-meta -->
-                    </div><!-- end testimonial -->
-                </div><!-- end carousel -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer class="footer">
     <div class="container">
@@ -258,7 +179,7 @@
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <img src="images/logos/logo-realestate.png" alt="">
+                        <img src="/resource/images/logos/logo-realestate.png" alt="">
                     </div>
                     <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus
                         bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis
@@ -316,7 +237,7 @@
 
         </div><!-- end row -->
     </div><!-- end container -->
-</footer><!-- end footer -->
+</footer>
 
 <div class="copyrights">
     <div class="container">
@@ -328,17 +249,14 @@
             </div>
         </div>
     </div><!-- end container -->
-</div><!-- end copyrights -->
+</div>
 
 <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
-
-<!-- ALL JS FILES -->
-<script src="js/all.js"></script>
-<!-- ALL PLUGINS -->
-<script src="js/custom.js"></script>
-<script src="js/portfolio.js"></script>
-<script src="js/hoverdir.js"></script>
-
-
+<script src="/resource/js/all.js"></script>
+<script src="/resource/js/custom.js"></script>
+<script src="/resource/js/portfolio.js"></script>
+<script src="/resource/js/hoverdir.js"></script>
 </body>
 </html>
+<?php $this->endPage() ?>
+

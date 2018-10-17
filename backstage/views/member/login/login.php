@@ -1,6 +1,6 @@
 <?php
-\app\assets\LoginAsset::register($this);
-\app\assets\LoginAsset::offDeBug();
+\app\assets\ModelAsset::register($this);
+\app\assets\ModelAsset::offDeBug();
 $this->beginPage();
 ?>
 <!DOCTYPE html>

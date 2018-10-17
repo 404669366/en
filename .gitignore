@@ -1,4 +1,7 @@
 .project
 /backstage/config/db.php
+/reception/config/db.php
 /backstage/runtime/
+/reception/runtime/
 /backstage/web/assets/
+/reception/web/assets/
