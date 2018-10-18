@@ -19,7 +19,7 @@ class BasisController extends Controller
      * @param bool $type
      * @param string $msg
      */
-    public function rJson($data = [], $type = true, $msg = '')
+    public function rJson($data = [], $type = true, $msg = 'ok')
     {
         echo json_encode(['type' => $type, 'msg' => $msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
         exit();
