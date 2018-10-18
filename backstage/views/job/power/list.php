@@ -10,6 +10,7 @@
                 </span>
                 <span class="tableSpan">
                     权限类型: <select class="searchField" name="type">
+                                <option value="">----</option>
                                 <?php foreach ($types as $k => $type): ?>
                                     <option value="<?= $k ?>"><?= $type ?></option>
                                 <?php endforeach; ?>

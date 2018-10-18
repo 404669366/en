@@ -18,6 +18,7 @@ class BasisController extends Controller
      * @param array $data
      * @param bool $type
      * @param string $msg
+     * @return string
      */
     public function rJson($data = [], $type = true, $msg = 'ok')
     {
