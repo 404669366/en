@@ -78,7 +78,7 @@ class EnMemberBase extends \yii\db\ActiveRecord implements IdentityInterface
         }
         if ($member) {
             if (Yii::$app->security->validatePassword($pwd, $member->password)) {
-                Yii::$app->user->login($member);
+                Yii::$app->user->login($member, 3 * 60 * 60);
                 return true;
             }
         }
