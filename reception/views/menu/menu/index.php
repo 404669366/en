@@ -161,7 +161,7 @@
         if(checkData(data)){
             $.getJSON('/amend/amend/save',data,function (re) {
                 if(re.type){
-                    layer.msg('提交成功，我们会尽快联系您')
+                    layer.msg('提交成功，我们将尽快与您联系');
                 }else{
                     layer.msg(re.msg);
                 }
