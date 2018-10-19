@@ -28,7 +28,7 @@
                                 <input type="text" name="tel"  class="form-control tel" placeholder="电话" >
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label class="sr-only">Select Time</label>
+                                <label class="sr-only"></label>
                                 <select name="business"  class="selectpicker form-control type"
                                         data-style="btn-white">
                                     <option value="0">业务</option>
