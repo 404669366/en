@@ -8,10 +8,13 @@ $this->beginPage();
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>CITY Real Estate - Responsive HTML5 Landing Page Template</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
+<meta http-equiv="refresh" content="120">
+<meta name="robots" content="index,follow">
+<title>
+    新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能科技有限公司
+</title>
+<meta name="keywords" content="新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能科技有限公司">
+<meta name="description" content="新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能科技有限公司">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 <link rel="apple-touch-icon" href="/resource/images/apple-touch-icon.png">
 <?php $this->head(); ?>
@@ -22,6 +25,7 @@ $this->beginPage();
 <![endif]-->
 </head>
 <body class="realestate_version">
+
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
 <?php \vendor\helpers\Msg::run() ?>
@@ -46,11 +50,11 @@ $this->beginPage();
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/menu/menu/index" class="active">首页</a></li>
-                    <li><a href="/menu/menu/about">About us</a></li>
-                    <li><a href="/menu/menu/service">Service</a></li>
-                    <li><a href="/menu/menu/gallery">Gallery</a></li>
-                    <li><a href="/menu/menu/properties">Properties</a></li>
-                    <li><a href="/menu/menu/contact">Contact</a></li>
+                    <li><a href="/menu/menu/about">产品简介</a></li>
+                    <li><a href="/menu/menu/service">产品展示</a></li>
+                    <li><a href="/menu/menu/gallery">成功案例</a></li>
+                    <li><a href="/menu/menu/properties">开放平台</a></li>
+                    <li><a href="/menu/menu/contact">联系我们</a></li>
                 </ul>
             </div>
         </div>

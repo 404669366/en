@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>Service</h2>
+                <h2>产品展示</h2>
             </div>
         </div>
     </div>

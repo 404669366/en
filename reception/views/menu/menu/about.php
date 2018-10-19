@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>About Us</h2>
+                <h2>产品简介</h2>
                 <!-- Breadcrumbs -->
 
             </div>
