@@ -71,7 +71,9 @@ class EnAmendBase extends \yii\db\ActiveRecord
                 'tel' => ['like', 'tel'],
                 'status' => ['=', 'status'],
                 'type' => ['=', 'type'],
-            ]);
+                'created_at' => ['=', 'FROM_UNIXTIME(created_at,"%Y-%m-%d")'
+                ],
+                ]);
         foreach ($data['data'] as &$v) {
             $v['type'] = Constant::amendType()[$v['type']];
             $v['transStatus'] = Constant::amendStatus()[$v['status']];

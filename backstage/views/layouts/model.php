@@ -14,8 +14,10 @@ $this->beginPage();
 <body class="gray-bg">
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
-<?php \vendor\helpers\Msg::run()?>
-<?= $content ?>
+<?php \vendor\helpers\Msg::run() ?>
+<div class="wrapper wrapper-content animated fadeIn">
+    <?= $content ?>
+</div>
 </body>
 </html>
 <?php $this->endPage() ?>

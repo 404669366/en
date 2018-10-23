@@ -37,6 +37,11 @@ class AmendController extends CommonController
         return $this->rTableData(EnAmendBase::getPageData());
     }
 
+    /**
+     * 修改用户列表页数据
+     * @param $id
+     * @return string|\yii\web\Response
+     */
     public function actionEdit($id)
     {
         $model = EnAmendBase::findOne($id);
@@ -56,6 +61,11 @@ class AmendController extends CommonController
         return $this->render('edit', ['model' => $model, 'status' => $status, 'types' => Constant::amendType()]);
     }
 
+    /**
+     * 删除用户列表页数据
+     * @param $id
+     * @return \yii\web\Response
+     */
     public function actionDel($id)
     {
         $model = EnAmendBase::findOne($id);

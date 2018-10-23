@@ -151,6 +151,7 @@
         </div><!-- end row -->
     </div>
 </div>
+
 <script type="text/javascript">
     $('.up').click(function () {
         var data = {

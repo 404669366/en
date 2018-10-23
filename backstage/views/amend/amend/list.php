@@ -1,3 +1,4 @@
+<?php $this->registerJsFile('/h+/js/plugins/layer/laydate/laydate.js');?>
 <div class="ibox-content">
     <div class="dataTables_wrapper form-inline">
         <div class="row tableSearchBox">
@@ -7,6 +8,9 @@
                 </span>
                 <span class="tableSpan">
                     手机号码: <input class="searchField" type="text" value="" name="tel" >
+                </span>
+                <span class="tableSpan">
+                    创建时间: <input class="searchField" type="text" value="" name="created_at" readonly id="created_at" >
                 </span>
                 <span class="tableSpan">
                     业务类型: <select class="searchField" name="type">
@@ -68,7 +72,8 @@
             }
             }
         ],
-        default_order: [8, 'asc']
+        default_order: [6, 'desc']
     });
     myTable.search();
+    laydate({elem: "#created_at", event: "focus",format: "YYYY-MM-DD"});
 </script>
