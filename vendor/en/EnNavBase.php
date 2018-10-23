@@ -91,7 +91,7 @@ class EnNavBase extends \yii\db\ActiveRecord
             }
             array_multisort($sort, SORT_ASC, $nav);
             $now = \Yii::$app->session->get('ReceptionMenuNow');
-            foreach ($nav as $v) {
+            foreach ($nav as &$v) {
                 if ($v['name'] == $now) {
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '" class="active">' . $v['name'] . '</a></li>';
                 } else {
