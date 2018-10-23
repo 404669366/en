@@ -46,8 +46,7 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="big-tagline clearfix">
-                    <h2 class="home1">Sell Your Property with CITY Real Estate</h2>
-                    <p class="lead home2">With CITY Real Estate responsive landing page template, you can promote your all property & real estate projects. </p>
+                    <?=\vendor\en\EnContentBase::getContent('eQzruthc')?>
                 </div>
             </div>
         </div><!-- end row -->
@@ -99,10 +98,7 @@
             </div>
             <div class="col-md-6">
                 <div class="message-box right-ab">
-                    <h4 class="home11">Awards Winning Real Estate Company</h4>
-                    <h2 class="home12">Welcome to CITY Real Estate</h2>
-                    <p class="home13">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-                    <p class="home14">Aenean eleifend in felis id viverra. Vestibulum semper ex eu molestie pulvinar. Maecenas non efficitur metus, et semper sem. Mauris ligula sapien, gravida a scelerisque ut, vehicula sed mauris. Proin dapibus mi id vulputate euismod. Nam ullamcorper dui tellus, non lacinia lorem hendrerit eu. Donec at orci cursus, rutrum metus eget, cursus turpis.  </p>
+                    <?= \vendor\en\EnContentBase::getContent("r9yrsiQg")?>
                 </div>
             </div>
         </div>
@@ -114,21 +110,14 @@
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <h3>Agent Details</h3>
-                <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                <?= \vendor\en\EnContentBase::getContent("p8endget")?>
             </div><!-- end col -->
         </div><!-- end title -->
 
         <div class="row">
             <div class="col-md-6">
                 <div class="message-box">
-                    <h4>The Agent</h4>
-                    <h2>Jenny Martines</h2>
-                    <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
-
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-
-                    <a href="#contact" data-scroll class="btn btn-light global-radius btn-brd grd1 effect-1">Contact Me</a>
+                    <?= \vendor\en\EnContentBase::getContent("a5uofucx")?>
                 </div><!-- end messagebox -->
             </div><!-- end col -->
             <div class="col-md-3">

@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\redis;
 use Yii;
 
 /**
@@ -30,7 +31,8 @@ class EnContentBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content', 'note','user'], 'string'],
+            [['content', 'no', 'note'], 'required'],
+            [['content', 'note'], 'string'],
             [['no'], 'string', 'max' => 255],
         ];
     }
@@ -49,14 +51,41 @@ class EnContentBase extends \yii\db\ActiveRecord
             'created_at' => '创建时间',
         ];
     }
+
+    /**
+     * 获取分页数据
+     * @return mixed
+     */
     public static function getPageData()
     {
-        $data = self::find()
-            ->where()
+        $data = self::find()->alias('c')
+            ->leftJoin(EnMemberBase::tableName() . ' m', 'c.user=m.id')
+            ->select(['c.*', 'm.username'])
             ->page([
                 'no' => ['like', 'no'],
-                'user' => ['like', 'user'],
+                'user' => ['like', 'm.username'],
             ]);
+        foreach ($data['data'] as &$v) {
+            $v['created_at'] = date('Y-m-d H:i:s', $v['created_at']);
+        }
         return $data;
+    }
+
+    /**
+     * 内容刷入缓存
+     */
+    public function updateContent()
+    {
+        redis::app()->hSet('ReceptionContent', $this->no, $this->content);
+    }
+
+    /**
+     * 获取缓存内容
+     * @param string $key
+     * @return string
+     */
+    public static function getContent($key = '')
+    {
+        return redis::app()->hGet('ReceptionContent', $key);
     }
 }

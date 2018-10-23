@@ -6,7 +6,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">标识</label>
             <div class="col-sm-2">
-                <input type="text" class="form-control no" value="<?= $model->no ?>" readonly>
+                <input type="text" class="form-control no" value="<?= $no ?>" readonly>
             </div>
         </div>
         <div class="hr-line-dashed"></div>
@@ -20,7 +20,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">备注</label>
             <div class="col-sm-2">
-                <textarea class="form-control note" ><?= $model->note ?></textarea>
+                <textarea class="form-control note" ></textarea>
             </div>
         </div>
         <div class="hr-line-dashed"></div>
@@ -38,12 +38,10 @@
         element: '.summernote',
         uploadImgUrl: '/basis/file/upload',
         removeImgUrl: '/basis/file/delete',
-        default:`<?=$model->content?>`,
     });
 
     $(".up").click(function () {
         var data={
-            id:'<?=$model->id?>',
             no:$(".no").val(),
             note:$(".note").val(),
             _csrf:$("._csrf").val(),

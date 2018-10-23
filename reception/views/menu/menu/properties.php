@@ -13,9 +13,7 @@
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <small>All Awesome Property Details</small>
-                <h3>Property Details</h3>
-                <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                <?= \vendor\en\EnContentBase::getContent("Q1d4n865")?>
             </div><!-- end col -->
         </div><!-- end title -->
 

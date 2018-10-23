@@ -69,9 +69,7 @@ $this->beginPage();
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <h3>Happy Customers</h3>
-                <p class="lead">Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non
-                    aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                <?= \vendor\en\EnContentBase::getContent("8aw3Qa9b")?>
             </div>
         </div>
 
@@ -185,10 +183,7 @@ $this->beginPage();
                     <div class="widget-title">
                         <img src="/resource/images/logos/logo-realestate.png" alt="">
                     </div>
-                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus
-                        bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis
-                        montes.</p>
-                    <p>Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis montes.</p>
+                    <?= \vendor\en\EnContentBase::getContent("dzmQzbjp")?>
                 </div><!-- end clearfix -->
             </div><!-- end col -->
 

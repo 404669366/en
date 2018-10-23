@@ -5,3 +5,8 @@
 /reception/runtime/
 /backstage/web/assets/
 /reception/web/assets/
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/en.iml
+.idea/modules.xml
+.idea/inspectionProfiles/Project_Default.xml

@@ -12,8 +12,7 @@
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <h3>OUR SERVICES</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer non mi vitae risus blandit rutrum ac id arcu. Vivamus sodales metus id posuere pulvinar. In id arcu et purus vehicula euismod. Fusce eu nibh sit amet neque suscipit malesuada. </p>
+                <?= \vendor\en\EnContentBase::getContent("bkj21hap")?>
             </div><!-- end col -->
         </div><!-- end title -->
 
