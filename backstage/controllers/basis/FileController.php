@@ -39,7 +39,9 @@ class FileController extends CommonController
      */
     public function actionDelete($src)
     {
-        Oss::aliDelete($src);
-        return $this->rJson();
+        if(Oss::aliDelete($src)){
+            return $this->rJson();
+        }
+        return $this->rJson('', false, '删除错误');
     }
 }

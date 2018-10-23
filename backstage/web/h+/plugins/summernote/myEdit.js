@@ -1,4 +1,7 @@
 function myEdit(config) {
+    $(config.element).before('<link type="text/css" href="/h+/plugins/summernote/summernote.css" rel="stylesheet"/>');
+    $(config.element).before('<script src="/h+/plugins/summernote/summernote.js"></script>');
+    $(config.element).before('<script src="/h+/plugins/summernote/lang/summernote-zh-CN.js"></script>');
     var nowSrc = '';
     var callbacks = {};
     if (config.uploadImgUrl) {
@@ -30,7 +33,9 @@ function myEdit(config) {
         focus: true,
         callbacks: callbacks
     });
-
+    if (config.default) {
+        $(config.element).summernote('code', config.default);
+    }
     if (config.removeImgUrl) {
         $('.note-editable').on('mouseover', 'img', function () {
             nowSrc = $(this).prop('src');
