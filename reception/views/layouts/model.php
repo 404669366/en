@@ -230,8 +230,8 @@ $this->beginPage();
         <div class="footer-distributed">
             <div class="footer-left">
                 <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">City Real Estate</a> by html
-                    design- More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> -
-                    Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                    design- More Templates 亿能科技 -
+                    Collect from 亿能科技</p>
             </div>
         </div>
     </div><!-- end container -->
