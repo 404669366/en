@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-23 16:15:29
+Date: 2018-10-23 16:46:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,11 +47,21 @@ CREATE TABLE `en_content` (
   `user` varchar(20) DEFAULT '' COMMENT '修改用户',
   `created_at` int(255) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='前台文本内容修改表';
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='前台文本内容修改表';
 
 -- ----------------------------
 -- Records of en_content
 -- ----------------------------
+INSERT INTO `en_content` VALUES ('2', 'eQzruthc', '<h1 style=\"text-align: center; \">\n\n\n</h1><h1 style=\"box-sizing: border-box; margin: 5px 0px 10px; font-size: 30px; font-family: \'open sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; font-weight: 100; line-height: 1.1; font-style: normal; font-variant: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-align: center;\"><font style=\"box-sizing: border-box;\" color=\"#424242\"><br class=\"Apple-interchange-newline\"><br style=\"box-sizing: border-box;\"></font></h1><h1 style=\"text-align: center; \"><font color=\"#424242\"><br class=\"Apple-interchange-newline\"></font></h1><h1 style=\"text-align: center; \"><font color=\"#ffffff\">首页1</font><br></h1>', '首页1', '1', '1540278816');
+INSERT INTO `en_content` VALUES ('3', 'r9yrsiQg', '<h1 style=\"text-align: center; \">首页2</h1>', '首页2', '1', '1540281616');
+INSERT INTO `en_content` VALUES ('4', 'p8endget', '<h1 style=\"text-align: center; \"><font color=\"#ffffff\">首页3</font></h1>', '首页3', '1', '1540281966');
+INSERT INTO `en_content` VALUES ('5', 'a5uofucx', '<h1 style=\"text-align: center; \"><font color=\"#ffffff\">首页4</font></h1>', '首页4', '1', '1540281998');
+INSERT INTO `en_content` VALUES ('6', '8aw3Qa9b', '<h1 style=\"text-align: center; \">公共底部1</h1>', '公共底部1', '1', '1540282023');
+INSERT INTO `en_content` VALUES ('7', 'dzmQzbjp', '<h1 style=\"text-align: center; \"><font color=\"#ffffff\">公共底部2</font></h1>', '公共底部2', '1', '1540282051');
+INSERT INTO `en_content` VALUES ('8', 't7pykzyu', '<h1 style=\"text-align: center; \">产品简介1</h1>', '产品简介1', '1', '1540283054');
+INSERT INTO `en_content` VALUES ('9', 'bkj21hap', '<h1 style=\"text-align: center; \">产品展示1</h1>', '产品展示1', '1', '1540283240');
+INSERT INTO `en_content` VALUES ('10', '6ozqdcjg', '<h1 style=\"text-align: center; \">成功案例1</h1>', '成功案例1', '1', '1540283280');
+INSERT INTO `en_content` VALUES ('11', 'Q1d4n865', '<h1 style=\"text-align: center; \">开放平台1</h1>', '开放平台1', '1', '1540283307');
 
 -- ----------------------------
 -- Table structure for en_job
