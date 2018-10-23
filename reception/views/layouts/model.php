@@ -49,19 +49,12 @@ $this->beginPage();
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/menu/menu/index" class="active">首页</a></li>
-                    <li><a href="/menu/menu/about">产品简介</a></li>
-                    <li><a href="/menu/menu/service">产品展示</a></li>
-                    <li><a href="/menu/menu/gallery">成功案例</a></li>
-                    <li><a href="/menu/menu/properties">开放平台</a></li>
-                    <li><a href="/menu/menu/contact">联系我们</a></li>
+                    <?= \vendor\en\EnNavBase::getNav()['topStr']?>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-
-<?php \vendor\helpers\Menu::nowMenuRun() ?>
 
 <?= $content ?>
 
@@ -190,19 +183,14 @@ $this->beginPage();
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <h3>Info Link</h3>
+                        <h3>导航</h3>
                     </div>
 
                     <ul class="twitter-widget footer-links">
-                        <li><a href="#"> Home </a></li>
-                        <li><a href="#"> About Us </a></li>
-                        <li><a href="#"> Services</a></li>
-                        <li><a href="#"> Gallery</a></li>
-                        <li><a href="#"> Properties</a></li>
-                        <li><a href="#"> Contact</a></li>
-                    </ul><!-- end links -->
-                </div><!-- end clearfix -->
-            </div><!-- end col -->
+                        <?= \vendor\en\EnNavBase::getNav()['botStr']?>
+                    </ul>
+                </div>
+            </div>
 
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="widget clearfix">
@@ -215,9 +203,9 @@ $this->beginPage();
                         <li><a href="#">www.yoursite.com</a></li>
                         <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
                         <li>+61 3 8376 6284</li>
-                    </ul><!-- end links -->
-                </div><!-- end clearfix -->
-            </div><!-- end col -->
+                    </ul>
+                </div>
+            </div>
 
             <div class="col-md-2 col-sm-2 col-xs-12">
                 <div class="widget clearfix">
@@ -230,12 +218,11 @@ $this->beginPage();
                         <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
                         <li><a href="#"><i class="fa fa-dribbble"></i> Dribbble</a></li>
                         <li><a href="#"><i class="fa fa-pinterest"></i> Pinterest</a></li>
-                    </ul><!-- end links -->
-                </div><!-- end clearfix -->
-            </div><!-- end col -->
-
-        </div><!-- end row -->
-    </div><!-- end container -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </footer>
 
 <div class="copyrights">
