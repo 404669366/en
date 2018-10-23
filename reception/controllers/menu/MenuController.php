@@ -26,31 +26,31 @@ class MenuController extends BasisController
 
     public function actionAbout()
     {
-        Menu::setNow('About us');
+        Menu::setNow('产品简介');
         return $this->render('about');
     }
 
     public function actionService()
     {
-        Menu::setNow('Service');
+        Menu::setNow('产品展示');
         return $this->render('service');
     }
 
     public function actionGallery()
     {
-        Menu::setNow('Gallery');
+        Menu::setNow('成功案例');
         return $this->render('gallery');
     }
 
     public function actionProperties()
     {
-        Menu::setNow('Properties');
+        Menu::setNow('开放平台');
         return $this->render('properties');
     }
 
     public function actionContact()
     {
-        Menu::setNow('Contact');
+        Menu::setNow('联系我们');
         return $this->render('contact');
     }
 }
