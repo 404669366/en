@@ -154,6 +154,12 @@ $this->beginPage();
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/<?=Yii::$app->params['indexRoute']?>" frameborder="0"
                     data-id="/<?=Yii::$app->params['indexRoute']?>" seamless></iframe>
         </div>
+        <script>
+            $('.page-tabs-content').on('dblclick', '.J_menuTab', function () {
+                var id = $(this).attr('data-id');
+                $('#content-main').find('.J_iframe[data-id="' + id + '"]').attr('src', id);
+            });
+        </script>
         <div class="footer">
             <div class="pull-right">&copy; 2018 - 2099</div>
         </div>

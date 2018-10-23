@@ -8,7 +8,7 @@ $this->beginPage();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>登录</title>
+    <title>亿能科技 - 登录</title>
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
@@ -28,10 +28,10 @@ $this->beginPage();
         <div class="col-sm-7">
             <div class="signin-info">
                 <div class="logopanel m-b">
-                    <h1>[ H+ ]</h1>
+                    <h1>[ EN ]</h1>
                 </div>
                 <div class="m-b"></div>
-                <h4>欢迎使用后台</h4>
+                <h4>欢迎使用亿能科技后台</h4>
             </div>
         </div>
         <div class="col-sm-5">
