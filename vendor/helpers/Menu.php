@@ -21,22 +21,4 @@ class Menu
             \Yii::$app->session->set('ReceptionMenuNow', $name);
         }
     }
-
-    /**
-     * 设置当前菜单
-     * @param string $default
-     */
-    public static function nowMenuRun($default = '首页')
-    {
-        $now = \Yii::$app->session->get('ReceptionMenuNow', $default);
-        echo <<<HTML
-            <script>
-                $('.nav').find('a').removeClass('active').each(function(k,v){
-                    if($(v).text()==='{$now}'){
-                        $(v).addClass('active')
-                    }
-                })
-            </script>
-HTML;
-    }
 }

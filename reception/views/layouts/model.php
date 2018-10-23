@@ -56,8 +56,6 @@ $this->beginPage();
     </nav>
 </header>
 
-<?php \vendor\helpers\Menu::nowMenuRun() ?>
-
 <?= $content ?>
 
 <div id="testimonials" class="section lb">
