@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 服务器A
-Source Server Version : 50641
-Source Host           : 47.99.36.149:3306
+Source Server         : 本地
+Source Server Version : 50553
+Source Host           : localhost:3306
 Source Database       : en
 
 Target Server Type    : MYSQL
-Target Server Version : 50641
+Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-19 10:23:31
+Date: 2018-10-23 13:33:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,10 +29,28 @@ CREATE TABLE `en_amend` (
   `contact_at` int(11) unsigned DEFAULT '0' COMMENT '联系时间',
   `created_at` int(11) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='前台用户信息';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='前台用户需求表';
 
 -- ----------------------------
 -- Records of en_amend
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for en_content
+-- ----------------------------
+DROP TABLE IF EXISTS `en_content`;
+CREATE TABLE `en_content` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `no` varchar(100) DEFAULT '' COMMENT '标识',
+  `content` text COMMENT '文本内容',
+  `note` text COMMENT '备注',
+  `user` varchar(20) DEFAULT '' COMMENT '修改用户',
+  `created_at` int(255) unsigned DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='前台文本内容修改表';
+
+-- ----------------------------
+-- Records of en_content
 -- ----------------------------
 
 -- ----------------------------
@@ -50,8 +68,8 @@ CREATE TABLE `en_job` (
 -- ----------------------------
 -- Records of en_job
 -- ----------------------------
-INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4');
-INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4');
+INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4,5,8,6,7');
+INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4,5,8,6,7');
 
 -- ----------------------------
 -- Table structure for en_member
@@ -87,7 +105,7 @@ CREATE TABLE `en_power` (
   `url` varchar(100) DEFAULT '' COMMENT '权限路由',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 -- ----------------------------
 -- Records of en_power
@@ -96,3 +114,7 @@ INSERT INTO `en_power` VALUES ('1', '0', '353varQx', '1', '组织架构', '/job'
 INSERT INTO `en_power` VALUES ('2', '1', 'a89l9knd', '1', '职位管理', '/job/job/list', '1');
 INSERT INTO `en_power` VALUES ('3', '1', 'n1qqc9fu', '1', '权限管理', '/job/power/list', '0');
 INSERT INTO `en_power` VALUES ('4', '1', 'x8oblwsw', '1', '用户管理', '/member/member/list', '2');
+INSERT INTO `en_power` VALUES ('5', '0', '4n79Qat8', '1', '内容管理', '/content', '2');
+INSERT INTO `en_power` VALUES ('6', '0', 'ya4b6dgm', '1', '需求管理', '/amend', '1');
+INSERT INTO `en_power` VALUES ('7', '6', '7sraz4jo', '1', '需求列表', '/amend/amend/list', '999');
+INSERT INTO `en_power` VALUES ('8', '5', '4e57tirz', '1', '内容列表', '/content/content/list', '999');
