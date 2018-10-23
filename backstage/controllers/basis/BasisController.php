@@ -17,11 +17,12 @@ class BasisController extends Controller
      * 返回json数据
      * @param array $data
      * @param bool $type
+     * @param string $msg
      * @return string
      */
-    public function rJson($data = [], $type = true)
+    public function rJson($data = [], $type = true, $msg = 'ok')
     {
-        echo json_encode(['type' => $type, 'data' => $data], JSON_UNESCAPED_UNICODE);
+        echo json_encode(['type' => $type, 'msg' => $msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
         exit();
     }
 

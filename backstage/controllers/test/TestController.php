@@ -14,6 +14,6 @@ use app\controllers\basis\CommonController;
 class TestController extends CommonController
 {
     public function actionTest(){
-        return $this->render('test');
+        return $this->render('summernote');
     }
 }

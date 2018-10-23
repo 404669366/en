@@ -57,6 +57,10 @@ class ComposerStaticInit57f21fa3b79eb91fb3379aecb1f74795
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
         ),
+        'O' => 
+        array (
+            'OSS\\' => 4,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -168,6 +172,10 @@ class ComposerStaticInit57f21fa3b79eb91fb3379aecb1f74795
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'OSS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/aliyuncs/oss-sdk-php/src/OSS',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
