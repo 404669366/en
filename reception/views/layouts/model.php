@@ -4,7 +4,7 @@
 $this->beginPage();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -127,9 +127,7 @@ $this->beginPage();
                                 <small>- Manager of Racer</small>
                             </h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
@@ -144,9 +142,7 @@ $this->beginPage();
                                 <small>- Designer</small>
                             </h4>
                         </div>
-                        <!-- end testi-meta -->
                     </div>
-                    <!-- end testimonial -->
 
                     <div class="testimonial clearfix">
                         <div class="desc">
@@ -177,8 +173,8 @@ $this->beginPage();
                         <img src="/resource/images/logos/logo-realestate.png" alt="">
                     </div>
                     <?= \vendor\en\EnContentBase::getContent("dzmQzbjp")?>
-                </div><!-- end clearfix -->
-            </div><!-- end col -->
+                </div>
+            </div>
 
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="widget clearfix">
@@ -227,14 +223,12 @@ $this->beginPage();
 
 <div class="copyrights">
     <div class="container">
-        <div class="footer-distributed">
-            <div class="footer-left">
-                <p class="footer-company-name">All Rights Reserved. &copy; 2018 <a href="#">City Real Estate</a> by html
-                    design- More Templates 亿能科技 -
-                    Collect from 亿能科技</p>
+        <div class="footer-distributed" style="display: block;text-align: center">
+            <div class="footer-left" style="float: none;margin: 0 auto">
+                <p class="footer-company-name">All Rights Reserved. &copy; 2018 四川亿能科技有限公司</p>
             </div>
         </div>
-    </div><!-- end container -->
+    </div>
 </div>
 
 <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
