@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-24 11:47:44
+Date: 2018-10-24 16:34:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -67,7 +67,7 @@ CREATE TABLE `en_content` (
   `user` varchar(20) DEFAULT '' COMMENT '修改用户',
   `created_at` int(255) unsigned DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='前台文本内容修改表';
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='前台文本内容修改表';
 
 -- ----------------------------
 -- Records of en_content
@@ -82,6 +82,27 @@ INSERT INTO `en_content` VALUES ('8', 't7pykzyu', '<h1 style=\"text-align: cente
 INSERT INTO `en_content` VALUES ('9', 'bkj21hap', '<h1 style=\"text-align: center; \">产品展示1</h1>', '产品展示1', '1', '1540283240');
 INSERT INTO `en_content` VALUES ('10', '6ozqdcjg', '<h1 style=\"text-align: center; \">成功案例1</h1>', '成功案例1', '1', '1540283280');
 INSERT INTO `en_content` VALUES ('11', 'Q1d4n865', '<h1 style=\"text-align: center; \">开放平台1</h1>', '开放平台1', '1', '1540283307');
+INSERT INTO `en_content` VALUES ('12', 'di9lfk7l', '<h1 style=\"text-align: center; \">联系我们1</h1>', '联系我们1', '1', '1540360213');
+
+-- ----------------------------
+-- Table structure for en_images
+-- ----------------------------
+DROP TABLE IF EXISTS `en_images`;
+CREATE TABLE `en_images` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `image` varchar(500) DEFAULT '' COMMENT '图片链接',
+  `remark` varchar(255) DEFAULT '' COMMENT '备注',
+  `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='图片墙配置表';
+
+-- ----------------------------
+-- Records of en_images
+-- ----------------------------
+INSERT INTO `en_images` VALUES ('1', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024162840m858cx3st.jpg', '案例1', '1');
+INSERT INTO `en_images` VALUES ('2', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024163002tcggwrpb5.jpg', '案例2', '2');
+INSERT INTO `en_images` VALUES ('3', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024163023gg4bg5o98.jpg', '案例3', '3');
+INSERT INTO `en_images` VALUES ('4', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024163042p7zmkw2ja.jpg', '案例4', '4');
 
 -- ----------------------------
 -- Table structure for en_job
@@ -98,8 +119,8 @@ CREATE TABLE `en_job` (
 -- ----------------------------
 -- Records of en_job
 -- ----------------------------
-INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4,5,8,9,10,6,7');
-INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4,5,8,9,10,6,7');
+INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4,5,8,9,10,11,6,7');
+INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4,5,8,9,10,11,6,7');
 
 -- ----------------------------
 -- Table structure for en_member
@@ -157,7 +178,7 @@ CREATE TABLE `en_power` (
   `url` varchar(100) DEFAULT '' COMMENT '权限路由',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 -- ----------------------------
 -- Records of en_power
@@ -172,3 +193,4 @@ INSERT INTO `en_power` VALUES ('7', '6', '7sraz4jo', '1', '需求列表', '/amen
 INSERT INTO `en_power` VALUES ('8', '5', '4e57tirz', '1', '内容列表', '/content/content/list', '0');
 INSERT INTO `en_power` VALUES ('9', '5', 'glpm5l3Q', '1', '导航管理', '/content/nav/list', '999');
 INSERT INTO `en_power` VALUES ('10', '5', 'r8ojb371', '1', '轮播管理', '/content/bro/list', '998');
+INSERT INTO `en_power` VALUES ('11', '5', '2jwoicom', '1', '案例管理', '/content/image/list', '997');

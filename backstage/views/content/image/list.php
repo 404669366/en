@@ -3,7 +3,7 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    名称: <input class="searchField" type="text" value="" name="name">
+                    备注: <input class="searchField" type="text" value="" name="remark">
                 </span>
                 <span class="tableSpan">
                     <button class="tableSearch">搜索</button>
@@ -11,14 +11,14 @@
                 </span>
             </div>
             <div class="col-sm-2">
-                <a class="btn btn-sm btn-info" href="/content/bro/add">添加</a>
+                <a class="btn btn-sm btn-info" href="/content/image/add">添加</a>
             </div>
         </div>
         <table class="table table-striped table-bordered table-hover dataTable" id="table">
             <thead>
             <tr role="row">
                 <th>ID</th>
-                <th>名称</th>
+                <th>备注</th>
                 <th>排序</th>
                 <th>操作</th>
             </tr>
@@ -29,16 +29,16 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/content/bro/data',
+        url: '/content/image/data',
         length: 10,
         columns: [
             {"data": "id"},
-            {"data": "name"},
+            {"data": "remark"},
             {"data": "sort"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/content/bro/edit?id=' + data + '">修改</a>&emsp;';
-                str += '<a class="btn btn-sm btn-danger" href="/content/bro/del?id=' + data + '">删除</a>';
+                var str = '<a class="btn btn-sm btn-warning" href="/content/image/edit?id=' + data + '">修改</a>&emsp;';
+                str += '<a class="btn btn-sm btn-danger" href="/content/image/del?id=' + data + '">删除</a>';
                 return str;
             }
             }
