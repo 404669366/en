@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-23 16:46:29
+Date: 2018-10-24 10:49:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,6 +33,23 @@ CREATE TABLE `en_amend` (
 
 -- ----------------------------
 -- Records of en_amend
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for en_broadcast
+-- ----------------------------
+DROP TABLE IF EXISTS `en_broadcast`;
+CREATE TABLE `en_broadcast` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) DEFAULT '' COMMENT '名称',
+  `image` varchar(500) DEFAULT '' COMMENT '轮播图',
+  `link` varchar(500) DEFAULT '#' COMMENT '链接',
+  `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='轮播配置表';
+
+-- ----------------------------
+-- Records of en_broadcast
 -- ----------------------------
 
 -- ----------------------------
@@ -78,8 +95,8 @@ CREATE TABLE `en_job` (
 -- ----------------------------
 -- Records of en_job
 -- ----------------------------
-INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4,5,8,9,6,7');
-INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4,5,8,9,6,7');
+INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4,5,8,9,10,6,7');
+INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4,5,8,9,10,6,7');
 
 -- ----------------------------
 -- Table structure for en_member
@@ -137,7 +154,7 @@ CREATE TABLE `en_power` (
   `url` varchar(100) DEFAULT '' COMMENT '权限路由',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 -- ----------------------------
 -- Records of en_power
@@ -146,8 +163,9 @@ INSERT INTO `en_power` VALUES ('1', '0', '353varQx', '1', '组织架构', '/job'
 INSERT INTO `en_power` VALUES ('2', '1', 'a89l9knd', '1', '职位管理', '/job/job/list', '1');
 INSERT INTO `en_power` VALUES ('3', '1', 'n1qqc9fu', '1', '权限管理', '/job/power/list', '0');
 INSERT INTO `en_power` VALUES ('4', '1', 'x8oblwsw', '1', '用户管理', '/member/member/list', '2');
-INSERT INTO `en_power` VALUES ('5', '0', '4n79Qat8', '1', '内容管理', '/content', '2');
-INSERT INTO `en_power` VALUES ('6', '0', 'ya4b6dgm', '1', '需求管理', '/amend', '1');
+INSERT INTO `en_power` VALUES ('5', '0', '4n79Qat8', '1', '内容管理', '/content', '1');
+INSERT INTO `en_power` VALUES ('6', '0', 'ya4b6dgm', '1', '需求管理', '/amend', '2');
 INSERT INTO `en_power` VALUES ('7', '6', '7sraz4jo', '1', '需求列表', '/amend/amend/list', '999');
-INSERT INTO `en_power` VALUES ('8', '5', '4e57tirz', '1', '内容列表', '/content/content/list', '999');
-INSERT INTO `en_power` VALUES ('9', '5', 'glpm5l3Q', '1', '导航管理', '/content/nav/list', '0');
+INSERT INTO `en_power` VALUES ('8', '5', '4e57tirz', '1', '内容列表', '/content/content/list', '0');
+INSERT INTO `en_power` VALUES ('9', '5', 'glpm5l3Q', '1', '导航管理', '/content/nav/list', '999');
+INSERT INTO `en_power` VALUES ('10', '5', 'r8ojb371', '1', '轮播管理', '/content/bro/list', '998');
