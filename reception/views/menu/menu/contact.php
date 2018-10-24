@@ -12,10 +12,7 @@
 <div id="support" class="section wb">
     <div class="container">
         <div class="section-title text-center">
-            <h3>联系方式</h3>
-            <p class="lead">
-                Contact information
-            </p>
+            <?= \vendor\en\EnContentBase::getContent("di9lfk7l")?>
         </div><!-- end title -->
 
         <div class="row">
@@ -52,6 +49,8 @@
         </div><!-- end row -->
     </div><!-- end container -->
 </div><!-- end section -->
+<!--<div id="map">-->
+<!--</div>-->
 <script type="text/javascript">
     $('.up').click(function () {
         var data = {
