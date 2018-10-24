@@ -29,6 +29,8 @@ class EnImagesBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['image'], 'required'],
+            [['sort'], 'integer'],
             [['sort'], 'integer'],
             [['image'], 'string', 'max' => 500],
             [['remark'], 'string', 'max' => 255],
