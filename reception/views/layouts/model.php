@@ -45,7 +45,7 @@ $this->beginPage();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/menu/menu/index"><img src="/resource/images/logos/logo.png" alt="image"></a>
+                <a class="navbar-brand" href="/menu/menu/index"><img src="/resource/images/logos/logo.png" alt="image" style="width: 8.2rem"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -170,7 +170,7 @@ $this->beginPage();
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <img src="/resource/images/logos/logo-realestate.png" alt="">
+                        <img src="/resource/images/logos/logo-realestate.png" alt="" style="width:8.2rem;">
                     </div>
                     <?= \vendor\en\EnContentBase::getContent("dzmQzbjp")?>
                 </div>
