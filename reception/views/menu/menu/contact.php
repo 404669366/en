@@ -48,9 +48,8 @@
 
         </div><!-- end row -->
     </div><!-- end container -->
-</div><!-- end section -->
-<!--<div id="map">-->
-<!--</div>-->
+</div>
+<!--<div id="map"></div>-->
 <script type="text/javascript">
     $('.up').click(function () {
         var data = {
@@ -88,5 +87,4 @@
         }
         
     });
-
 </script>
