@@ -46,34 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="top-feature owl-carousel owl-theme">
-                <div class="item">
-                    <div class="single-feature">
-                        <div class="icon"><img src="/resource/uploads/icon-01.png" class="img-responsive" alt=""></div>
-                        <h4 class="home3"><a href="#">Full Furnished</a></h4>
-                        <p class="home4">Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi. </p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="single-feature">
-                        <div class="icon"><img src="/resource/uploads/icon-02.png" class="img-responsive" alt=""></div>
-                        <h4 class="home5"><a href="#">Living Inside a Nature</a></h4>
-                        <p class="home6">Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="single-feature">
-                        <div class="icon"><img src="/resource/uploads/icon-03.png" class="img-responsive" alt=""></div>
-                        <h4 class="home7"><a href="#">Luxurious Fittings</a></h4>
-                        <p class="home8">Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi. </p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="single-feature">
-                        <div class="icon"><img src="/resource/uploads/icon-04.png" class="img-responsive" alt=""></div>
-                        <h4 class="home9"><a href="#">Non Stop Security</a></h4>
-                        <p class="home10">Lorem Is a dummy Mauris eu porta orci. In at erat enim. Suspendisse felis erat, volutpat at nisl sit amet, maximus molestie nisi. </p>
-                    </div>
-                </div>
+                <?=\vendor\en\EnModuleBase::getModule()?>
             </div>
         </div>
 

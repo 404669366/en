@@ -754,7 +754,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 }
 
 .owl-carousel .owl-item img{
-	width: auto;
+	width: 10rem;
 	display: block;
 	margin: 0 auto;
 }
