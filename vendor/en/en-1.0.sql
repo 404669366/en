@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-24 16:34:13
+Date: 2018-10-24 16:54:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,10 +50,10 @@ CREATE TABLE `en_broadcast` (
 -- ----------------------------
 -- Records of en_broadcast
 -- ----------------------------
-INSERT INTO `en_broadcast` VALUES ('1', '轮播1', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024111932ucjdgnw2c.jpg', '1');
-INSERT INTO `en_broadcast` VALUES ('2', '轮播2', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810241122415ke1lcnrl.jpg', '2');
-INSERT INTO `en_broadcast` VALUES ('3', '轮播3', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024112302x2s2p8j78.jpg', '3');
-INSERT INTO `en_broadcast` VALUES ('4', '轮播4', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024112339Q2nzuy2vk.jpg', '4');
+INSERT INTO `en_broadcast` VALUES ('1', '轮播1', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145526oresnqdrt.jpg', '1');
+INSERT INTO `en_broadcast` VALUES ('2', '轮播2', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145128hcclxo3wl.jpg', '2');
+INSERT INTO `en_broadcast` VALUES ('3', '轮播3', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810241452511zpicq11z.jpg', '3');
+INSERT INTO `en_broadcast` VALUES ('4', '轮播4', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145541yr6hc2vb2.jpg', '4');
 
 -- ----------------------------
 -- Table structure for en_content
@@ -144,6 +144,24 @@ INSERT INTO `en_member` VALUES ('1', 'root', '18683509267', '$2y$13$jS5psKZ3DusB
 INSERT INTO `en_member` VALUES ('2', 'admin', '18308412675', '$2y$13$3BnTDpK9Jvz6LyiorzDmseXMqig7V/ty5MVGDT1VXykG9pPhDevJe', '2', '1', '1539739444');
 
 -- ----------------------------
+-- Table structure for en_module
+-- ----------------------------
+DROP TABLE IF EXISTS `en_module`;
+CREATE TABLE `en_module` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT '' COMMENT '标题',
+  `image` varchar(1000) DEFAULT '' COMMENT '图片',
+  `content` varchar(1000) DEFAULT '' COMMENT '内容',
+  `remark` varchar(255) DEFAULT '' COMMENT '备注',
+  `sort` tinyint(2) unsigned DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='前台模块表';
+
+-- ----------------------------
+-- Records of en_module
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for en_nav
 -- ----------------------------
 DROP TABLE IF EXISTS `en_nav`;
@@ -178,7 +196,7 @@ CREATE TABLE `en_power` (
   `url` varchar(100) DEFAULT '' COMMENT '权限路由',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 -- ----------------------------
 -- Records of en_power
@@ -194,3 +212,4 @@ INSERT INTO `en_power` VALUES ('8', '5', '4e57tirz', '1', '内容列表', '/cont
 INSERT INTO `en_power` VALUES ('9', '5', 'glpm5l3Q', '1', '导航管理', '/content/nav/list', '999');
 INSERT INTO `en_power` VALUES ('10', '5', 'r8ojb371', '1', '轮播管理', '/content/bro/list', '998');
 INSERT INTO `en_power` VALUES ('11', '5', '2jwoicom', '1', '案例管理', '/content/image/list', '997');
+INSERT INTO `en_power` VALUES ('12', '5', 'lkbtlnfc', '1', '模块管理', '/content/module/list', '996');

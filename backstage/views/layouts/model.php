@@ -14,6 +14,12 @@ $this->beginPage();
 <body class="gray-bg">
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
+<script>
+    $('body').find('.back').attr('type','button');
+    $('body').on('click','.back',function () {
+        history.go(-1);
+    });
+</script>
 <?php \vendor\helpers\Msg::run() ?>
 <div class="wrapper wrapper-content animated fadeIn">
     <?= $content ?>
