@@ -64,4 +64,13 @@ class Constant
             4 => '删除',
         ];
     }
+
+    /**
+     * 轮播图间隔
+     * @return int
+     */
+    public static function broInterval()
+    {
+        return 5;
+    }
 }

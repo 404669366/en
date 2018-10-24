@@ -27,13 +27,6 @@
         </script>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">轮播图链接</label>
-            <div class="col-sm-2">
-                <input type="text" name="link" class="form-control" value="#">
-            </div>
-        </div>
-        <div class="hr-line-dashed"></div>
-        <div class="form-group">
             <label class="col-sm-2 control-label">排序</label>
             <div class="col-sm-2">
                 <input type="text" class="form-control" name="sort" value="">

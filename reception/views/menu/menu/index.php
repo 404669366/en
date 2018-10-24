@@ -1,16 +1,5 @@
 <ul class='slideshow'>
-    <li>
-        <span>Summer</span>
-    </li>
-    <li>
-        <span>Fall</span>
-    </li>
-    <li>
-        <span>Winter</span>
-    </li>
-    <li>
-        <span>Spring</span>
-    </li>
+    <?=\vendor\en\EnBroadcastBase::getBro()?>
 </ul>
 
 <div class="parallax first-section">

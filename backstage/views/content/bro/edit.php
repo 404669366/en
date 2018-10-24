@@ -23,16 +23,9 @@
                 element:'.aaaaa',
                 uploadImgUrl: '/basis/file/upload',
                 removeImgUrl: '/basis/file/delete',
-                default:`<?=$model->image?>`;
+                default:`<?=$model->image?>`
             });
         </script>
-        <div class="hr-line-dashed"></div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">轮播图链接</label>
-            <div class="col-sm-2">
-                <input type="text" name="link" class="form-control" value="<?=$model->link?>">
-            </div>
-        </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">排序</label>

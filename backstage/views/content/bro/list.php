@@ -19,7 +19,6 @@
             <tr role="row">
                 <th>ID</th>
                 <th>名称</th>
-                <th>链接</th>
                 <th>排序</th>
                 <th>操作</th>
             </tr>
@@ -35,7 +34,6 @@
         columns: [
             {"data": "id"},
             {"data": "name"},
-            {"data": "link"},
             {"data": "sort"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {

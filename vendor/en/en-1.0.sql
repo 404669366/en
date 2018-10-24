@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-24 10:49:28
+Date: 2018-10-24 11:47:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,14 +43,17 @@ CREATE TABLE `en_broadcast` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) DEFAULT '' COMMENT '名称',
   `image` varchar(500) DEFAULT '' COMMENT '轮播图',
-  `link` varchar(500) DEFAULT '#' COMMENT '链接',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='轮播配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='轮播配置表';
 
 -- ----------------------------
 -- Records of en_broadcast
 -- ----------------------------
+INSERT INTO `en_broadcast` VALUES ('1', '轮播1', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024111932ucjdgnw2c.jpg', '1');
+INSERT INTO `en_broadcast` VALUES ('2', '轮播2', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810241122415ke1lcnrl.jpg', '2');
+INSERT INTO `en_broadcast` VALUES ('3', '轮播3', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024112302x2s2p8j78.jpg', '3');
+INSERT INTO `en_broadcast` VALUES ('4', '轮播4', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024112339Q2nzuy2vk.jpg', '4');
 
 -- ----------------------------
 -- Table structure for en_content
