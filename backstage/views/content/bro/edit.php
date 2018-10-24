@@ -18,6 +18,7 @@
         </div>
         <script>
             upload({
+                max:1,
                 name:'image',
                 height:16,
                 element:'.aaaaa',

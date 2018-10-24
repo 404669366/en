@@ -21,7 +21,16 @@ function upload(config) {
         $(config.element).append('<div class="myUploadAddFirst" style="height: ' + height + '"></div>');
     }
     $(config.element).on('click', '.myUploadAddFirst,.myUploadAdd', function () {
-        $(config.element).find('.myUploadFile').click();
+        if (config.max) {
+            if ($(config.element).find('.myUploadImg').length < config.max) {
+                $(config.element).find('.myUploadFile').click();
+            } else {
+                alert('最多上传' + config.max + '张图片');
+                return false;
+            }
+        } else {
+            $(config.element).find('.myUploadFile').click();
+        }
     });
     $(config.element).on('change', '.myUploadFile', function () {
         var formData = new FormData();
