@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-24 16:49:17
+Date: 2018-10-24 16:54:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -50,10 +50,10 @@ CREATE TABLE `en_broadcast` (
 -- ----------------------------
 -- Records of en_broadcast
 -- ----------------------------
-INSERT INTO `en_broadcast` VALUES ('1', '轮播1', 'https://ascasc.oss-cn-https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145526oresnqdrt.jpg', '1');
-INSERT INTO `en_broadcast` VALUES ('2', '轮播2', 'https://ascasc.oss-cn-https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145128hcclxo3wl.jpg', '2');
-INSERT INTO `en_broadcast` VALUES ('3', '轮播3', 'https://ascasc.oss-cn-https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810241452511zpicq11z.jpg', '3');
-INSERT INTO `en_broadcast` VALUES ('4', '轮播4', 'https://ascasc.oss-cn-https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145541yr6hc2vb2.jpg', '4');
+INSERT INTO `en_broadcast` VALUES ('1', '轮播1', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145526oresnqdrt.jpg', '1');
+INSERT INTO `en_broadcast` VALUES ('2', '轮播2', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145128hcclxo3wl.jpg', '2');
+INSERT INTO `en_broadcast` VALUES ('3', '轮播3', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810241452511zpicq11z.jpg', '3');
+INSERT INTO `en_broadcast` VALUES ('4', '轮播4', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181024145541yr6hc2vb2.jpg', '4');
 
 -- ----------------------------
 -- Table structure for en_content
