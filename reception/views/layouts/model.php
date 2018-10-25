@@ -4,7 +4,7 @@
 $this->beginPage();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -69,6 +69,7 @@ $this->beginPage();
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="testi-carousel owl-carousel owl-theme">
+
                     <div class="testimonial clearfix">
                         <div class="desc">
                             <h3><i class="fa fa-quote-left"></i> Wonderful Support! <i class="fa fa-quote-right"></i>
@@ -114,6 +115,7 @@ $this->beginPage();
                             </h4>
                         </div>
                     </div>
+
                     <div class="testimonial clearfix">
                         <div class="desc">
                             <h3><i class="fa fa-quote-left"></i> Wonderful Support! <i class="fa fa-quote-right"></i>
@@ -158,6 +160,7 @@ $this->beginPage();
                             </h4>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
