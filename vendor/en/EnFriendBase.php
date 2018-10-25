@@ -82,24 +82,19 @@ class EnFriendBase extends \yii\db\ActiveRecord
      * 友情链接
      * @return string
      */
-    public static function getImages()
+    public static function getFriend()
     {
         $str = '';
-        $images = redis::app()->hGetAll('ReceptionFriend');
-        if ($images) {
-            foreach ($images as $k => &$v) {
+        $data = redis::app()->hGetAll('ReceptionFriend');
+        if ($data) {
+            foreach ($data as $k => &$v) {
                 $v = json_decode($v, true);
                 $sort[$k] = $v['sort'];
             }
-            array_multisort($sort, SORT_ASC, $images);
-            foreach ($images as &$v) {
+            array_multisort($sort, SORT_ASC, $data);
+            foreach ($data as &$v) {
                 $str .= <<<HTML
-                <div class="post-media_g pitem item-w1 item-h1 cat1">
-                    <a href="{$v['image']}" data-rel="prettyPhoto[gal]">
-                        <img src="{$v['image']}" alt="" class="img-responsive">
-                        <div><i class="flaticon-unlink"></i></div>
-                    </a>
-                </div>
+                <li><a href="{$v['link']}"><img src="{$v['icon']}"> {$v['name']}</a></li>
 HTML;
             }
         }
