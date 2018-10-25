@@ -115,7 +115,7 @@ class EnNavBase extends \yii\db\ActiveRecord
                 if ($v['name'] == $now) {
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '" class="active">' . $v['name'] . '</a></li>';
                     $navStr['headStr'] = <<<HTML
-                    <div class="all-title-box" style="background: url('{$now->background}')">
+                    <div class="all-title-box" style="background: url('{$v['background']}')">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
