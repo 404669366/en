@@ -119,7 +119,7 @@ class EnNavBase extends \yii\db\ActiveRecord
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h2>{$now->name}</h2>
+                                    <h2>{$v['name']}</h2>
                                 </div>
                             </div>
                         </div>
