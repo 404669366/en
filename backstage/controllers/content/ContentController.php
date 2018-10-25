@@ -72,21 +72,4 @@ class ContentController extends CommonController
         $model = EnContentBase::findOne($id);
         return $this->render('edit', ['model' => $model]);
     }
-
-
-    /**
-     * 删除文本内容列表页数据
-     * @param $id
-     * @return \yii\web\Response
-     */
-    public function actionDel($id)
-    {
-        $model = EnContentBase::findOne($id);
-        $model->delete();
-        if ($model->delete()) {
-            Msg::set('删除成功');
-        }
-        Msg::set('删除失败');
-        return $this->redirect(['edit?id=' . $id]);
-    }
 }

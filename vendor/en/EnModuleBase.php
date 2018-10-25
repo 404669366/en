@@ -12,6 +12,7 @@ use Yii;
  * @property string $title 标题
  * @property string $image 图片
  * @property string $content 内容
+ * @property int $sort 排序
  * @property string $remark 备注
  */
 class EnModuleBase extends \yii\db\ActiveRecord
@@ -31,6 +32,7 @@ class EnModuleBase extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'content', 'image'], 'required'],
+            [['sort'], 'integer'],
             [['title', 'remark'], 'string', 'max' => 255],
             [['image', 'content'], 'string', 'max' => 1000],
         ];
@@ -46,6 +48,7 @@ class EnModuleBase extends \yii\db\ActiveRecord
             'title' => '标题',
             'image' => '图片',
             'content' => '内容',
+            'sort' => '排序',
             'remark' => '备注',
         ];
     }
@@ -65,7 +68,7 @@ class EnModuleBase extends \yii\db\ActiveRecord
     }
 
     /**
-     * 更新轮播图缓存
+     * 更新模块
      * @param bool $del
      */
     public function updateModule($del = false)
@@ -81,7 +84,7 @@ class EnModuleBase extends \yii\db\ActiveRecord
     }
 
     /**
-     * 轮播图
+     * 插入模块
      * @return string
      */
     public static function getModule()

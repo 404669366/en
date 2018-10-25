@@ -194,14 +194,11 @@ $this->beginPage();
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <h3>Contact Details</h3>
-                    </div>
+                    <h3>联系方式</h3>
+                </div>
 
                     <ul class="footer-links">
-                        <li><a href="mailto:#">info@yoursite.com</a></li>
-                        <li><a href="#">www.yoursite.com</a></li>
-                        <li>PO Box 16122 Collins Street West Victoria 8007 Australia</li>
-                        <li>+61 3 8376 6284</li>
+                        <?= \vendor\en\EnContactBase::getContact()?>
                     </ul>
                 </div>
             </div>
