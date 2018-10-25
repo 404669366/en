@@ -114,17 +114,20 @@ class EnNavBase extends \yii\db\ActiveRecord
             foreach ($nav as &$v) {
                 if ($v['name'] == $now) {
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '" class="active">' . $v['name'] . '</a></li>';
-                    $navStr['headStr'] = <<<HTML
-                    <div class="all-title-box" style="background: url('{$v['background']}')">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h2>{$v['name']}</h2>
+                    if ($now != '首页') {
+                        $navStr['headStr'] = <<<HTML
+                            <div class="all-title-box" style="background: url('{$v['background']}')">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h2>{$v['name']}</h2>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 HTML;
+                    }
+
                 } else {
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
                 }
