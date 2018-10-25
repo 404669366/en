@@ -4,9 +4,9 @@
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">权限标识</label>
+            <label class="col-sm-2 control-label">职位名称</label>
             <div class="col-sm-2">
-                <input type="text" name="no" class="form-control" value="<?= $no ?>" readonly>
+                <input type="text" class="form-control" name="job" value="">
             </div>
         </div>
         <div class="hr-line-dashed"></div>
