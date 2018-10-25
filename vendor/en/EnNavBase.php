@@ -114,13 +114,6 @@ class EnNavBase extends \yii\db\ActiveRecord
             foreach ($nav as &$v) {
                 if ($v['name'] == $now) {
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '" class="active">' . $v['name'] . '</a></li>';
-                } else {
-                    $navStr['topStr'] .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
-                }
-                $navStr['botStr'] .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
-            }
-            if ($now) {
-                if ($now = self::findOne(['name' => $now])) {
                     $navStr['headStr'] = <<<HTML
                     <div class="all-title-box" style="background: url('{$now->background}')">
                         <div class="container">
@@ -132,7 +125,10 @@ class EnNavBase extends \yii\db\ActiveRecord
                         </div>
                     </div>
 HTML;
+                } else {
+                    $navStr['topStr'] .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
                 }
+                $navStr['botStr'] .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
             }
         }
         return $navStr;
