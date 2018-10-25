@@ -68,41 +68,6 @@
     </div>
 </div>
 
-<div id="agent" class="parallax section db parallax-off" style="background-image:url('/resource/uploads/parallax_02.png');">
-    <div class="container">
-        <div class="section-title row text-center">
-            <div class="col-md-8 col-md-offset-2">
-                <?= \vendor\en\EnContentBase::getContent("p8endget")?>
-            </div><!-- end col -->
-        </div><!-- end title -->
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="message-box">
-                    <?= \vendor\en\EnContentBase::getContent("a5uofucx")?>
-                </div><!-- end messagebox -->
-            </div><!-- end col -->
-            <div class="col-md-3">
-                <div class="post-media wow fadeIn">
-                    <img src="/resource/uploads/agent.jpg" alt="" class="img-responsive">
-                    <a href="http://www.youtube.com/watch?v=nrJtHemSPW4" data-rel="prettyPhoto[gal]" class="playbutton"><i class="flaticon-play-button"></i></a>
-                </div><!-- end media -->
-            </div><!-- end col -->
-            <div class="col-md-3">
-                <div class="agencies_meta clearfix">
-                    <span><i class="fa fa-envelope "></i> <a href="mailto:support@sitename.com">support@sitename.com</a></span>
-                    <span><i class="fa fa-link "></i> <a href="#">www.sitename.com</a></span>
-                    <span><i class="fa fa-phone-square "></i> +1 232 444 55 66</span>
-                    <span><i class="fa fa-print "></i> +1 232 444 55 66</span>
-                    <span><i class="fa fa-facebook-square "></i> <a href="#">facebook.com/tagline</a></span>
-                    <span><i class="fa fa-twitter-square "></i> <a href="#">twitter.com/tagline</a></span>
-                    <span><i class="fa fa-linkedin-square "></i> <a href="#">linkedin.com/tagline</a></span>
-                </div><!-- end agencies_meta -->
-            </div><!-- end col -->
-        </div><!-- end row -->
-    </div>
-</div>
-
 <script type="text/javascript">
     $('.up').click(function () {
         var data = {

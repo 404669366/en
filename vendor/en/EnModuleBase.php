@@ -98,7 +98,7 @@ class EnModuleBase extends \yii\db\ActiveRecord
                 $str .= <<<HTML
                     <div class="item">
                         <div class="single-feature">
-                            <div class="icon"><img style="width: 10rem;height: 10rem" src="{$v['image']}" class="img-responsive" alt=""></div>
+                            <div class="icon"><img style="width: 13rem;height: 10rem" src="{$v['image']}" class="img-responsive" alt=""></div>
                             <h4 class="home3">{$v['title']}</h4>
                             <p class="home4">{$v['content']}</p>
                         </div>

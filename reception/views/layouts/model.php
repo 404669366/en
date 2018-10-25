@@ -8,7 +8,7 @@ $this->beginPage();
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta http-equiv="refresh" content="180">
+<!--<meta http-equiv="refresh" content="180">-->
 <meta name="robots" content="index,follow">
 <title>
     新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能科技有限公司
@@ -239,6 +239,7 @@ $this->beginPage();
 <script src="/resource/js/custom.js"></script>
 <script src="/resource/js/portfolio.js"></script>
 <script src="/resource/js/hoverdir.js"></script>
+<script src="/resource/js/change.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

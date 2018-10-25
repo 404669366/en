@@ -165,8 +165,7 @@
   position: absolute;
   width: 100%;
 }
-.owl-next i,
-.owl-prev i {
+.owl-next i, .owl-prev i {
   background-color: #111;
   width: 60px;
   height: 60px;
@@ -178,7 +177,7 @@
   left: -10%;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
-    border-radius: 100px;    
+    border-radius: 100px;
 }
 
 .owl-next i {
