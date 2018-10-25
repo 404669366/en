@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50641
 File Encoding         : 65001
 
-Date: 2018-10-25 16:23:23
+Date: 2018-10-25 17:57:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -202,19 +202,19 @@ CREATE TABLE `en_nav` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(20) DEFAULT '' COMMENT '名称',
   `url` varchar(255) DEFAULT '' COMMENT '路由',
-  `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
+  `background` varchar(500) DEFAULT '' COMMENT '背景图',
+  `sort` int(10) unsigned DEFAULT '1' COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='前台导航栏表';
 
 -- ----------------------------
 -- Records of en_nav
 -- ----------------------------
-INSERT INTO `en_nav` VALUES ('1', '首页', '/menu/menu/index', '1');
-INSERT INTO `en_nav` VALUES ('2', '产品简介', '/menu/menu/about', '2');
-INSERT INTO `en_nav` VALUES ('3', '产品展示', '/menu/menu/service', '3');
-INSERT INTO `en_nav` VALUES ('4', '成功案例', '/menu/menu/gallery', '4');
-INSERT INTO `en_nav` VALUES ('5', '开放平台', '/menu/menu/properties', '5');
-INSERT INTO `en_nav` VALUES ('6', '联系我们', '/menu/menu/contact', '6');
+INSERT INTO `en_nav` VALUES ('2', '产品简介', '/menu/menu/about', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181025175356b9gyfzajz.jpg', '2');
+INSERT INTO `en_nav` VALUES ('3', '产品展示', '/menu/menu/service', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181025175409mn1h7oclz.jpg', '3');
+INSERT INTO `en_nav` VALUES ('4', '成功案例', '/menu/menu/gallery', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181025175422xihmvaanl.jpg', '4');
+INSERT INTO `en_nav` VALUES ('5', '开放平台', '/menu/menu/properties', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810251754426lozxcjz5.jpg', '5');
+INSERT INTO `en_nav` VALUES ('6', '联系我们', '/menu/menu/contact', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810251754548omQfuiQp.jpg', '6');
 
 -- ----------------------------
 -- Table structure for en_power
