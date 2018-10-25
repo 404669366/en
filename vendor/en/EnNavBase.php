@@ -12,6 +12,7 @@ use Yii;
  * @property string $name 名称
  * @property string $url 路由
  * @property string $sort 排序
+ * @property string $background 背景图
  */
 class EnNavBase extends \yii\db\ActiveRecord
 {
@@ -30,9 +31,11 @@ class EnNavBase extends \yii\db\ActiveRecord
     {
         return [
             [['sort', 'name', 'url'], 'required'],
+            [['name'], 'unique'],
             [['sort'], 'integer'],
             [['name'], 'string', 'max' => 20],
             [['url'], 'string', 'max' => 255],
+            [['background'], 'string', 'max' => 500],
         ];
     }
 
@@ -46,6 +49,7 @@ class EnNavBase extends \yii\db\ActiveRecord
             'name' => '名称',
             'url' => '路由',
             'sort' => '排序',
+            'background' => '背景图',
         ];
     }
 
@@ -69,7 +73,10 @@ class EnNavBase extends \yii\db\ActiveRecord
         if ($del) {
             redis::app()->hDel('ReceptionNav', $del);
         } else {
-            redis::app()->hSet('ReceptionNav', $this->id, json_encode(['name' => $this->name, 'url' => $this->url, 'sort' => $this->sort]));
+            redis::app()->hSet('ReceptionNav', $this->id, json_encode([
+                'name' => $this->name, 'url' => $this->url,
+                'sort' => $this->sort, 'background' => $this->background
+            ]));
         }
     }
 
@@ -93,6 +100,7 @@ class EnNavBase extends \yii\db\ActiveRecord
         $navStr = [
             'topStr' => '',
             'botStr' => '',
+            'headStr' => '',
         ];
         $nav = redis::app()->hGetAll('ReceptionNav');
         if ($nav) {
@@ -110,6 +118,21 @@ class EnNavBase extends \yii\db\ActiveRecord
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
                 }
                 $navStr['botStr'] .= '<li><a href="' . $v['url'] . '">' . $v['name'] . '</a></li>';
+            }
+            if ($now) {
+                if ($now = self::findOne(['name' => $now])) {
+                    $navStr['headStr'] = <<<HTML
+                    <div class="all-title-box" style="background: url('{$now->background}')">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2>{$now->name}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+HTML;
+                }
             }
         }
         return $navStr;

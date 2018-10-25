@@ -1,13 +1,3 @@
-<div class="all-title-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>产品简介</h2>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="about-box">
     <div class="container">
         <div class="row">

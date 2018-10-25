@@ -29,7 +29,7 @@ $this->beginPage();
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
 <?php \vendor\helpers\Msg::run() ?>
-
+<?php $nav = \vendor\en\EnNavBase::getNav() ?>
 <div id="preloader">
     <span class="loader"><span class="loader-inner"></span></span>
 </div>
@@ -45,24 +45,25 @@ $this->beginPage();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/menu/menu/index"><img src="/resource/images/logos/logo.png" alt="image" style="width: 8.2rem"></a>
+                <a class="navbar-brand" href="/menu/menu/index"><img src="/resource/images/logos/logo.png" alt="image"
+                                                                     style="width: 8.2rem"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <?= \vendor\en\EnNavBase::getNav()['topStr']?>
+                    <?= $nav['topStr'] ?>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-
+<?= $nav['headStr'] ?>
 <?= $content ?>
 
 <div id="testimonials" class="section lb">
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <?= \vendor\en\EnContentBase::getContent("8aw3Qa9b")?>
+                <?= \vendor\en\EnContentBase::getContent("8aw3Qa9b") ?>
             </div>
         </div>
 
@@ -175,7 +176,7 @@ $this->beginPage();
                     <div class="widget-title">
                         <img src="/resource/images/logos/logo-realestate.png" alt="" style="width:8.2rem;">
                     </div>
-                    <?= \vendor\en\EnContentBase::getContent("dzmQzbjp")?>
+                    <?= \vendor\en\EnContentBase::getContent("dzmQzbjp") ?>
                 </div>
             </div>
 
@@ -186,7 +187,7 @@ $this->beginPage();
                     </div>
 
                     <ul class="twitter-widget footer-links">
-                        <?= \vendor\en\EnNavBase::getNav()['botStr']?>
+                        <?= $nav['botStr'] ?>
                     </ul>
                 </div>
             </div>
@@ -194,11 +195,11 @@ $this->beginPage();
             <div class="col-md-3 col-sm-3 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                    <h3>联系方式</h3>
-                </div>
+                        <h3>联系方式</h3>
+                    </div>
 
                     <ul class="footer-links">
-                        <?= \vendor\en\EnContactBase::getContact()?>
+                        <?= \vendor\en\EnContactBase::getContact() ?>
                     </ul>
                 </div>
             </div>
@@ -209,7 +210,7 @@ $this->beginPage();
                         <h3>友情链接</h3>
                     </div>
                     <ul class="footer-links">
-                        <?=\vendor\en\EnFriendBase::getFriend()?>
+                        <?= \vendor\en\EnFriendBase::getFriend() ?>
                     </ul>
                 </div>
             </div>

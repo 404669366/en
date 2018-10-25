@@ -1,21 +1,10 @@
-<div class="all-title-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>开放平台</h2>
-
-            </div>
-        </div>
-    </div>
-</div>
-
 <div id="features" class="section wb">
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <?= \vendor\en\EnContentBase::getContent("Q1d4n865")?>
-            </div><!-- end col -->
-        </div><!-- end title -->
+                <?= \vendor\en\EnContentBase::getContent("Q1d4n865") ?>
+            </div>
+        </div>
 
         <hr class="invis">
 
@@ -25,7 +14,8 @@
                     <div class="property-main">
                         <div class="property-wrap">
                             <figure class="post-media wow fadeIn">
-                                <a href="/resource/uploads/estate_01.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                                <a href="/resource/uploads/estate_01.jpg" data-rel="prettyPhoto[gal]"
+                                   class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                                 <img src="/resource/uploads/estate_01.jpg" alt="" class="img-responsive">
                                 <div class="label-inner">
                                     <span class="label-status label">Popular</span>
@@ -37,7 +27,11 @@
                             <div class="item-body">
                                 <h3>Spacious and Large Garden</h3>
                                 <div class="info">
-                                    <p><span>Bedroom: 4</span> <span>Bathroom: 2</span> <span>Land Size: <span class="estate-x-size">5000</span> <span class="estate-x-unit">square</span></span> <span>Building Size: <span class="estate-x-size">2400</span> <span class="estate-x-unit">square</span></span> </p>
+                                    <p><span>Bedroom: 4</span> <span>Bathroom: 2</span> <span>Land Size: <span
+                                                    class="estate-x-size">5000</span> <span
+                                                    class="estate-x-unit">square</span></span>
+                                        <span>Building Size: <span class="estate-x-size">2400</span> <span
+                                                    class="estate-x-unit">square</span></span></p>
                                     <p>House</p>
                                 </div>
                                 <div class="adderess">
@@ -61,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- end service -->
+                </div>
             </div>
 
             <div class="col-md-4 col-sm-6 col-xs-12">
@@ -69,7 +63,8 @@
                     <div class="property-main">
                         <div class="property-wrap">
                             <figure class="post-media wow fadeIn">
-                                <a href="/resource/uploads/estate_03.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                                <a href="/resource/uploads/estate_03.jpg" data-rel="prettyPhoto[gal]"
+                                   class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                                 <img src="/resource/uploads/estate_03.jpg" alt="" class="img-responsive">
                                 <div class="label-inner">
                                     <span class="label-status label">Popular</span>
@@ -81,7 +76,11 @@
                             <div class="item-body">
                                 <h3>With its Own Pool</h3>
                                 <div class="info">
-                                    <p><span>Bedroom: 2</span> <span>Bathroom: 2</span> <span>Land Size: <span class="estate-x-size">3000</span> <span class="estate-x-unit">square</span></span> <span>Building Size: <span class="estate-x-size">1400</span> <span class="estate-x-unit">square</span></span> </p>
+                                    <p><span>Bedroom: 2</span> <span>Bathroom: 2</span> <span>Land Size: <span
+                                                    class="estate-x-size">3000</span> <span
+                                                    class="estate-x-unit">square</span></span>
+                                        <span>Building Size: <span class="estate-x-size">1400</span> <span
+                                                    class="estate-x-unit">square</span></span></p>
                                     <p>House</p>
                                 </div>
                                 <div class="adderess">
@@ -105,7 +104,7 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- end service -->
+                </div>
             </div>
 
             <div class="col-md-4 col-sm-6 col-xs-12">
@@ -113,7 +112,8 @@
                     <div class="property-main">
                         <div class="property-wrap">
                             <figure class="post-media wow fadeIn">
-                                <a href="/resource/uploads/estate_02.jpg" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+                                <a href="/resource/uploads/estate_02.jpg" data-rel="prettyPhoto[gal]"
+                                   class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                                 <img src="/resource/uploads/estate_02.jpg" alt="" class="img-responsive">
                                 <div class="label-inner">
                                     <span class="label-status label">Popular</span>
@@ -125,7 +125,11 @@
                             <div class="item-body">
                                 <h3>In Forests- Fresh Clean Air</h3>
                                 <div class="info">
-                                    <p><span>Bedroom: 3</span> <span>Bathroom: 2</span> <span>Land Size: <span class="estate-x-size">4000</span> <span class="estate-x-unit">square</span></span> <span>Building Size: <span class="estate-x-size">2000</span> <span class="estate-x-unit">square</span></span> </p>
+                                    <p><span>Bedroom: 3</span> <span>Bathroom: 2</span> <span>Land Size: <span
+                                                    class="estate-x-size">4000</span> <span
+                                                    class="estate-x-unit">square</span></span>
+                                        <span>Building Size: <span class="estate-x-size">2000</span> <span
+                                                    class="estate-x-unit">square</span></span></p>
                                     <p>House</p>
                                 </div>
                                 <div class="adderess">
@@ -149,8 +153,8 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- end service -->
+                </div>
             </div>
-        </div><!-- end row -->
-    </div><!-- end container -->
-</div><!-- end section -->
+        </div>
+    </div>
+</div>

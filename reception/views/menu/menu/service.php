@@ -1,21 +1,10 @@
-<div class="all-title-box">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>产品展示</h2>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="about-box">
     <div class="container">
         <div class="section-title row text-center">
             <div class="col-md-8 col-md-offset-2">
-                <?= \vendor\en\EnContentBase::getContent("bkj21hap")?>
-            </div><!-- end col -->
-        </div><!-- end title -->
-
+                <?= \vendor\en\EnContentBase::getContent("bkj21hap") ?>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-4 col-sm-4 col-sm-12">
                 <div class="single-services">
@@ -24,7 +13,8 @@
                     </div>
                     <div class="single-services-desc">
                         <h4><a href="#">Full Furnished</a></h4>
-                        <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                        <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam
+                            risus. Sed a tellus quis mi rhoncus dignissim.</p>
                     </div>
                     <a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
                 </div>
@@ -36,7 +26,8 @@
                     </div>
                     <div class="single-services-desc">
                         <h4><a href="#">Living Inside a Nature</a></h4>
-                        <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                        <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam
+                            risus. Sed a tellus quis mi rhoncus dignissim.</p>
                     </div>
                     <a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
                 </div>
@@ -48,12 +39,12 @@
                     </div>
                     <div class="single-services-desc">
                         <h4><a href="#">Luxurious Fittings</a></h4>
-                        <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus. Sed a tellus quis mi rhoncus dignissim.</p>
+                        <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam
+                            risus. Sed a tellus quis mi rhoncus dignissim.</p>
                     </div>
                     <a href="#" class="btn btn-light btn-radius grd1 btn-brd"> Read More </a>
                 </div>
             </div>
         </div>
-
     </div>
 </div>

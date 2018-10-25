@@ -1,3 +1,4 @@
+<?php $this->registerJsFile('/upload/upload.js'); ?>
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
@@ -15,6 +16,23 @@
                 <input type="text" name="url" class="form-control">
             </div>
         </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">背景图</label>
+            <div class="col-sm-8">
+                <div class="aaaaa"></div>
+            </div>
+        </div>
+        <script>
+            upload({
+                max:1,
+                name:'background',
+                height:16,
+                element:'.aaaaa',
+                uploadImgUrl: '/basis/file/upload',
+                removeImgUrl: '/basis/file/delete',
+            });
+        </script>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">排序</label>
