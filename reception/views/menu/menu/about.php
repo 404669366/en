@@ -3,8 +3,6 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>产品简介</h2>
-                <!-- Breadcrumbs -->
-
             </div>
         </div>
     </div>
@@ -16,7 +14,7 @@
             <div class="col-md-6">
                 <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
                     <img src="/resource/uploads/about_bg.jpg" alt="" class="img-responsive">
-                </div><!-- end media -->
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="message-box right-ab">

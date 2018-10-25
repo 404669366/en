@@ -74,6 +74,17 @@ class EnNavBase extends \yii\db\ActiveRecord
     }
 
     /**
+     * 记录当前菜单
+     * @param string $name
+     */
+    public static function setNow($name = '')
+    {
+        if ($name) {
+            \Yii::$app->session->set('ReceptionMenuNow', $name);
+        }
+    }
+
+    /**
      * 返回导航栏
      * @return array
      */
@@ -90,6 +101,7 @@ class EnNavBase extends \yii\db\ActiveRecord
                 $sort[$k] = $v['sort'];
             }
             array_multisort($sort, SORT_ASC, $nav);
+            array_unshift($nav, ['name' => '首页', 'url' => 'http://' . $_SERVER['SERVER_NAME'], 'sort' => 0]);
             $now = \Yii::$app->session->get('ReceptionMenuNow');
             foreach ($nav as &$v) {
                 if ($v['name'] == $now) {
