@@ -206,14 +206,10 @@ $this->beginPage();
             <div class="col-md-2 col-sm-2 col-xs-12">
                 <div class="widget clearfix">
                     <div class="widget-title">
-                        <h3>Social</h3>
+                        <h3>友情链接</h3>
                     </div>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fa fa-github"></i> Github</a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i> Dribbble</a></li>
-                        <li><a href="#"><i class="fa fa-pinterest"></i> Pinterest</a></li>
+                        <?=\vendor\en\EnFriendBase::getFriend()?>
                     </ul>
                 </div>
             </div>
