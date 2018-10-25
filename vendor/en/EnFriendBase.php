@@ -94,7 +94,7 @@ class EnFriendBase extends \yii\db\ActiveRecord
             array_multisort($sort, SORT_ASC, $data);
             foreach ($data as &$v) {
                 $str .= <<<HTML
-                <li><a href="{$v['link']}"><img src="{$v['icon']}"> {$v['name']}</a></li>
+                <li><a href="{$v['link']}"><img src="{$v['icon']}" style="width: 3rem;margin-bottom: 0.32rem">&emsp;{$v['name']}</a></li>
 HTML;
             }
         }
