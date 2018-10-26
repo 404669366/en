@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<input type="text" class="a">
+<button type="button" class="aa">发送</button>
+<script>
+    var ws = new WebSocket("ws://127.0.0.1:4046");
+    ws.onmessage = function(e) {
+        console.log("收到服务端的消息：" + e.data);
+    };
+    $('.aa').click(function () {
+        ws.send($('.a').val());
+    });
+</script>
+</body>
+</html>
