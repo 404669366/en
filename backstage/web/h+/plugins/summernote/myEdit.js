@@ -31,6 +31,16 @@ function myEdit(config) {
         lang: "zh-CN",
         height: config.height ? config.height : 200,
         focus: true,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear','fontsize','height']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ],
         callbacks: callbacks
     });
     if (config.default) {

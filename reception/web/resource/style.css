@@ -757,6 +757,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
     width: auto;
 	display: block;
 	margin: 0 auto;
+    padding-right: 1rem;
 }
 
 /*------------------------------------------------------------------
@@ -933,7 +934,6 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 .testimonial h4 {
     font-size: 18px;
     color: #ffffff;
-    padding: 13px 0 0;
 }
 
 .testimonial img {
