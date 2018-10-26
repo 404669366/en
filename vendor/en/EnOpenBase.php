@@ -69,7 +69,7 @@ class EnOpenBase extends \yii\db\ActiveRecord
     }
 
     /**
-     * 更新模块
+     * 更新开放平台
      * @param bool $del
      */
     public function updateOpen($del = false)
@@ -85,7 +85,7 @@ class EnOpenBase extends \yii\db\ActiveRecord
     }
 
     /**
-     * 插入模块
+     * 插入开放平台
      * @return string
      */
     public static function getOpen()
