@@ -33,7 +33,7 @@ class MenuController extends BasisController
 
     public function actionService()
     {
-        EnNavBase::setNow('产品展示');
+        EnNavBase::setNow('开放平台');
         return $this->render('service');
     }
 
@@ -45,7 +45,7 @@ class MenuController extends BasisController
 
     public function actionProperties()
     {
-        EnNavBase::setNow('开放平台');
+        EnNavBase::setNow('需求设计');
         return $this->render('properties');
     }
 
