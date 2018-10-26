@@ -43,12 +43,6 @@ class MenuController extends BasisController
         return $this->render('gallery');
     }
 
-    public function actionProperties()
-    {
-        EnNavBase::setNow('需求设计');
-        return $this->render('properties');
-    }
-
     public function actionContact()
     {
         EnNavBase::setNow('联系我们');
