@@ -3,10 +3,7 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    标题: <input class="searchField" type="text" value="" name="title">
-                </span>
-                <span class="tableSpan">
-                    内容: <input class="searchField" type="text" value="" name="content">
+                    服务名: <input class="searchField" type="text" value="" name="name">
                 </span>
                 <span class="tableSpan">
                     <button class="tableSearch">搜索</button>
@@ -21,9 +18,8 @@
             <thead>
             <tr role="row">
                 <th>ID</th>
-                <th>标题</th>
-                <th>内容</th>
-                <th>备注</th>
+                <th>服务名</th>
+                <th>服务简述</th>
                 <th>排序</th>
                 <th>操作</th>
             </tr>
@@ -38,9 +34,8 @@
         length: 10,
         columns: [
             {"data": "id"},
-            {"data": "title"},
-            {"data": "content"},
-            {"data": "remark"},
+            {"data": "name"},
+            {"data": "resume"},
             {"data": "sort"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
@@ -50,7 +45,7 @@
             }
             }
         ],
-        default_order: [4, 'asc']
+        default_order: [3, 'asc']
     });
     myTable.search();
 </script>

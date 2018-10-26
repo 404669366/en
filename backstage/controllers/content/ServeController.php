@@ -1,13 +1,15 @@
 <?php
+
 namespace app\controllers\content;
 
 use app\controllers\basis\CommonController;
 use vendor\en\EnServeBase;
 use vendor\helpers\Msg;
 
-Class ServeController extends CommonController{
+Class ServeController extends CommonController
+{
     /**
-     * 模块列表页渲染
+     * 服务列表页渲染
      * @return string
      */
     public function actionList()
@@ -17,7 +19,7 @@ Class ServeController extends CommonController{
 
 
     /**
-     * 模块列表页数据
+     * 服务列表页数据
      * @return string
      */
     public function actionData()
@@ -27,50 +29,53 @@ Class ServeController extends CommonController{
 
 
     /**
-     * 新增模块列表页数据
+     * 新增服务列表页数据
      * @return string|\yii\web\Response
      */
     public function actionAdd()
     {
         $model = new EnServeBase();
-        if (\Yii::$app->request->isPost) {
-            $post = \Yii::$app->request->post();
-            if ($model->load(['EnServeBase' => $post]) && $model->validate() && $model->save()) {
-                $model->updateServe();
-                Msg::set('保存成功');
-                return $this->redirect(['list']);
-            }
-            Msg::set($model->errors());
-        }
         return $this->render('add');
     }
 
 
-
     /**
-     * 修改模块列表页数据
+     * 修改服务列表页数据
      * @param $id
      * @return string|\yii\web\Response
      */
     public function actionEdit($id)
     {
         $model = EnServeBase::findOne($id);
-        if (\Yii::$app->request->isPost) {
-            $post = \Yii::$app->request->post();
-            if ($model->load(['EnServeBase' => $post]) && $model->validate() && $model->save()) {
-                $model->updateServe();
-                Msg::set('保存成功');
-                return $this->redirect(['list']);
-            }
-            Msg::set($model->errors());
-        }
         return $this->render('edit', ['model' => $model]);
     }
 
+    /**
+     * 保存服务配置
+     * @return string
+     */
+    public function actionSave()
+    {
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            if (isset($post['id']) && $post['id']) {
+                $model = EnServeBase::findOne($post['id']);
+            } else {
+                $model = new EnServeBase();
+            }
+            if ($model->load(['EnServeBase' => $post]) && $model->validate() && $model->save()) {
+                $model->updateServe();
+                Msg::set('保存成功');
+                return $this->rJson();
+            }
+            return $this->rJson([], false, $model->errors());
+        }
+        return $this->rJson([], false, '请求错误');
+    }
 
 
     /**
-     * 删除模块列表页数据
+     * 删除服务列表页数据
      * @param $id
      * @return \yii\web\Response
      */

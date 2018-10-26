@@ -9,11 +9,12 @@ use Yii;
  * This is the model class for table "en_serve".
  *
  * @property int $id
- * @property string $title 标题
- * @property string $image 图片
- * @property string $content 内容
- * @property int $sort 排序
- * @property string $remark 备注
+ * @property string $name 服务名称
+ * @property string $smallImage 服务小图
+ * @property string $bigImage 服务大图
+ * @property string $resume 服务简述
+ * @property string $content 服务详情
+ * @property string $sort 排序
  */
 class EnServeBase extends \yii\db\ActiveRecord
 {
@@ -31,10 +32,13 @@ class EnServeBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content', 'image'], 'required'],
+            [['name', 'smallImage', 'bigImage', 'resume', 'content'], 'required'],
+            [['name'], 'unique'],
             [['sort'], 'integer'],
-            [['title', 'remark'], 'string', 'max' => 255],
-            [['image', 'content'], 'string', 'max' => 1000],
+            [['name'], 'string', 'max' => 20],
+            [['smallImage', 'bigImage'], 'string', 'max' => 500],
+            [['resume'], 'string', 'max' => 255],
+            [['content'], 'string', 'max' => 5000],
         ];
     }
 
@@ -45,11 +49,12 @@ class EnServeBase extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => '标题',
-            'image' => '图片',
-            'content' => '内容',
+            'name' => '服务名称',
+            'smallImage' => '服务小图',
+            'bigImage' => '服务大图',
+            'resume' => '服务简述',
+            'content' => '服务详情',
             'sort' => '排序',
-            'remark' => '备注',
         ];
     }
 
@@ -60,15 +65,14 @@ class EnServeBase extends \yii\db\ActiveRecord
     public static function getPageData()
     {
         return self::find()
-            ->select(['id', 'title', 'content', 'sort', 'remark'])
+            ->select(['id', 'name', 'resume', 'sort'])
             ->page([
-                'title' => ['like', 'title'],
-                'content' => ['like', 'content'],
+                'name' => ['like', 'name', 'resume'],
             ]);
     }
 
     /**
-     * 更新模块
+     * 更新服务配置
      * @param bool $del
      */
     public function updateServe($del = false)
@@ -77,37 +81,78 @@ class EnServeBase extends \yii\db\ActiveRecord
             redis::app()->hDel('ReceptionServe', $del);
         } else {
             redis::app()->hSet('ReceptionServe', $this->id, json_encode([
-                'title' => $this->title, 'content' => $this->content,
-                'sort' => $this->sort, 'image' => $this->image,
+                'name' => $this->name, 'content' => $this->content,
+                'sort' => $this->sort, 'smallImage' => $this->smallImage,
+                'bigImage' => $this->bigImage, 'resume' => $this->resume,
             ]));
         }
     }
 
     /**
-     * 插入模块
+     * 获取服务简述
      * @return string
      */
     public static function getServe()
     {
         $str = '';
-        $nav = redis::app()->hGetAll('ReceptionServe');
-        if ($nav) {
-            foreach ($nav as $k => &$v) {
+        $data = redis::app()->hGetAll('ReceptionServe');
+        if ($data) {
+            foreach ($data as $k => &$v) {
                 $v = json_decode($v, true);
                 $sort[$k] = $v['sort'];
             }
-            array_multisort($sort, SORT_ASC, $nav);
-            foreach ($nav as &$v) {
+            array_multisort($sort, SORT_ASC, $data);
+            foreach ($data as &$v) {
                 $str .= <<<HTML
                     <div class="item">
+                        <a href="/menu/menu/about">
                         <div class="single-feature">
-                            <div class="icon"><img style="width: 13rem;height: 10rem" src="{$v['image']}" class="img-responsive" alt=""></div>
-                            <h4 class="home3">{$v['title']}</h4>
-                            <p class="home4">{$v['content']}</p>
+                            <div class="icon"><img style="width: 12rem;height: 10rem" src="{$v['smallImage']}" class="img-responsive" alt=""></div>
+                            <h4 class="home3">{$v['name']}</h4>
+                            <p class="home4">{$v['resume']}</p>
                         </div>
+                        </a>
                     </div>
 HTML;
             }
+        }
+        return $str;
+    }
+
+    /**
+     * 获取服务详情
+     * @return string
+     */
+    public static function getServerContent()
+    {
+        $str = '';
+        $data = redis::app()->hGetAll('ReceptionServe');
+        if ($data) {
+            foreach ($data as $k => &$v) {
+                $v = json_decode($v, true);
+                $sort[$k] = $v['sort'];
+            }
+            array_multisort($sort, SORT_ASC, $data);
+            $strArr = [];
+            foreach ($data as &$v) {
+                $str = <<<HTML
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+                                <img src="{$v['bigImage']}" alt="" class="img-responsive" style="height: 30rem">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="message-box right-ab">
+                                <h3 style="text-align: center;font-size: 28px">{$v['name']}</h3>
+                               {$v['content']}
+                            </div>
+                        </div>
+                    </div>
+HTML;
+                array_push($strArr, $str);
+            }
+            $str = implode('<hr class="hr1">', $strArr);
         }
         return $str;
     }
