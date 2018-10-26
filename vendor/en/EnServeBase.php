@@ -6,7 +6,7 @@ use vendor\helpers\redis;
 use Yii;
 
 /**
- * This is the model class for table "en_module".
+ * This is the model class for table "en_serve".
  *
  * @property int $id
  * @property string $title 标题
@@ -15,14 +15,14 @@ use Yii;
  * @property int $sort 排序
  * @property string $remark 备注
  */
-class EnModuleBase extends \yii\db\ActiveRecord
+class EnServeBase extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'en_module';
+        return 'en_serve';
     }
 
     /**
@@ -71,12 +71,12 @@ class EnModuleBase extends \yii\db\ActiveRecord
      * 更新模块
      * @param bool $del
      */
-    public function updateModule($del = false)
+    public function updateServe($del = false)
     {
         if ($del) {
-            redis::app()->hDel('ReceptionModule', $del);
+            redis::app()->hDel('ReceptionServe', $del);
         } else {
-            redis::app()->hSet('ReceptionModule', $this->id, json_encode([
+            redis::app()->hSet('ReceptionServe', $this->id, json_encode([
                 'title' => $this->title, 'content' => $this->content,
                 'sort' => $this->sort, 'image' => $this->image,
             ]));
@@ -87,10 +87,10 @@ class EnModuleBase extends \yii\db\ActiveRecord
      * 插入模块
      * @return string
      */
-    public static function getModule()
+    public static function getServe()
     {
         $str = '';
-        $nav = redis::app()->hGetAll('ReceptionModule');
+        $nav = redis::app()->hGetAll('ReceptionServe');
         if ($nav) {
             foreach ($nav as $k => &$v) {
                 $v = json_decode($v, true);

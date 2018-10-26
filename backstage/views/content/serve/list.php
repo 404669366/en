@@ -14,7 +14,7 @@
                 </span>
             </div>
             <div class="col-sm-2">
-                <a class="btn btn-sm btn-info" href="/content/module/add">添加</a>
+                <a class="btn btn-sm btn-info" href="/content/serve/add">添加</a>
             </div>
         </div>
         <table class="table table-striped table-bordered table-hover dataTable" id="table">
@@ -34,7 +34,7 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/content/module/data',
+        url: '/content/serve/data',
         length: 10,
         columns: [
             {"data": "id"},
@@ -44,13 +44,13 @@
             {"data": "sort"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/content/module/edit?id=' + data + '">修改</a>&emsp;';
-                str += '<a class="btn btn-sm btn-danger" href="/content/module/del?id=' + data + '">删除</a>';
+                var str = '<a class="btn btn-sm btn-warning" href="/content/serve/edit?id=' + data + '">修改</a>&emsp;';
+                str += '<a class="btn btn-sm btn-danger" href="/content/serve/del?id=' + data + '">删除</a>';
                 return str;
             }
             }
         ],
-        default_order: [5, 'asc']
+        default_order: [4, 'asc']
     });
     myTable.search();
 </script>

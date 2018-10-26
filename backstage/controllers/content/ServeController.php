@@ -2,10 +2,10 @@
 namespace app\controllers\content;
 
 use app\controllers\basis\CommonController;
-use vendor\en\EnModuleBase;
+use vendor\en\EnServeBase;
 use vendor\helpers\Msg;
 
-Class ModuleController extends CommonController{
+Class ServeController extends CommonController{
     /**
      * 模块列表页渲染
      * @return string
@@ -22,7 +22,7 @@ Class ModuleController extends CommonController{
      */
     public function actionData()
     {
-        return $this->rTableData(EnModuleBase::getPageData());
+        return $this->rTableData(EnServeBase::getPageData());
     }
 
 
@@ -32,11 +32,11 @@ Class ModuleController extends CommonController{
      */
     public function actionAdd()
     {
-        $model = new EnModuleBase();
+        $model = new EnServeBase();
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
-            if ($model->load(['EnModuleBase' => $post]) && $model->validate() && $model->save()) {
-                $model->updateModule();
+            if ($model->load(['EnServeBase' => $post]) && $model->validate() && $model->save()) {
+                $model->updateServe();
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
@@ -54,11 +54,11 @@ Class ModuleController extends CommonController{
      */
     public function actionEdit($id)
     {
-        $model = EnModuleBase::findOne($id);
+        $model = EnServeBase::findOne($id);
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
-            if ($model->load(['EnModuleBase' => $post]) && $model->validate() && $model->save()) {
-                $model->updateModule();
+            if ($model->load(['EnServeBase' => $post]) && $model->validate() && $model->save()) {
+                $model->updateServe();
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
@@ -76,11 +76,11 @@ Class ModuleController extends CommonController{
      */
     public function actionDel($id)
     {
-        $model = EnModuleBase::findOne($id);
+        $model = EnServeBase::findOne($id);
         Msg::set('删除失败');
         if ($model->delete()) {
             Msg::set('删除成功');
-            $model->updateModule($id);
+            $model->updateServe($id);
         }
         return $this->redirect(['list']);
     }

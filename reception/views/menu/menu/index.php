@@ -48,7 +48,7 @@
     <div class="container">
         <div class="row">
             <div class="top-feature owl-carousel owl-theme">
-                <?= \vendor\en\EnModuleBase::getModule() ?>
+                <?= \vendor\en\EnServeBase::getServe() ?>
             </div>
         </div>
 
