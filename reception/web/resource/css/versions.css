@@ -253,7 +253,7 @@ body.realestate_version .da-thumbs .pitem a div i {
 }
 
 body.realestate_version #map {
-    height: 600px;
+    height: 40rem;
     position: relative;
     width: 100%;
     z-index: 1;
