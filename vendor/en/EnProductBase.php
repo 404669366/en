@@ -35,7 +35,7 @@ class EnProductBase extends \yii\db\ActiveRecord
             [['name'], 'unique'],
             [['name'], 'string', 'max' => 255],
             [['image'], 'string', 'max' => 600],
-            [['intro'], 'string', 'max' => 5000],
+            [['intro'], 'string', 'max' => 10000],
         ];
     }
 
