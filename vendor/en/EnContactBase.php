@@ -23,6 +23,7 @@ class EnContactBase extends \yii\db\ActiveRecord
         return 'en_contact';
     }
 
+
     /**
      * {@inheritdoc}
      */
