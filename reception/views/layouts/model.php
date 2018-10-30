@@ -11,10 +11,10 @@ $this->beginPage();
 <!--<meta http-equiv="refresh" content="180">-->
 <meta name="robots" content="index,follow">
 <title>
-    新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能科技有限公司
+    新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司
 </title>
-<meta name="keywords" content="新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能科技有限公司">
-<meta name="description" content="新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能科技有限公司">
+<meta name="keywords" content="新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司">
+<meta name="description" content="新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 <link rel="apple-touch-icon" href="/resource/images/apple-touch-icon.png">
 <?php $this->head(); ?>
