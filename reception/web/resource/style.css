@@ -1418,7 +1418,7 @@ body.realestate_version .header_style_01 .navbar-right > li.search-option form b
 
 .post-media {
     position: relative;
-	border: 8px solid #a8cf45;	
+	/*border: 8px solid #a8cf45;*/
 }
 
 .post-media img {
