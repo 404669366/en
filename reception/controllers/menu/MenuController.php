@@ -32,7 +32,7 @@ class MenuController extends BasisController
     }
     public function actionProduct()
     {
-        EnNavBase::setNow('产品简介');
+        EnNavBase::setNow('产品介绍');
         return $this->render('product');
     }
 
