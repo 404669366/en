@@ -2,19 +2,15 @@
 \app\assets\ModelAsset::register($this);
 \app\assets\ModelAsset::offDeBug();
 $this->beginPage();
+$nav = \vendor\en\EnNavBase::getNav();
 ?>
 <!DOCTYPE html>
 <html lang="zh">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!--<meta http-equiv="refresh" content="180">-->
 <meta name="robots" content="index,follow">
-<title>
-    新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司
-</title>
-<meta name="keywords" content="新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司">
-<meta name="description" content="新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司">
+<?=$nav['seoStr']?>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 <link rel="apple-touch-icon" href="/resource/images/apple-touch-icon.png">
 <?php $this->head(); ?>
@@ -29,7 +25,6 @@ $this->beginPage();
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
 <?php \vendor\helpers\Msg::run() ?>
-<?php $nav = \vendor\en\EnNavBase::getNav() ?>
 <div id="preloader">
     <span class="loader"><span class="loader-inner"></span></span>
 </div>

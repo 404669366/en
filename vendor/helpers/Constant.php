@@ -73,4 +73,21 @@ class Constant
     {
         return 5;
     }
+
+    /**
+     * 返回首页的配置属性
+     * @return array
+     */
+    public static function getNavIndex()
+    {
+        return [
+            'name' => '首页',
+            'url' => 'http://' . $_SERVER['SERVER_NAME'],
+            'refresh' => 0,
+            'title' => '新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司',
+            'keywords' => '新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司',
+            'description' => '新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司',
+            'sort' => 0,
+        ];
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Constant;
 use vendor\helpers\redis;
 use Yii;
 
@@ -11,6 +12,10 @@ use Yii;
  * @property string $id
  * @property string $name 名称
  * @property string $url 路由
+ * @property int $refresh 页面刷新时间
+ * @property string $title 页面标题
+ * @property string $keywords 页面关键词
+ * @property string $description 页面描述
  * @property string $sort 排序
  * @property string $background 背景图
  */
@@ -30,11 +35,13 @@ class EnNavBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sort', 'name', 'url'], 'required'],
+            [['sort', 'name', 'url', 'title', 'keywords', 'description'], 'required'],
             [['name'], 'unique'],
-            [['sort'], 'integer'],
+            [['sort', 'refresh'], 'integer'],
             [['name'], 'string', 'max' => 20],
+            [['title', 'keywords'], 'string', 'max' => 50],
             [['url'], 'string', 'max' => 255],
+            [['description'], 'string', 'max' => 300],
             [['background'], 'string', 'max' => 500],
         ];
     }
@@ -48,6 +55,10 @@ class EnNavBase extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => '名称',
             'url' => '路由',
+            'refresh' => '页面刷新时间',
+            'title' => '页面标题',
+            'keywords' => '页面关键词',
+            'description' => '页面描述',
             'sort' => '排序',
             'background' => '背景图',
         ];
@@ -75,7 +86,9 @@ class EnNavBase extends \yii\db\ActiveRecord
         } else {
             redis::app()->hSet('ReceptionNav', $this->id, json_encode([
                 'name' => $this->name, 'url' => $this->url,
-                'sort' => $this->sort, 'background' => $this->background
+                'sort' => $this->sort, 'background' => $this->background,
+                'title' => $this->title, 'refresh' => $this->refresh,
+                'keywords' => $this->keywords, 'description' => $this->description
             ]));
         }
     }
@@ -101,6 +114,7 @@ class EnNavBase extends \yii\db\ActiveRecord
             'topStr' => '',
             'botStr' => '',
             'headStr' => '',
+            'seoStr' => ''
         ];
         $nav = redis::app()->hGetAll('ReceptionNav');
         if ($nav) {
@@ -109,10 +123,14 @@ class EnNavBase extends \yii\db\ActiveRecord
                 $sort[$k] = $v['sort'];
             }
             array_multisort($sort, SORT_ASC, $nav);
-            array_unshift($nav, ['name' => '首页', 'url' => 'http://' . $_SERVER['SERVER_NAME'], 'sort' => 0]);
+            array_unshift($nav, Constant::getNavIndex());
             $now = \Yii::$app->session->get('ReceptionMenuNow');
             foreach ($nav as &$v) {
                 if ($v['name'] == $now) {
+                    $navStr['seoStr'] .= $v['refresh'] ? '<meta http-equiv="refresh" content="' . $v['refresh'] . '">' : '';
+                    $navStr['seoStr'] .= '<title>' . $v['title'] . '</title>';
+                    $navStr['seoStr'] .= '<meta name="keywords" content="' . $v['keywords'] . '">';
+                    $navStr['seoStr'] .= '<meta name="description" content="' . $v['description'] . '">';
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '" class="active">' . $v['name'] . '</a></li>';
                     if ($now != '首页') {
                         $navStr['headStr'] = <<<HTML

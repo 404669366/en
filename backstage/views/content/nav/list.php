@@ -20,6 +20,9 @@
                 <th>ID</th>
                 <th>名称</th>
                 <th>路由</th>
+                <th>页面刷新时间</th>
+                <th>页面标题</th>
+                <th>页面关键词</th>
                 <th>排序</th>
                 <th>操作</th>
             </tr>
@@ -36,6 +39,9 @@
             {"data": "id"},
             {"data": "name"},
             {"data": "url"},
+            {"data": "refresh"},
+            {"data": "title"},
+            {"data": "keywords"},
             {"data": "sort"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
@@ -45,7 +51,7 @@
             }
             }
         ],
-        default_order: [3, 'asc']
+        default_order: [6, 'asc']
     });
     myTable.search();
 </script>

@@ -25,14 +25,42 @@
         </div>
         <script>
             upload({
-                max:1,
-                name:'background',
-                height:16,
-                element:'.aaaaa',
+                max: 1,
+                name: 'background',
+                height: 16,
+                element: '.aaaaa',
                 uploadImgUrl: '/basis/file/upload',
                 removeImgUrl: '/basis/file/delete',
             });
         </script>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">页面标题</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="title" value="" placeholder="最好不要超过25个字(以 _ 链接)">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">页面关键词</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="keywords" value="" placeholder="最好不要超过32个字(以 , 链接)">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">页面描述</label>
+            <div class="col-sm-6">
+                <textarea class="form-control" name="description" placeholder="最好不要超过100个字(以空格链接)"></textarea>
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">页面刷新时间</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" name="refresh" value="" placeholder="0或不填写页面则不自动刷新">
+            </div>
+        </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">排序</label>
