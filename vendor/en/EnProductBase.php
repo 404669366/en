@@ -12,6 +12,12 @@ use Yii;
  * @property string $name 产品名称
  * @property string $image 图片
  * @property string $intro 产品介绍
+ * @property string $price 价格
+ * @property string $power 功率
+ * @property string $para 分段
+ * @property string $electric_loss 电损率
+ * @property string $availability 利用率
+ * @property string $electrovalency 参考服务费
  * @property int $sort 排序
  */
 class EnProductBase extends \yii\db\ActiveRecord
@@ -30,12 +36,16 @@ class EnProductBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name','image','intro'], 'required'],
-            [['sort'], 'integer'],
+            [['name', 'image', 'intro', 'price', 'power', 'para', 'electric_loss', 'availability', 'electrovalency'], 'required'],
             [['name'], 'unique'],
+            [['sort'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['image'], 'string', 'max' => 600],
             [['intro'], 'string', 'max' => 10000],
+            [['price'], 'string', 'max' => 20],
+            [['power'], 'string', 'max' => 8],
+            [['para'], 'string', 'max' => 30],
+            [['electric_loss', 'availability', 'electrovalency'], 'string', 'max' => 10],
         ];
     }
 
@@ -49,9 +59,16 @@ class EnProductBase extends \yii\db\ActiveRecord
             'name' => '产品名称',
             'image' => '图片',
             'intro' => '产品介绍',
+            'price' => '价格',
+            'power' => '功率',
+            'para' => '分段',
+            'electric_loss' => '电损率',
+            'availability' => '利用率',
+            'electrovalency' => '参考服务费',
             'sort' => '排序',
         ];
     }
+
     /**
      * 分页数据
      * @return mixed
@@ -59,7 +76,7 @@ class EnProductBase extends \yii\db\ActiveRecord
     public static function getPageData()
     {
         return self::find()
-            ->select(['id', 'name', 'sort'])
+            ->select(['id', 'name', 'price', 'power', 'para', 'electric_loss', 'availability', 'electrovalency', 'sort'])
             ->page([
                 'name' => ['like', 'name'],
             ]);
@@ -77,6 +94,9 @@ class EnProductBase extends \yii\db\ActiveRecord
             redis::app()->hSet('ReceptionProduct', $this->id, json_encode([
                 'name' => $this->name, 'image' => $this->image,
                 'sort' => $this->sort, 'intro' => $this->intro,
+                'price' => $this->price, 'power' => $this->power,
+                'para' => $this->para, 'electric_loss' => $this->electric_loss,
+                'availability' => $this->availability, 'electrovalency' => $this->electrovalency,
             ]));
         }
     }

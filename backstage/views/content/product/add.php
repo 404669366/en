@@ -10,8 +10,6 @@
                 <input type="text" class="form-control name" value="">
             </div>
         </div>
-
-
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">产品介绍</label>
@@ -45,6 +43,48 @@
         </script>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">价格</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control price" value="">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">功率</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control power" value="">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">购买数量分段</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control para" value="" placeholder="如有多个以 - 间隔">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">电损率</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control electric_loss" value="">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">利用率</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control availability" value="">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">参考服务费</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control electrovalency" value="">
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">排序</label>
             <div class="col-sm-2">
                 <input type="text" class="form-control sort" value="">
@@ -64,6 +104,12 @@
                     name: $('.name').val(),
                     image: $('[name="image"]').val(),
                     intro: $('.summernote').summernote('code'),
+                    price: $('.price').val(),
+                    power: $('.power').val(),
+                    para: $('.para').val(),
+                    electric_loss: $('.electric_loss').val(),
+                    availability: $('.availability').val(),
+                    electrovalency: $('.electrovalency').val(),
                     sort: $('.sort').val()
                 };
                 $.post('/content/product/save', data, function (re) {
