@@ -19,6 +19,12 @@
             <tr role="row">
                 <th>ID</th>
                 <th>产品名称</th>
+                <th>价格</th>
+                <th>功率</th>
+                <th>分段</th>
+                <th>电损</th>
+                <th>利用率</th>
+                <th>参考服务费</th>
                 <th>排序</th>
                 <th>操作</th>
             </tr>
@@ -34,6 +40,12 @@
         columns: [
             {"data": "id"},
             {"data": "name"},
+            {"data": "price"},
+            {"data": "power"},
+            {"data": "para"},
+            {"data": "electric_loss"},
+            {"data": "availability"},
+            {"data": "electrovalency"},
             {"data": "sort"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
