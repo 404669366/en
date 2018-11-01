@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50641
 File Encoding         : 65001
 
-Date: 2018-10-26 14:52:30
+Date: 2018-11-01 13:13:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -122,15 +122,17 @@ CREATE TABLE `en_images` (
   `remark` varchar(255) DEFAULT '' COMMENT '备注',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='图片墙配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='图片墙配置表';
 
 -- ----------------------------
 -- Records of en_images
 -- ----------------------------
-INSERT INTO `en_images` VALUES ('1', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810261451136anho5qk9.jpg', '案例1', '1');
-INSERT INTO `en_images` VALUES ('2', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026145127dvyjrjqx9.png', '案例2', '2');
-INSERT INTO `en_images` VALUES ('3', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/2018102614514765ew2ur1u.png', '案例3', '3');
-INSERT INTO `en_images` VALUES ('4', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026145207j42gocicv.jpg', '案例4', '4');
+INSERT INTO `en_images` VALUES ('1', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026150527QneQc3h93.jpg', '案例1', '1');
+INSERT INTO `en_images` VALUES ('2', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810261505381od1sggfo.jpg', '案例2', '2');
+INSERT INTO `en_images` VALUES ('3', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026150548pjfQpvybs.jpg', '案例3', '3');
+INSERT INTO `en_images` VALUES ('4', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026150556jp8dQha7w.jpg', '案例4', '4');
+INSERT INTO `en_images` VALUES ('5', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/2018102615060656xh37nki.jpg', '案例5', null);
+INSERT INTO `en_images` VALUES ('6', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026150616sthgdd3my.jpg', '案例6', null);
 
 -- ----------------------------
 -- Table structure for en_job
@@ -147,8 +149,8 @@ CREATE TABLE `en_job` (
 -- ----------------------------
 -- Records of en_job
 -- ----------------------------
-INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4,5,8,9,10,11,12,13,14,15,16,6,7');
-INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4,5,8,9,10,11,12,13,14,15,16,6,7');
+INSERT INTO `en_job` VALUES ('1', 'root', '0', '1,2,3,4,5,8,9,10,11,12,13,14,15,16,17,6,7');
+INSERT INTO `en_job` VALUES ('2', 'admin', '1', '1,2,4,5,8,9,10,11,12,13,14,15,16,17,6,7');
 
 -- ----------------------------
 -- Table structure for en_member
@@ -180,17 +182,22 @@ CREATE TABLE `en_nav` (
   `name` varchar(20) DEFAULT '' COMMENT '名称',
   `url` varchar(255) DEFAULT '' COMMENT '路由',
   `background` varchar(500) DEFAULT '' COMMENT '背景图',
+  `refresh` int(10) unsigned DEFAULT '0' COMMENT '页面刷新时间',
+  `title` varchar(50) DEFAULT '' COMMENT '页面标题',
+  `keywords` varchar(50) DEFAULT '' COMMENT '关键词',
+  `description` varchar(300) DEFAULT '' COMMENT '页面描述',
   `sort` int(10) unsigned DEFAULT '1' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='前台导航栏表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='前台导航栏表';
 
 -- ----------------------------
 -- Records of en_nav
 -- ----------------------------
-INSERT INTO `en_nav` VALUES ('2', '产品简介', '/menu/menu/about', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181025175356b9gyfzajz.jpg', '2');
-INSERT INTO `en_nav` VALUES ('3', '开放平台', '/menu/menu/service', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181025175409mn1h7oclz.jpg', '5');
-INSERT INTO `en_nav` VALUES ('4', '成功案例', '/menu/menu/gallery', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181025175422xihmvaanl.jpg', '4');
-INSERT INTO `en_nav` VALUES ('6', '联系我们', '/menu/menu/contact', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810251754548omQfuiQp.jpg', '6');
+INSERT INTO `en_nav` VALUES ('2', '业务介绍', '/menu/menu/about', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026172853c2flq92ew.jpg', '0', '新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司', '新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司', '新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司', '2');
+INSERT INTO `en_nav` VALUES ('3', '开放平台', '/menu/menu/service', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026172956qt5pnqt2v.jpg', '0', '新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司', '新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司', '新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司', '5');
+INSERT INTO `en_nav` VALUES ('4', '成功案例', '/menu/menu/gallery', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810261729481cesyx6ho.jpg', '0', '新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司', '新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司', '新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司', '4');
+INSERT INTO `en_nav` VALUES ('6', '联系我们', '/menu/menu/contact', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/201810261730051cwzjk5sm.jpg', '0', '新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司', '新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司', '新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司', '6');
+INSERT INTO `en_nav` VALUES ('7', '产品介绍', '/menu/menu/product', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181030160919Qf2wcjof4.jpg', '0', '新能源_充电桩_充电桩_充电桩场地_充电桩投资_信息咨询平台_四川亿能_四川亿能科技有限公司', '新能源，充电桩，充电站，充电桩场地，充电桩投资，信息咨询平台，四川亿能，四川亿能科技有限公司', '新能源 充电桩场地 充电桩投资 信息咨询平台 四川亿能 四川亿能科技有限公司', '3');
 
 -- ----------------------------
 -- Table structure for en_open
@@ -223,7 +230,7 @@ CREATE TABLE `en_power` (
   `url` varchar(100) DEFAULT '' COMMENT '权限路由',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 -- ----------------------------
 -- Records of en_power
@@ -244,6 +251,31 @@ INSERT INTO `en_power` VALUES ('13', '5', 'yi17v4vi', '1', '友情链接管理',
 INSERT INTO `en_power` VALUES ('14', '5', 'no1vvr5l', '1', '联系方式管理', '/content/contact/list', '993');
 INSERT INTO `en_power` VALUES ('15', '5', 'z4g2fhea', '1', '开放管理', '/content/open/list', '995');
 INSERT INTO `en_power` VALUES ('16', '5', 'yfsaclxf', '1', '业务员信息管理', '/content/salesman/list', '992');
+INSERT INTO `en_power` VALUES ('17', '5', 'c2yvpb8k', '1', '产品管理', '/content/product/list', '995');
+
+-- ----------------------------
+-- Table structure for en_product
+-- ----------------------------
+DROP TABLE IF EXISTS `en_product`;
+CREATE TABLE `en_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT '' COMMENT '产品名称',
+  `image` varchar(600) DEFAULT '' COMMENT '图片',
+  `intro` varchar(10000) DEFAULT '' COMMENT '产品介绍',
+  `price` varchar(20) DEFAULT '' COMMENT '价格',
+  `power` varchar(8) DEFAULT '' COMMENT '功率',
+  `para` varchar(30) DEFAULT '' COMMENT '分段',
+  `electric_loss` varchar(10) DEFAULT '' COMMENT '电损率',
+  `availability` varchar(10) DEFAULT '' COMMENT '利用率',
+  `electrovalency` varchar(10) DEFAULT '' COMMENT '参考服务费',
+  `sort` int(11) DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='产品配置表';
+
+-- ----------------------------
+-- Records of en_product
+-- ----------------------------
+INSERT INTO `en_product` VALUES ('6', '360KW分体式充电桩', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181030162459194vmyukh.png', '<p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">产品简介</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">畅享系列直流充电桩可根据充电模块安装数量实现15KW-360KW不同功率配置。柔性功率分配，提高充电效率和设备利用率，既可满足快速充电需求，同时也可满足群充充电需求。主要应用于城市快充站、公交场站等需求大功率直流快充的充电场站。</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">功能特点</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">智能</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">超大功率输出，充电速度更快</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">一拖多群充设计，可支持20辆车同时充电，无需夜间挪车</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">支持轮充、均充、智能充多种充电策略，充电方式更灵活</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">车充自动识别，智能快捷</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">CMS柔性充电，延长电池30%寿命周期</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">低成本</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">柔性功率分配，提高设备利用率，降低初始投资成本</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">传热流体分析技术，满载散热量低至5%，降低电损费用</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">No-Load功率智能控制，超低待机功耗，降低运营费用</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">定制化峰谷计费功能，节省充电成本</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">安全</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">可靠AFCI（电弧故障分断功能），有效防止直流拉弧风险</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">充电数据管家式管理，确保用户充电数据完整性与安全性</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">整机运行状态监测、控制保护功能，确保用户充电安全</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">易维护</span></p><p style=\"line-height: 1;\"><span style=\"font-size: 8px;\">模块化设计，配置易于维护</span></p>', '', '', '', '', '', '', '1');
 
 -- ----------------------------
 -- Table structure for en_salesman
@@ -258,11 +290,12 @@ CREATE TABLE `en_salesman` (
   `tel` varchar(11) DEFAULT '' COMMENT '电话',
   `sort` tinyint(2) DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='业务员配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='业务员配置表';
 
 -- ----------------------------
 -- Records of en_salesman
 -- ----------------------------
+INSERT INTO `en_salesman` VALUES ('4', '西南地区业务', '负责云、贵、川地区销售，合伙人招募，企业政府申报业务。', 'https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026152152ri9ph6x9s.jpg', '吴经理', '18581501718', '1');
 
 -- ----------------------------
 -- Table structure for en_serve
@@ -281,4 +314,22 @@ CREATE TABLE `en_serve` (
 
 -- ----------------------------
 -- Records of en_serve
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for en_transformer
+-- ----------------------------
+DROP TABLE IF EXISTS `en_transformer`;
+CREATE TABLE `en_transformer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT '' COMMENT '变压器名称',
+  `min` varchar(255) DEFAULT '' COMMENT '最小值',
+  `max` varchar(255) DEFAULT '' COMMENT '最大值',
+  `price` decimal(10,0) DEFAULT '0' COMMENT '价格',
+  `sort` int(11) DEFAULT '0' COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='变压器配置表';
+
+-- ----------------------------
+-- Records of en_transformer
 -- ----------------------------
