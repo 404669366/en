@@ -66,17 +66,104 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+<div class="pop">
+    <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+    <h1>12e12e21e12e</h1>
+    <p>
+        anoiudnawiodnawoindoawmdlmcklsniucbaiubcajiddddddddddwbnnnnnbnuiwdnoawidnoainckoamnxklandiojwabndiuawbfcjksnmv,dncm,andwabdiuawbdiuawbiuda</p>
+    <a class="myButton">立即前往</a>
+</div>
+<style>
+    .pop {
+        display: none;
+        width: 64%;
+        height: 44%;
+        background: url("/resource/images/pop.jpg") no-repeat center;
+        background-size: 100% 100%;
+        opacity: 1;
+        position: fixed;
+        z-index: 9999999;
+        padding: 2rem;
+        border-radius: 10px;
+    }
 
+    .pop .close {
+        width: 2.2rem;
+        height: 2.2rem;
+        /*background: url("/resource/images/close.png") no-repeat center;
+        background-size: 100% 100%;*/
+        color: white;
+        text-align: center;
+        line-height: 2.2rem;
+        font-size: 2.4rem;
+        position: absolute;
+        top: 0.6rem;
+        right: 0.6rem;
+        opacity: 0.9;
+        cursor: pointer;
+        z-index: 99999999999;
+    }
+
+    .pop .close:hover {
+        opacity: 1.8;
+    }
+
+    .pop h1 {
+        line-height: 4rem !important;
+        font-size: 26px;
+        text-align: center;
+        color: #444;
+    }
+
+    .pop p {
+        height: 70%;
+        color: #444;
+        font-size: 20px;
+        text-indent: 40px;
+        word-wrap: break-word;
+        overflow-y: auto;
+    }
+
+    .pop p::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pop .myButton {
+        text-align: center;
+        display: block;
+        margin: 0 auto;
+        border: 0;
+        border-radius: 4px;
+        line-height: 3rem;
+        width: 10rem;
+        color: #f5f5f5;
+        background: #A8CF45;
+        cursor: pointer;
+        box-shadow: 2px 2px 10px #888888;
+    }
+
+    .pop .myButton:hover {
+        color: #f3f3f3 !important;
+    }
+</style>
 <script type="text/javascript">
+    $(document).ready(function () {
+        $('.pop')
+            .css('left', ($('body').width() - $('.pop').width()) / 2 + 'px')
+            .css('top', ($('body').height() - $('.pop').height()) / 2 + 'px')
+            .fadeIn()
+            .find('.close').click(function () {
+            $(this).parent('.pop').fadeOut();
+        });
+    });
     $('.up').click(function () {
         var data = {
             name: $('.name').val(),
             tel: $('.tel').val(),
             type: $('.type').val(),
-        }
+        };
         if (checkData(data)) {
             $.getJSON('/amend/amend/save', data, function (re) {
                 if (re.type) {
