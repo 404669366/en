@@ -3,7 +3,6 @@
 namespace vendor\en;
 
 use vendor\helpers\redis;
-use Yii;
 
 /**
  * This is the model class for table "{{%en_transformer}}".
@@ -31,11 +30,11 @@ class EnTransformerBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'min', 'max', 'price'], 'required'],
-            [['name', 'unique']],
-            [['price'], 'number'],
-            [['sort'], 'integer'],
-            [['name', 'min', 'max'], 'string', 'max' => 255],
+            [['name', 'max', 'price'], 'required'],
+            [['name'], 'unique'],
+            [['price'], 'string'],
+            [['sort', 'min', 'max'], 'integer'],
+            [['name'], 'string', 'max' => 255],
         ];
     }
 
@@ -61,7 +60,10 @@ class EnTransformerBase extends \yii\db\ActiveRecord
     public static function getMin()
     {
         $min = self::find()->select(['max(max) as min'])->asArray()->one();
-        return $min ? $min['min'] : 0;
+        if ($min && $min['min']) {
+            return $min['min'];
+        }
+        return 0;
     }
 
     /**

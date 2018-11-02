@@ -47,7 +47,11 @@ class MenuController extends BasisController
         EnNavBase::setNow('成功案例');
         return $this->render('gallery');
     }
-
+        public function actionBudget()
+    {
+        EnNavBase::setNow('收益预算');
+        return $this->render('budget');
+    }
     public function actionContact()
     {
         EnNavBase::setNow('联系我们');

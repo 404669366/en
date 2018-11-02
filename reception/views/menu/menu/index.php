@@ -70,7 +70,7 @@
 </div>
 <div class="pop">
     <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
-    <a class="myButton">立即前往</a>
+    <a class="myButton" href="/menu/menu/budget">立即前往</a>
 </div>
 <script type="text/javascript">
 
