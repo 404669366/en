@@ -2655,7 +2655,7 @@ select.mobile-device {
 }
 
 #navbar ul li a {
-    color: #a8cf45;
+    color: #62C8F5;
 }
 
 #navbar ul li a:hover {
@@ -2682,7 +2682,7 @@ select.mobile-device {
 .pop .close {
     width: 2.2rem;
     height: 2.2rem;
-    color: white;
+    color: whitesmoke;
     text-align: center;
     line-height: 2.2rem;
     font-size: 2.4rem;

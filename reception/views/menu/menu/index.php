@@ -80,7 +80,7 @@
         });
     });
 
-    
+
     $('.up').click(function () {
         var data = {
             name: $('.name').val(),
