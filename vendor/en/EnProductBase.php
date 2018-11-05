@@ -174,7 +174,12 @@ HTML;
         return '';
     }
 
-    public static function budget($data)
+    /**
+     * 基础预测
+     * @param $data
+     * @return array
+     */
+    public static function baseBudget($data)
     {
         $result = [
             'piles' => [],

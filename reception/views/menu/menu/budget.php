@@ -1,6 +1,6 @@
 <div class="about-box">
     <div class="contact_form ruleList">
-        <p class="name">配置单</p>
+        <p class="adawdwadawd">配置单</p>
         <div class="row btnBox">
             <div class="col-sm-offset-4 col-sm-2 col-xs-offset-2 col-xs-4">
                 <button type="button" class="addRule">添加配置</button>
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="contact_form row cost">
-        <p class="name">成本预测</p>
+        <p class="adawdwadawd">成本预测</p>
         <div class="col-md-offset-1 col-md-10">
             <table class="table table-bordered costList"></table>
         </div>
@@ -63,7 +63,7 @@
                 }
             });
             if (data.length) {
-                $.getJSON('/budget/budget/budget', {data: JSON.stringify(data)}, function (re) {
+                $.getJSON('/budget/budget/base-budget', {data: JSON.stringify(data)}, function (re) {
                     if (re.type) {
                         var str = '<tr>\n' +
                             '                    <td>电桩</td>\n' +

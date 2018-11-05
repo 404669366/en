@@ -14,10 +14,10 @@ use vendor\en\EnProductBase;
 
 class BudgetController extends BasisController
 {
-    public function actionBudget($data)
+    public function actionBaseBudget($data)
     {
 
-        if ($re = EnProductBase::budget(json_decode($data, true))) {
+        if ($re = EnProductBase::baseBudget(json_decode($data, true))) {
             return $this->rJson($re);
         }
         return $this->rJson('', false);

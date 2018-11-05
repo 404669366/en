@@ -12,7 +12,7 @@
                     <form id="contactform" class="row" action="" name="contactform" method="post">
                         <fieldset class="row-fluid">
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
-                                <input type="text" name="name" id="first_name" class="form-control name"
+                                <input type="text" name="name" class="form-control name"
                                        placeholder="姓名"">
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">
