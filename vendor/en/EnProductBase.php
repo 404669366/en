@@ -151,7 +151,9 @@ HTML;
         if ($id) {
             $data = redis::app()->hGet('ReceptionProduct', $id);
             if ($data) {
-                return json_decode($data, true);
+                $data = json_decode($data, true);
+                unset($data['intro'], $data['image']);
+                return $data;
             }
             return [];
         }
@@ -164,6 +166,7 @@ HTML;
             array_multisort($sort, SORT_ASC, $data);
             $arr = [];
             foreach ($data as &$v) {
+                unset($v['intro'], $v['image']);
                 $arr[$v['id']] = $v;
             }
             return json_encode($arr);
