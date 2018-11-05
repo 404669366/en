@@ -99,7 +99,7 @@ class EnTransformerBase extends \yii\db\ActiveRecord
     /**
      * 获取变压器缓存
      * @param int $all
-     * @return int
+     * @return array|mixed
      */
     public static function getNowTransformer($all = 0)
     {
@@ -107,9 +107,9 @@ class EnTransformerBase extends \yii\db\ActiveRecord
         foreach ($transformer as $v) {
             $v = json_decode($v, true);
             if ($v['min'] < $all && $all <= $v['max']) {
-                return $v['price'];
+                return $v;
             }
         }
-        return 0;
+        return ['name' => '----', 'min' => '----', 'max' => '----', 'price' => 0];
     }
 }

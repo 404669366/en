@@ -97,6 +97,7 @@ class EnProductBase extends \yii\db\ActiveRecord
                 'price' => $this->price, 'power' => $this->power,
                 'para' => $this->para, 'electric_loss' => $this->electric_loss,
                 'availability' => $this->availability, 'electrovalency' => $this->electrovalency,
+                'id' => $this->id
             ]));
         }
     }
@@ -138,5 +139,61 @@ HTML;
             $str = implode('<hr class="hr1">', $strArr);
         }
         return $str;
+    }
+
+    /**
+     * 返回产品信息
+     * @param int $id
+     * @return array|mixed|string
+     */
+    public static function getPiles($id = 0)
+    {
+        if ($id) {
+            $data = redis::app()->hGet('ReceptionProduct', $id);
+            if ($data) {
+                return json_decode($data, true);
+            }
+            return [];
+        }
+        $data = redis::app()->hGetAll('ReceptionProduct');
+        if ($data) {
+            foreach ($data as $k => &$v) {
+                $v = json_decode($v, true);
+                $sort[$k] = $v['sort'];
+            }
+            array_multisort($sort, SORT_ASC, $data);
+            $arr = [];
+            foreach ($data as &$v) {
+                $arr[$v['id']] = $v;
+            }
+            return json_encode($arr);
+        }
+        return '';
+    }
+
+    public static function budget($data)
+    {
+        $result = [
+            'piles' => [],
+            'transformer' => [],
+            'totalPower' => 0,
+            'totalPrice' => 0,
+        ];
+        foreach ($data as $v) {
+            $pile = self::getPiles($v['id']);
+            array_push($result['piles'], [
+                'name' => $pile['name'], 'power' => $pile['power'],
+                'num' => $v['num'], 'gunPower' => $pile['power'] / $v['num'],
+                'price' => $pile['price']
+            ]);
+            $result['totalPower'] += $pile['power'];
+            $result['totalPrice'] += $pile['price'];
+        }
+        if ($result['piles']) {
+            $result['transformer'] = EnTransformerBase::getNowTransformer($result['totalPower']);
+            $result['totalPrice'] += $result['transformer']['price'];
+            return $result;
+        }
+        return [];
     }
 }

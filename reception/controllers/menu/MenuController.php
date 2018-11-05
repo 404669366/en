@@ -49,7 +49,7 @@ class MenuController extends BasisController
     }
         public function actionBudget()
     {
-        EnNavBase::setNow('收益预算');
+        EnNavBase::setNow('收益预测');
         return $this->render('budget');
     }
     public function actionContact()
