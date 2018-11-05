@@ -184,13 +184,15 @@ HTML;
         ];
         foreach ($data as $v) {
             $pile = self::getPiles($v['id']);
-            array_push($result['piles'], [
-                'name' => $pile['name'], 'power' => $pile['power'],
-                'num' => $v['num'], 'gunPower' => $pile['power'] / $v['num'],
-                'price' => $pile['price']
-            ]);
-            $result['totalPower'] += $pile['power'];
-            $result['totalPrice'] += $pile['price'];
+            if ($pile) {
+                array_push($result['piles'], [
+                    'name' => $pile['name'], 'power' => $pile['power'],
+                    'num' => $v['num'], 'gunPower' => $pile['power'] / $v['num'],
+                    'price' => $pile['price']
+                ]);
+                $result['totalPower'] += $pile['power'];
+                $result['totalPrice'] += $pile['price'];
+            }
         }
         if ($result['piles']) {
             $result['transformer'] = EnTransformerBase::getNowTransformer($result['totalPower']);
