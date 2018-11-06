@@ -125,12 +125,15 @@ class EnNavBase extends \yii\db\ActiveRecord
             array_multisort($sort, SORT_ASC, $nav);
             array_unshift($nav, Constant::getNavIndex());
             $now = \Yii::$app->session->get('ReceptionMenuNow');
+            $navStr['seoStr'] = EnArticleBase::newsSeo();
             foreach ($nav as &$v) {
                 if ($v['name'] == $now) {
-                    $navStr['seoStr'] .= $v['refresh'] ? '<meta http-equiv="refresh" content="' . $v['refresh'] . '">' : '';
-                    $navStr['seoStr'] .= '<title>' . $v['title'] . '</title>';
-                    $navStr['seoStr'] .= '<meta name="keywords" content="' . $v['keywords'] . '">';
-                    $navStr['seoStr'] .= '<meta name="description" content="' . $v['description'] . '">';
+                    if (!$navStr['seoStr']) {
+                        $navStr['seoStr'] .= $v['refresh'] ? '<meta http-equiv="refresh" content="' . $v['refresh'] . '">' : '';
+                        $navStr['seoStr'] .= '<title>' . $v['title'] . '</title>';
+                        $navStr['seoStr'] .= '<meta name="keywords" content="' . $v['keywords'] . '">';
+                        $navStr['seoStr'] .= '<meta name="description" content="' . $v['description'] . '">';
+                    }
                     $navStr['topStr'] .= '<li><a href="' . $v['url'] . '" class="active">' . $v['name'] . '</a></li>';
                     if ($now != '首页') {
                         $navStr['headStr'] = <<<HTML

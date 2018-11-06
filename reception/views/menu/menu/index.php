@@ -79,8 +79,6 @@
             $(this).parent('.pop').fadeOut();
         });
     });
-
-
     $('.up').click(function () {
         var data = {
             name: $('.name').val(),

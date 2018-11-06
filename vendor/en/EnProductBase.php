@@ -12,6 +12,7 @@ use Yii;
  * @property string $name 产品名称
  * @property string $image 图片
  * @property string $intro 产品介绍
+ * @property string $summary 产品简介
  * @property string $price 价格
  * @property string $power 功率
  * @property string $para 分段
@@ -36,10 +37,10 @@ class EnProductBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'image', 'intro', 'price', 'power', 'para', 'electric_loss', 'availability', 'electrovalency'], 'required'],
+            [['name', 'image', 'intro', 'price', 'power', 'para', 'electric_loss', 'availability', 'electrovalency', 'summary'], 'required'],
             [['name'], 'unique'],
             [['sort'], 'integer'],
-            [['name'], 'string', 'max' => 255],
+            [['name', 'summary'], 'string', 'max' => 255],
             [['image'], 'string', 'max' => 600],
             [['intro'], 'string', 'max' => 10000],
             [['price'], 'string', 'max' => 20],
@@ -59,6 +60,7 @@ class EnProductBase extends \yii\db\ActiveRecord
             'name' => '产品名称',
             'image' => '图片',
             'intro' => '产品介绍',
+            'summary' => '产品简介',
             'price' => '价格',
             'power' => '功率',
             'para' => '分段',
@@ -96,8 +98,8 @@ class EnProductBase extends \yii\db\ActiveRecord
                 'sort' => $this->sort, 'intro' => $this->intro,
                 'price' => $this->price, 'power' => $this->power,
                 'para' => $this->para, 'electric_loss' => $this->electric_loss,
-                'availability' => $this->availability, 'electrovalency' => $this->electrovalency,
-                'id' => $this->id
+                'summary' => $this->summary, 'availability' => $this->availability,
+                'electrovalency' => $this->electrovalency, 'id' => $this->id
             ]));
         }
     }
@@ -117,26 +119,35 @@ class EnProductBase extends \yii\db\ActiveRecord
                 $sort[$k] = $v['sort'];
             }
             array_multisort($sort, SORT_ASC, $data);
-            $strArr = [];
             foreach ($data as &$v) {
-                $str = <<<HTML
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                                <img src="{$v['image']}" alt="" class="img-responsive" style="height: 30rem">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="message-box right-ab">
-                                <h3 style="text-align: center;font-size: 28px">{$v['name']}</h3>
-                               {$v['intro']}
-                            </div>
+                $str .= <<<HTML
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="service-widget">
+                    <div class="property-main">
+                        <div class="property-wrap">
+                            <figure class="post-media wow fadeIn">
+                                <a href="/product/product/detail?id={$v['id']}" class="hoverbutton global-radius"><i
+                                            class="flaticon-unlink"></i></a>
+                                <img src="{$v['image']}" alt="" class="img-responsive" style="height: 24rem">
+                                <div class="price">
+                                    <span class="item-sub-price">￥{$v['price']}</span>
+                                </div>
+                            </figure>
+                            <a href="/product/product/detail?id={$v['id']}">
+                                <div class="item-body">
+
+                                    <h3>{$v['name']}</h3>
+                                    <div class="info">
+                                      {$v['summary']}
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
+                </div>
+            </div>
 HTML;
-                array_push($strArr, $str);
             }
-            $str = implode('<hr class="hr1">', $strArr);
         }
         return $str;
     }
@@ -205,5 +216,15 @@ HTML;
             return $result;
         }
         return [];
+    }
+
+    /**
+     * 返回产品详情
+     * @param int $id
+     * @return mixed
+     */
+    public static function getDetail($id = 0)
+    {
+        return json_decode(redis::app()->hGet('ReceptionProduct', $id), true);
     }
 }

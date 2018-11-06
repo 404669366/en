@@ -52,6 +52,11 @@ class MenuController extends BasisController
         EnNavBase::setNow('收益预测');
         return $this->render('budget');
     }
+    public function actionNews()
+    {
+        EnNavBase::setNow('新闻动态');
+        return $this->render('news');
+    }
     public function actionContact()
     {
         EnNavBase::setNow('联系我们');

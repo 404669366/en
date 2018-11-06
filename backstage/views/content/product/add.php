@@ -12,6 +12,13 @@
         </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">产品简介</label>
+            <div class="col-sm-2">
+                <textarea class="form-control summary"></textarea>
+            </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">产品介绍</label>
             <div class="col-sm-10">
                 <div class="summernote"></div>
@@ -102,6 +109,7 @@
                 var data = {
                     _csrf: $('._csrf').val(),
                     name: $('.name').val(),
+                    summary: $('.summary').val(),
                     image: $('[name="image"]').val(),
                     intro: $('.summernote').summernote('code'),
                     price: $('.price').val(),
