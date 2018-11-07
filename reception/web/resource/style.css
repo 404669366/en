@@ -2739,7 +2739,7 @@ select.mobile-device {
     padding: 0 !important;
 }
 
-.upRule, .addRule {
+.upRule, .addRule, .detailBtn {
     display: block;
     margin: 0 auto 10px 1rem;
     text-align: center;
@@ -2776,6 +2776,15 @@ select.mobile-device {
 
 .cost td {
     text-align: center;
+}
+
+.detailBtnBox {
+    display: none;
+}
+
+.detailBtn {
+    margin: 0 auto;
+    width: 10rem;
 }
 
 

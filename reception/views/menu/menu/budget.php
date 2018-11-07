@@ -16,6 +16,23 @@
             <table class="table table-bordered costList"></table>
         </div>
     </div>
+    <div class="contact_form row detailBtnBox">
+        <div class="col-sm-offset-2 col-sm-4">
+            <input type="tel" class="form-control tel" placeholder="手机号">
+        </div>
+        <div class="col-sm-2">
+            <input type="text" class="form-control code" placeholder="验证码">
+        </div>
+        <div class="col-sm-2">
+            <button type="button" class="detailBtn">获取收益预测</button>
+        </div>
+    </div>
+    <div class="contact_form row cost">
+        <p class="adawdwadawd">收益预测</p>
+        <div class="col-md-offset-1 col-md-10">
+            <table class="table table-bordered costList"></table>
+        </div>
+    </div>
 </div>
 <script>
     $(document).ready(function () {
@@ -97,8 +114,9 @@
                             '   </tr>';
                         $('.costList').html(str);
                         $('.cost').fadeIn();
+                        $('.detailBtnBox').fadeIn();
                     } else {
-                        layer.msg('获取预测失败');
+                        layer.msg('拉取预测信息失败');
                     }
                 });
             } else {

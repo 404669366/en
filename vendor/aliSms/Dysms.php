@@ -11,8 +11,8 @@ namespace vendor\aliSms;
 
 class Dysms
 {
-    private static $accessKeyId = 'LTAIX4UyfdIq5jZT';
-    private static $accessKeySecret = 'KFxxbKAl6HnUhJZu3Itrks1p2nxY85';
+    private static $accessKeyId = 'LTAI9s99tZC58pzG';
+    private static $accessKeySecret = 'usmBiqxU7jMYV9Gz7qSToq8J1Q8lWb';
 
     /**
      * 发送单条短信
@@ -22,7 +22,7 @@ class Dysms
      * @param string $signName
      * @return bool|\stdClass
      */
-    public static function sendSms($tel = '', $tpl = [], $templateCode = 'SMS_127835100', $signName = '聚马飞腾')
+    public static function sendSms($tel = '', $tpl = [], $templateCode = 'SMS_150490675', $signName = '四川彭旭')
     {
         $params["PhoneNumbers"] = $tel;
         $params["SignName"] = $signName;
