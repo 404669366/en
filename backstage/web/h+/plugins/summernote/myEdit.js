@@ -38,7 +38,7 @@ function myEdit(config) {
             ['color', ['color']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['table', ['table']],
-            ['insert', ['link', 'picture']],
+            ['insert', ['link', 'picture','video']],
             ['view', ['fullscreen', 'codeview', 'help']]
         ],
         callbacks: callbacks
