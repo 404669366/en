@@ -13,21 +13,21 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">SEO关键词</label>
             <div class="col-sm-2">
-                <input type="text" class="form-control seo_keywords"  value="">
+                <input type="text" class="form-control seo_keywords"  value=""  placeholder="突出文章重点的的关键词，25个字内">
             </div>
         </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">SEO标题</label>
             <div class="col-sm-2">
-                <input type="text" class="form-control seo_title"  value="">
+                <input type="text" class="form-control seo_title"  value="" placeholder="为标题的内容，32个字内">
             </div>
         </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">SEO内容描述</label>
             <div class="col-sm-2">
-                <textarea class="form-control seo_content"></textarea>
+                <textarea class="form-control seo_content" placeholder="突出文章中心的内容，100个字内"></textarea>
             </div>
         </div>
         <div class="hr-line-dashed"></div>
