@@ -11,6 +11,7 @@ use Yii;
  * @property int $id
  * @property string $name 产品名称
  * @property string $image 图片
+ * @property string $parameter 参数图片
  * @property string $intro 产品介绍
  * @property string $summary 产品简介
  * @property string $price 价格
@@ -37,11 +38,11 @@ class EnProductBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'image', 'intro', 'price', 'power', 'para', 'electric_loss', 'availability', 'electrovalency', 'summary'], 'required'],
+            [['name', 'image', 'intro', 'price', 'power', 'para', 'electric_loss', 'availability', 'electrovalency', 'summary', 'parameter'], 'required'],
             [['name'], 'unique'],
             [['sort'], 'integer'],
             [['name', 'summary'], 'string', 'max' => 255],
-            [['image'], 'string', 'max' => 600],
+            [['image', 'parameter'], 'string', 'max' => 600],
             [['intro'], 'string', 'max' => 10000],
             [['price'], 'string', 'max' => 20],
             [['power'], 'string', 'max' => 8],
@@ -59,6 +60,7 @@ class EnProductBase extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => '产品名称',
             'image' => '图片',
+            'parameter' => '参数图片',
             'intro' => '产品介绍',
             'summary' => '产品简介',
             'price' => '价格',
@@ -99,7 +101,8 @@ class EnProductBase extends \yii\db\ActiveRecord
                 'price' => $this->price, 'power' => $this->power,
                 'para' => $this->para, 'electric_loss' => $this->electric_loss,
                 'summary' => $this->summary, 'availability' => $this->availability,
-                'electrovalency' => $this->electrovalency, 'id' => $this->id
+                'electrovalency' => $this->electrovalency, 'id' => $this->id,
+                'parameter' => $this->parameter
             ]));
         }
     }
@@ -163,7 +166,7 @@ HTML;
             $data = redis::app()->hGet('ReceptionProduct', $id);
             if ($data) {
                 $data = json_decode($data, true);
-                unset($data['intro'], $data['image']);
+                unset($data['intro'], $data['image'], $data['parameter']);
                 return $data;
             }
             return [];
@@ -177,7 +180,7 @@ HTML;
             array_multisort($sort, SORT_ASC, $data);
             $arr = [];
             foreach ($data as &$v) {
-                unset($v['intro'], $v['image']);
+                unset($v['intro'], $v['image'], $v['parameter']);
                 $arr[$v['id']] = $v;
             }
             return json_encode($arr);

@@ -103,7 +103,7 @@ class EnArticleBase extends \yii\db\ActiveRecord
                             <figure class="post-media wow fadeIn">
                                 <a href="/news/news/detail?id={$v['id']}" class="hoverbutton global-radius"><i
                                             class="flaticon-unlink"></i></a>
-                                <img src="{$v['image']}" alt="" class="img-responsive" style="height: 24rem">
+                                <img src="{$v['image']}" alt="" class="img-responsive" style="height: 30rem">
                             </figure>
                             <a href="/news/news/detail?id={$v['id']}">
                                 <div class="item-body">
