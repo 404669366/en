@@ -3,5 +3,7 @@
     <div style="margin: 10rem 1.6rem 0 1.6rem">
         <?= $model['intro'] ?>
     </div>
-    <img src="<?= $model['parameter']?>" style="width: 86%;margin: 0 auto;display: block">
+    <div class="row">
+        <img src="<?= $model['parameter']?>" class="col-sm-offset-3 col-sm-6 col-xs-offset-1 col-xs-10">
+    </div>
 </div>
