@@ -52,6 +52,24 @@
         </script>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
+            <label class="col-sm-2 control-label">参数图片</label>
+            <div class="col-sm-8">
+                <div class="b"></div>
+            </div>
+        </div>
+        <script>
+            upload({
+                max: 1,
+                name: 'parameter',
+                height: 16,
+                element: '.b',
+                uploadImgUrl: '/basis/file/upload',
+                removeImgUrl: '/basis/file/delete',
+                default: `<?=$model->parameter?>`
+            });
+        </script>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
             <label class="col-sm-2 control-label">价格</label>
             <div class="col-sm-2">
                 <input type="text" class="form-control price" value="<?= $model->price ?>">
@@ -113,6 +131,7 @@
                     id: '<?=$model->id?>',
                     name: $('.name').val(),
                     summary: $('.summary').val(),
+                    parameter: $('[name="parameter"]').val(),
                     image: $('[name="image"]').val(),
                     intro: $('.summernote').summernote('code'),
                     price: $('.price').val(),

@@ -1,6 +1,7 @@
 <div class="about-box">
-    <img src="<?=$model['image']?>" style="width: 50%;margin: 0 auto;display: block;max-height: 40rem;">
-    <div style="width: 60%;margin: 10rem auto 0 auto">
+    <img src="<?= $model['image'] ?>" style="margin: 0 auto;display: block;height: 30rem;">
+    <div style="margin: 10rem 1.6rem 0 1.6rem">
         <?= $model['intro'] ?>
     </div>
+    <img src="<?= $model['parameter']?>" style="width: 86%;margin: 0 auto;display: block">
 </div>
