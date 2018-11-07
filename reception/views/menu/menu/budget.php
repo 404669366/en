@@ -27,10 +27,202 @@
             <button type="button" class="detailBtn">获取收益预测</button>
         </div>
     </div>
-    <div class="contact_form row cost">
+    <div class="contact_form row detailCost">
         <p class="adawdwadawd">收益预测</p>
         <div class="col-md-offset-1 col-md-10">
-            <table class="table table-bordered costList"></table>
+            <table class="table table-bordered detailCostList" style="text-align: center;line-height: 100%">
+                <tr>
+                    <td colspan="13"><strong>360kw电桩</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2">变压器:</td>
+                    <td colspan="3">400kw</td>
+                    <td colspan="2">终端数量:</td>
+                    <td colspan="2">6</td>
+                    <td colspan="2">投建功率</td>
+                    <td colspan="2">360kw</td>
+                </tr>
+                <tr>
+                    <td colspan="2">投资额:</td>
+                    <td colspan="2">280000</td>
+                    <td colspan="2">功率利用率:</td>
+                    <td colspan="2">25%</td>
+                    <td colspan="3" style="color: red">电损率:</td>
+                    <td colspan="2" style="color: red">7%</td>
+                </tr>
+                <tr>
+                    <td colspan="2">三费:</td>
+                    <td colspan="2">15%</td>
+                    <td colspan="2">场地费:</td>
+                    <td colspan="2">20%</td>
+                    <td colspan="3">保险费:</td>
+                    <td colspan="2">350 /桩*年</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">类别</td>
+                    <td rowspan="2">项目</td>
+                    <td rowspan="2">单位</td>
+                    <td rowspan="2">合计</td>
+                    <td>建设期(年)</td>
+                    <td colspan="8">经营期(年)</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">项目投资额</td>
+                    <td>设备购置</td>
+                    <td>元</td>
+                    <td>280000</td>
+                    <td>280000</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>固定资产年度折旧额</td>
+                    <td>元</td>
+                    <td>280000</td>
+                    <td></td>
+                    <td>35000</td>
+                    <td>35000</td>
+                    <td>35000</td>
+                    <td>35000</td>
+                    <td>35000</td>
+                    <td>35000</td>
+                    <td>35000</td>
+                    <td>35000</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">经营资金流入</td>
+                    <td>充电服务费收益</td>
+                    <td>元</td>
+                    <td>8888888</td>
+                    <td></td>
+                    <td>1111111</td>
+                    <td>1111111</td>
+                    <td>1111111</td>
+                    <td>1111111</td>
+                    <td>1111111</td>
+                    <td>1111111</td>
+                    <td>1111111</td>
+                    <td>1111111</td>
+                </tr>
+                <tr>
+                    <td>财政补贴收益</td>
+                    <td>元</td>
+                    <td>64000</td>
+                    <td>64000</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td rowspan="4">经营资金流出</td>
+                    <td>电损</td>
+                    <td>元</td>
+                    <td>88</td>
+                    <td></td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>场地分成</td>
+                    <td>元</td>
+                    <td>88</td>
+                    <td></td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>保险费</td>
+                    <td>元</td>
+                    <td>88</td>
+                    <td></td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>三费(平台 代运营 运维)</td>
+                    <td>元</td>
+                    <td>88</td>
+                    <td></td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>资金流净值</td>
+                    <td>年度净资金流量</td>
+                    <td>元</td>
+                    <td>88</td>
+                    <td></td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>净利润</td>
+                    <td>年度净利润总额</td>
+                    <td>元</td>
+                    <td>88</td>
+                    <td>nnnn</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>11</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

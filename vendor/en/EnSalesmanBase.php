@@ -108,9 +108,8 @@ class EnSalesmanBase extends \yii\db\ActiveRecord
                 
                     <div class="testimonial clearfix">
                         <div class="desc">
-                            <h3><i class="fa fa-quote-left"></i>{$v['region']} <i class="fa fa-quote-right"></i>
-                            </h3>
-                            <p class="lead">{$v['intro']}</p>
+                            <h3>{$v['region']}</h3>
+                            <p class="lead" style="font-style: normal">{$v['intro']}</p>
 
                         </div>
                         <div class="testi-meta">
