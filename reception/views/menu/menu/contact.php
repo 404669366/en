@@ -1,6 +1,6 @@
 <?php $this->registerJsFile('/resource/js/map.js');?>
 <div id="support" class="section wb">
-    <div class="container">
+    <div class="container" style="min-height: 36rem">
         <div class="section-title text-center">
             <?= \vendor\en\EnContentBase::getContent("di9lfk7l") ?>
         </div>

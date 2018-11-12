@@ -25,4 +25,15 @@ class BasisController extends Controller
         echo json_encode(['type' => $type, 'msg' => $msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
         exit();
     }
+
+    /**
+     * 返回分页数据
+     * @param array $data
+     * @return string
+     */
+    public function rPageJson($data = [])
+    {
+        echo json_encode(['total' => $data['total'], 'data' => $data['data']], JSON_UNESCAPED_UNICODE);
+        exit();
+    }
 }

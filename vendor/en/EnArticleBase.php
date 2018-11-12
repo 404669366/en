@@ -39,8 +39,8 @@ class EnArticleBase extends \yii\db\ActiveRecord
     {
         return [
             [['sort'], 'integer'],
-            [['title', 'seo_keywords','seo_title','seo_content','summary', 'image', 'source'], 'string', 'max' => 255],
-            [['title', 'seo_keywords', 'image', 'summary','seo_title','seo_content','author', 'source'], 'required'],
+            [['title', 'seo_keywords', 'seo_title', 'seo_content', 'summary', 'image', 'source'], 'string', 'max' => 255],
+            [['title', 'seo_keywords', 'image', 'summary', 'seo_title', 'seo_content', 'author', 'source'], 'required'],
             [['content'], 'string', 'max' => 10000],
             [['author'], 'string', 'max' => 20],
         ];
@@ -92,35 +92,7 @@ class EnArticleBase extends \yii\db\ActiveRecord
      */
     public static function getNews()
     {
-        $str = '';
-        $data = self::find()->orderBy('created DESC')->asArray()->all();
-        foreach ($data as $v) {
-            $str .= <<<HTML
-                    <div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 3rem">
-                <div class="service-widget">
-                    <div class="property-main">
-                        <div class="property-wrap">
-                            <figure class="post-media wow fadeIn">
-                                <a href="/news/news/detail?id={$v['id']}" class="hoverbutton global-radius"><i
-                                            class="flaticon-unlink"></i></a>
-                                <img src="{$v['image']}" alt="" class="img-responsive" style="height: 30rem">
-                            </figure>
-                            <a href="/news/news/detail?id={$v['id']}">
-                                <div class="item-body">
-
-                                    <h3>{$v['title']}</h3>
-                                    <div class="info">
-                                      {$v['summary']}
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-HTML;
-        }
-        return $str;
+        return self::find()->orderBy('created desc')->page();
     }
 
     /**

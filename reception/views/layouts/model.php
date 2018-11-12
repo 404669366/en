@@ -137,7 +137,6 @@ $nav = \vendor\en\EnNavBase::getNav();
 <script src="/resource/js/custom.js"></script>
 <script src="/resource/js/portfolio.js"></script>
 <script src="/resource/js/hoverdir.js"></script>
-<script src="/resource/js/change.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>
