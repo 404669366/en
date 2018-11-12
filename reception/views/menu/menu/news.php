@@ -7,7 +7,7 @@
 <script>
     page({
         element: '.news',
-        url: '/article/article/data',
+        url: '/news/news/data',
         length:3,
         callBack: function (row) {
             $('.news').append('<div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 3rem">\n' +

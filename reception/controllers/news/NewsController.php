@@ -24,4 +24,12 @@ class NewsController extends BasisController
         EnArticleBase::newsSeo($id);
         return $this->render('detail', ['model' => EnArticleBase::findOne($id)]);
     }
+    /**
+     * 获取新闻分页数据
+     * @return string
+     */
+    public function actionData()
+    {
+        return $this->rPageJson(EnArticleBase::getNews());
+    }
 }

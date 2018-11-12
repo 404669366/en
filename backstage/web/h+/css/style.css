@@ -7890,3 +7890,8 @@ body.skin-3 {
         font-size: 12px
     }
 }
+
+td{
+    word-wrap:break-word;
+    max-width: 60rem;
+}
