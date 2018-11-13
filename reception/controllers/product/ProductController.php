@@ -23,4 +23,8 @@ class ProductController extends BasisController
     {
         return $this->render('detail', ['model' => EnProductBase::getDetail($id)]);
     }
+
+    public function actionData(){
+        return $this->rPageJson(EnProductBase::getProducts());
+    }
 }

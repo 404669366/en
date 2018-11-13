@@ -88,6 +88,14 @@ class EnProductBase extends \yii\db\ActiveRecord
     }
 
     /**
+     * 获取产品分页
+     * @return mixed]
+     *
+     */
+    public static function getProducts(){
+        return self::find()->page();
+    }
+    /**
      * 更新产品配置
      * @param bool $del
      */
@@ -125,7 +133,7 @@ class EnProductBase extends \yii\db\ActiveRecord
             array_multisort($sort, SORT_ASC, $data);
             foreach ($data as &$v) {
                 $str .= <<<HTML
-                    <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="service-widget">
                     <div class="property-main">
                         <div class="property-wrap">
