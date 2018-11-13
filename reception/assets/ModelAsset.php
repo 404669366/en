@@ -24,5 +24,6 @@ class ModelAsset extends AssetBundle
     public $js = [
         '/resource/js/jquery.min.js',
         '/resource/js/layer/layer.min.js',
+        '/resource/js/sms.js',
     ];
 }

@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Constant;
 use vendor\helpers\redis;
 use Yii;
 
@@ -189,26 +190,52 @@ HTML;
     }
 
     /**
-     * 基础预测
+     * 收益预测
      * @param $data
      * @return array
      */
-    public static function baseBudget($data)
+    public static function budget($data)
     {
+        $config = Constant::getBudget();
         $result = [
             'piles' => [],
             'transformer' => [],
             'totalPower' => 0,
             'totalPrice' => 0,
+            'tMoney' => 0,
+            'haveMoney' => 0,
+            'endMoney' => 0,
+            'config' => $config
         ];
         foreach ($data as $v) {
-            $pile = self::getPiles($v['id']);
-            if ($pile) {
-                array_push($result['piles'], [
-                    'name' => $pile['name'], 'power' => $pile['power'],
-                    'num' => $v['num'], 'gunPower' => $pile['power'] / $v['num'],
-                    'price' => $pile['price']
-                ]);
+            if ($pile = self::getPiles($v['id'])) {
+                if (isset($result['piles'][$v['id']])) {
+                    $result['piles'][$v['id']]['count'] += 1;
+                    $result['piles'][$v['id']]['num'] += $v['num'];
+                    $result['piles'][$v['id']]['price'] += $pile['price'];
+                    $result['piles'][$v['id']]['power'] += $pile['power'];
+                    $result['piles'][$v['id']]['server'] += $pile['power'] * $pile['availability'] * 24 * $config['yearDay'] * 8 * $pile['electrovalency'];
+                    $result['piles'][$v['id']]['lossMoney'] += ($pile['power'] * $pile['availability'] * 24 * $config['yearDay'] * 8 * $pile['electric_loss'] * $config['price'] * 0.84) / (1 - $pile['electric_loss']);
+                    $result['piles'][$v['id']]['field'] = $result['piles'][$v['id']]['server'] * $config['field'];
+                    $result['piles'][$v['id']]['safe'] += $config['safe'] * $v['num'] * 8;
+                    $result['piles'][$v['id']]['tMoney'] = $result['piles'][$v['id']]['server'] * $config['roof'];
+                } else {
+                    $info['name'] = $pile['name'];
+                    $info['loss'] = ($pile['electric_loss'] * 100) . '%';
+                    $info['use'] = ($pile['availability'] * 100) . '%';
+                    $info['count'] = 1;
+                    $info['num'] = $v['num'];
+                    $info['price'] = $pile['price'];
+                    $info['power'] = $pile['power'];
+                    $info['server'] = $pile['power'] * $pile['availability'] * 24 * $config['yearDay'] * 8 * $pile['electrovalency'];
+                    $info['lossMoney'] = ($pile['power'] * $pile['availability'] * 24 * $config['yearDay'] * 8 * $pile['electric_loss'] * $config['price'] * 0.84) / (1 - $pile['electric_loss']);
+                    $info['field'] = $info['server'] * $config['field'];
+                    $info['safe'] = $config['safe'] * $v['num'] * 8;
+                    $info['tMoney'] = $info['server'] * $config['roof'];
+                    $result['piles'][$v['id']] = $info;
+                }
+                $now = $result['piles'][$v['id']];
+                $result['haveMoney'] += $now['server'] - $now['lossMoney'] - $now['field'] - $now['safe'] - $now['tMoney'] - $now['price'];
                 $result['totalPower'] += $pile['power'];
                 $result['totalPrice'] += $pile['price'];
             }
@@ -216,6 +243,8 @@ HTML;
         if ($result['piles']) {
             $result['transformer'] = EnTransformerBase::getNowTransformer($result['totalPower']);
             $result['totalPrice'] += $result['transformer']['price'];
+            $result['tMoney'] = $result['totalPrice'] * $config['subsidy'];
+            $result['endMoney'] = $result['haveMoney'] + $result['tMoney'];
             return $result;
         }
         return [];

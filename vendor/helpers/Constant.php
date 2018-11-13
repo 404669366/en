@@ -90,4 +90,20 @@ class Constant
             'sort' => 0,
         ];
     }
+
+    /**
+     * 返回预测配置参数
+     * @return array
+     */
+    public static function getBudget()
+    {
+        return [
+            'yearDay' => 330,//年计算日
+            'field' => 0.2,//场地分成比例
+            'roof' => 0.15,//平台分成比例
+            'subsidy' => 0.3,//政府补贴比例
+            'price' => 0.62,//基础电价
+            'safe' => 350//保险费
+        ];
+    }
 }

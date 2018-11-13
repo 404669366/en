@@ -24,7 +24,7 @@ class Sms
     {
         $code = mt_rand(1000, 9999);
         Dysms::sendSms($tel, ['code' => $code], $templateCode);
-        \Yii::$app->cache->set('Code_' . $tel, $code, 60 * 60 * 2);
+        \Yii::$app->session->set('Code_' . $tel, $code);
         return $code;
     }
 
@@ -37,10 +37,10 @@ class Sms
      */
     public static function validateCode($tel, $code)
     {
-        $old = \Yii::$app->cache->get('Code_' . $tel);
+        $old = \Yii::$app->session->get('Code_' . $tel);
         if ($old && $code) {
             if ($old == $code) {
-                \Yii::$app->cache->set('Code_' . $tel, '');
+                \Yii::$app->session->remove('Code_' . $tel);
                 return true;
             }
         }

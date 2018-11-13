@@ -11,15 +11,25 @@ namespace app\controllers\budget;
 
 use app\controllers\basis\BasisController;
 use vendor\en\EnProductBase;
+use vendor\helpers\Sms;
 
 class BudgetController extends BasisController
 {
-    public function actionBaseBudget($data)
+    /**
+     * 预测电桩收益
+     * @param $data
+     * @param $tel
+     * @param $code
+     * @return string
+     */
+    public function actionBudget($data, $tel, $code)
     {
-
-        if ($re = EnProductBase::baseBudget(json_decode($data, true))) {
-            return $this->rJson($re);
+        if (Sms::validateCode($tel, $code)) {
+            if ($re = EnProductBase::budget(json_decode($data, true))) {
+                return $this->rJson($re);
+            }
+            return $this->rJson('', false, '获取预测信息失败');
         }
-        return $this->rJson('', false);
+        return $this->rJson('', false, '短信验证码错误');
     }
 }

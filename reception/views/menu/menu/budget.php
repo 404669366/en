@@ -10,221 +10,26 @@
             </div>
         </div>
     </div>
-    <div class="contact_form row cost">
-        <p class="adawdwadawd">成本预测</p>
-        <div class="col-md-offset-1 col-md-10">
-            <table class="table table-bordered costList"></table>
-        </div>
-    </div>
-    <div class="contact_form row detailBtnBox">
-        <div class="col-sm-offset-2 col-sm-4">
-            <input type="tel" class="form-control tel" placeholder="手机号">
-        </div>
-        <div class="col-sm-2">
-            <input type="text" class="form-control code" placeholder="验证码">
-        </div>
-        <div class="col-sm-2">
-            <button type="button" class="detailBtn">获取收益预测</button>
-        </div>
-    </div>
-    <div class="contact_form row detailCost">
+    <div class="contact_form cost">
         <p class="adawdwadawd">收益预测</p>
-        <div class="col-md-offset-1 col-md-10">
-            <table class="table table-bordered detailCostList" style="text-align: center;line-height: 100%">
-                <tr>
-                    <td colspan="13"><strong>360kw电桩</strong></td>
-                </tr>
-                <tr>
-                    <td colspan="2">变压器:</td>
-                    <td colspan="3">400kw</td>
-                    <td colspan="2">终端数量:</td>
-                    <td colspan="2">6</td>
-                    <td colspan="2">投建功率</td>
-                    <td colspan="2">360kw</td>
-                </tr>
-                <tr>
-                    <td colspan="2">投资额:</td>
-                    <td colspan="2">280000</td>
-                    <td colspan="2">功率利用率:</td>
-                    <td colspan="2">25%</td>
-                    <td colspan="3" style="color: red">电损率:</td>
-                    <td colspan="2" style="color: red">7%</td>
-                </tr>
-                <tr>
-                    <td colspan="2">三费:</td>
-                    <td colspan="2">15%</td>
-                    <td colspan="2">场地费:</td>
-                    <td colspan="2">20%</td>
-                    <td colspan="3">保险费:</td>
-                    <td colspan="2">350 /桩*年</td>
-                </tr>
-                <tr>
-                    <td rowspan="2">类别</td>
-                    <td rowspan="2">项目</td>
-                    <td rowspan="2">单位</td>
-                    <td rowspan="2">合计</td>
-                    <td>建设期(年)</td>
-                    <td colspan="8">经营期(年)</td>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                </tr>
-                <tr>
-                    <td rowspan="2">项目投资额</td>
-                    <td>设备购置</td>
-                    <td>元</td>
-                    <td>280000</td>
-                    <td>280000</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>固定资产年度折旧额</td>
-                    <td>元</td>
-                    <td>280000</td>
-                    <td></td>
-                    <td>35000</td>
-                    <td>35000</td>
-                    <td>35000</td>
-                    <td>35000</td>
-                    <td>35000</td>
-                    <td>35000</td>
-                    <td>35000</td>
-                    <td>35000</td>
-                </tr>
-                <tr>
-                    <td rowspan="2">经营资金流入</td>
-                    <td>充电服务费收益</td>
-                    <td>元</td>
-                    <td>8888888</td>
-                    <td></td>
-                    <td>1111111</td>
-                    <td>1111111</td>
-                    <td>1111111</td>
-                    <td>1111111</td>
-                    <td>1111111</td>
-                    <td>1111111</td>
-                    <td>1111111</td>
-                    <td>1111111</td>
-                </tr>
-                <tr>
-                    <td>财政补贴收益</td>
-                    <td>元</td>
-                    <td>64000</td>
-                    <td>64000</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td rowspan="4">经营资金流出</td>
-                    <td>电损</td>
-                    <td>元</td>
-                    <td>88</td>
-                    <td></td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                </tr>
-                <tr>
-                    <td>场地分成</td>
-                    <td>元</td>
-                    <td>88</td>
-                    <td></td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                </tr>
-                <tr>
-                    <td>保险费</td>
-                    <td>元</td>
-                    <td>88</td>
-                    <td></td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                </tr>
-                <tr>
-                    <td>三费(平台 代运营 运维)</td>
-                    <td>元</td>
-                    <td>88</td>
-                    <td></td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                </tr>
-                <tr>
-                    <td>资金流净值</td>
-                    <td>年度净资金流量</td>
-                    <td>元</td>
-                    <td>88</td>
-                    <td></td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                </tr>
-                <tr>
-                    <td>净利润</td>
-                    <td>年度净利润总额</td>
-                    <td>元</td>
-                    <td>88</td>
-                    <td>nnnn</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>11</td>
-                </tr>
-            </table>
+        <table class="table table-bordered costList"></table>
+    </div>
+</div>
+<div class="pop budgetPop">
+    <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+    <h1>填写手机号立即获取预测信息</h1>
+    <div class="row">
+        <div class="col-sm-offset-2 col-sm-8 col-xs-12">
+            <input type="tel" class="form-control tel" placeholder="请填写手机号">
+        </div>
+        <div class="col-sm-offset-2 col-sm-5 col-xs-7">
+            <input type="text" class="form-control code" placeholder="请填写验证码">
+        </div>
+        <div class="col-sm-3 col-xs-5">
+            <button type="button" class="smsCode">发送</button>
         </div>
     </div>
+    <button type="button" class="myButton">立即获取</button>
 </div>
 <script>
     $(document).ready(function () {
@@ -233,8 +38,11 @@
         $.each(piles, function (k, v) {
             powerHtml += '<option value="' + k + '">' + v.name + '</option>';
         });
+        var params = [];
         addRule();
-        $('.selectPicker').selectpicker('refresh');
+        addBudget();
+        sms({tel: '.tel'});
+
         $('.about-box').on('change', '.power', function () {
             if ($(this).val()) {
                 var numHtml = '<option value="0">枪口数</option>';
@@ -247,6 +55,7 @@
                 $('.selectPicker').selectpicker('refresh');
             }
         });
+
         $('.about-box').on('change', '.num', function () {
             var power = $(this).parents('.rule').find('.power').val();
             if (power && $(this).val() !== '0') {
@@ -256,65 +65,402 @@
                 $(this).parents('.rule').find('.resultPower').text('单枪功率');
             }
         });
+
         $('.about-box').on('click', '.delRule', function () {
             $(this).parents('.rule').remove();
         });
+
         $('.addRule').click(function () {
             addRule();
         });
+
         $('.upRule').click(function () {
-            var data = [];
+            params = [];
             $('.about-box').find('.rule').each(function (k, v) {
                 var pile = $(this).find('.power').val();
                 var num = $(this).find('.num').val();
                 if (pile !== '0' && num !== '0') {
-                    data[k] = {id: pile, num: num};
+                    params[k] = {id: pile, num: num};
                 }
             });
-            if (data.length) {
-                $.getJSON('/budget/budget/base-budget', {data: JSON.stringify(data)}, function (re) {
-                    if (re.type) {
-                        var str = '<tr>\n' +
-                            '                    <td>电桩</td>\n' +
-                            '                    <td>电桩功率(kw)</td>\n' +
-                            '                    <td>枪口数量(个)</td>\n' +
-                            '                    <td>枪口功率(kw)</td>\n' +
-                            '                    <td>电桩价格(元)</td>\n' +
-                            '                </tr>';
-                        $.each(re.data.piles, function (k, v) {
-                            str += '<tr>\n' +
-                                '       <td>' + v.name + '</td>\n' +
-                                '       <td>' + v.power + '</td>\n' +
-                                '       <td>' + v.num + '</td>\n' +
-                                '       <td>' + v.gunPower + '</td>\n' +
-                                '       <td>' + v.price + '</td>\n' +
-                                '   </tr>';
-                        });
-                        str += '<tr>\n' +
-                            '       <td colspan="1">总功率</td>\n' +
-                            '       <td colspan="4">' + re.data.totalPower + 'kw</td>\n' +
-                            '   </tr>';
-                        str += '<tr>\n' +
-                            '       <td colspan="1">变压器</td>\n' +
-                            '       <td colspan="2">' + re.data.transformer.name + '</td>\n' +
-                            '       <td colspan="1">变压器价格</td>\n' +
-                            '       <td colspan="1">' + re.data.transformer.price + '</td>\n' +
-                            '   </tr>';
-                        str += '<tr>\n' +
-                            '       <td colspan="1">预计成本</td>\n' +
-                            '       <td colspan="4">' + re.data.totalPrice + '元</td>\n' +
-                            '   </tr>';
-                        $('.costList').html(str);
-                        $('.cost').fadeIn();
-                        $('.detailBtnBox').fadeIn();
-                    } else {
-                        layer.msg('拉取预测信息失败');
-                    }
-                });
+            if (params.length) {
+                $('.budgetPop').fadeIn();
             } else {
                 layer.msg('请填写配置单');
             }
         });
+
+        $('.pop').find('.close').click(function () {
+            $(this).parent('.pop').fadeOut();
+        });
+
+        $('.myButton').click(function () {
+            $.getJSON('/budget/budget/budget', {
+                data: JSON.stringify(params),
+                tel: $('.tel').val(),
+                code: $('.code').val()
+            }, function (re) {
+                if (re.type) {
+                    $('.budgetPop').fadeOut();
+                    addBudget(re.data);
+                } else {
+                    layer.msg(re.msg);
+                }
+            });
+        });
+
+        function addBudget(data) {
+            var str = '';
+            if (data) {
+                str += '<tr>\n' +
+                    '                    <td colspan="2">投资额:</td>\n' +
+                    '                    <td colspan="2">' + data.totalPrice + '</td>\n' +
+                    '                    <td colspan="2">投建功率</td>\n' +
+                    '                    <td colspan="2">' + data.totalPower + 'kw</td>\n' +
+                    '                    <td colspan="2">变压器:</td>\n' +
+                    '                    <td colspan="5">' + data.transformer.name + '</td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="2">三费:</td>\n' +
+                    '                    <td colspan="2">' + (data.config.roof * 100) + '%</td>\n' +
+                    '                    <td colspan="2">场地费:</td>\n' +
+                    '                    <td colspan="2">' + (data.config.field * 100) + '%</td>\n' +
+                    '                    <td colspan="2">保险费:</td>\n' +
+                    '                    <td colspan="5">' + data.config.safe + ' 元/桩*年</td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td rowspan="2">电桩型号*数量</td>\n' +
+                    '                    <td rowspan="2">总功率/利用率/电损率</td>\n' +
+                    '                    <td rowspan="2">端口数</td>\n' +
+                    '                    <td rowspan="2">类别</td>\n' +
+                    '                    <td rowspan="2">项目</td>\n' +
+                    '                    <td rowspan="2">合计</td>\n' +
+                    '                    <td>建设期(年)</td>\n' +
+                    '                    <td colspan="8">经营期(年)</td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td>0</td>\n' +
+                    '                    <td>1</td>\n' +
+                    '                    <td>2</td>\n' +
+                    '                    <td>3</td>\n' +
+                    '                    <td>4</td>\n' +
+                    '                    <td>5</td>\n' +
+                    '                    <td>6</td>\n' +
+                    '                    <td>7</td>\n' +
+                    '                    <td>8</td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="15"></td>\n' +
+                    '                </tr>';
+                $.each(data.piles, function (k, v) {
+                    str += '<tr>\n' +
+                        '                    <td rowspan="6">' + v.name + ' * ' + v.count + '</td>\n' +
+                        '                    <td rowspan="6">' + v.power + 'kw / ' + v.use + ' / ' + v.loss + '</td>\n' +
+                        '                    <td rowspan="6">' + v.num + '</td>\n' +
+                        '                    <td>项目投资</td>\n' +
+                        '                    <td>设备购置</td>\n' +
+                        '                    <td>' + v.price + '</td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td></td>\n' +
+                        '                </tr>\n' +
+                        '                <tr>\n' +
+                        '                    <td>经营资金流入</td>\n' +
+                        '                    <td>充电服务费收益</td>\n' +
+                        '                    <td>' + v.server + '</td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                </tr>\n' +
+                        '                <tr>\n' +
+                        '                    <td rowspan="4">经营资金流出</td>\n' +
+                        '                    <td>电损</td>\n' +
+                        '                    <td>' + v.lossMoney + '</td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                </tr>\n' +
+                        '                <tr>\n' +
+                        '                    <td>场地分成</td>\n' +
+                        '                    <td>' + v.field + '</td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                </tr>\n' +
+                        '                <tr>\n' +
+                        '                    <td>保险费</td>\n' +
+                        '                    <td>' + v.safe + '</td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                </tr>\n' +
+                        '                <tr>\n' +
+                        '                    <td>三费(平台 代运营 运维)</td>\n' +
+                        '                    <td>' + v.tMoney + '</td>\n' +
+                        '                    <td></td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                </tr>';
+                    str += '<tr><td colspan="15"></td></tr>';
+                });
+                str += '<tr>\n' +
+                    '                    <td colspan="5">变压器</td>\n' +
+                    '                    <td>' + data.transformer.price + '</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="5">政府补贴</td>\n' +
+                    '                    <td>' + data.tMoney + '</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="5">资金流净值</td>\n' +
+                    '                    <td>' + data.haveMoney + '</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="5">净利润</td>\n' +
+                    '                    <td>' + data.endMoney + '</td>\n' +
+                    '                    <td> + ' + data.tMoney + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                </tr>';
+            } else {
+                str += '<tr>\n' +
+                    '                    <td colspan="2">投资额:</td>\n' +
+                    '                    <td colspan="2"></td>\n' +
+                    '                    <td colspan="2">投建功率</td>\n' +
+                    '                    <td colspan="2"></td>\n' +
+                    '                    <td colspan="2">变压器:</td>\n' +
+                    '                    <td colspan="5"></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="2">三费:</td>\n' +
+                    '                    <td colspan="2"></td>\n' +
+                    '                    <td colspan="2">场地费:</td>\n' +
+                    '                    <td colspan="2"></td>\n' +
+                    '                    <td colspan="2">保险费:</td>\n' +
+                    '                    <td colspan="5"></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td rowspan="2">电桩型号*数量</td>\n' +
+                    '                    <td rowspan="2">总功率/利用率/电损率</td>\n' +
+                    '                    <td rowspan="2">端口数</td>\n' +
+                    '                    <td rowspan="2">类别</td>\n' +
+                    '                    <td rowspan="2">项目</td>\n' +
+                    '                    <td rowspan="2">合计</td>\n' +
+                    '                    <td>建设期(年)</td>\n' +
+                    '                    <td colspan="8">经营期(年)</td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td>0</td>\n' +
+                    '                    <td>1</td>\n' +
+                    '                    <td>2</td>\n' +
+                    '                    <td>3</td>\n' +
+                    '                    <td>4</td>\n' +
+                    '                    <td>5</td>\n' +
+                    '                    <td>6</td>\n' +
+                    '                    <td>7</td>\n' +
+                    '                    <td>8</td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="15"></td>\n' +
+                    '                </tr>';
+                str += '<tr>\n' +
+                    '                    <td rowspan="6"></td>\n' +
+                    '                    <td rowspan="6"></td>\n' +
+                    '                    <td rowspan="6"></td>\n' +
+                    '                    <td>项目投资额</td>\n' +
+                    '                    <td>设备购置</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td>经营资金流入</td>\n' +
+                    '                    <td>充电服务费收益</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td rowspan="4">经营资金流出</td>\n' +
+                    '                    <td>电损</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td>场地分成</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td>保险费</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td>三费(平台 代运营 运维)</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>';
+                str += '<tr>\n' +
+                    '                    <td colspan="15"></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="5">政府补贴</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="5">资金流净值</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>\n' +
+                    '                <tr>\n' +
+                    '                    <td colspan="5">净利润</td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                    <td></td>\n' +
+                    '                </tr>';
+            }
+            $('.costList').html(str);
+        }
 
         function addRule() {
             var num = $('.about-box').find('.rule').length + 1;

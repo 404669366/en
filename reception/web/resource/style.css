@@ -2679,6 +2679,37 @@ select.mobile-device {
     border-radius: 10px;
 }
 
+.budgetPop {
+    display: none;
+    background: #F4F4F4;
+    width: 64%;
+    height: 40%;
+}
+
+.budgetPop .close {
+    color: #2B2B2B !important;
+}
+
+.budgetPop h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 0.2rem;
+    line-height: 2.8rem !important;
+}
+
+.budgetPop .row {
+    margin-top: 1.8rem;
+}
+
+.budgetPop div {
+    margin-bottom: 1.2rem;
+    height: 3.6rem;
+}
+
+.budgetPop .row input {
+    height: 3.6rem;
+}
+
 .pop .close {
     width: 2.2rem;
     height: 2.2rem;
@@ -2713,7 +2744,17 @@ select.mobile-device {
     color: #f5f5f5;
     background: #00A2E9;
     cursor: pointer;
-    box-shadow: 2px 2px 10px #615C5B;
+}
+
+.smsCode {
+    border: 0;
+    border-radius: 4px;
+    line-height: 100%;
+    height: 100%;
+    width: 100%;
+    color: #f5f5f5;
+    background: #00A2E9;
+    cursor: pointer;
 }
 
 .pop .myButton:hover {
@@ -2769,21 +2810,9 @@ select.mobile-device {
     cursor: pointer;
 }
 
-.cost {
-    display: none;
-}
-
 .cost td {
     text-align: center;
-}
-
-.detailBtnBox {
-    display: none;
-}
-
-.detailBtn {
-    margin: 0 auto;
-    width: 10rem;
+    vertical-align: middle !important;
 }
 
 
