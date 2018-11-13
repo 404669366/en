@@ -3,7 +3,8 @@ function page(config) {
     $(config.element).before('<script src="/resource/js/jquery.page.js"></script>');
     $(config.element).after('<div class="tcdPageCode"></div>');
     var model = $('.tcdPageCode');
-    var length = config.length || 10;
+    var length = config.length ||
+        10;
     getData(1, function (pageCount) {
         model.createPage({
             pageCount: pageCount,
@@ -15,8 +16,8 @@ function page(config) {
     });
 
     function getData(page, callback) {
-        $.getJSON(config.url, {start: (page - 1) * length, length: length, needTotal: callback ? 1 : 0}, function (re) {
-            if (callback) {
+        $.getJSON(config.url, {start: (page - 1) * length, length: length}, function (re) {
+                if (callback) {
                 callback(Math.ceil(re.total / length));
             }
             $(config.element).text('');
