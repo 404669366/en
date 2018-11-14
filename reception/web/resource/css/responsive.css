@@ -206,7 +206,7 @@
     }
 
     body.realestate_version .header_style_01 {
-        background-color: #ffffff;
+        background-color: rgba(0, 0, 0, 1);
     }
 
     .footer .col-xs-12 {
