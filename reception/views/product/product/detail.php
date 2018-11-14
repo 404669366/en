@@ -4,6 +4,6 @@
         <div class="col-sm-offset-3 col-sm-6 col-xs-12" style="margin-bottom: 1rem">
             <?= $model['intro'] ?>
         </div>
-        <img src="<?= $model['parameter']?>" class="col-sm-offset-3 col-sm-6 col-xs-12">
+        <img src="<?= $model['parameter']?>" class="col-sm-offset-3 col-sm-4 col-xs-12">
     </div>
 </div>
