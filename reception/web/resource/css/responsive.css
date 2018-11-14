@@ -640,6 +640,9 @@
     }
 }
 @media (width: 360px) {
+    .contact_form {
+        padding:50px;
+    }
     .slideshow li span {
         height: 124.4%;
     }
