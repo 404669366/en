@@ -543,7 +543,7 @@ li.social-links a {
 
 .fixed-menu .navbar-default {
     padding: 15px 30px;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.66);
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 1);
 }
 
 body.realestate_version .header_style_01 .navbar-right > li.search-option {
