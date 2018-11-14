@@ -10,7 +10,7 @@
         url: '/news/news/data',
         length:6,
         callBack: function (row) {
-            $('.news').append('<div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 3rem;max-height: 42rem;overflow: hidden">\n' +
+            $('.news').append('<div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 3rem;">\n' +
                 '                <div class="service-widget">\n' +
                 '                    <div class="property-main">\n' +
                 '                        <div class="property-wrap">\n' +
@@ -23,7 +23,7 @@
                 '                                <div class="item-body">\n' +
                 '\n' +
                 '                                    <h3>'+row.title+'</h3>\n' +
-                '                                    <div class="info">\n' +row.summary+
+                '                                    <div class="info" style="max-height: 10rem;overflow: hidden">\n' +row.summary+
                 '                                    </div>\n' +
                 '                                </div>\n' +
                 '                            </a>\n' +
