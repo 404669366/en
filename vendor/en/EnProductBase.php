@@ -243,6 +243,7 @@ HTML;
                     $result['piles'][$v['id']] = $info;
                 }
                 $now = $result['piles'][$v['id']];
+                var_dump($now);exit();
                 $result['haveMoney'] += $now['server'] - $now['lossMoney'] - $now['field'] - $now['safe'] - $now['tMoney'] - $now['price'];
                 $result['totalPower'] += $pile['power'];
                 $result['totalPrice'] += $pile['price'];
