@@ -5,21 +5,21 @@
         <input type="hidden" class="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">服务名</label>
+            <label class="col-sm-2 control-label">业务名</label>
             <div class="col-sm-2">
                 <input type="text" class="form-control name" value="<?= $model->name ?>">
             </div>
         </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">服务简述</label>
+            <label class="col-sm-2 control-label">业务简述</label>
             <div class="col-sm-2">
                 <textarea class="form-control resume"><?= $model->resume ?></textarea>
             </div>
         </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">服务详情</label>
+            <label class="col-sm-2 control-label">业务详情</label>
             <div class="col-sm-10">
                 <div class="summernote"></div>
             </div>
@@ -35,7 +35,7 @@
         </script>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">服务小图</label>
+            <label class="col-sm-2 control-label">业务小图</label>
             <div class="col-sm-8">
                 <div class="a"></div>
             </div>
@@ -53,7 +53,7 @@
         </script>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">服务大图</label>
+            <label class="col-sm-2 control-label">业务大图</label>
             <div class="col-sm-8">
                 <div class="b"></div>
             </div>

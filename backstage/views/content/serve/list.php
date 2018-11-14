@@ -3,7 +3,7 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    服务名: <input class="searchField" type="text" value="" name="name">
+                   业务名: <input class="searchField" type="text" value="" name="name">
                 </span>
                 <span class="tableSpan">
                     <button class="tableSearch">搜索</button>
@@ -18,8 +18,8 @@
             <thead>
             <tr role="row">
                 <th>ID</th>
-                <th>服务名</th>
-                <th>服务简述</th>
+                <th>业务名</th>
+                <th>业务简述</th>
                 <th>排序</th>
                 <th>操作</th>
             </tr>
