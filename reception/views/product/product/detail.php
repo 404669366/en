@@ -1,5 +1,5 @@
 <div class="about-box">
-    <div class="row">
+    <div class="row" style="margin:0;">
         <img class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8" src="<?= $model['image'] ?>">
         <div class="col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8" style="margin-bottom: 1rem">
             <?= $model['intro'] ?>
