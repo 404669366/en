@@ -2669,7 +2669,7 @@ select.mobile-device {
     right: 0;
     top: 0;
     bottom: 0;
-    width: 64%;
+    width: 58%;
     height: 44%;
     background: url("/resource/images/pop.jpg") no-repeat center;
     background-size: 100% 100%;
@@ -2677,6 +2677,31 @@ select.mobile-device {
     z-index: 9999999;
     padding: 2rem;
     border-radius: 10px;
+}
+
+@media (max-width: 1120px) {
+    .pop{
+        width: 82%;
+        height: 32%;
+    }
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 500px) {
+    .pop{
+        width: 82%;
+        height: 28%;
+    }
+}
+
+@media (max-width: 400px) {
+    .pop{
+        width: 92%;
+        height: 26%;
+    }
 }
 
 .budgetPop {
@@ -2810,14 +2835,14 @@ select.mobile-device {
     cursor: pointer;
 }
 
-.row{
-    margin: 0!important;
+.row {
+    margin: 0 !important;
 }
 
 .cost td {
     text-align: center;
     vertical-align: middle !important;
-    padding: 4px!important;
+    padding: 4px !important;
 }
 
 
