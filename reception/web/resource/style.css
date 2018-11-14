@@ -2813,6 +2813,7 @@ select.mobile-device {
 .cost td {
     text-align: center;
     vertical-align: middle !important;
+    padding: 4px!important;
 }
 
 
