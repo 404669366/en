@@ -33,6 +33,7 @@
 </div>
 <script>
     $(document).ready(function () {
+        alert($(window).width());
         var piles = JSON.parse('<?=\vendor\en\EnProductBase::getPiles()?>');
         var powerHtml = '';
         $.each(piles, function (k, v) {
