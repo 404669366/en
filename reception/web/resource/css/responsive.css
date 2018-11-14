@@ -618,6 +618,12 @@
     }
 }
 
+@media (width: 980px) {
+    .contact_form {
+        padding: 0;
+    }
+}
+
 @media (width: 435px) {
     .slideshow li span {
         height: 103%;
