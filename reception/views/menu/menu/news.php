@@ -10,7 +10,7 @@
         url: '/news/news/data',
         length:6,
         callBack: function (row) {
-            $('.news').append('<div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 3rem;min-height: 40rem">\n' +
+            $('.news').append('<div class="col-md-4 col-sm-6 col-xs-12" style="margin-bottom: 3rem;max-height: 42rem;overflow: hidden">\n' +
                 '                <div class="service-widget">\n' +
                 '                    <div class="property-main">\n' +
                 '                        <div class="property-wrap">\n' +
