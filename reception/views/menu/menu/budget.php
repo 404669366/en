@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div class="contact_form cost">
+    <div class="contact_form cost" style="padding: 0;margin: 0">
         <p class="adawdwadawd">收益预测</p>
         <table class="table table-bordered costList"></table>
     </div>
