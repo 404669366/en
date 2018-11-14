@@ -20,7 +20,7 @@
                 '                                <img src="'+row.image+'" alt="" class="img-responsive" style="height: 30rem">\n' +
                 '                            </figure>\n' +
                 '                            <a href="/news/news/detail?id='+row.id+'">\n' +
-                '                                <div class="item-body"  style="max-height: 10rem;overflow: hidden">\n' +
+                '                                <div class="item-body"  style="max-height: 12rem;overflow: hidden">\n' +
                 '\n' +
                 '                                    <h3>'+row.title+'</h3>\n' +
                 '                                    <div class="info">\n' +row.summary+
