@@ -2695,14 +2695,14 @@ select.mobile-device {
 @media (max-width: 500px) {
     .pop{
         width: 82%;
-        height: 18rem;
+        height: 20rem;
     }
 }
 
 @media (max-width: 400px) {
     .pop{
         width: 92%;
-        height: 16rem;
+        height: 18rem;
     }
 }
 
