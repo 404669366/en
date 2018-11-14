@@ -608,21 +608,11 @@
     }
 
     .contact_form {
-        padding: 20px 20px;
-    }
-}
-
-@media (max-width: 500px) {
-    .contact_form {
-        padding: 10px 10px;
+        padding: 0;
     }
 }
 
 @media (max-width: 400px) {
-    .contact_form {
-        padding: 0;
-    }
-
     .slideshow li span {
         height: 91.8%;
     }
