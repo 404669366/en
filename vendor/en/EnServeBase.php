@@ -173,7 +173,7 @@ HTML;
             }
             array_multisort($sort, SORT_ASC, $data);
             foreach ($data as &$v) {
-                array_push($reArr, [$v['id'] => $v['name']]);
+                $reArr[$v['id']] = $v['name'];
             }
         }
         return $reArr;
