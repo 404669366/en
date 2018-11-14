@@ -10,6 +10,7 @@ namespace app\controllers\amend;
 
 use app\controllers\basis\CommonController;
 use vendor\en\EnAmendBase;
+use vendor\en\EnServeBase;
 use vendor\helpers\Constant;
 use vendor\helpers\Msg;
 
@@ -24,7 +25,7 @@ class AmendController extends CommonController
         $status = Constant::amendStatus();
         unset($status[4]);
         return $this->render('list', [
-            'status' => $status, 'types' => Constant::amendType()
+            'status' => $status, 'types' => EnServeBase::getReceptionServes()
         ]);
     }
 

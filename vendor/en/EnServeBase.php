@@ -84,6 +84,7 @@ class EnServeBase extends \yii\db\ActiveRecord
                 'name' => $this->name, 'content' => $this->content,
                 'sort' => $this->sort, 'smallImage' => $this->smallImage,
                 'bigImage' => $this->bigImage, 'resume' => $this->resume,
+                'id' => $this->id
             ]));
         }
     }
@@ -155,5 +156,26 @@ HTML;
             $str = implode('<hr class="hr1">', $strArr);
         }
         return $str;
+    }
+
+    /**
+     * 前台用业务数据
+     * @return array
+     */
+    public static function getReceptionServes()
+    {
+        $reArr = [];
+        $data = redis::app()->hGetAll('ReceptionServe');
+        if ($data) {
+            foreach ($data as $k => &$v) {
+                $v = json_decode($v, true);
+                $sort[$k] = $v['sort'];
+            }
+            array_multisort($sort, SORT_ASC, $data);
+            foreach ($data as &$v) {
+                array_push($reArr, [$v['id'] => $v['name']]);
+            }
+        }
+        return $reArr;
     }
 }

@@ -37,21 +37,6 @@ class Constant
     }
 
     /**
-     * 需求业务类型
-     * @return array
-     */
-    public static function amendType()
-    {
-        return [
-            1 => '寻找场地',
-            2 => '寻找投资',
-            3 => '购买电桩',
-            4 => '购买电站',
-            5 => '业务咨询',
-        ];
-    }
-
-    /**
      * 需求业务状态
      * @return array
      */

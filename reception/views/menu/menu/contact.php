@@ -22,7 +22,7 @@
                                 <select name="business" class="selectpicker form-control type"
                                         data-style="btn-white">
                                     <option value="0">业务</option>
-                                    <?php foreach (\vendor\helpers\Constant::amendType() as $k => $v): ?>
+                                    <?php foreach (\vendor\en\EnServeBase::getReceptionServes() as $k => $v): ?>
                                         <option value="<?= $k ?>"><?= $v ?></option>
                                     <?php endforeach; ?>
                                 </select>

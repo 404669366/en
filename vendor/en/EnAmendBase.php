@@ -11,7 +11,7 @@ use Yii;
  * @property string $id
  * @property string $name 用户名
  * @property string $tel 电话号码
- * @property int $type 业务类型 1寻找场地2寻找投资3购买电桩4业务咨询
+ * @property int $type 业务类型
  * @property int $status 状态 1待跟踪2已联系3已处理4删除
  * @property string $remark 备注
  * @property int $created_at
@@ -64,6 +64,7 @@ class EnAmendBase extends \yii\db\ActiveRecord
      */
     public static function getPageData()
     {
+        $types = EnServeBase::getReceptionServes();
         $data = self::find()
             ->where(['<>', 'status', 4])
             ->page([
@@ -73,12 +74,12 @@ class EnAmendBase extends \yii\db\ActiveRecord
                 'type' => ['=', 'type'],
                 'created_at' => ['=', 'FROM_UNIXTIME(created_at,"%Y-%m-%d")'
                 ],
-                ]);
+            ]);
         foreach ($data['data'] as &$v) {
-            $v['type'] = Constant::amendType()[$v['type']];
+            $v['type'] = $types[$v['type']];
             $v['transStatus'] = Constant::amendStatus()[$v['status']];
-            $v['created_at'] = date('Y-m-d H:i:s',$v['created_at']);
-            $v['contact_at'] = $v['contact_at'] ? date('Y-m-d H:i:s',$v['contact_at']) : '----';
+            $v['created_at'] = date('Y-m-d H:i:s', $v['created_at']);
+            $v['contact_at'] = $v['contact_at'] ? date('Y-m-d H:i:s', $v['contact_at']) : '----';
         }
         return $data;
     }
