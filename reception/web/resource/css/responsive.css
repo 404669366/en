@@ -206,7 +206,7 @@
     }
 
     body.realestate_version .header_style_01 {
-        background-color: rgba(0, 0, 0, 1);
+        background-color: #ffffff;
     }
 
     .footer .col-xs-12 {
@@ -615,6 +615,12 @@
 @media (max-width: 400px) {
     .slideshow li span {
         height: 91.8%;
+    }
+}
+
+@media (width: 980px) {
+    .contact_form {
+        padding: 0;
     }
 }
 
