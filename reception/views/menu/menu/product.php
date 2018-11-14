@@ -18,7 +18,7 @@
                 '                            <figure class="post-media wow fadeIn">\n' +
                 '                                <img src="' + row.image + '" alt="" class="img-responsive" style="height: 24rem">\n' +
                 '                                <div class="price">\n' +
-                '                                    <span class="item-sub-price">￥' + row.price + '</span>\n' +
+                '                                    <span class="item-sub-price">￥来电咨询</span>\n' +
                 '                                </div>\n' +
                 '                            </figure>\n' +
                 '                            <a href="/product/product/detail?id=' + row.id + '">\n' +

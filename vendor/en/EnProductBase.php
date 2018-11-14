@@ -45,10 +45,8 @@ class EnProductBase extends \yii\db\ActiveRecord
             [['name', 'summary'], 'string', 'max' => 255],
             [['image', 'parameter'], 'string', 'max' => 600],
             [['intro'], 'string', 'max' => 10000],
-            [['price'], 'string', 'max' => 20],
-            [['power'], 'string', 'max' => 8],
             [['para'], 'string', 'max' => 30],
-            [['electric_loss', 'availability', 'electrovalency'], 'string', 'max' => 10],
+            [['price', 'power', 'electric_loss', 'availability', 'electrovalency'], 'number'],
         ];
     }
 
@@ -92,9 +90,11 @@ class EnProductBase extends \yii\db\ActiveRecord
      * @return mixed]
      *
      */
-    public static function getProducts(){
+    public static function getProducts()
+    {
         return self::find()->page();
     }
+
     /**
      * 更新产品配置
      * @param bool $del
@@ -243,7 +243,6 @@ HTML;
                     $result['piles'][$v['id']] = $info;
                 }
                 $now = $result['piles'][$v['id']];
-                var_dump($now);exit();
                 $result['haveMoney'] += $now['server'] - $now['lossMoney'] - $now['field'] - $now['safe'] - $now['tMoney'] - $now['price'];
                 $result['totalPower'] += $pile['power'];
                 $result['totalPrice'] += $pile['price'];
