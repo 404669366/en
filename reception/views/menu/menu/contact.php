@@ -1,10 +1,13 @@
 <?php $this->registerJsFile('/resource/js/map.js');?>
-<div id="support" class="section wb">
+<div id="support" class="section wb" style="padding:0 0 70px 0">
+    <div id="map"></div>
+    <script>
+        Map({element:'map'});
+    </script>
     <div class="container" style="min-height: 36rem">
-        <div class="section-title text-center">
+        <div class="section-title text-center" style="margin-top: 3rem;margin-bottom: 0rem">
             <?= \vendor\en\EnContentBase::getContent("di9lfk7l") ?>
         </div>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="contact_form">
@@ -40,7 +43,6 @@
         </div>
     </div>
 </div>
-<div id="map"></div>
 <script type="text/javascript">
     $('.up').click(function () {
         var data = {
@@ -77,5 +79,4 @@
             return true;
         }
     });
-    Map({element:'map'});
 </script>
