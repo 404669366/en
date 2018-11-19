@@ -1,6 +1,5 @@
 <?php
 \app\assets\MenuAsset::register($this);
-\app\assets\MenuAsset::offDeBug();
 $this->beginPage();
 ?>
 <!DOCTYPE html>
