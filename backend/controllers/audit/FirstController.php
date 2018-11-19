@@ -11,7 +11,7 @@ namespace app\controllers\audit;
 
 use app\controllers\basis\CommonController;
 
-class FirstauditController extends CommonController
+class FirstController extends CommonController
 {
 
 }
