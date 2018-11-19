@@ -173,75 +173,75 @@
                         '                <tr>\n' +
                         '                    <td>经营资金流入</td>\n' +
                         '                    <td>充电服务费收益</td>\n' +
-                        '                    <td>' + v.server + '</td>\n' +
+                        '                    <td>' + toFloat(v.server) + '</td>\n' +
                         '                    <td></td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
-                        '                    <td>' + (v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.server / 8) + '</td>\n' +
                         '                </tr>\n' +
                         '                <tr>\n' +
                         '                    <td rowspan="4">经营资金流出</td>\n' +
                         '                    <td>电损</td>\n' +
-                        '                    <td>' + v.lossMoney + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney) + '</td>\n' +
                         '                    <td></td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.lossMoney / 8) + '</td>\n' +
                         '                </tr>\n' +
                         '                <tr>\n' +
                         '                    <td>场地分成</td>\n' +
-                        '                    <td>' + v.field + '</td>\n' +
+                        '                    <td>' + toFloat(v.field) + '</td>\n' +
                         '                    <td></td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
-                        '                    <td>' + (v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.field / 8) + '</td>\n' +
                         '                </tr>\n' +
                         '                <tr>\n' +
                         '                    <td>保险费</td>\n' +
-                        '                    <td>' + v.safe + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe) + '</td>\n' +
                         '                    <td></td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
-                        '                    <td>' + (v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.safe / 8) + '</td>\n' +
                         '                </tr>\n' +
                         '                <tr>\n' +
                         '                    <td>三费(平台 代运营 运维)</td>\n' +
-                        '                    <td>' + v.tMoney + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney) + '</td>\n' +
                         '                    <td></td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
-                        '                    <td>' + (v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
+                        '                    <td>' + toFloat(v.tMoney / 8) + '</td>\n' +
                         '                </tr>';
                     str += '<tr><td colspan="15"></td></tr>';
                 });
                 str += '<tr>\n' +
                     '                    <td colspan="5">变压器</td>\n' +
-                    '                    <td>' + data.transformer.price + '</td>\n' +
+                    '                    <td>' + toFloat(data.transformer.price) + '</td>\n' +
                     '                    <td></td>\n' +
                     '                    <td></td>\n' +
                     '                    <td></td>\n' +
@@ -254,7 +254,7 @@
                     '                </tr>\n' +
                     '                <tr>\n' +
                     '                    <td colspan="5">政府补贴</td>\n' +
-                    '                    <td>' + data.tMoney + '</td>\n' +
+                    '                    <td>' + toFloat(data.tMoney) + '</td>\n' +
                     '                    <td></td>\n' +
                     '                    <td></td>\n' +
                     '                    <td></td>\n' +
@@ -267,29 +267,29 @@
                     '                </tr>\n' +
                     '                <tr>\n' +
                     '                    <td colspan="5">资金流净值</td>\n' +
-                    '                    <td>' + data.haveMoney + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney) + '</td>\n' +
                     '                    <td></td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.haveMoney / 8) + '</td>\n' +
                     '                </tr>\n' +
                     '                <tr>\n' +
                     '                    <td colspan="5">净利润</td>\n' +
-                    '                    <td>' + data.endMoney + '</td>\n' +
-                    '                    <td> + ' + data.tMoney + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
-                    '                    <td>' + (data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney) + '</td>\n' +
+                    '                    <td> + ' + toFloat(data.tMoney) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
+                    '                    <td>' + toFloat(data.endMoney / 8) + '</td>\n' +
                     '                </tr>';
             } else {
                 str += '<tr>\n' +
@@ -484,6 +484,13 @@
                 '            </div>\n' +
                 '        </div>');
             $('.selectPicker').selectpicker('refresh');
+        }
+
+        function toFloat(n) {
+            if (n != parseInt(n)) {
+                return n.toFixed(2);
+            }
+            return n;
         }
     });
 </script>
