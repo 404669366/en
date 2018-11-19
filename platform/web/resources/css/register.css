@@ -1,0 +1,130 @@
+*{
+padding: 0px;
+margin: 0px;
+}
+body{
+	background: #14212A;
+}
+.clear {
+    clear: both;
+}
+
+.vip_form{
+	width: 1000px;
+    height: 550px;
+    margin: 20px auto;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+}
+.form_center{
+	width: 760px;
+	height: 500px;
+    margin: 10px auto;
+}
+.form_top{
+	width: 760px;
+	border-bottom: solid 3px #ff6700;
+	float: left;
+	padding-bottom: 6px;
+}
+.form_top .vip_left{
+	float: left;
+	font: bold 20px/40px "宋体";
+	
+}
+.form_top .vip_right{
+	float: right;
+	font:bold 13px/40px "微软雅黑";
+}
+.form_top li a{
+	color: #FF6600;
+	text-decoration: none;
+}
+.form_top li a:hover{
+	color:#8C8C8C;
+}
+.vip_main{
+	margin-top: 30px;
+}
+.vip_main .username{
+	height: 40px;
+	font: 16px/40px "微软雅黑";
+	margin-top: 20px;
+	padding-left: 45px;
+}
+.vip_main span{
+	font: 13px/40px "微软雅黑";
+	color: #CCC;
+}
+.input1,.validate{
+	width: 220px;
+	font: 14px/38px "宋体";
+    text-indent: 1em;
+    border:solid 1px  #ccc;
+}
+.validate{
+    width: 120px;
+}
+.regist_submit{
+	margin: 40px auto;
+}
+.regist_submit .submit{
+	border: none;
+    width: 440px;
+    background: #ff6700;
+    color: #fff;
+    font-weight: bold;
+    font:bold 22px/45px "微软雅黑";
+    letter-spacing: 8px;
+    cursor: pointer;
+    margin-left: 45px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.form_top{
+	margin: 10px 0;
+	border-bottom: solid 3px #FF6600;
+}
+
+.form_top li{
+    float: left;
+}
+.form_top li.vip_left{
+    font: bold 20px/40px "宋体";
+    float: left;
+}
+
+.form_top li.vip_right{
+	font: 16px/40px "宋体";
+    float: right;
+}*/
