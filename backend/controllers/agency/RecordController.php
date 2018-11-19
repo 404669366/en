@@ -1,21 +1,21 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: lt
+ * User: miku
  * Date: 2018/11/19
- * Time: 16:21
+ * Time: 18:42
  */
 
-namespace app\controllers\audit;
+namespace app\controllers\agency;
 
 
 use app\controllers\basis\CommonController;
 
-class FirstController extends CommonController
+class RecordController extends CommonController
 {
     public function actionList()
     {
-        return $this->render('list');
+
     }
 
     public function actionData()
@@ -23,14 +23,14 @@ class FirstController extends CommonController
 
     }
 
-    public function actionDetail($id)
+    public function actionRecordSupply($id)
     {
 
     }
 
     public function actionMyList()
     {
-        return $this->render('myList');
+
     }
 
     public function actionMyData()
@@ -38,13 +38,9 @@ class FirstController extends CommonController
 
     }
 
-    public function actionEdit($id)
+    public function actionPowerSupply($id)
     {
 
     }
 
-    public function actionSupply($id)
-    {
-
-    }
 }
