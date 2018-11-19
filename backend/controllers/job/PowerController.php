@@ -46,7 +46,7 @@ class PowerController extends CommonController
         $model = new Power();
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
-            if ($model->load(['EnPowerBase' => $post]) && $model->validate() && $model->save()) {
+            if ($model->load(['Power' => $post]) && $model->validate() && $model->save()) {
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
@@ -69,7 +69,7 @@ class PowerController extends CommonController
         $model = Power::findOne($id);
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
-            if ($model->load(['EnPowerBase' => $post]) && $model->validate() && $model->save()) {
+            if ($model->load(['Power' => $post]) && $model->validate() && $model->save()) {
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }

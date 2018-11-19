@@ -23,7 +23,7 @@ class IndexController extends CommonController
         $user = \Yii::$app->user->getIdentity() ? \Yii::$app->user->getIdentity() : '';
         $data = [
             'username' => $user ? $user->username : '',
-            'menus' => redis::app()->hGet('BackstageMenu', $user ? $user->job_id : 0),
+            'menus' => redis::app()->hGet('BackendMenu', $user ? $user->job_id : 0),
         ];
         return $this->render('menu', ['data' => $data]);
     }

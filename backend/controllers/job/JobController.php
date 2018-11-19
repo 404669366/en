@@ -46,7 +46,7 @@ class JobController extends CommonController
             if (isset($post['powers']) && $post['powers']) {
                 $post['powers'] = implode(',', $post['powers']);
             }
-            if ($model->load(['EnJobBase' => $post]) && $model->validate() && $model->save()) {
+            if ($model->load(['Job' => $post]) && $model->validate() && $model->save()) {
                 $model->updateRule();
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
@@ -72,7 +72,7 @@ class JobController extends CommonController
             if (isset($post['powers']) && $post['powers']) {
                 $post['powers'] = implode(',', $post['powers']);
             }
-            if ($model->load(['EnJobBase' => $post]) && $model->validate() && $model->save()) {
+            if ($model->load(['Job' => $post]) && $model->validate() && $model->save()) {
                 $model->updateRule();
                 Msg::set('保存成功');
                 return $this->redirect(['list']);

@@ -49,7 +49,7 @@ class MemberController extends CommonController
             $post = \Yii::$app->request->post();
             $post['password'] = \Yii::$app->security->generatePasswordHash($post['password']);
             $post['created_at'] = time();
-            if ($model->load(['EnMemberBase' => $post]) && $model->validate() && $model->save()) {
+            if ($model->load(['Member' => $post]) && $model->validate() && $model->save()) {
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
@@ -75,7 +75,7 @@ class MemberController extends CommonController
             } else {
                 $post['password'] = $model->password;
             }
-            if ($model->load(['EnMemberBase' => $post]) && $model->validate() && $model->save()) {
+            if ($model->load(['Member' => $post]) && $model->validate() && $model->save()) {
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
