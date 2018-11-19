@@ -1,6 +1,5 @@
 <?php
 \app\assets\ModelAsset::register($this);
-\app\assets\ModelAsset::offDeBug();
 $this->beginPage();
 $nav = \vendor\en\EnNavBase::getNav();
 ?>

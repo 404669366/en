@@ -212,13 +212,4 @@ class AssetBundle extends BaseObject
             }
         }
     }
-
-    /**
-     * 禁用调试
-     */
-    public static function offDeBug(){
-        if (class_exists('\yii\debug\Module')) {
-            Yii::$app->view->off(\yii\web\View::EVENT_END_BODY, [\yii\debug\Module::getInstance(), 'renderToolbar']);
-        }
-    }
 }
