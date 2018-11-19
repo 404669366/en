@@ -1,0 +1,62 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.clear {
+    clear: both;
+}
+#login{
+	width: 1130px;
+    height: 588px;
+    background: yellow;
+    margin: 0 auto;
+    margin-top: 50px;
+    background: url(../image/long1.jpg)no-repeat center center;
+}
+.long_center{
+	width: 400px;
+    height: 400px;
+    background: #444;
+	border-radius: 10px;
+    float: right;
+}
+.logoin_top{
+	width: 360px;
+	height: 44px;
+	padding-bottom: 6px;
+	margin: 0px 18px;
+	border-bottom: solid 2px #FF6600;
+}
+.logoin_top li{
+	float: left;
+	color: #fff;
+}
+.logoin_top .login_left{
+	float: left;
+	font: bold 20px/40px "宋体";
+}
+.logoin_top .login_right{
+	float: right;
+	font:13px/40px "微软雅黑";
+}
+.logoin_top li a{
+	color: #FF6600;
+	text-decoration: none;
+}
+.logoin_top li a:hover{
+	color:#8C8C8C;
+}
+/*form开始*/
+.login_main{
+	width: 360px;
+	height: 300px;
+	padding: 20px 0;
+	color: #fff;
+	padding: 20px 0px;
+	margin: 0 auto;
+}
+.login_main .username {
+    font: 16px Times New Roman;
+    height: 40px;
+    line-height: 40px;
+    margin: 35px 0;
