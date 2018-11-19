@@ -19,7 +19,6 @@
             <tr role="row">
                 <th>ID</th>
                 <th>业务名</th>
-                <th>业务简述</th>
                 <th>排序</th>
                 <th>操作</th>
             </tr>
@@ -35,7 +34,6 @@
         columns: [
             {"data": "id"},
             {"data": "name"},
-            {"data": "resume"},
             {"data": "sort"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {

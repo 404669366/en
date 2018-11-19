@@ -12,13 +12,6 @@
         </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">业务简述</label>
-            <div class="col-sm-2">
-                <textarea class="form-control resume"></textarea>
-            </div>
-        </div>
-        <div class="hr-line-dashed"></div>
-        <div class="form-group">
             <label class="col-sm-2 control-label">业务详情</label>
             <div class="col-sm-10">
                 <div class="summernote"></div>
@@ -27,23 +20,6 @@
         <script>
             myEdit({
                 element: '.summernote',
-                uploadImgUrl: '/basis/file/upload',
-                removeImgUrl: '/basis/file/delete'
-            });
-        </script>
-        <div class="hr-line-dashed"></div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">业务小图</label>
-            <div class="col-sm-8">
-                <div class="a"></div>
-            </div>
-        </div>
-        <script>
-            upload({
-                max: 1,
-                name: 'smallImage',
-                height: 16,
-                element: '.a',
                 uploadImgUrl: '/basis/file/upload',
                 removeImgUrl: '/basis/file/delete'
             });
@@ -84,8 +60,6 @@
                 var data = {
                     _csrf: $('._csrf').val(),
                     name: $('.name').val(),
-                    resume: $('.resume').val(),
-                    smallImage: $('[name="smallImage"]').val(),
                     bigImage: $('[name="bigImage"]').val(),
                     content: $('.summernote').summernote('code'),
                     sort: $('.sort').val()

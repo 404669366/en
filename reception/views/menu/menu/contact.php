@@ -1,4 +1,5 @@
-<?php $this->registerJsFile('/resource/js/map.js');?>
+<?php $this->registerJsFile('/resource/js/map.js'); ?>
+
 <div id="support" class="section wb" style="padding:70px 0">
     <div class="container" style="min-height: 36rem">
         <div class="section-title text-center" style="margin-top: 3rem;margin-bottom: 0rem">
@@ -41,7 +42,7 @@
 </div>
 <div id="map"></div>
 <script>
-    Map({element:'map'});
+    Map({element: 'map'});
 </script>
 <script type="text/javascript">
     $('.up').click(function () {
@@ -59,6 +60,7 @@
                 }
             })
         }
+
         function checkData(data) {
             if (!data.name) {
                 layer.msg('请填写姓名');
