@@ -10,8 +10,8 @@ namespace app\controllers\job;
 
 
 use app\controllers\basis\CommonController;
-use vendor\en\EnJobBase;
-use vendor\en\EnPowerBase;
+use vendor\en\Job;
+use vendor\en\Power;
 use vendor\helpers\Msg;
 
 class JobController extends CommonController
@@ -31,7 +31,7 @@ class JobController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(EnJobBase::getPageData());
+        return $this->rTableData(Job::getPageData());
     }
 
     /**
@@ -40,7 +40,7 @@ class JobController extends CommonController
      */
     public function actionAdd()
     {
-        $model = new EnJobBase();
+        $model = new Job();
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
             if (isset($post['powers']) && $post['powers']) {
@@ -55,7 +55,7 @@ class JobController extends CommonController
         }
         return $this->render('add', [
             'tops' => $model::getTopJobs(),
-            'powers' => json_encode(EnPowerBase::getPowerTree()),
+            'powers' => json_encode(Power::getPowerTree()),
         ]);
     }
 
@@ -66,7 +66,7 @@ class JobController extends CommonController
      */
     public function actionEdit($id)
     {
-        $model = EnJobBase::findOne($id);
+        $model = Job::findOne($id);
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
             if (isset($post['powers']) && $post['powers']) {
@@ -82,7 +82,7 @@ class JobController extends CommonController
         return $this->render('edit', [
             'model' => $model,
             'tops' => $model::getTopJobs($id),
-            'powers' => json_encode(EnPowerBase::getPowerTree()),
+            'powers' => json_encode(Power::getPowerTree()),
         ]);
     }
 
@@ -93,7 +93,7 @@ class JobController extends CommonController
      */
     public function actionDel($id)
     {
-        $model = EnJobBase::findOne($id);
+        $model = Job::findOne($id);
         Msg::set('删除失败');
         if ($model) {
             $model->updateRule($id);

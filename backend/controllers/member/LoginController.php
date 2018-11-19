@@ -10,7 +10,7 @@ namespace app\controllers\member;
 
 
 use app\controllers\basis\BasisController;
-use vendor\en\EnMemberBase;
+use vendor\en\Member;
 use vendor\helpers\CaptchaCode;
 use vendor\helpers\Msg;
 
@@ -26,7 +26,7 @@ class LoginController extends BasisController
         if (\Yii::$app->request->isPost) {
             $data = \Yii::$app->request->post();
             if (CaptchaCode::validate($data['code'], 'Login')) {
-                if (EnMemberBase::accountLogin($data['username'], $data['pwd'])) {
+                if (Member::accountLogin($data['username'], $data['pwd'])) {
                     Msg::set('登录成功');
                     return $this->redirect([\Yii::$app->params['defaultRoute']]);
                 }

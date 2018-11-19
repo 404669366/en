@@ -10,8 +10,7 @@ namespace app\controllers\job;
 
 
 use app\controllers\basis\CommonController;
-use app\model\validate;
-use vendor\en\EnPowerBase;
+use vendor\en\Power;
 use vendor\helpers\Constant;
 use vendor\helpers\Helper;
 use vendor\helpers\Msg;
@@ -35,7 +34,7 @@ class PowerController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(EnPowerBase::getPageData());
+        return $this->rTableData(Power::getPageData());
     }
 
     /**
@@ -44,7 +43,7 @@ class PowerController extends CommonController
      */
     public function actionAdd()
     {
-        $model = new EnPowerBase();
+        $model = new Power();
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
             if ($model->load(['EnPowerBase' => $post]) && $model->validate() && $model->save()) {
@@ -67,7 +66,7 @@ class PowerController extends CommonController
      */
     public function actionEdit($id)
     {
-        $model = EnPowerBase::findOne($id);
+        $model = Power::findOne($id);
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
             if ($model->load(['EnPowerBase' => $post]) && $model->validate() && $model->save()) {
@@ -90,7 +89,7 @@ class PowerController extends CommonController
      */
     public function actionDel($id)
     {
-        $model = EnPowerBase::findOne($id);
+        $model = Power::findOne($id);
         Msg::set('删除失败');
         if ($model) {
             $model->delete();

@@ -10,8 +10,8 @@ namespace app\controllers\member;
 
 
 use app\controllers\basis\CommonController;
-use vendor\en\EnJobBase;
-use vendor\en\EnMemberBase;
+use vendor\en\Job;
+use vendor\en\Member;
 use vendor\helpers\Constant;
 use vendor\helpers\Msg;
 
@@ -25,7 +25,7 @@ class MemberController extends CommonController
     {
         return $this->render('list', [
             'status' => Constant::memberStatus(),
-            'jobs' => EnJobBase::getJobs(),
+            'jobs' => Job::getJobs(),
         ]);
     }
 
@@ -35,7 +35,7 @@ class MemberController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(EnMemberBase::getPageData());
+        return $this->rTableData(Member::getPageData());
     }
 
     /**
@@ -44,7 +44,7 @@ class MemberController extends CommonController
      */
     public function actionAdd()
     {
-        $model = new EnMemberBase();
+        $model = new Member();
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
             $post['password'] = \Yii::$app->security->generatePasswordHash($post['password']);
@@ -56,7 +56,7 @@ class MemberController extends CommonController
             Msg::set($model->errors());
         }
         return $this->render('add', [
-            'jobs' => json_encode(EnJobBase::getJobsTree()),
+            'jobs' => json_encode(Job::getJobsTree()),
         ]);
     }
 
@@ -67,7 +67,7 @@ class MemberController extends CommonController
      */
     public function actionEdit($id)
     {
-        $model = EnMemberBase::findOne($id);
+        $model = Member::findOne($id);
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
             if (isset($post['password']) && $post['password']) {
@@ -83,7 +83,7 @@ class MemberController extends CommonController
         }
         return $this->render('edit', [
             'model' => $model,
-            'jobs' => json_encode(EnJobBase::getJobsTree()),
+            'jobs' => json_encode(Job::getJobsTree()),
         ]);
     }
 
@@ -95,7 +95,7 @@ class MemberController extends CommonController
      */
     public function actionStop($id, $st)
     {
-        $model = EnMemberBase::findOne($id);
+        $model = Member::findOne($id);
         Msg::set('保存失败');
         if ($model) {
             $model->status = $st;
@@ -113,7 +113,7 @@ class MemberController extends CommonController
      */
     public function actionDel($id)
     {
-        $model = EnMemberBase::findOne($id);
+        $model = Member::findOne($id);
         Msg::set('删除失败');
         if ($model) {
             $model->delete();
