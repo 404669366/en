@@ -1,5 +1,5 @@
 <?php $this->registerJsFile('/resource/js/map.js');?>
-<div id="support" class="section wb" style="padding:0 0 70px 0">
+<div id="support" class="section wb" style="padding:0 0 70px 0;">
     <div id="map"></div>
     <script>
         Map({element:'map'});

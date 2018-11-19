@@ -25,11 +25,6 @@ class MenuController extends BasisController
         return $this->render('index');
     }
 
-    public function actionAbout()
-    {
-        EnNavBase::setNow('业务介绍');
-        return $this->render('about');
-    }
     public function actionProduct()
     {
         EnNavBase::setNow('产品介绍');

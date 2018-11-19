@@ -5,37 +5,7 @@
 <div class="parallax first-section">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 wow slideInLeft ">
-                <div class="contact_form">
-                    <h3 style="color: white"><i class="fa fa-envelope-o grd1 global-radius"></i> 联系方式</h3>
-                    <form id="contactform1" class="row" name="contactform" method="post">
-                        <fieldset class="row-fluid">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="name" class="form-control name" placeholder="姓名">
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" name="tel" class="form-control tel" placeholder="电话">
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <label class="sr-only"></label>
-                                <select name="business" class="selectpicker form-control type"
-                                        data-style="btn-white">
-                                    <option value="0">业务</option>
-                                    <?php foreach (\vendor\en\EnServeBase::getReceptionServes() as $k => $v): ?>
-                                        <option value="<?= $k ?>"><?= $v ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                                <button type="button" value="SEND"
-                                        class="btn btn-light btn-radius btn-brd grd1 btn-block up">提交
-                                </button>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-12 col-sm-12">
                 <div class="big-tagline clearfix">
                     <?= \vendor\en\EnContentBase::getContent('eQzruthc') ?>
                 </div>
@@ -43,29 +13,9 @@
         </div>
     </div>
 </div>
-
 <div class="about-box">
     <div class="container">
-        <div class="row">
-            <div class="top-feature owl-carousel owl-theme">
-                <?= \vendor\en\EnServeBase::getServe() ?>
-            </div>
-        </div>
-
-        <hr class="hr1">
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="post-media wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
-                    <img src="/resource/uploads/about_bg.jpg" alt="" class="img-responsive">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="message-box right-ab">
-                    <?= \vendor\en\EnContentBase::getContent("r9yrsiQg") ?>
-                </div>
-            </div>
-        </div>
+        <?=\vendor\en\EnServeBase::getServerContent()?>
     </div>
 </div>
 <div class="pop">
