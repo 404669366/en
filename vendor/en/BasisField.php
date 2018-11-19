@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Constant;
 use Yii;
 
 /**
@@ -15,8 +16,7 @@ use Yii;
  * @property string $address 场地位置
  * @property string $intro 场地信息介绍
  * @property string $remark 审核备注
- * @property string $status 场地状态1审核通过2审核不通过
- * @property string $image 场地图片
+ * @property string $status 场地状态0待认领1已认领2已确认3放弃
  * @property string $created 创建时间
  * @property string $updated 更新时间
  */
@@ -40,7 +40,6 @@ class BasisField extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 20],
             [['address', 'remark', 'created', 'updated'], 'string', 'max' => 255],
             [['intro'], 'string', 'max' => 500],
-            [['image'], 'string', 'max' => 1000],
         ];
     }
 
@@ -58,10 +57,59 @@ class BasisField extends \yii\db\ActiveRecord
             'address' => '场地位置',
             'intro' => '场地信息介绍',
             'remark' => '审核备注',
-            'status' => '场地状态1审核通过2审核不通过',
-            'image' => '场地图片',
+            'status' => '场地状态0待认领1已认领2已确认3放弃',
             'created' => '创建时间',
             'updated' => '更新时间',
         ];
+    }
+
+    /**
+     * 业务员分页数据
+     * @return mixed
+     */
+    public static function getPageData()
+    {
+        if ($member_id = Yii::$app->user->id) {
+            $data = self::find()->alias('b')
+                ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.id')
+                ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
+                ->where(['b.member_id' => $member_id])
+                ->select(['b.*', 'u.tel', 'a.full_name'])
+                ->page([
+                    'name' => ['like', 'b.name'],
+                    'tel' => ['like', 'u.tel'],
+                    'status' => ['=', 'b.status'],
+                ]);
+            foreach ($data['data'] as &$v) {
+                $v['transStatus'] = Constant::basisStatus()[$v['status']];
+                $v['created'] = date('Y-m-d H:i:s', $v['created']);
+            }
+            return $data;
+        }
+        return ['total' => 0, 'data' => []];
+    }
+
+    /**
+     * 管理员分页数据
+     * @return mixed
+     */
+    public static function getAdminPageData()
+    {
+        $data = self::find()->alias('b')
+            ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.id')
+            ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
+            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id')
+            ->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
+            ->page([
+                'username' => ['like', 'm.username'],
+                'name' => ['like', 'b.name'],
+                'tel' => ['like', 'u.tel'],
+                'status' => ['=', 'b.status'],
+            ]);
+        foreach ($data['data'] as &$v) {
+            $v['transStatus'] = Constant::basisStatus()[$v['status']];
+            $v['created'] = date('Y-m-d H:i:s', $v['created']);
+        }
+        return $data;
     }
 }
