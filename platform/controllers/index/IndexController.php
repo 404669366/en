@@ -17,4 +17,9 @@ class IndexController extends BasisController
     {
         return $this->render('index');
     }
+
+    public function actionList()
+    {
+        return $this->render('list');
+    }
 }

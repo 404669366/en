@@ -59,13 +59,13 @@ $config = [
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
-    if (YII_DEBUG) {
-        $config['bootstrap'][] = 'debug';
-        $config['modules']['debug'] = [
-            'class' => 'yii\debug\Module',
-        ];
-    }
+if (YII_DEBUG) {
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+    ];
+}
+if (YII_GII) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',

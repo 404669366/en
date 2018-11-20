@@ -2,12 +2,15 @@
 /backstage/config/db.php
 /reception/config/db.php
 /platform/config/db.php
+/backend/config/db.php
 /backstage/runtime/
 /reception/runtime/
 /platform/runtime/
+/backend/runtime/
 /backstage/web/assets/
 /reception/web/assets/
 /platform/web/assets/
+/backend/web/assets/
 .idea/workspace.xml
 .idea/vcs.xml
 .idea/en.iml

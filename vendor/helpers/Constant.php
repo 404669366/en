@@ -92,4 +92,18 @@ class Constant
             'tax' => 0.84
         ];
     }
+
+    /**基础场地状态
+     *
+     * @return array
+     */
+    public static function basisStatus()
+    {
+        return [
+            '0' => '待认领',
+            '1' => '已认领',
+            '2' => '已确认',
+            '3' => '放弃',
+        ];
+    }
 }
