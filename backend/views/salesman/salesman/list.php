@@ -9,9 +9,21 @@
                     手机号: <input class="searchField" type="text" value="" name="tel">
                 </span>
                 <span class="tableSpan">
+                    状态: <select class="searchField" name="status">
+                                <option value="">----</option>
+                        <?php foreach ($status as $k => $v): ?>
+                            <option value="<?= $k ?>"><?= $v ?></option>
+                        <?php endforeach; ?>
+                            </select>
+                </span>
+                <span class="tableSpan">
                     <button class="tableSearch">搜索</button>
                     <button class="tableReload">重置</button>
                 </span>
+            </div>
+            <div class="col-sm-2">
+                <a class="btn btn-danger" style="margin-right: 1rem">场地数量：<?= $num ?></a>
+                <a href="/salesman/salesman/rob" class="btn btn-info">抢单</a>
             </div>
         </div>
         <table class="table table-striped table-bordered table-hover dataTable" id="table">
@@ -45,7 +57,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/salesman/salesman/eidt?id=' + data + '">修改</a>';
+                var str = '<a class="btn btn-sm btn-warning" href="/salesman/salesman/detail?id=' + data + '">详情</a>';
 
                 return str;
             }

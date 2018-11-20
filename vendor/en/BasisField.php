@@ -3,6 +3,8 @@
 namespace vendor\en;
 
 use vendor\helpers\Constant;
+use vendor\helpers\Msg;
+use vendor\helpers\redis;
 use Yii;
 
 /**
@@ -103,7 +105,6 @@ class BasisField extends \yii\db\ActiveRecord
                 ->where(['b.member_id' => $member_id])
                 ->select(['b.*', 'u.tel', 'a.full_name'])
                 ->page([
-                    'area' => ['like', 'a.full_name'],
                     'name' => ['like', 'b.name'],
                     'tel' => ['like', 'u.tel'],
                     'status' => ['=', 'b.status'],
@@ -118,7 +119,7 @@ class BasisField extends \yii\db\ActiveRecord
     }
 
     /**
-     * 管理员分页数据
+     * 主管分页数据
      * @return mixed
      */
     public static function getAdminPageData()
@@ -139,4 +140,36 @@ class BasisField extends \yii\db\ActiveRecord
         return $data;
     }
 
+    /**
+     * 获取场地数量
+     * @return int
+     */
+    public static function getNum()
+    {
+        return redis::app()->lLen('BackendBasisField');
+    }
+
+    /**
+     * 业务员抢单
+     */
+    public static function rob()
+    {
+        Msg::set('非法操作');
+        if ($member_id = Yii::$app->user->id) {
+            Msg::set('动作慢了');
+            if ($now = redis::app()->lPop('BackendBasisField')) {
+                Msg::set('系统错误');
+                if ($model = self::findOne($now)) {
+                    $model->member_id = $member_id;
+                    $model->status = 1;
+                    if ($model->save()) {
+                        Msg::set('抢单成功');
+                        redis::app()->rPush('BackendBasisField', $model->id);
+                    } else {
+                        Msg::set($model->errors());
+                    }
+                }
+            }
+        }
+    }
 }

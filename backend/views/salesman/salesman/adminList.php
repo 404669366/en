@@ -50,7 +50,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/salesman/salesman/detail?id=' + data + '">查看详情</a>';
+                var str = '<a class="btn btn-sm btn-warning" href="/salesman/salesman/admin-detail?id=' + data + '">详情</a>';
 
                 return str;
             }

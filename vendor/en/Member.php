@@ -107,6 +107,17 @@ class Member extends \yii\db\ActiveRecord implements IdentityInterface
         return $data;
     }
 
+    /**
+     * 根据职位获取用户
+     * @param int $job_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getMemberByJob($job_id = 0)
+    {
+        return self::find()->where(['job_id' => $job_id])
+            ->select(['username', 'id'])->asArray()->all();
+    }
+
     //todo**********************  登录接口实现  ***************************
 
     public static function findIdentity($id)

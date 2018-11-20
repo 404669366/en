@@ -26,7 +26,7 @@ class SalesmanController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list');
+        return $this->render('list', ['num' => BasisField::getNum(), 'status' => Constant::basisStatus()]);
     }
 
     /**
@@ -36,6 +36,13 @@ class SalesmanController extends CommonController
     public function actionData()
     {
         return $this->rTableData(BasisField::getPageData());
+    }
+
+    public function actionRob()
+    {
+
+        BasisField::rob();
+        return $this->redirect(['list']);
     }
 
     /**
@@ -58,21 +65,29 @@ class SalesmanController extends CommonController
 
 
     /**
-     * 放弃导航栏
+     * 放弃基础场地
      * @param $id
+     * @param $remark
      * @return \yii\web\Response
      */
-    public function actionDel($id)
+    public function actionDel($id, $remark)
     {
-        $model = BasisField::findOne($id);
-        Msg::set('放弃失败');
-        if ($model) {
-            $model->status = 4;
-            if ($model->save()) {
-                Msg::set('放弃成功');
+        if ($remark) {
+            $model = BasisField::findOne($id);
+            Msg::set('基础场地不存在');
+            if ($model) {
+                $model->remark = $remark;
+                $model->status = 3;
+                if ($model->save()) {
+                    Msg::set('放弃成功');
+                } else {
+                    Msg::set($model->errors());
+                }
             }
+            return $this->redirect(['list']);
         }
-        return $this->redirect(['list']);
+        Msg::set('请填写放弃原因');
+        return $this->redirect(['detail?id=' . $id]);
     }
 
     /**
@@ -100,6 +115,25 @@ class SalesmanController extends CommonController
 
     }
 
+    /**
+     * 主管详情页
+     * @param $id
+     * @return string
+     */
+    public function actionAdminDetail($id)
+    {
+        return $this->render('adminDetail', [
+            'model' => BasisField::findOne($id),
+            'status' => Constant::basisStatus(),
+            'members' => Member::getMemberByJob(4)
+        ]);
+    }
+
+    /**
+     * 业务员详情页
+     * @param $id
+     * @return string
+     */
     public function actionDetail($id)
     {
         return $this->render('detail', [
@@ -108,14 +142,12 @@ class SalesmanController extends CommonController
         ]);
     }
 
-    public function actionEdit($id)
-    {
-        return $this->render('edit', [
-            'model' => BasisField::findOne($id),
-            'status' => Constant::basisStatus()
-        ]);
-    }
-
+    /**
+     * 恢复场地
+     * @param $id
+     * @param $mid
+     * @return \yii\web\Response
+     */
     public function actionRecover($id, $mid)
     {
         Msg::set('基础场地不存在');
