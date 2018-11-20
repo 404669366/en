@@ -3,13 +3,7 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    场地人姓名: <input class="searchField" type="text" value="" name="">
-                </span>
-                <span class="tableSpan">
                     业务员姓名: <input class="searchField" type="text" value="" name="username">
-                </span>
-                <span class="tableSpan">
-                    手机号: <input class="searchField" type="text" value="" name="tel">
                 </span>
                 <span class="tableSpan">
                     状态: <select class="searchField" name="status">
@@ -29,13 +23,12 @@
             <thead>
             <tr role="row">
                 <th>ID</th>
+                <th>业务员姓名</th>
                 <th>场地人姓名</th>
+                <th>联系电话</th>
                 <th>场地位置</th>
-                <th>场地信息介绍</th>
-                <th>审核备注</th>
                 <th>场地状态</th>
                 <th>创建时间</th>
-                <th>更新时间</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -45,17 +38,16 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/salesman/salesman/data',
+        url: '/salesman/salesman/admin-data',
         length: 10,
         columns: [
             {"data": "id"},
+            {"data": "username"},
             {"data": "name"},
-            {"data": "address"},
-            {"data": "intro"},
-            {"data": "remark"},
+            {"data": "tel"},
+            {"data": "full_name"},
             {"data": "status"},
             {"data": "created"},
-            {"data": "updated"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
                 var str = '<a class="btn btn-sm btn-warning" href="/salesman/salesman/detail?id=' + data + '">查看详情</a>';

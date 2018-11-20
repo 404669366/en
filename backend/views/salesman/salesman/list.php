@@ -6,18 +6,7 @@
                     场地人姓名: <input class="searchField" type="text" value="" name="">
                 </span>
                 <span class="tableSpan">
-                    业务员姓名: <input class="searchField" type="text" value="" name="username">
-                </span>
-                <span class="tableSpan">
                     手机号: <input class="searchField" type="text" value="" name="tel">
-                </span>
-                <span class="tableSpan">
-                    状态: <select class="searchField" name="status">
-                                <option value="">----</option>
-                        <?php foreach ($status as $k => $v): ?>
-                            <option value="<?= $k ?>"><?= $v ?></option>
-                        <?php endforeach; ?>
-                            </select>
                 </span>
                 <span class="tableSpan">
                     <button class="tableSearch">搜索</button>
@@ -30,12 +19,11 @@
             <tr role="row">
                 <th>ID</th>
                 <th>场地人姓名</th>
+                <th>联系电话</th>
                 <th>场地位置</th>
-                <th>场地信息介绍</th>
-                <th>审核备注</th>
+                <th>详细地址</th>
                 <th>场地状态</th>
                 <th>创建时间</th>
-                <th>更新时间</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -55,9 +43,11 @@
             {"data": "remark"},
             {"data": "status"},
             {"data": "created"},
-            {"data": "updated"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
+                var str = '<a class="btn btn-sm btn-warning" href="/salesman/salesman/eidt?id=' + data + '">修改</a>';
+
+                return str;
             }
             }
         ],

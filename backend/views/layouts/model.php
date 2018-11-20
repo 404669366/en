@@ -20,7 +20,7 @@ $this->beginPage();
     });
 </script>
 <?php \vendor\helpers\Msg::run() ?>
-<div class="wrapper wrapper-content animated fadeIn">
+<div class="wrapper wrapper-content animated">
     <?= $content ?>
 </div>
 </body>

@@ -1319,7 +1319,7 @@ PATTERN;
         if ($pageWhere) {
             foreach ($pageWhere as $k => $v) {
                 $search = Yii::$app->request->get('search', []);
-                if ($search && isset($search[$k]) && $search[$k]) {
+                if ($search && isset($search[$k]) && $search[$k] != '') {
                     $where = ['or'];
                     for ($i = 1; $i < count($v); $i++) {
                         array_push($where, [$v[0], $v[$i], $search[$k]]);

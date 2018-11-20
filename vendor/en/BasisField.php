@@ -36,9 +36,9 @@ class BasisField extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'area_id', 'member_id', 'status'], 'integer'],
+            [['user_id', 'area_id', 'member_id', 'status', 'created', 'updated'], 'integer'],
             [['name'], 'string', 'max' => 20],
-            [['address', 'remark', 'created', 'updated'], 'string', 'max' => 255],
+            [['address', 'remark'], 'string', 'max' => 255],
             [['intro'], 'string', 'max' => 500],
         ];
     }
@@ -64,6 +64,33 @@ class BasisField extends \yii\db\ActiveRecord
     }
 
     /**
+     * 关联普通用户表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * 关联后台用户表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMember()
+    {
+        return $this->hasOne(Member::class, ['id' => 'member_id']);
+    }
+
+    /**
+     * 关联地域表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArea()
+    {
+        return $this->hasOne(Area::class, ['area_id' => 'area_id']);
+    }
+
+    /**
      * 业务员分页数据
      * @return mixed
      */
@@ -76,6 +103,7 @@ class BasisField extends \yii\db\ActiveRecord
                 ->where(['b.member_id' => $member_id])
                 ->select(['b.*', 'u.tel', 'a.full_name'])
                 ->page([
+                    'area' => ['like', 'a.full_name'],
                     'name' => ['like', 'b.name'],
                     'tel' => ['like', 'u.tel'],
                     'status' => ['=', 'b.status'],
@@ -102,15 +130,13 @@ class BasisField extends \yii\db\ActiveRecord
             ->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
             ->page([
                 'username' => ['like', 'm.username'],
-                'name' => ['like', 'b.name'],
-                'tel' => ['like', 'u.tel'],
                 'status' => ['=', 'b.status'],
             ]);
         foreach ($data['data'] as &$v) {
             $v['status'] = Constant::basisStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
-            $v['updated'] = date('Y-m-d H:i:s', $v['updated']);
         }
         return $data;
     }
+
 }

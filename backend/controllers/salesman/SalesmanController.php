@@ -107,4 +107,28 @@ class SalesmanController extends CommonController
             'status' => Constant::basisStatus()
         ]);
     }
+
+    public function actionEdit($id)
+    {
+        return $this->render('edit', [
+            'model' => BasisField::findOne($id),
+            'status' => Constant::basisStatus()
+        ]);
+    }
+
+    public function actionRecover($id, $mid)
+    {
+        Msg::set('基础场地不存在');
+        if ($model = BasisField::findOne(['id' => $id, 'status' => 3])) {
+            $model->member_id = $mid;
+            $model->status = 1;
+            $model->updated = time();
+            if ($model->save()) {
+                Msg::set('基础场地恢复成功');
+            } else {
+                Msg::set($model->errors());
+            }
+        }
+        return $this->redirect(['admin-list']);
+    }
 }
