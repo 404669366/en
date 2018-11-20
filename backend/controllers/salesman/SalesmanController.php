@@ -10,7 +10,11 @@ namespace app\controllers\salesman;
 
 
 use app\controllers\basis\CommonController;
+use vendor\en\Area;
 use vendor\en\BasisField;
+use vendor\en\Field;
+use vendor\en\Member;
+use vendor\en\User;
 use vendor\helpers\Constant;
 use vendor\helpers\Msg;
 
@@ -40,7 +44,7 @@ class SalesmanController extends CommonController
      */
     public function actionAdminList()
     {
-        return $this->render('adminList');
+        return $this->render('adminList', ['status' => Constant::basisStatus()]);
     }
 
     /**
@@ -69,5 +73,38 @@ class SalesmanController extends CommonController
             }
         }
         return $this->redirect(['list']);
+    }
+
+    /**
+     * 添加真实场地
+     * @param $id
+     * @return string|\yii\web\Response
+     */
+    public function actionAddField($id)
+    {
+        if ($data = BasisField::findOne($id)) {
+            if (\Yii::$app->request->isPost) {
+                $post = \Yii::$app->request->post();
+                $model = new Field();
+                if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
+                    Msg::set('场地发布成功，请等待初审');
+                    return $this->redirect(['audit/first/my-list']);
+                } else {
+                    Msg::set($model->errors());
+                }
+            }
+            return $this->render('add', ['data' => $data]);
+        }
+        Msg::set('信息不存在');
+        return $this->render('list');
+
+    }
+
+    public function actionDetail($id)
+    {
+        return $this->render('detail', [
+            'model' => BasisField::findOne($id),
+            'status' => Constant::basisStatus()
+        ]);
     }
 }

@@ -71,7 +71,7 @@ class BasisField extends \yii\db\ActiveRecord
     {
         if ($member_id = Yii::$app->user->id) {
             $data = self::find()->alias('b')
-                ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.id')
+                ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
                 ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
                 ->where(['b.member_id' => $member_id])
                 ->select(['b.*', 'u.tel', 'a.full_name'])
@@ -81,7 +81,7 @@ class BasisField extends \yii\db\ActiveRecord
                     'status' => ['=', 'b.status'],
                 ]);
             foreach ($data['data'] as &$v) {
-                $v['transStatus'] = Constant::basisStatus()[$v['status']];
+                $v['status'] = Constant::basisStatus()[$v['status']];
                 $v['created'] = date('Y-m-d H:i:s', $v['created']);
             }
             return $data;
@@ -96,7 +96,7 @@ class BasisField extends \yii\db\ActiveRecord
     public static function getAdminPageData()
     {
         $data = self::find()->alias('b')
-            ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.id')
+            ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
             ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id')
             ->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
@@ -107,8 +107,9 @@ class BasisField extends \yii\db\ActiveRecord
                 'status' => ['=', 'b.status'],
             ]);
         foreach ($data['data'] as &$v) {
-            $v['transStatus'] = Constant::basisStatus()[$v['status']];
+            $v['status'] = Constant::basisStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
+            $v['updated'] = date('Y-m-d H:i:s', $v['updated']);
         }
         return $data;
     }
