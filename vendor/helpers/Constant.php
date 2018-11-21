@@ -132,6 +132,10 @@ class Constant
         ];
     }
 
+    /**
+     * 场地类型
+     * @return array
+     */
     public static function getFieldType()
     {
         return [

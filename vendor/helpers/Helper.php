@@ -12,6 +12,17 @@ namespace vendor\helpers;
 class Helper
 {
     /**
+     * 生成编号
+     * @param string $prefix
+     * @return string 不加前缀14位
+     */
+    public static function createNo($prefix = '')
+    {
+        $prefix .= date('YmdH') . mt_rand(1000, 9999);
+        return $prefix;
+    }
+
+    /**
      * 导出excle
      * @param array $data
      * @param array $title
@@ -155,14 +166,14 @@ class Helper
             $res['日'] = intval($timeDiff / 86400);
             //计算小时数
             $remain = $timeDiff % 86400;
-            $res['小时'] = self::repair(intval($remain / 3600),2,0);
+            $res['小时'] = self::repair(intval($remain / 3600), 2, 0);
             //计算分钟数
             $remain = $remain % 3600;
-            $res['分'] = self::repair(intval($remain / 60),2,0);
+            $res['分'] = self::repair(intval($remain / 60), 2, 0);
             //计算秒数
-            $res['秒'] = self::repair($remain % 60,2,0);
+            $res['秒'] = self::repair($remain % 60, 2, 0);
             foreach ($res as $k => $v) {
-                $val = (int) $v;
+                $val = (int)$v;
                 if ($val) {
                     $duration .= $v . $k;
                 }
@@ -323,7 +334,6 @@ class Helper
      * 验证手机号合法性
      * @param string $tel
      * @return bool
-     * QAQ宇酱
      */
     public static function validateTel($tel = '')
     {
