@@ -78,7 +78,10 @@ class GovernorController extends CommonController
      */
     public function actionFieldList()
     {
-        return $this->render('field-list', ['status' => Constant::getFieldStatus()]);
+        return $this->render('field-list', [
+            'status' => Constant::getFieldStatus(),
+            'type' => Constant::getFieldType()
+        ]);
     }
 
     /**

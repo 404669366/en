@@ -45,7 +45,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地状态</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->status ?>" readonly>
+                        <input type="text" class="form-control" placeholder="<?= $status[$model->status] ?>" readonly>
                     </div>
                 </div>
                 <?php if ($model->status == 3): ?>

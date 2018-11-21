@@ -45,7 +45,7 @@ class Field extends \yii\db\ActiveRecord
             [['area_id', 'user_id', 'salesman_id', 'status', 'type', 'created'], 'integer'],
             [['address', 'intro', 'file'], 'string', 'max' => 255],
             [['image', 'invest_photo', 'field_photo', 'prove_photo', 'power_photo'], 'string', 'max' => 1000],
-            [['name','no'], 'string', 'max' => 20],
+            [['name', 'no'], 'string', 'max' => 20],
         ];
     }
 
@@ -74,6 +74,7 @@ class Field extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
+
     /**
      * 关联普通用户表
      * @return \yii\db\ActiveQuery
@@ -112,12 +113,13 @@ class Field extends \yii\db\ActiveRecord
         $data = self::find()->alias('b')
             ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-            ->leftJoin(Member::tableName() . ' m', 'b.salesman_id=m.id');
+            ->leftJoin(Member::tableName() . ' m', 'b.salesman_id=m.id')
+            ->where(['type' => 1]);
         if ($status) {
-            $data->where(['b.status' => $status]);
+            $data->andWhere(['b.status' => $status]);
         }
         if ($memberId) {
-            $data->where(['b.member_id' => $memberId]);
+            $data->andWhere(['b.member_id' => $memberId]);
         }
         $data = $data->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
             ->page([

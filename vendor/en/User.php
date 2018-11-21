@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property string $tel 用户电话
  * @property string $password 用户密码
- * @property string $money 盈利金额
+ * @property string $money 余额
  * @property string $cate 用户分类
  * @property string $created 创建时间
  */
@@ -45,7 +45,7 @@ class User extends \yii\db\ActiveRecord
             'id' => 'ID',
             'tel' => '用户电话',
             'password' => '用户密码',
-            'money' => '盈利金额',
+            'money' => '余额',
             'cate' => '用户分类',
             'created' => '创建时间',
         ];
