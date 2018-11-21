@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地信息介绍</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->intro ?>" readonly>
+                        <textarea class="form-control" readonly><?=$model->intro?></textarea>
                     </div>
                 </div>
             </div>

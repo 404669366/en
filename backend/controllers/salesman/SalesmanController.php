@@ -38,12 +38,35 @@ class SalesmanController extends CommonController
         return $this->rTableData(BasisField::getPageData());
     }
 
+    /**
+     * 业务员真实场地列表
+     * @return string
+     */
+    public function actionMList()
+    {
+        return $this->render('mylist', ['status' => Constant::getFieldStatus()]);
+    }
+
+    /**
+     *  业务员真实场地列表数据
+     * @return string
+     */
+    public function actionyMyData()
+    {
+        return $this->rTableData(Field::getPageData());
+    }
+
+    /**
+     * 业务员抢单
+     * @return \yii\web\Response
+     */
     public function actionRob()
     {
 
         BasisField::rob();
         return $this->redirect(['list']);
     }
+
 
     /**
      * 管理员列表
@@ -101,12 +124,22 @@ class SalesmanController extends CommonController
             if (\Yii::$app->request->isPost) {
                 $post = \Yii::$app->request->post();
                 $model = new Field();
+                $model->salesman_id = \Yii::$app->user->id;
+                $model->type = 1;
+                $model->created = time();
                 if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
                     Msg::set('场地发布成功，请等待初审');
-                    return $this->redirect(['audit/first/my-list']);
+                    $model = BasisField::findOne($id);
+                    $model->status = 2;
+                    if ($model->save()) {
+                        return $this->redirect(['audit/first/my-list']);
+                    } else {
+                        Msg::set($model->errors());
+                    }
                 } else {
                     Msg::set($model->errors());
                 }
+
             }
             return $this->render('add', ['data' => $data]);
         }

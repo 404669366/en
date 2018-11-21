@@ -10,17 +10,19 @@ namespace app\controllers\audit;
 
 
 use app\controllers\basis\CommonController;
+use vendor\en\Field;
+use vendor\helpers\Constant;
 
 class FirstController extends CommonController
 {
     public function actionList()
     {
-        return $this->render('list');
+        return $this->render('list',['status'=>Constant::getFieldStatus()]);
     }
 
     public function actionData()
     {
-
+        return $this->rTableData();
     }
 
     public function actionDetail($id)
