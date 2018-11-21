@@ -10,6 +10,7 @@ use Yii;
  *
  * @property int $id
  * @property string $area_id 地域ID
+ * @property string $no 场地编号
  * @property string $user_id 场地方ID
  * @property string $salesman_id 合伙人/业务员ID
  * @property string $address 场地位置
@@ -44,7 +45,7 @@ class Field extends \yii\db\ActiveRecord
             [['area_id', 'user_id', 'salesman_id', 'status', 'type', 'created'], 'integer'],
             [['address', 'intro', 'file'], 'string', 'max' => 255],
             [['image', 'invest_photo', 'field_photo', 'prove_photo', 'power_photo'], 'string', 'max' => 1000],
-            [['name'], 'string', 'max' => 20],
+            [['name','no'], 'string', 'max' => 20],
         ];
     }
 
@@ -55,6 +56,7 @@ class Field extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'no' => '场地编号',
             'area_id' => '地域ID',
             'user_id' => '场地方ID',
             'salesman_id' => '合伙人/业务员ID',

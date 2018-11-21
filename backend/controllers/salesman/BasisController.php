@@ -13,6 +13,7 @@ use app\controllers\basis\CommonController;
 use vendor\en\BasisField;
 use vendor\en\Field;
 use vendor\helpers\Constant;
+use vendor\helpers\Helper;
 use vendor\helpers\Msg;
 
 class BasisController extends CommonController
@@ -101,6 +102,7 @@ class BasisController extends CommonController
                 $model->salesman_id = \Yii::$app->user->id;
                 $model->type = 1;
                 $model->created = time();
+                $model->no = Helper::createNo('F');
                 if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
                     Msg::set('场地发布成功，请等待初审');
                     $model = BasisField::findOne($id);

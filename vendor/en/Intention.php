@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $user_id 场地方ID
  * @property int $field_id 场地ID
+ * @property int $no 意向编号
  * @property string $money 预购金额
  * @property string $contract_photo 投资合同
  * @property string $ratio 分成比例
@@ -34,6 +35,7 @@ class Intention extends \yii\db\ActiveRecord
             [['user_id', 'field_id'], 'integer'],
             [['money', 'ratio', 'created'], 'string', 'max' => 255],
             [['contract_photo'], 'string', 'max' => 1000],
+            [['no'], 'string', 'max' => 20],
         ];
     }
 
@@ -44,6 +46,7 @@ class Intention extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'no' => '意向编号',
             'user_id' => '场地方ID',
             'field_id' => '场地ID',
             'money' => '预购金额',
