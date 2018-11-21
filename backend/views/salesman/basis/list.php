@@ -3,7 +3,10 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    业务员姓名: <input class="searchField" type="text" value="" name="username">
+                    场地人姓名: <input class="searchField" type="text" value="" name="">
+                </span>
+                <span class="tableSpan">
+                    手机号: <input class="searchField" type="text" value="" name="tel">
                 </span>
                 <span class="tableSpan">
                     状态: <select class="searchField" name="status">
@@ -18,15 +21,19 @@
                     <button class="tableReload">重置</button>
                 </span>
             </div>
+            <div class="col-sm-2">
+                <a class="btn btn-danger" style="margin-right: 1rem">场地数量：<?= $num ?></a>
+                <a href="/salesman/basis/rob" class="btn btn-info">抢单</a>
+            </div>
         </div>
         <table class="table table-striped table-bordered table-hover dataTable" id="table">
             <thead>
             <tr role="row">
                 <th>ID</th>
-                <th>业务员姓名</th>
                 <th>场地人姓名</th>
                 <th>联系电话</th>
                 <th>场地位置</th>
+                <th>详细地址</th>
                 <th>场地状态</th>
                 <th>创建时间</th>
                 <th>操作</th>
@@ -38,19 +45,19 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/salesman/salesman/admin-data',
+        url: '/salesman/basis/data',
         length: 10,
         columns: [
             {"data": "id"},
-            {"data": "username"},
             {"data": "name"},
-            {"data": "tel"},
-            {"data": "full_name"},
+            {"data": "address"},
+            {"data": "intro"},
+            {"data": "remark"},
             {"data": "status"},
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/salesman/salesman/admin-detail?id=' + data + '">详情</a>';
+                var str = '<a class="btn btn-sm btn-warning" href="/salesman/basis/detail?id=' + data + '">详情</a>';
 
                 return str;
             }

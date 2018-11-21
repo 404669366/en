@@ -97,7 +97,7 @@ class Constant
      *
      * @return array
      */
-    public static function basisStatus()
+    public static function getBasisStatus()
     {
         return [
             '0' => '待认领',

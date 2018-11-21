@@ -1,7 +1,7 @@
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
         <div class="row">
-            <div class="col-sm-6 ">
+            <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地人姓名</label>
@@ -11,25 +11,29 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">联系电话</label>
+                    <label class="col-sm-3 control-label">用户电话号码</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->user->tel ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">地域</label>
+                    <label class="col-sm-3 control-label">场地位置</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
                     </div>
                 </div>
+
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地位置</label>
+                    <label class="col-sm-3 control-label">详细地址</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
                     </div>
                 </div>
+            </div>
+            <div class="col-sm-6">
+
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地信息介绍</label>
@@ -37,22 +41,11 @@
                         <textarea class="form-control" readonly><?=$model->intro?></textarea>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 ">
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">业务员</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control"
-                               placeholder="<?= $model->member ? $model->member->username : '未接单' ?>" readonly>
-                    </div>
-                </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地状态</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control"
-                               placeholder="<?= \vendor\helpers\Constant::basisStatus()[$model->status] ?>" readonly>
+                        <input type="text" class="form-control" placeholder="<?= $model->status ?>" readonly>
                     </div>
                 </div>
                 <?php if ($model->status == 3): ?>
@@ -66,31 +59,23 @@
                 <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-8">
-                        <?php if ($model->status == 3): ?>
-                            <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <?php if ($model->status == 1): ?>
+                            <button type="button" class="btn btn-white abandon" data-toggle="modal"
+                                    data-target="#myModal2">放弃
                             </button>
                             <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content animated flipInY">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span
-                                                    aria-hidden="true">&times;</span><span
-                                                    class="sr-only">Close</span>
+                                                        aria-hidden="true">&times;</span><span
+                                                        class="sr-only">Close</span>
                                             </button>
-                                            <h4 class="modal-title">请指派业务员</h4>
+                                            <h4 class="modal-title">请填写放弃说明</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">业务员</label>
-                                                <div class="col-sm-4">
-                                                    <select class="form-control member">
-                                                        <?php foreach ($members as $member): ?>
-                                                            <option value="<?= $member['id'] ?>"><?= $member['username'] ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            <textarea class="remark" style="width: 80%;height: 100%; margin: 0 auto;display: block"></textarea>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
@@ -98,11 +83,11 @@
                                         </div>
                                         <script>
                                             $('.save').click(function () {
-                                                var mid = $('.member').val();
-                                                if (mid) {
-                                                    window.location.href = '/salesman/salesman/recover?id=<?=$model->id?>&mid=' + mid;
+                                                var remark = $('.remark').val();
+                                                if (remark) {
+                                                    window.location.href = '/salesman/basis/del?id=<?=$model->id?>&remark=' + remark;
                                                 } else {
-                                                    layer.msg('请选择业务员');
+                                                    layer.msg('请填写放弃说明');
                                                 }
                                             });
                                         </script>
@@ -111,9 +96,13 @@
                             </div>
                         <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
+                        <?php if ($model->status == 1): ?>
+                            <a href="/salesman/basis/add?id=<?= $model->id ?>" class="btn btn-white">确认跟单</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
+
     </form>
 </div>

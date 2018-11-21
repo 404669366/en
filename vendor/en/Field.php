@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Constant;
 use Yii;
 
 /**
@@ -71,49 +72,34 @@ class Field extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
-    /**
-     * 业务员分页数据
-     * @return mixed
-     */
-    public static function getPageData()
-    {
-        if ($salesman_id = Yii::$app->user->id) {
-            $data = self::find()->alias('b')
-                ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
-                ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-                ->where(['b.member_id' => $salesman_id])
-                ->select(['b.*', 'u.tel', 'a.full_name'])
-                ->page([
-                    'name' => ['like', 'b.name'],
-                    'tel' => ['like', 'u.tel'],
-                    'status' => ['=', 'b.status'],
-                ]);
-            foreach ($data['data'] as &$v) {
-                $v['status'] = Constant::basisStatus()[$v['status']];
-                $v['created'] = date('Y-m-d H:i:s', $v['created']);
-            }
-            return $data;
-        }
-        return ['total' => 0, 'data' => []];
-    }
 
     /**
-     * 主管分页数据
-     * @return mixed
+     * 场地分页数据
+     * @param array $status
+     * @param int $memberId
+     * @return $this|mixed
      */
-    public static function getAdminPageData()
+    public static function getPageData($status = [], $memberId = 0)
     {
         $data = self::find()->alias('b')
             ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id')
-            ->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
+            ->leftJoin(Member::tableName() . ' m', 'b.salesman_id=m.id');
+        if ($status) {
+            $data->where(['b.status' => $status]);
+        }
+        if ($memberId) {
+            $data->where(['b.member_id' => $memberId]);
+        }
+        $data = $data->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
             ->page([
                 'username' => ['like', 'm.username'],
+                'name' => ['like', 'b.name'],
+                'tel' => ['like', 'u.tel'],
                 'status' => ['=', 'b.status'],
             ]);
         foreach ($data['data'] as &$v) {
-            $v['status'] = Constant::basisStatus()[$v['status']];
+            $v['status'] = Constant::getFieldStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
         return $data;

@@ -93,48 +93,28 @@ class BasisField extends \yii\db\ActiveRecord
     }
 
     /**
-     * 业务员分页数据
-     * @return mixed
+     * 分页数据
+     * @param int $memberId
+     * @return $this|mixed
      */
-    public static function getPageData()
-    {
-        if ($member_id = Yii::$app->user->id) {
-            $data = self::find()->alias('b')
-                ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
-                ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-                ->where(['b.member_id' => $member_id])
-                ->select(['b.*', 'u.tel', 'a.full_name'])
-                ->page([
-                    'name' => ['like', 'b.name'],
-                    'tel' => ['like', 'u.tel'],
-                    'status' => ['=', 'b.status'],
-                ]);
-            foreach ($data['data'] as &$v) {
-                $v['status'] = Constant::basisStatus()[$v['status']];
-                $v['created'] = date('Y-m-d H:i:s', $v['created']);
-            }
-            return $data;
-        }
-        return ['total' => 0, 'data' => []];
-    }
-
-    /**
-     * 主管分页数据
-     * @return mixed
-     */
-    public static function getAdminPageData()
+    public static function getPageData($memberId = 0)
     {
         $data = self::find()->alias('b')
             ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id')
-            ->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
+            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id');
+        if ($memberId) {
+            $data->where(['b.member_id' => $memberId]);
+        }
+        $data = $data->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
             ->page([
                 'username' => ['like', 'm.username'],
+                'name' => ['like', 'b.name'],
+                'tel' => ['like', 'u.tel'],
                 'status' => ['=', 'b.status'],
             ]);
         foreach ($data['data'] as &$v) {
-            $v['status'] = Constant::basisStatus()[$v['status']];
+            $v['status'] = Constant::getbasisStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
         return $data;

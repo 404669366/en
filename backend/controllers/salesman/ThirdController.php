@@ -10,9 +10,8 @@ namespace app\controllers\audit;
 
 
 use app\controllers\basis\CommonController;
-use vendor\en\Field;
 
-class SecondController extends CommonController
+class ThirdController extends CommonController
 {
     public function actionList()
     {
@@ -21,7 +20,7 @@ class SecondController extends CommonController
 
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData());
+
     }
 
     public function actionDetail($id)
