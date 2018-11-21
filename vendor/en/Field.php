@@ -72,6 +72,32 @@ class Field extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
+    /**
+     * 关联普通用户表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * 关联后台用户表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getMember()
+    {
+        return $this->hasOne(Member::class, ['id' => 'salesman_id']);
+    }
+
+    /**
+     * 关联地域表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArea()
+    {
+        return $this->hasOne(Area::class, ['area_id' => 'area_id']);
+    }
 
     /**
      * 场地分页数据
