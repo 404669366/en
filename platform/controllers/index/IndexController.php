@@ -22,4 +22,9 @@ class IndexController extends BasisController
     {
         return $this->render('list');
     }
+
+    public function actionDetails()
+    {
+        return $this->render('details');
+    }
 }
