@@ -12,6 +12,7 @@ namespace app\controllers\score;
 use app\controllers\basis\CommonController;
 use vendor\en\Field;
 use vendor\en\Score;
+use vendor\helpers\Constant;
 use vendor\helpers\Msg;
 
 class ScoreController extends CommonController
@@ -22,7 +23,7 @@ class ScoreController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list');
+        return $this->render('list', ['status' => Constant::getFieldStatus()]);
     }
 
     /**
@@ -41,11 +42,10 @@ class ScoreController extends CommonController
      */
     public function actionDetail($id)
     {
-        $model = Field::findOne($id);
-        $score = Score::findOne(['field_id' => $id, 'member_id' => \Yii::$app->user->id]);
         return $this->render('detail', [
-            'model' => $model,
-            'score' => $score
+            'model' => Field::findOne($id),
+            'score' => Score::findOne(['field_id' => $id, 'member_id' => \Yii::$app->user->id]),
+            'status' => Constant::getFieldStatus()
         ]);
     }
 
@@ -55,7 +55,7 @@ class ScoreController extends CommonController
      */
     public function actionScore()
     {
-        $data = \Yii::$app->request->post();
+        $data = \Yii::$app->request->get();
         $model = new Score();
         $model->created = time();
         $model->member_id = \Yii::$app->user->id;

@@ -4,23 +4,32 @@
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">用户电话号码</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->user->tel ?>" readonly>
-                    </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
                     </div>
                 </div>
+
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">详细地址</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">地图</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $model->lng . ' ' . $model->lat ?>"
+                               readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地电话</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
                     </div>
                 </div>
             </div>
@@ -39,12 +48,28 @@
                         <input type="text" class="form-control" placeholder="<?= $status[$model->status] ?>" readonly>
                     </div>
                 </div>
+                <?php if ($score): ?>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">评分</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="<?= $score->num ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">评分说明</label>
+                        <div class="col-sm-4">
+                            <textarea class="form-control" readonly><?= $score->intro ?></textarea>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                        <?php if ($model->status == 1): ?>
+                        <?php if (!$score && $model->status == 0): ?>
                             <button type="button" class="btn btn-white abandon" data-toggle="modal"
-                                    data-target="#myModal2">放弃
+                                    data-target="#myModal2">评分
                             </button>
                             <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -54,11 +79,12 @@
                                                         aria-hidden="true">&times;</span><span
                                                         class="sr-only">Close</span>
                                             </button>
-                                            <h4 class="modal-title">请填写放弃说明</h4>
+                                            <h4 class="modal-title">请填写评分</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <textarea class="remark"
-                                                      style="width: 80%;height: 100%; margin: 0 auto;display: block"></textarea>
+                                            <input type="text" class="form-control num" placeholder="分数">
+                                            <textarea class="intro"
+                                                      style="width: 100%;height: 100%;margin-top: 1rem"></textarea>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
@@ -66,11 +92,12 @@
                                         </div>
                                         <script>
                                             $('.save').click(function () {
-                                                var remark = $('.remark').val();
-                                                if (remark) {
-                                                    window.location.href = '/commissioner/basis/del?id=<?=$model->id?>&remark=' + remark;
+                                                var num = $('.num').val();
+                                                var intro = $('.intro').val();
+                                                if (intro && num) {
+                                                    window.location.href = '/score/score/score?field_id=<?=$model->id?>&intro=' + intro + '&num=' + num;
                                                 } else {
-                                                    layer.msg('请填写放弃说明');
+                                                    layer.msg('不能为空');
                                                 }
                                             });
                                         </script>
@@ -79,9 +106,6 @@
                             </div>
                         <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
-                        <?php if ($model->status == 1): ?>
-                            <a href="/commissioner/basis/add?id=<?= $model->id ?>" class="btn btn-white">确认跟单</a>
-                        <?php endif; ?>
                     </div>
                 </div>
             </div>

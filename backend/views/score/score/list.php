@@ -3,13 +3,13 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    业务员姓名: <input class="searchField" type="text" value="" name="username">
-                </span>
-                <span class="tableSpan">
                     场地编号: <input class="searchField" type="text" value="" name="no">
                 </span>
                 <span class="tableSpan">
-                    场地类型: <select class="searchField" name="status">
+                    专员: <input class="searchField" type="text" value="" name="username">
+                </span>
+                <span class="tableSpan">
+                    场地类型: <select class="searchField" name="type">
                                 <option value="">----</option>
                         <?php foreach ($type as $k => $v): ?>
                             <option value="<?= $k ?>"><?= $v ?></option>
@@ -34,15 +34,14 @@
             <thead>
             <tr role="row">
                 <th>NO</th>
-                <th>业务员</th>
-                <th>场地方</th>
-                <th>投资方</th>
-                <th>场地位置</th>
-                <th>联系地址</th>
-                <th>场地等级</th>
-                <th>场地状态</th>
-                <th>场地类型</th>
+                <th>评分等级</th>
                 <th>创建时间</th>
+                <th>专员</th>
+                <th>场地位置</th>
+                <th>详细地址</th>
+                <th>场地电话</th>
+                <th>场地类型</th>
+                <th>状态</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -52,26 +51,29 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/governor/governor/field-data',
+        url: '/score/score/data',
         length: 10,
         columns: [
             {"data": "no"},
+            {
+                "data": "level", "render": function (data, type, row) {
+                return data || '未评分';
+            }
+            },
+            {"data": "created"},
             {"data": "username"},
-            {"data": "tel2"},
-            {"data": "tel1"},
             {"data": "full_name"},
             {"data": "address"},
-            {"data": "level"},
-            {"data": "status"},
+            {"data": "tel"},
             {"data": "type"},
-            {"data": "created"},
+            {"data": "status"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                return '<a class="btn btn-sm btn-warning" href="/governor/governor/field-detail?id=' + data + '">详情</a>';
+                return '<a class="btn btn-sm btn-warning" href="/score/score/detail?id=' + data + '">详情</a>';
             }
             }
         ],
-        default_order: [9, 'desc']
+        default_order: [1, 'desc']
     });
     myTable.search();
 </script>

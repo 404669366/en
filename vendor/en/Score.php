@@ -30,10 +30,10 @@ class Score extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'num', 'field_id', 'member_id', 'created'], 'required'],
-            [['id', 'num', 'field_id', 'member_id', 'created'], 'integer'],
+            [['num', 'field_id', 'member_id', 'created'], 'required'],
+            [['field_id', 'member_id', 'created'], 'integer'],
+            [['num'], 'integer', 'max' => 100, 'min' => 0],
             [['intro'], 'string', 'max' => 255],
-            [['id'], 'unique'],
         ];
     }
 
@@ -59,7 +59,7 @@ class Score extends \yii\db\ActiveRecord
      */
     public static function isEnough($field_id = 0)
     {
-        return self::find()->where(['field_id' => $field_id])->count() == Power::getMemberCountByPower('') ? true : false;
+        return self::find()->where(['field_id' => $field_id])->count() == Power::getMemberCountByPower('ejmusbj5') ? true : false;
     }
 
     /**
@@ -75,7 +75,7 @@ class Score extends \yii\db\ActiveRecord
         $minName = Grade::findOne(['min' => $min->min])->name;
         return [
             'level' => $level['name'],
-            'isPass' => $minName == $level['name'] ? 1 : 2
+            'isPass' => $minName == $level['name'] ? 2 : 1
         ];
     }
 
@@ -92,5 +92,15 @@ class Score extends \yii\db\ActiveRecord
                 $model->save();
             }
         }
+    }
+
+    /**
+     * 返回场地评分信息
+     * @param int $field_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getScore($field_id = 0)
+    {
+        return self::find()->where(['field_id' => $field_id])->select(['num', 'intro'])->asArray()->all();
     }
 }

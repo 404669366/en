@@ -142,27 +142,28 @@ class Field extends \yii\db\ActiveRecord
      */
     public static function getPageData($status = [], $memberId = 0, $type = 0)
     {
-        $data = self::find()->alias('b')
-            ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
-            ->leftJoin(User::tableName() . ' u1', 'b.cobber_id=u1.id')
-            ->leftJoin(User::tableName() . ' u2', 'b.local_id=u2.id')
-            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id');
+        $data = self::find()->alias('f')
+            ->leftJoin(Area::tableName() . ' a', 'f.area_id=a.area_id')
+            ->leftJoin(User::tableName() . ' u1', 'f.cobber_id=u1.id')
+            ->leftJoin(User::tableName() . ' u2', 'f.local_id=u2.id')
+            ->leftJoin(Member::tableName() . ' m', 'f.member_id=m.id');
         if ($type !== false) {
-            $data->where(['type' => $type]);
+            $data->where(['f.type' => $type]);
         }
         if ($status) {
-            $data->andWhere(['b.status' => $status]);
+            $data->andWhere(['f.status' => $status]);
         }
         if ($memberId) {
-            $data->andWhere(['b.member_id' => $memberId]);
+            $data->andWhere(['f.member_id' => $memberId]);
         }
-        $data = $data->select(['b.*', 'u1.tel', 'u2.tel', 'a.full_name', 'm.username'])
+        $data = $data->select(['f.*', 'u1.tel tel1', 'u2.tel tel2', 'a.full_name', 'm.username'])
             ->page([
-                'no' => ['=', 'b.no'],
+                'no' => ['=', 'f.no'],
                 'username' => ['like', 'm.username'],
                 'tel1' => ['like', 'u1.tel'],
                 'tel2' => ['like', 'u2.tel'],
-                'status' => ['=', 'b.status'],
+                'status' => ['=', 'f.status'],
+                'type' => ['=', 'f.type'],
             ]);
         foreach ($data['data'] as &$v) {
             $v['status'] = Constant::getFieldStatus()[$v['status']];
@@ -178,7 +179,7 @@ class Field extends \yii\db\ActiveRecord
      */
     public static function getScorePageData()
     {
-        return self::find()->alias('f')
+        $data = self::find()->alias('f')
             ->leftJoin(Area::tableName() . ' a', 'f.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'f.local_id=u.id')
             ->leftJoin(Member::tableName() . ' m', 'f.member_id=m.id')
@@ -186,6 +187,13 @@ class Field extends \yii\db\ActiveRecord
             ->page([
                 'no' => ['=', 'f.no'],
                 'member' => ['like', 'm.username'],
+                'status' => ['=', 'f.status'],
             ]);
+        foreach ($data['data'] as &$v) {
+            $v['status'] = Constant::getFieldStatus()[$v['status']];
+            $v['created'] = date('Y-m-d H:i:s', $v['created']);
+            $v['type'] = Constant::getFieldType()[$v['type']];
+        }
+        return $data;
     }
 }

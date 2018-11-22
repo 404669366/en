@@ -110,7 +110,7 @@ class BasisController extends CommonController
                     $model = BasisField::findOne($id);
                     $model->status = 2;
                     if ($model->save()) {
-                        return $this->redirect(['commissioner/first/list']);
+                        return $this->redirect(['commissioner/score/list']);
                     } else {
                         Msg::set($model->errors());
                     }

@@ -3,7 +3,10 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    手机号: <input class="searchField" type="text" value="" name="tel">
+                    场地编号: <input class="searchField" type="text" value="" name="no">
+                </span>
+                <span class="tableSpan">
+                    场地电话: <input class="searchField" type="text" value="" name="tel2">
                 </span>
                 <span class="tableSpan">
                     状态: <select class="searchField" name="status">
@@ -26,6 +29,7 @@
                 <th>联系电话</th>
                 <th>场地位置</th>
                 <th>详细地址</th>
+                <th>评分等级</th>
                 <th>场地状态</th>
                 <th>创建时间</th>
                 <th>操作</th>
@@ -37,22 +41,23 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/commissioner/first/data',
+        url: '/commissioner/score/data',
         length: 10,
         columns: [
             {"data": "no"},
+            {"data": "tel"},
+            {"data": "full_name"},
             {"data": "address"},
-            {"data": "intro"},
-            {"data": "remark"},
+            {"data": "level"},
             {"data": "status"},
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                return '<a class="btn btn-sm btn-warning" href="/commissioner/first/detail?id=' + data + '">详情</a>';
+                return '<a class="btn btn-sm btn-warning" href="/commissioner/score/detail?id=' + data + '">详情</a>';
             }
             }
         ],
-        default_order: [0, 'asc']
+        default_order: [6, 'desc']
     });
     myTable.search();
 </script>

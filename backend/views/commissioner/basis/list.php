@@ -34,7 +34,6 @@
                 <th>场地位置</th>
                 <th>详细地址</th>
                 <th>场地状态</th>
-                <th>业务员姓名</th>
                 <th>创建时间</th>
                 <th>操作</th>
             </tr>
@@ -49,11 +48,10 @@
         length: 10,
         columns: [
             {"data": "id"},
+            {"data": "tel"},
+            {"data": "full_name"},
             {"data": "address"},
-            {"data": "intro"},
-            {"data": "remark"},
             {"data": "status"},
-            {"data": "username"},
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {

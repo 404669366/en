@@ -50,4 +50,18 @@ class User extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
+
+    /**
+     * 获取合伙人
+     * @param int $type
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getCobber($type = 1)
+    {
+        return User::find()->alias('u')
+            ->leftJoin(Ident::tableName() . ' i', 'i.user_id=u.id')
+            ->where(['i.type' => $type])
+            ->select(['tel username', 'id'])
+            ->asArray()->all();
+    }
 }

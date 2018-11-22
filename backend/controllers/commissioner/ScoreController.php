@@ -13,19 +13,22 @@ use app\controllers\basis\CommonController;
 use vendor\en\Field;
 use vendor\helpers\Constant;
 
-class FirstController extends CommonController
+class ScoreController extends CommonController
 {
     /**
-     * 专员初审列表
+     * 专员评分列表
      * @return string
      */
     public function actionList()
     {
-        return $this->render('list', ['status' => Constant::getFieldStatus()]);
+        return $this->render('list', [
+            'status' => Constant::getFieldStatus(),
+            'type' => Constant::getFieldType()
+        ]);
     }
 
     /**
-     *  专员初审列表数据
+     *  专员评分列表数据
      * @return string
      */
     public function actionData()

@@ -13,6 +13,7 @@ use app\controllers\basis\CommonController;
 use vendor\en\BasisField;
 use vendor\en\Field;
 use vendor\en\Member;
+use vendor\en\User;
 use vendor\helpers\Constant;
 use vendor\helpers\Msg;
 
@@ -79,7 +80,9 @@ class GovernorController extends CommonController
     public function actionFieldList()
     {
         return $this->render('field-list', [
-            'status' => Constant::getFieldStatus()]);
+            'status' => Constant::getFieldStatus(),
+            'type' => Constant::getFieldType()
+        ]);
     }
 
     /**
@@ -102,7 +105,8 @@ class GovernorController extends CommonController
             'model' => Field::findOne($id),
             'status' => Constant::getFieldStatus(),
             'types' => Constant::getFieldType(),
-            'members' => Member::getMemberByJob(4)
+            'commissioner' => Member::getMemberByJob(4),
+            'cobber' => User::getCobber()
         ]);
     }
 
@@ -116,7 +120,7 @@ class GovernorController extends CommonController
     {
         Msg::set('真实场地不存在');
         if ($model = Field::findOne(['id' => $id, 'status' => 0])) {
-            $model->salesman_id = $mid;
+            $model->member_id = $mid;
             $model->status = 1;
             if ($model->save()) {
                 Msg::set('真实场地恢复成功');

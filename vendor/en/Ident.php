@@ -5,17 +5,18 @@ namespace vendor\en;
 use Yii;
 
 /**
- * This is the model class for table "{{%ident}}".
+ * This is the model class for table "ident".
  *
  * @property int $id
  * @property string $user_id 用户ID
- * @property int $area_id 地域ID
- * @property string $member_id 后台用户ID
- * @property int $card 身份证号码
- * @property string $address 场地位置
- * @property string $status 状态1初审中2初审通过3初审不通过4二审中5二审通过6二审不通过7备案成功8备案失败9资料有误10三审中11三审通过12三审不通过13四审中14四审通过15四审不通过
+ * @property string $area_id 地域ID
+ * @property string $address 联系地址
+ * @property string $card_positive 身份证正面
+ * @property string $card_opposite 身份证反面
+ * @property string $money_ident 打款凭证
+ * @property int $type 合伙人类型 0普通合伙人1付费合伙人
+ * @property int $status 状态
  * @property string $created 创建时间
- * @property string $updated 更新时间
  */
 class Ident extends \yii\db\ActiveRecord
 {
@@ -24,7 +25,7 @@ class Ident extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%ident}}';
+        return 'ident';
     }
 
     /**
@@ -33,8 +34,9 @@ class Ident extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'area_id', 'member_id', 'card', 'status'], 'integer'],
-            [['address', 'created', 'updated'], 'string', 'max' => 255],
+            [['user_id', 'area_id', 'type', 'status', 'created'], 'integer'],
+            [['address'], 'string', 'max' => 255],
+            [['card_positive', 'card_opposite', 'money_ident'], 'string', 'max' => 500],
         ];
     }
 
@@ -47,12 +49,13 @@ class Ident extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_id' => '用户ID',
             'area_id' => '地域ID',
-            'member_id' => '后台用户ID',
-            'card' => '身份证号码',
-            'address' => '场地位置',
-            'status' => '状态1初审中2初审通过3初审不通过4二审中5二审通过6二审不通过7备案成功8备案失败9资料有误10三审中11三审通过12三审不通过13四审中14四审通过15四审不通过',
+            'address' => '联系地址',
+            'card_positive' => '身份证正面',
+            'card_opposite' => '身份证反面',
+            'money_ident' => '打款凭证',
+            'type' => '合伙人类型 0普通合伙人1付费合伙人',
+            'status' => '状态',
             'created' => '创建时间',
-            'updated' => '更新时间',
         ];
     }
 }

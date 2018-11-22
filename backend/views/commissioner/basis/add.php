@@ -8,7 +8,8 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
                     <div class="col-sm-4">
-                        <input type="text" name="area_id" class="form-control" value="<?= $data->area->full_name ?>">
+                        <input type="text" class="form-control" placeholder="<?= $data->area->full_name ?>" readonly>
+                        <input type="hidden" name="area_id" class="form-control" value="<?= $data->area_id ?>">
                     </div>
                 </div>
 
@@ -21,7 +22,6 @@
                 </div>
             </div>
             <div class="col-sm-6">
-
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地信息介绍</label>
@@ -44,7 +44,7 @@
                         element: '.aaaaa',
                         uploadImgUrl: '/basis/file/upload',
                         removeImgUrl: '/basis/file/delete',
-                        default: '<?=$model->image?>'
+                        default: '<?=$data->image?>',
                     });
                 </script>
                 <div class="hr-line-dashed"></div>
