@@ -23,7 +23,7 @@
             </div>
             <div class="col-sm-2">
                 <a class="btn btn-danger" style="margin-right: 1rem">场地数量：<?= $num ?></a>
-                <a href="/salesman/basis/rob" class="btn btn-info">抢单</a>
+                <a href="/commissioner/basis/rob" class="btn btn-info">抢单</a>
             </div>
         </div>
         <table class="table table-striped table-bordered table-hover dataTable" id="table">
@@ -45,7 +45,7 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/salesman/basis/data',
+        url: '/commissioner/basis/data',
         length: 10,
         columns: [
             {"data": "id"},
@@ -57,9 +57,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/salesman/basis/detail?id=' + data + '">详情</a>';
-
-                return str;
+                return '<a class="btn btn-sm btn-warning" href="/commissioner/basis/detail?id=' + data + '">详情</a>';
             }
             }
         ],

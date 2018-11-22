@@ -41,7 +41,7 @@
             <div class="col-sm-6 ">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">业务员</label>
+                    <label class="col-sm-3 control-label">专员</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control"
                                placeholder="<?= $model->member ? $model->member->username : '未接单' ?>" readonly>
@@ -66,7 +66,7 @@
                 <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-8">
+                    <div class="col-sm-4 col-sm-offset-2">
                         <?php if ($model->status == 3): ?>
                             <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
                             </button>
@@ -78,11 +78,11 @@
                                                         aria-hidden="true">&times;</span><span
                                                         class="sr-only">Close</span>
                                             </button>
-                                            <h4 class="modal-title">请指派业务员</h4>
+                                            <h4 class="modal-title">请指派专员</h4>
                                         </div>
                                         <div class="modal-body">
                                             <div class="form-group">
-                                                <label class="col-sm-4 control-label">业务员</label>
+                                                <label class="col-sm-4 control-label">专员</label>
                                                 <div class="col-sm-4">
                                                     <select class="form-control member">
                                                         <?php foreach ($members as $member): ?>

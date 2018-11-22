@@ -106,15 +106,18 @@ class Field extends \yii\db\ActiveRecord
      * 场地分页数据
      * @param array $status
      * @param int $memberId
+     * @param int $type
      * @return $this|mixed
      */
-    public static function getPageData($status = [], $memberId = 0)
+    public static function getPageData($status = [], $memberId = 0, $type = 0)
     {
         $data = self::find()->alias('b')
             ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-            ->leftJoin(Member::tableName() . ' m', 'b.salesman_id=m.id')
-            ->where(['type' => 1]);
+            ->leftJoin(Member::tableName() . ' m', 'b.salesman_id=m.id');
+        if ($type !== false) {
+            $data->where(['type' => $type]);
+        }
         if ($status) {
             $data->andWhere(['b.status' => $status]);
         }

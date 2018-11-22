@@ -16,7 +16,7 @@ use vendor\helpers\Constant;
 class FirstController extends CommonController
 {
     /**
-     * 业务员初审列表
+     * 专员初审列表
      * @return string
      */
     public function actionList()
@@ -25,7 +25,7 @@ class FirstController extends CommonController
     }
 
     /**
-     *  业务员初审列表数据
+     *  专员初审列表数据
      * @return string
      */
     public function actionData()

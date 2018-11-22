@@ -55,9 +55,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/governor/governor/field-detail?id=' + data + '">详情</a>';
-
-                return str;
+                return '<a class="btn btn-sm btn-warning" href="/governor/governor/field-detail?id=' + data + '">详情</a>';
             }
             }
         ],

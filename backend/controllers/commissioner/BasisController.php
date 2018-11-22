@@ -19,7 +19,7 @@ use vendor\helpers\Msg;
 class BasisController extends CommonController
 {
     /**
-     * 业务员抢单
+     * 专员抢单
      * @return \yii\web\Response
      */
     public function actionRob()
@@ -29,7 +29,7 @@ class BasisController extends CommonController
     }
 
     /**
-     * 业务员接单列表
+     * 专员接单列表
      * @return string
      */
     public function actionList()
@@ -41,7 +41,7 @@ class BasisController extends CommonController
     }
 
     /**
-     *  业务员接单列表数据
+     *  专员接单列表数据
      * @return string
      */
     public function actionData()
@@ -50,7 +50,7 @@ class BasisController extends CommonController
     }
 
     /**
-     * 业务员详情页
+     * 专员详情页
      * @param $id
      * @return string
      */
@@ -108,7 +108,7 @@ class BasisController extends CommonController
                     $model = BasisField::findOne($id);
                     $model->status = 2;
                     if ($model->save()) {
-                        return $this->redirect(['salesman/first/list']);
+                        return $this->redirect(['commissioner/first/list']);
                     } else {
                         Msg::set($model->errors());
                     }

@@ -90,7 +90,7 @@ class GovernorController extends CommonController
      */
     public function actionFieldData()
     {
-        return $this->rTableData(Field::getPageData());
+        return $this->rTableData(Field::getPageData([], 0, false));
     }
 
     /**

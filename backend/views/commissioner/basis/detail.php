@@ -85,7 +85,7 @@
                                             $('.save').click(function () {
                                                 var remark = $('.remark').val();
                                                 if (remark) {
-                                                    window.location.href = '/salesman/basis/del?id=<?=$model->id?>&remark=' + remark;
+                                                    window.location.href = '/commissioner/basis/del?id=<?=$model->id?>&remark=' + remark;
                                                 } else {
                                                     layer.msg('请填写放弃说明');
                                                 }
@@ -97,7 +97,7 @@
                         <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
                         <?php if ($model->status == 1): ?>
-                            <a href="/salesman/basis/add?id=<?= $model->id ?>" class="btn btn-white">确认跟单</a>
+                            <a href="/commissioner/basis/add?id=<?= $model->id ?>" class="btn btn-white">确认跟单</a>
                         <?php endif; ?>
                     </div>
                 </div>
