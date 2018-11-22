@@ -79,9 +79,7 @@ class GovernorController extends CommonController
     public function actionFieldList()
     {
         return $this->render('field-list', [
-            'status' => Constant::getFieldStatus(),
-            'type' => Constant::getFieldType()
-        ]);
+            'status' => Constant::getFieldStatus()]);
     }
 
     /**
@@ -103,7 +101,29 @@ class GovernorController extends CommonController
         return $this->render('field-detail', [
             'model' => Field::findOne($id),
             'status' => Constant::getFieldStatus(),
+            'types' => Constant::getFieldType(),
             'members' => Member::getMemberByJob(4)
         ]);
+    }
+
+    /**
+     * 恢复真实场地
+     * @param $id
+     * @param $mid
+     * @return \yii\web\Response
+     */
+    public function actionFieldRecover($id, $mid)
+    {
+        Msg::set('真实场地不存在');
+        if ($model = Field::findOne(['id' => $id, 'status' => 0])) {
+            $model->salesman_id = $mid;
+            $model->status = 1;
+            if ($model->save()) {
+                Msg::set('真实场地恢复成功');
+            } else {
+                Msg::set($model->errors());
+            }
+        }
+        return $this->redirect(['field-list']);
     }
 }
