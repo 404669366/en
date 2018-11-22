@@ -37,6 +37,22 @@
                         <textarea class="form-control" readonly><?= $model->intro ?></textarea>
                     </div>
                 </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地状态</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $status[$model->status] ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地类型</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $types[$model->status] ?>" readonly>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6 ">
                 <div class="hr-line-dashed"></div>
@@ -49,13 +65,41 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地状态</label>
+                    <label class="col-sm-3 control-label">场地方合同</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control"
-                               placeholder="<?= $status[$model->status] ?>" readonly>
+
                     </div>
                 </div>
-                <?php if ($model->status == 3): ?>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地证明</label>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">备案文件</label>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">电力证明</label>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">投资方合同</label>
+                    <div class="col-sm-4">
+
+                    </div>
+                </div>
+
+                <?php if ($model->member->status == 3): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">放弃说明</label>
@@ -67,7 +111,7 @@
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-8">
-                        <?php if ($model->status == 3): ?>
+                        <?php if ($model->member->status == 3): ?>
                             <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
                             </button>
                             <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
@@ -100,7 +144,7 @@
                                             $('.save').click(function () {
                                                 var mid = $('.member').val();
                                                 if (mid) {
-                                                    window.location.href = '/governor/governor/basis-recover?id=<?=$model->id?>&mid=' + mid;
+                                                    window.location.href = '/governor/governor/field-recover?id=<?=$model->id?>&mid=' + mid;
                                                 } else {
                                                     layer.msg('请选择业务员');
                                                 }

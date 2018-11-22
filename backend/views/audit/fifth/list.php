@@ -42,7 +42,7 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/audit/first/data',
+        url: '/audit/fifth/data',
         length: 10,
         columns: [
             {"data": "no"},
@@ -55,7 +55,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/audit/first/detail?id=' + data + '">详情</a>';
+                var str = '<a class="btn btn-sm btn-warning" href="/audit/fifth/detail?id=' + data + '">详情</a>';
 
                 return str;
             }

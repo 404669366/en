@@ -131,6 +131,7 @@ class Field extends \yii\db\ActiveRecord
         foreach ($data['data'] as &$v) {
             $v['status'] = Constant::getFieldStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
+            $v['type'] = Constant::getFieldType()[$v['type']];
         }
         return $data;
     }

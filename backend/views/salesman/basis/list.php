@@ -3,7 +3,10 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    场地人姓名: <input class="searchField" type="text" value="" name="">
+                    场地人姓名: <input class="searchField" type="text" value="" name="name">
+                </span>
+                <span class="tableSpan">
+                    业务员姓名: <input class="searchField" type="text" value="" name="username">
                 </span>
                 <span class="tableSpan">
                     手机号: <input class="searchField" type="text" value="" name="tel">
@@ -35,6 +38,7 @@
                 <th>场地位置</th>
                 <th>详细地址</th>
                 <th>场地状态</th>
+                <th>业务员姓名</th>
                 <th>创建时间</th>
                 <th>操作</th>
             </tr>
@@ -54,6 +58,7 @@
             {"data": "intro"},
             {"data": "remark"},
             {"data": "status"},
+            {"data": "username"},
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
