@@ -3,9 +3,6 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    场地人姓名: <input class="searchField" type="text" value="" name="">
-                </span>
-                <span class="tableSpan">
                     手机号: <input class="searchField" type="text" value="" name="tel">
                 </span>
                 <span class="tableSpan">
@@ -26,7 +23,6 @@
             <thead>
             <tr role="row">
                 <th>NO</th>
-                <th>场地人姓名</th>
                 <th>联系电话</th>
                 <th>场地位置</th>
                 <th>详细地址</th>
@@ -41,11 +37,10 @@
 <script>
     myTable.load({
         table: '#table',
-        url: '/salesman/first/data',
+        url: '/commissioner/first/data',
         length: 10,
         columns: [
             {"data": "no"},
-            {"data": "name"},
             {"data": "address"},
             {"data": "intro"},
             {"data": "remark"},
@@ -53,7 +48,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                return '<a class="btn btn-sm btn-warning" href="/salesman/first/detail?id=' + data + '">详情</a>';
+                return '<a class="btn btn-sm btn-warning" href="/commissioner/first/detail?id=' + data + '">详情</a>';
             }
             }
         ],

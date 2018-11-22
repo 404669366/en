@@ -14,7 +14,6 @@ use Yii;
  * @property string $user_id 用户ID
  * @property string $area_id 地域ID
  * @property string $member_id 后台用户ID
- * @property string $name 场地人姓名
  * @property string $address 场地位置
  * @property string $intro 场地信息介绍
  * @property string $remark 审核备注
@@ -39,7 +38,6 @@ class BasisField extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'area_id', 'member_id', 'status', 'created', 'updated'], 'integer'],
-            [['name'], 'string', 'max' => 20],
             [['address', 'remark'], 'string', 'max' => 255],
             [['intro'], 'string', 'max' => 500],
         ];
@@ -55,7 +53,6 @@ class BasisField extends \yii\db\ActiveRecord
             'user_id' => '用户ID',
             'area_id' => '地域ID',
             'member_id' => '后台用户ID',
-            'name' => '场地人姓名',
             'address' => '场地位置',
             'intro' => '场地信息介绍',
             'remark' => '审核备注',
@@ -102,14 +99,14 @@ class BasisField extends \yii\db\ActiveRecord
         $data = self::find()->alias('b')
             ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id');
+            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id')
+            ->where(['<>', 'status', 3]);
         if ($memberId) {
-            $data->where(['b.member_id' => $memberId]);
+            $data->andWhere(['b.member_id' => $memberId]);
         }
         $data = $data->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])
             ->page([
                 'username' => ['like', 'm.username'],
-                'name' => ['like', 'b.name'],
                 'tel' => ['like', 'u.tel'],
                 'status' => ['=', 'b.status'],
             ]);

@@ -34,9 +34,11 @@ class BasisController extends CommonController
      */
     public function actionList()
     {
+        $status = Constant::getBasisStatus();
+        unset($status[3]);
         return $this->render('list', [
             'num' => BasisField::getNum(),
-            'status' => Constant::getBasisStatus()
+            'status' => $status
         ]);
     }
 
@@ -99,12 +101,12 @@ class BasisController extends CommonController
             if (\Yii::$app->request->isPost) {
                 $post = \Yii::$app->request->post();
                 $model = new Field();
-                $model->salesman_id = \Yii::$app->user->id;
+                $model->member_id = \Yii::$app->user->id;
                 $model->type = 1;
                 $model->created = time();
                 $model->no = Helper::createNo('F');
                 if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
-                    Msg::set('场地发布成功，请等待初审');
+                    Msg::set('场地发布成功，请等待评分结果');
                     $model = BasisField::findOne($id);
                     $model->status = 2;
                     if ($model->save()) {

@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">联系电话</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->user->tel ?>" readonly>
+                        <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>

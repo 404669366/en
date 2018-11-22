@@ -3,9 +3,6 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    场地人姓名: <input class="searchField" type="text" value="" name="name">
-                </span>
-                <span class="tableSpan">
                     业务员姓名: <input class="searchField" type="text" value="" name="username">
                 </span>
                 <span class="tableSpan">
@@ -33,7 +30,6 @@
             <thead>
             <tr role="row">
                 <th>ID</th>
-                <th>场地人姓名</th>
                 <th>联系电话</th>
                 <th>场地位置</th>
                 <th>详细地址</th>
@@ -53,7 +49,6 @@
         length: 10,
         columns: [
             {"data": "id"},
-            {"data": "name"},
             {"data": "address"},
             {"data": "intro"},
             {"data": "remark"},

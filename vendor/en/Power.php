@@ -77,7 +77,8 @@ class Power extends \yii\db\ActiveRecord
 
     /**
      * 返回顶级权限
-     * @return array
+     * @param bool $notSelf
+     * @return array|\yii\db\ActiveRecord[]
      */
     public static function getTopPowers($notSelf = false)
     {
@@ -137,4 +138,21 @@ class Power extends \yii\db\ActiveRecord
         }
         return '';
     }
+
+    /**
+     * 查询拥有对应权限的用户数量
+     * @param string $no
+     * @return int|string
+     */
+    public static function getMemberCountByPower($no = '')
+    {
+        if ($power = self::findOne(['no' => $no])) {
+            return Member::find()->alias('m')
+                ->leftJoin(Job::tableName() . ' j', 'm.job_id=j.id')
+                ->where('find_in_set(' . $power->id . ',j.powers)')
+                ->count();
+        }
+        return 0;
+    }
+
 }
