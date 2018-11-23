@@ -9,9 +9,9 @@
 namespace app\controllers\user;
 
 
-use app\controllers\basis\CommonController;
+use app\controllers\basis\BasisController;
 
-class UserController extends CommonController
+class UserController extends BasisController
 {
     public function actionCenter()
     {
