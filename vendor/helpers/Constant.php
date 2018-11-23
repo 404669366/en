@@ -109,11 +109,12 @@ class Constant
 
     /**
      * 获取真实场地状态
+     * @param array $keys
      * @return array
      */
-    public static function getFieldStatus()
+    public static function getFieldStatus($keys = [])
     {
-        return [
+        $status = [
             '0' => '评分中',
             '1' => '评分通过',
             '2' => '评分不通过',
@@ -136,6 +137,16 @@ class Constant
             '19' => '三审通过',
             '20' => '三审不通过',
         ];
+        if ($keys && is_array($keys)) {
+            $new = [];
+            foreach ($keys as $v) {
+                if (isset($status[$v])) {
+                    $new[$v] = $status[$v];
+                }
+            }
+            return $new;
+        }
+        return $status;
     }
 
     /**

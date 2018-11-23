@@ -29,5 +29,6 @@ class ModelAsset extends AssetBundle
         '/h+/js/plugins/layer/layer.min.js',
         '/h+/js/plugins/dataTables/MyDataTable.js',
         '/sinlar/sinlar.js',
+        '/upload/upload.js',
     ];
 }

@@ -24,7 +24,6 @@ class ScoreController extends CommonController
     {
         return $this->render('list', [
             'status' => Constant::getFieldStatus(),
-            'type' => Constant::getFieldType()
         ]);
     }
 
@@ -53,6 +52,7 @@ class ScoreController extends CommonController
                         Msg::set('提交成功,请等待一审');
                         return $this->redirect(['commissioner/first/list']);
                     }
+                    Msg::set($model->errors());
                 }
             }
             return $this->render('next', [
@@ -80,7 +80,7 @@ class ScoreController extends CommonController
                 return $this->redirect(['list']);
             }
             Msg::set($model->errors());
-            return $this->redirect(['next?id=' . $id]);
+            return $this->redirect(['next?id='. $id]);
         }
         Msg::set('场地不存在');
         return $this->redirect(['list']);
