@@ -13,8 +13,8 @@ use app\controllers\basis\BasisController;
 
 class UserController extends BasisController
 {
-    public function actionCenter()
+    public function actionUser()
     {
-        return $this->render('center');
+        return $this->render('user');
     }
 }
