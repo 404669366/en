@@ -65,38 +65,68 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地方合同</label>
-                    <div class="col-sm-4">
-
+                    <label class="col-sm-3 control-label">场地合同</label>
+                    <div class="col-sm-9">
+                        <div class="la"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la',
+                            image: '<?=$model->field_photo?>',
+                        });
+                    </script>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地证明</label>
-                    <div class="col-sm-4">
-
+                    <div class="col-sm-9">
+                        <div class="la"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la',
+                            image: '<?=$model->prove_photo?>',
+                        });
+                    </script>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">备案文件</label>
-                    <div class="col-sm-4">
-
+                    <label class="col-sm-3 control-label">备案图片</label>
+                    <div class="col-sm-9">
+                        <div class="la"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la',
+                            image: '<?=$model->record_photo?>',
+                        });
+                    </script>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">电力证明</label>
-                    <div class="col-sm-4">
-
+                    <div class="col-sm-9">
+                        <div class="la"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la',
+                            image: '<?=$model->power_photo?>',
+                        });
+                    </script>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">投资方合同</label>
-                    <div class="col-sm-4">
-
+                    <div class="col-sm-9">
+                        <div class="la"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la',
+                            image: '<?=$model->invest_photo?>',
+                        });
+                    </script>
                 </div>
 
                 <?php if ($model->member->status == 3): ?>

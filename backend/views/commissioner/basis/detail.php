@@ -4,7 +4,7 @@
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">用户电话号码</label>
+                    <label class="col-sm-3 control-label">场地电话</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->user->tel ?>" readonly>
                     </div>

@@ -4,28 +4,21 @@
             <div class="col-sm-6 ">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地人姓名</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->name ?>" readonly>
-                    </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">联系电话</label>
+                    <label class="col-sm-3 control-label">场地电话</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->user->tel ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">地域</label>
+                    <label class="col-sm-3 control-label">场地位置</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地位置</label>
+                    <label class="col-sm-3 control-label">详细地址</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
                     </div>

@@ -41,24 +41,26 @@ class ScoreController extends CommonController
      * @param $id
      * @return string|\yii\web\Response
      */
-    public function actionNext($id)
+    public function actionDetail($id)
     {
-        if ($model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => 1])) {
-            if (\Yii::$app->request->isPost) {
-                $data = \Yii::$app->request->post();
-                if ($model->load(['Field' => $data]) && $model->validate()) {
-                    $model->status = 4;
-                    if ($model->save()) {
-                        Msg::set('提交成功,请等待一审');
-                        return $this->redirect(['commissioner/first/list']);
+        if ($model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => [0, 1, 2]])) {
+            if ($model->status == 1) {
+                if (\Yii::$app->request->isPost) {
+                    $data = \Yii::$app->request->post();
+                    if ($model->load(['Field' => $data]) && $model->validate()) {
+                        $model->status = 4;
+                        if ($model->save()) {
+                            Msg::set('提交成功,请等待一审');
+                            return $this->redirect(['commissioner/first/list']);
+                        }
+                        Msg::set($model->errors());
                     }
-                    Msg::set($model->errors());
                 }
+                return $this->render('next', [
+                    'model' => $model,
+                    'status' => Constant::getFieldStatus()
+                ]);
             }
-            return $this->render('next', [
-                'model' => $model,
-                'status' => Constant::getFieldStatus()
-            ]);
         }
         Msg::set('场地不存在');
         return $this->redirect(['list']);
@@ -80,7 +82,7 @@ class ScoreController extends CommonController
                 return $this->redirect(['list']);
             }
             Msg::set($model->errors());
-            return $this->redirect(['next?id='. $id]);
+            return $this->redirect(['detail?id=' . $id]);
         }
         Msg::set('场地不存在');
         return $this->redirect(['list']);

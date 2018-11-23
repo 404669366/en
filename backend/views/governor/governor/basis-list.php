@@ -3,10 +3,13 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    业务员姓名: <input class="searchField" type="text" value="" name="username">
+                    专员: <input class="searchField" type="text" value="" name="username">
                 </span>
                 <span class="tableSpan">
-                    状态: <select class="searchField" name="status">
+                    场地电话: <input class="searchField" type="text" value="" name="tel">
+                </span>
+                <span class="tableSpan">
+                    场地状态: <select class="searchField" name="status">
                                 <option value="">----</option>
                         <?php foreach ($status as $k => $v): ?>
                             <option value="<?= $k ?>"><?= $v ?></option>
@@ -23,8 +26,7 @@
             <thead>
             <tr role="row">
                 <th>ID</th>
-                <th>业务员姓名</th>
-                <th>场地人姓名</th>
+                <th>专员</th>
                 <th>联系电话</th>
                 <th>场地位置</th>
                 <th>场地状态</th>
@@ -43,7 +45,6 @@
         columns: [
             {"data": "id"},
             {"data": "username"},
-            {"data": "name"},
             {"data": "tel"},
             {"data": "full_name"},
             {"data": "status"},

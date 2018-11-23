@@ -1,3 +1,4 @@
+<?php $this->registerJsFile('/upload/upload.js'); ?>
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
         <input type="hidden" class="form-control" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
@@ -31,30 +32,23 @@
                         <textarea class="form-control" readonly><?= $model->intro ?></textarea>
                     </div>
                 </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">场地状态</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $status[$model->status] ?>" readonly>
-                    </div>
-                </div>
-                <?php if ($model->status == 6): ?>
+                <?php if ($model->status == 1): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">场地图片</label>
-                        <div class="col-sm-8">
-                            <div class="rgrefwefw"></div>
+                        <label class="col-sm-3 control-label">场地图片</label>
+                        <div class="col-sm-9">
+                            <div class="adawd"></div>
                         </div>
                     </div>
                     <script>
                         upload({
-                            max: 1,
+                            max: 8,
                             name: 'image',
                             height: 12,
-                            element: '.rgrefwefw',
+                            element: '.adawd',
                             uploadImgUrl: '/basis/file/upload',
                             removeImgUrl: '/basis/file/delete',
-                            default: '<?=$model->configure_photo?>',
+                            default: '<?=$model->image?>'
                         });
                     </script>
                 <?php else: ?>
@@ -62,24 +56,24 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">场地图片</label>
                         <div class="col-sm-9">
-                            <div class="rgrefwefw"></div>
+                            <div class="adawd"></div>
                         </div>
-                        <script>
-                            picWall({
-                                element: '.rgrefwefw',
-                                image: '<?=$model->image?>',
-                            });
-                        </script>
                     </div>
+                    <script>
+                        picWall({
+                            element:'.adawd',
+                            image:'<?=$model->image?>',
+                        })
+                    </script>
                 <?php endif; ?>
             </div>
             <div class="col-sm-6">
-                <?php if ($model->status == 6): ?>
+                <?php if ($model->status == 1): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">配置单图片</label>
-                        <div class="col-sm-8">
-                            <div class="djrtdhgde"></div>
+                        <label class="col-sm-3 control-label">配置单图片</label>
+                        <div class="col-sm-9">
+                            <div class="p"></div>
                         </div>
                     </div>
                     <script>
@@ -87,17 +81,16 @@
                             max: 1,
                             name: 'configure_photo',
                             height: 12,
-                            element: '.djrtdhgde',
+                            element: '.p',
                             uploadImgUrl: '/basis/file/upload',
                             removeImgUrl: '/basis/file/delete',
-                            default: '<?=$model->configure_photo?>',
                         });
                     </script>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">场地证明图片</label>
-                        <div class="col-sm-8">
-                            <div class="hjukugj"></div>
+                        <label class="col-sm-3 control-label">场地证明图片</label>
+                        <div class="col-sm-9">
+                            <div class="i"></div>
                         </div>
                     </div>
                     <script>
@@ -105,17 +98,16 @@
                             max: 4,
                             name: 'prove_photo',
                             height: 12,
-                            element: '.hjukugj',
+                            element: '.i',
                             uploadImgUrl: '/basis/file/upload',
                             removeImgUrl: '/basis/file/delete',
-                            default: '<?=$model->prove_photo?>',
                         });
                     </script>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">场地合同图片</label>
-                        <div class="col-sm-8">
-                            <div class="tyjtjtj"></div>
+                        <label class="col-sm-3 control-label">场地合同图片</label>
+                        <div class="col-sm-9">
+                            <div class="f"></div>
                         </div>
                     </div>
                     <script>
@@ -123,59 +115,60 @@
                             max: 8,
                             name: 'field_photo',
                             height: 12,
-                            element: '.tyjtjtj',
+                            element: '.f',
                             uploadImgUrl: '/basis/file/upload',
                             removeImgUrl: '/basis/file/delete',
-                            default: '<?=$model->field_photo?>',
-
                         });
                     </script>
-                <?php else: ?>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">配置单图片</label>
-                        <div class="col-sm-9">
-                            <div class="djrtdhgde"></div>
-                        </div>
-                        <script>
-                            picWall({
-                                element: '.djrtdhgde',
-                                image: '<?=$model->configure_photo?>',
-                            });
-                        </script>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">场地证明</label>
-                        <div class="col-sm-9">
-                            <div class="hjukugj"></div>
-                        </div>
-                        <script>
-                            picWall({
-                                element: '.hjukugj',
-                                image: '<?=$model->prove_photo?>',
-                            });
-                        </script>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">场地合同</label>
-                        <div class="col-sm-9">
-                            <div class="tyjtjtj"></div>
-                        </div>
-                        <script>
-                            picWall({
-                                element: '.tyjtjtj',
-                                image: '<?=$model->field_photo?>',
-                            });
-                        </script>
-                    </div>
                 <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">场地状态</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $status[$model->status] ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
+                        <?php if ($model->status == 1): ?>
+                            <button type="button" class="btn btn-white abandon" data-toggle="modal"
+                                    data-target="#myModal2">放弃
+                            </button>
+                            <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content animated flipInY">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                        aria-hidden="true">&times;</span><span
+                                                        class="sr-only">Close</span>
+                                            </button>
+                                            <h4 class="modal-title">请填写放弃说明</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <textarea class="remark"
+                                                      style="width: 80%;height: 100%; margin: 0 auto;display: block"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary save">保存</button>
+                                        </div>
+                                        <script>
+                                            $('.save').click(function () {
+                                                var remark = $('.remark').val();
+                                                if (remark) {
+                                                    window.location.href = '/commissioner/score/del?id=<?=$model->id?>&remark=' + remark;
+                                                } else {
+                                                    layer.msg('请填写放弃说明');
+                                                }
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
-                        <?php if ($model->status == 6): ?>
+                        <?php if ($model->status == 1): ?>
                             <button type="submit" class="btn btn-white">确认提交</button>
                         <?php endif; ?>
                     </div>

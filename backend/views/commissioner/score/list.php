@@ -53,10 +53,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                if (row.status === '评分通过') {
-                    return '<a class="btn btn-sm btn-warning" href="/commissioner/score/next?id=' + data + '">下一步</a>';
-                }
-                return '请等待评分';
+                return '<a class="btn btn-sm btn-warning" href="/commissioner/score/detail?id=' + data + '">详情</a>';
             }
             }
         ],

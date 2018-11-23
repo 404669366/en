@@ -16,7 +16,9 @@ function picWall(config) {
     $(config.element).addClass('row').css('border', '1px dashed #111').css('height', (config.height * times || 10 * times) + 'rem').css('padding-bottom', '15px');
     var images = '';
     config.image.split(',').forEach(function (v, k) {
-        images += '<img class="col-sm-3 data-img" src="' + v + '" style="height: ' + Math.floor(100 / times) + '%;padding: 15px 15px 0 15px">';
+        if(v){
+            images += '<img class="col-sm-3 data-img" src="' + v + '" style="height: ' + Math.floor(100 / times) + '%;padding: 15px 15px 0 15px">';
+        }
     });
     $(config.element).append(images);
 }

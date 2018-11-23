@@ -24,8 +24,9 @@ class FirstController extends CommonController
     public function actionList()
     {
         return $this->render('list', [
-
-            'status' => Constant::getFieldStatus()]);
+            'status' => Constant::getFieldStatus(),
+            'type' => Constant::getFieldType(),
+        ]);
     }
 
     /**
@@ -34,7 +35,7 @@ class FirstController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([0, 1, 2]));
+        return $this->rTableData(Field::getPageData([4, 5, 6]));
     }
 
     /**
@@ -44,11 +45,10 @@ class FirstController extends CommonController
      */
     public function actionDetail($id)
     {
-        return $this->render(
-            'detail', ['model' => Field::findOne($id),
+        return $this->render('detail', [
+            'model' => Field::findOne($id),
             'status' => Constant::getFieldStatus(),
             'types' => Constant::getFieldType(),
-            'members' => Member::getMemberByJob(4)
         ]);
     }
 
@@ -59,12 +59,16 @@ class FirstController extends CommonController
      */
     public function actionPass($id)
     {
-        $model = Field::findOne($id);
-        $model->status = 1;
-        if ($model->save()) {
-            return $this->redirect('list');
-
+        Msg::set('真实场地不存在');
+        if ($model = Field::findOne(['id' => $id, 'status' => 4])) {
+            $model->status = 5;
+            if ($model->save()) {
+                Msg::set('保存成功');
+                return $this->redirect(['list']);
+            }
+            Msg::set($model->errors());
         }
+        return $this->redirect(['detail?id=' . $id]);
     }
 
     /**
@@ -75,21 +79,19 @@ class FirstController extends CommonController
      */
     public function actionNoPass($id, $remark)
     {
-        if ($remark) {
-            $model = Field::findOne($id);
-            Msg::set('真实场地不存在');
-            if ($model) {
-                $model->remark = $remark;
-                $model->status = 2;
-                if ($model->save()) {
-                    Msg::set('一审不通过');
-                } else {
-                    Msg::set($model->errors());
-                }
-            }
-            return $this->redirect(['list']);
-        }
         Msg::set('请填写不通过原因');
+        if ($remark) {
+            Msg::set('真实场地不存在');
+            if ($model = Field::findOne(['id' => $id, 'status' => 4])) {
+                $model->remark = $remark;
+                $model->status = 6;
+                if ($model->save()) {
+                    Msg::set('保存成功');
+                    return $this->redirect(['list']);
+                }
+                Msg::set($model->errors());
+            }
+        }
         return $this->redirect(['detail?id=' . $id]);
     }
 

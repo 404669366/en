@@ -22,7 +22,7 @@ class FirstController extends CommonController
     public function actionList()
     {
         return $this->render('list', [
-            'status' => Constant::getFieldStatus([4,5,6])
+            'status' => Constant::getFieldStatus([4, 5, 6])
         ]);
     }
 
@@ -32,7 +32,7 @@ class FirstController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData([Field::getPageData([4, 5, 6]), \Yii::$app->user->id, 1]);
+        return $this->rTableData(Field::getPageData([4, 5, 6], \Yii::$app->user->id, 1));
     }
 
     /**
@@ -42,11 +42,11 @@ class FirstController extends CommonController
      */
     public function actionDetail($id)
     {
-        if(\Yii::$app->request->isPost){
-            $data=\Yii::$app->request->post();
+        $model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => [2, 4]]);
+        if (\Yii::$app->request->isPost) {
+            $data = \Yii::$app->request->post();
 
         }
-        $data = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => [2, 4]]);
-        return $this->render('detail', ['data' => $data, 'status' => Constant::getFieldStatus()]);
+        return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus()]);
     }
 }
