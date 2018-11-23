@@ -45,7 +45,7 @@
         length: 10,
         columns: [
             {"data": "no"},
-            {"data": "tel"},
+            {"data": "tel2"},
             {"data": "full_name"},
             {"data": "address"},
             {"data": "level"},

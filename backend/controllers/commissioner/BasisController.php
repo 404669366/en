@@ -6,7 +6,7 @@
  * Time: 17:10
  */
 
-namespace app\controllers\salesman;
+namespace app\controllers\commissioner;
 
 
 use app\controllers\basis\CommonController;
@@ -117,7 +117,6 @@ class BasisController extends CommonController
                 } else {
                     Msg::set($model->errors());
                 }
-
             }
             return $this->render('add', ['data' => $data]);
         }

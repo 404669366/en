@@ -6,7 +6,7 @@
  * Time: 16:21
  */
 
-namespace app\controllers\salesman;
+namespace app\controllers\commissioner;
 
 
 use app\controllers\basis\CommonController;
@@ -33,6 +33,6 @@ class ScoreController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([0, 1, 2], \Yii::$app->user->id));
+        return $this->rTableData(Field::getPageData([0, 1, 2], \Yii::$app->user->id, 1));
     }
 }

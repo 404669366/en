@@ -3,7 +3,7 @@
         <div class="row tableSearchBox">
             <div class="col-sm-10">
                 <span class="tableSpan">
-                    业务员姓名: <input class="searchField" type="text" value="" name="username">
+                    员姓名: <input class="searchField" type="text" value="" name="username">
                 </span>
                 <span class="tableSpan">
                     场地编号: <input class="searchField" type="text" value="" name="no">

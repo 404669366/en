@@ -100,7 +100,7 @@ class BasisField extends \yii\db\ActiveRecord
             ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
             ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id')
-            ->where(['<>', 'status', 3]);
+            ->where(['<>', 'b.status', 3]);
         if ($memberId) {
             $data->andWhere(['b.member_id' => $memberId]);
         }
@@ -141,7 +141,6 @@ class BasisField extends \yii\db\ActiveRecord
                     $model->status = 1;
                     if ($model->save()) {
                         Msg::set('抢单成功');
-                        redis::app()->rPush('BackendBasisField', $model->id);
                     } else {
                         Msg::set($model->errors());
                     }
