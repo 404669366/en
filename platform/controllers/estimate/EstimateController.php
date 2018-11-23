@@ -8,10 +8,9 @@
 
 namespace app\controllers\estimate;
 
+use app\controllers\basis\BasisController;
 
-use app\controllers\basis\CommonController;
-
-class EstimateController extends CommonController
+class EstimateController extends BasisController
 {
     public function actionEstimate()
     {
