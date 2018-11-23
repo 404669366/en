@@ -1,5 +1,7 @@
+<?php $this->registerJsFile('/upload/upload.js'); ?>
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
+        <input type="hidden" class="form-control" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
         <div class="row">
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
@@ -23,8 +25,59 @@
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
                     </div>
                 </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">配置单图片</label>
+                    <div class="col-sm-8">
+                        <div class="p"></div>
+                    </div>
+                </div>
+                <script>
+                    upload({
+                        max: 1,
+                        name: 'configure_photo',
+                        height: 12,
+                        element: '.p',
+                        uploadImgUrl: '/basis/file/upload',
+                        removeImgUrl: '/basis/file/delete',
+                    });
+                </script>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">场地证明图片</label>
+                    <div class="col-sm-8">
+                        <div class="i"></div>
+                    </div>
+                </div>
+                <script>
+                    upload({
+                        max: 4,
+                        name: 'prove_photo',
+                        height: 12,
+                        element: '.i',
+                        uploadImgUrl: '/basis/file/upload',
+                        removeImgUrl: '/basis/file/delete',
+                    });
+                </script>
             </div>
             <div class="col-sm-6">
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">场地合同图片</label>
+                    <div class="col-sm-8">
+                        <div class="i"></div>
+                    </div>
+                </div>
+                <script>
+                    upload({
+                        max: 8,
+                        name: 'field_photo',
+                        height: 12,
+                        element: '.i',
+                        uploadImgUrl: '/basis/file/upload',
+                        removeImgUrl: '/basis/file/delete',
+                    });
+                </script>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地信息介绍</label>
@@ -42,7 +95,6 @@
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                        <?php if ($model->status == 1): ?>
                             <button type="button" class="btn btn-white abandon" data-toggle="modal"
                                     data-target="#myModal2">放弃
                             </button>
@@ -68,7 +120,7 @@
                                             $('.save').click(function () {
                                                 var remark = $('.remark').val();
                                                 if (remark) {
-                                                    window.location.href = '/commissioner/basis/del?id=<?=$model->id?>&remark=' + remark;
+                                                    window.location.href = '/commissioner/score/del?id=<?=$model->id?>&remark=' + remark;
                                                 } else {
                                                     layer.msg('请填写放弃说明');
                                                 }
@@ -77,11 +129,8 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
-                        <?php if ($model->status == 1): ?>
-                            <a href="/commissioner/basis/add?id=<?= $model->id ?>" class="btn btn-white">确认跟单</a>
-                        <?php endif; ?>
+                        <button type="submit" class="btn btn-white">确认提交</button>
                     </div>
                 </div>
             </div>

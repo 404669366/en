@@ -29,7 +29,6 @@
                 </div>
             </div>
             <div class="col-sm-6">
-
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">场地图片</label>
