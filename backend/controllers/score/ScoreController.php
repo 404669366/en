@@ -23,7 +23,10 @@ class ScoreController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list', ['status' => Constant::getFieldStatus()]);
+        return $this->render('list', [
+            'status' => Constant::getFieldStatus(),
+            'type' => Constant::getFieldType()
+        ]);
     }
 
     /**

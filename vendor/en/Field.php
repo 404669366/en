@@ -188,6 +188,7 @@ class Field extends \yii\db\ActiveRecord
                 'no' => ['=', 'f.no'],
                 'member' => ['like', 'm.username'],
                 'status' => ['=', 'f.status'],
+                'type' => ['=', 'f.type'],
             ]);
         foreach ($data['data'] as &$v) {
             $v['status'] = Constant::getFieldStatus()[$v['status']];
