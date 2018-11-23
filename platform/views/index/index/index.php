@@ -22,13 +22,13 @@
 				</div>
 				<div class="login float_right">
 					<i class="fa fa-user-circle-o" aria-hidden="true" ></i>
-					<a href="#">登录</a>
+					<a href="/login/login/login.html">登录</a>
 					/
-					<a href="#">注册</a>
+					<a href="/login/login/login.html">注册</a>
 				</div>
 				<ul class="navList">
 					<li><a href="#">首页</a></li>
-					<li><a href="#">业务介绍</a></li>
+					<li><a href="/index/index/list.html">业务介绍</a></li>
 					<li><a href="#">成功案例</a></li>
 					<li><a href="#">新闻动态</a></li>
 					<li><a href="#">开放平台</a></li>
@@ -70,10 +70,12 @@
 				<div class="big_tit">
 					标题一
 				</div>
-				<p class="p1">好房源那么多，我们为你精选 <span class="float_right span1"><a href="#">更多推荐</a></span></p>
+				<p class="p1">好房源那么多，我们为你精选 <span class="float_right span1"><a href="/index/index/details.html">更多推荐</a></span></p>
 				<ul class="main1_ul">
 					<li>
+						<a href="/index/index/details.html">
 						<img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街" title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
+						</a>
 						<p class="main_tit">
 							<a href="#" class="ma1">光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街</a>
 						</p>
@@ -82,7 +84,9 @@
 						</p>
 					</li>
 					<li>
+						<a href="/index/index/details.html">
 						<img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街" title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
+						</a>
 						<p class="main_tit">
 							<a href="#" class="ma1">光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街</a>
 						</p>
@@ -91,7 +95,9 @@
 						</p>
 					</li>
 					<li>
+						<a href="/index/index/details.html">
 						<img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街" title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
+						</a>
 						<p class="main_tit">
 							<a href="#" class="ma1">光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街</a>
 						</p>
@@ -100,7 +106,9 @@
 						</p>
 					</li>
 					<li class="marginLt">
+						<a href="/index/index/details.html">
 						<img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街" title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
+						</a>
 						<p class="main_tit">
 							<a href="#" class="ma1">光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街</a>
 						</p>

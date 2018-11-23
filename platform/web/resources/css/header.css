@@ -1,0 +1,80 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+/*banner-start*/
+.banner{
+	width: 100%;
+	height: 38px;
+    color: #9399a5;
+    line-height: 38px;
+    font-size: 12px;
+    background-color: #303035;
+}
+.bnner_nav li{
+	margin-right: 25px;
+	height: 36px;
+	color: #a9abab;
+	float: left;
+}
+.bnner_nav .nav_active,.bnner_nav li:hover{
+    color: #fff;
+}
+.banner_right{
+	float: right;
+	text-align: center;
+}
+.banner_right li{
+	padding: 0 15px;
+	color: #fff;
+	float: left;
+}
+.banner_right li a{
+	text-decoration: none;
+	color: #fff;
+} 
+.banner_right i{
+	color: #6F6F72;
+	font-size: 14px;
+}
+/*header-start*/
+.header{
+	width: 100%;
+	/*height: 100px;*/
+	background: #F5F5F6;
+	/*padding: 26px 0;*/
+}
+.nav_logo img{
+	width: 162px;
+	height: 32px;
+}
+.nav_search{
+	margin-top: 25px;
+	position: relative;
+}
+.nav_search .nasech{
+	border: none;
+	width: 666px;
+	height: 45px;
+	text-indent: 22px;
+	font-size: 14px;
+}
+.nav_search .sea_btn{
+	width: 50px;
+	height: 45px;
+	background: #fff;
+	border: none;
+	position: absolute;
+	top: 0px;
+	left: 616px;
+	border-radius:2px;
+}
+.sea_btn i{
+	color: #8E8E8E;
+	font-size: 18px;
+}
+.header input{
+	box-shadow: 0 1px 2px -1px rgba(0,0,0,0.2);
+	border-radius:2px;
+}
+/*header-end*/

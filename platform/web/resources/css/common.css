@@ -11,6 +11,12 @@
 	width: 1200px;
 	margin: auto;
 }
+
+/*上边距50*/
+.marginTop50{
+	margin-top: 50px;
+}
+
 /*上边距80*/
 .marginTop80{
 	margin-top: 80px;
@@ -23,6 +29,12 @@
 .marginRt0{
 	margin-right: 0px;
 }
+/*右边距20*/
+.marginRt20{
+	margin-right: 20px;
+}
+
+
 /*左浮动*/
 .float_left{
 	float: left;
@@ -31,13 +43,6 @@
 .float_right{
 	float: right;
 }
-
-
-
-
-
-
-
 
 
 /*页脚开始*/
@@ -96,13 +101,3 @@
 	text-align: center;
 }
 /*页脚结束*/
-
-
-
-
-
-
-
-
-
-
