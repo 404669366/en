@@ -12,6 +12,7 @@ namespace app\controllers\commissioner;
 use app\controllers\basis\CommonController;
 use vendor\en\Field;
 use vendor\helpers\Constant;
+use vendor\helpers\Msg;
 
 class FirstController extends CommonController
 {
@@ -42,10 +43,17 @@ class FirstController extends CommonController
      */
     public function actionDetail($id)
     {
-        $model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => [2, 4]]);
-        if (\Yii::$app->request->isPost) {
+        $model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => [4, 5, 6]]);
+        if ($model->status == 6 && \Yii::$app->request->isPost) {
             $data = \Yii::$app->request->post();
-
+            if ($model->load(['Field' => $data]) && $model->validate()) {
+                $model->status = 4;
+                if ($model->save()) {
+                    Msg::set('提交成功');
+                    return $this->redirect(['list']);
+                }
+            }
+            Msg::set($model->errors());
         }
         return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus()]);
     }

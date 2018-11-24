@@ -35,7 +35,7 @@ class FirstController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([4, 5, 6]));
+        return $this->rTableData(Field::getPageData([4, 5, 6],0,false));
     }
 
     /**

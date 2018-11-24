@@ -4,16 +4,17 @@
             <div class="col-sm-6 ">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地人姓名</label>
+                    <label class="col-sm-3 control-label">专员</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->name ?>" readonly>
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->member->username ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">联系电话</label>
+                    <label class="col-sm-3 control-label">场地电话</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->user->tel ?>" readonly>
+                        <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -50,65 +51,67 @@
                     <label class="col-sm-3 control-label">场地类型</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control"
-                               placeholder="<?= $types[$model->status] ?>" readonly>
+                               placeholder="<?= $types[$model->type] ?>" readonly>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 ">
+            <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">业务员</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control"
-                               placeholder="<?= $model->member ? $model->member->username : '未接单' ?>" readonly>
+                    <label class="col-sm-3 control-label">场地图片</label>
+                    <div class="col-sm-9">
+                        <div class="la0"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la0',
+                            image: '<?=$model->image?>',
+                        });
+                    </script>
                 </div>
-                <?php if($model->status == 3):?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地方合同</label>
-                    <div class="col-sm-4">
-
+                    <label class="col-sm-3 control-label">配置单图片</label>
+                    <div class="col-sm-9">
+                        <div class="la1"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la1',
+                            image: '<?=$model->configure_photo?>',
+                        });
+                    </script>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地证明</label>
-                    <div class="col-sm-4">
-
+                    <div class="col-sm-9">
+                        <div class="la2"></div>
                     </div>
-                </div>
-                <?php endif;?>
-                <?php if($model->status == 9):?>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">备案文件</label>
-                    <div class="col-sm-4">
-
-                    </div>
+                    <script>
+                        picWall({
+                            element: '.la2',
+                            image: '<?=$model->prove_photo?>',
+                        });
+                    </script>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">电力证明</label>
-                    <div class="col-sm-4">
-
+                    <label class="col-sm-3 control-label">场地合同</label>
+                    <div class="col-sm-9">
+                        <div class="la3"></div>
                     </div>
+                    <script>
+                        picWall({
+                            element: '.la3',
+                            image: '<?=$model->field_photo?>',
+                        });
+                    </script>
                 </div>
-                <?php endif;?>
-                <?php if($model->status == 12):?>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">投资方合同</label>
-                    <div class="col-sm-4">
-
-                    </div>
-                </div>
-                <?php endif;?>
-
-                <?php if ($model->member->status == 3): ?>
+                <?php if ($model->status == 6): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">放弃说明</label>
+                        <label class="col-sm-3 control-label">驳回说明</label>
                         <div class="col-sm-4">
                             <textarea class="form-control" readonly><?= $model->remark ?></textarea>
                         </div>
@@ -116,43 +119,37 @@
                 <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-8">
-                        <?php if ($model->member->status == 3): ?>
-                            <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
+                    <div class="col-sm-4 col-sm-offset-2">
+                        <?php if ($model->status == 4): ?>
+                            <button type="button" class="btn btn-white abandon" data-toggle="modal"
+                                    data-target="#myModal2">不通过
                             </button>
                             <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content animated flipInY">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal"><span
-                                                    aria-hidden="true">&times;</span><span
-                                                    class="sr-only">Close</span>
+                                                        aria-hidden="true">&times;</span><span
+                                                        class="sr-only">Close</span>
                                             </button>
-                                            <h4 class="modal-title">请指派业务员</h4>
+                                            <h4 class="modal-title">请填写不通过说明</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">业务员</label>
-                                                <div class="col-sm-4">
-                                                    <select class="form-control member">
-                                                        <?php foreach ($members as $member): ?>
-                                                            <option value="<?= $member['id'] ?>"><?= $member['username'] ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            <textarea class="remark"
+                                                      style="width: 80%;height: 100%; margin: 0 auto;display: block"></textarea>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭
+                                            </button>
                                             <button type="button" class="btn btn-primary save">保存</button>
                                         </div>
                                         <script>
                                             $('.save').click(function () {
-                                                var mid = $('.member').val();
-                                                if (mid) {
-                                                    window.location.href = '/governor/governor/field-recover?id=<?=$model->id?>&mid=' + mid;
+                                                var remark = $('.remark').val();
+                                                if (remark) {
+                                                    window.location.href = '/audit/first/no-pass?id=<?=$model->id?>&remark=' + remark;
                                                 } else {
-                                                    layer.msg('请选择业务员');
+                                                    layer.msg('请填写放弃说明');
                                                 }
                                             });
                                         </script>
@@ -161,6 +158,9 @@
                             </div>
                         <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
+                        <?php if ($model->status == 4): ?>
+                            <a href="/audit/first/pass?id=<?= $model->id ?>" class="btn btn-white">通过</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
