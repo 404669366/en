@@ -169,7 +169,7 @@
                         <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
                         <?php if ($model->status == 1): ?>
-                            <button type="submit" class="btn btn-white">确认提交</button>
+                            <button type="submit" class="btn btn-white">提交一审</button>
                         <?php endif; ?>
                     </div>
                 </div>
