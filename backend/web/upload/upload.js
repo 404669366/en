@@ -111,4 +111,77 @@ function upload(config) {
 
 function uploadFile(config) {
 
+    addResult(config.default);
+
+    $(config.element).after('<input type="file" class="myFileInput" style="display: none">');
+    $(config.element).next('.myFileInput').after('<input type="hidden" name="' + (config.name || 'file') + '">');
+
+    $(config.element).click(function () {
+        $(this).next('.myFileInput').click();
+    });
+
+    $(config.element).next('.myFileInput').change(function () {
+        if ($(this)[0].files.length) {
+            var file = $(this)[0].files[0];
+            if ($(config.element).attr('url')) {
+                $.getJSON(config.removeUrl || '/basis/file/delete', {src: $(config.element).attr('url')}, function (res) {
+                    if (res.type) {
+                        var formData = new FormData();
+                        formData.append('file', file);
+                        if (config.prefix) {
+                            formData.append('prefix', config.prefix);
+                        }
+                        $.ajax({
+                            url: config.url || '/basis/file/upload-file',
+                            type: "post",
+                            data: formData,
+                            dataType: "json",
+                            processData: false,
+                            contentType: false,
+                            success: function (res) {
+                                if (res.type) {
+                                    addResult(res.data);
+                                } else {
+                                    console.log(res.msg);
+                                }
+                            }
+                        });
+                    } else {
+                        console.log(res.msg);
+                    }
+                });
+            } else {
+                var formData = new FormData();
+                formData.append('file', file);
+                if (config.prefix) {
+                    formData.append('prefix', config.prefix);
+                }
+                $.ajax({
+                    url: config.url || '/basis/file/upload-file',
+                    type: "post",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        if (res.type) {
+                            addResult(res.data);
+                        } else {
+                            console.log(res.msg);
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+    function addResult(result) {
+        $(config.element).prop('readonly', true).prop('placeholder', '点击上传文件');
+        if (result) {
+            var name = result.split('/');
+            name = name[name.length - 1];
+            $(config.element).prop('readonly', true).prop('placeholder', name + ' (点击修改)').attr('url', result);
+            $('[name="' + config.name + '"]').val(result);
+        }
+    }
 }

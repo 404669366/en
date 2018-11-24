@@ -33,6 +33,24 @@ class FileController extends CommonController
     }
 
     /**
+     * 上传文件
+     * @return string
+     */
+    public function actionUploadFile()
+    {
+        if (\Yii::$app->request->isPost) {
+            $prefix = \Yii::$app->request->post('prefix','');
+            if ($_FILES) {
+                if ($re = Oss::aliUploadFile($_FILES['file'],$prefix)) {
+                    return $this->rJson($re);
+                }
+            }
+            return $this->rJson('', false, '上传错误');
+        }
+        return $this->rJson('', false, '请求错误');
+    }
+
+    /**
      * 删除图片
      * @param $src
      * @return string

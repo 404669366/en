@@ -15,6 +15,6 @@ class TestController extends CommonController
 {
     public function actionTest()
     {
-
+        return $this->render('test');
     }
 }
