@@ -9,7 +9,6 @@
                         <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
                     </div>
                 </div>
-
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">详细地址</label>

@@ -1,4 +1,3 @@
-<?php $this->registerJsFile('/upload/upload.js'); ?>
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
         <input type="hidden" class="form-control" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
