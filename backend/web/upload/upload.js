@@ -108,3 +108,7 @@ function upload(config) {
         return arr.join(',');
     }
 }
+
+function uploadFile(config) {
+
+}

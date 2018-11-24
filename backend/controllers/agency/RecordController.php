@@ -25,22 +25,7 @@ class RecordController extends CommonController
         return $this->rTableData(Field::getPageData([5,7,8,9,],\Yii::$app->user->id,1));
     }
 
-    public function actionRecordSupply($id)
-    {
-
-    }
-
-    public function actionMyList()
-    {
-
-    }
-
-    public function actionMyData()
-    {
-
-    }
-
-    public function actionPowerSupply($id)
+    public function actionSupply($id)
     {
 
     }
