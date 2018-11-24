@@ -12,6 +12,7 @@ namespace app\controllers\agency;
 use app\controllers\basis\CommonController;
 use vendor\en\Field;
 use vendor\helpers\Constant;
+use vendor\helpers\Msg;
 
 class RecordController extends CommonController
 {
@@ -21,7 +22,7 @@ class RecordController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list',['status'=>Constant::getFieldStatus([5,7,8,9,])]);
+        return $this->render('list', ['status' => Constant::getFieldStatus([5, 7, 8, 9])]);
     }
 
     /**
@@ -30,13 +31,29 @@ class RecordController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([5,7,8,9,],0,false));
+        return $this->rTableData(Field::getPageData([5, 7, 8, 9,], 0, false));
     }
 
+    /**
+     * 备案详情列表
+     * @param $id
+     * @return string|\yii\web\Response
+     */
     public function actionDetail($id)
     {
-        $model = Field::findOne(['id'=>$id,'status'=>[5,7,8,9,]]);
-        return $this->render('detail',['model'=>$model]);
+        $model = Field::findOne(['id' => $id, 'status' => [5, 7, 8, 9]]);
+        if (in_array($model->status, [5, 9]) && \Yii::$app->request->isPost) {
+            $data = \Yii::$app->request->post();
+            if ($model->load(['Field' => $data]) && $model->validate()) {
+                $model->status = 8;
+                if ($model->save()) {
+                    Msg::set('提交成功');
+                    return $this->redirect(['list']);
+                }
+                Msg::set($model->errors());
+            }
+        }
+        return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus()]);
     }
 
 }

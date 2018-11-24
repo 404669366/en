@@ -108,21 +108,12 @@
                         });
                     </script>
                 </div>
-                <?php if ($model->status == 6): ?>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">驳回说明</label>
-                        <div class="col-sm-4">
-                            <textarea class="form-control" readonly><?= $model->remark ?></textarea>
-                        </div>
-                    </div>
-                <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
-                        <?php if ($model->status == 4): ?>
+                        <?php if ($model->status == 5): ?>
                             <button type="button" class="btn btn-white abandon" data-toggle="modal"
-                                    data-target="#myModal2">不通过
+                                    data-target="#myModal2">备案失败
                             </button>
                             <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -132,7 +123,7 @@
                                                         aria-hidden="true">&times;</span><span
                                                         class="sr-only">Close</span>
                                             </button>
-                                            <h4 class="modal-title">请填写不通过说明</h4>
+                                            <h4 class="modal-title">请填写说明</h4>
                                         </div>
                                         <div class="modal-body">
                                             <textarea class="remark"
@@ -147,9 +138,9 @@
                                             $('.save').click(function () {
                                                 var remark = $('.remark').val();
                                                 if (remark) {
-                                                    window.location.href = '/audit/first/no-pass?id=<?=$model->id?>&remark=' + remark;
+                                                    window.location.href = '/agency/record/del?id=<?=$model->id?>&remark=' + remark;
                                                 } else {
-                                                    layer.msg('请填写放弃说明');
+                                                    layer.msg('请填写说明');
                                                 }
                                             });
                                         </script>
@@ -158,8 +149,8 @@
                             </div>
                         <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
-                        <?php if ($model->status == 4): ?>
-                            <a href="/audit/first/pass?id=<?= $model->id ?>" class="btn btn-white">通过</a>
+                        <?php if ($model->status == 5): ?>
+                            <a href="/audit/first/pass?id=<?= $model->id ?>" class="btn btn-white">确认提交</a>
                         <?php endif; ?>
                     </div>
                 </div>
