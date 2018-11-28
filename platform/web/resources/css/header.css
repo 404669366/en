@@ -40,9 +40,8 @@
 /*header-start*/
 .header{
 	width: 100%;
-	/*height: 100px;*/
 	background: #F5F5F6;
-	/*padding: 26px 0;*/
+	padding: 26px 0;
 }
 .nav_logo img{
 	width: 162px;
@@ -67,8 +66,23 @@
 	position: absolute;
 	top: 0px;
 	left: 616px;
-	border-radius:2px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
+.nav_search .sea_btn:focus{
+	width: 50px;
+	height: 45px;
+	background: #fff;
+	border: none;
+	position: absolute;
+	top: 0px;
+	left: 616px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	cursor: pointer;
+	outline: 0;
+}
+
 .sea_btn i{
 	color: #8E8E8E;
 	font-size: 18px;
