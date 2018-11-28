@@ -9,6 +9,7 @@
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $data->area->full_name ?>" readonly>
                         <input type="hidden" name="area_id" class="form-control" value="<?= $data->area_id ?>">
+                        <input type="hidden" name="local_id" class="form-control" value="<?= $data->user_id ?>">
                     </div>
                 </div>
 

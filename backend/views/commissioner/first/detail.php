@@ -41,8 +41,15 @@
                 <?php if ($model->status == 6): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">场地图片</label>
-                        <div class="col-sm-8">
+                        <label class="col-sm-3 control-label">驳回说明</label>
+                        <div class="col-sm-4">
+                            <textarea class="form-control" readonly><?= $model->remark ?></textarea>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">场地图片</label>
+                        <div class="col-sm-9">
                             <div class="rgrefwefw"></div>
                         </div>
                     </div>
@@ -77,8 +84,8 @@
                 <?php if ($model->status == 6): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">配置单图片</label>
-                        <div class="col-sm-8">
+                        <label class="col-sm-3 control-label">配置单图片</label>
+                        <div class="col-sm-9">
                             <div class="djrtdhgde"></div>
                         </div>
                     </div>
@@ -95,8 +102,8 @@
                     </script>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">场地证明图片</label>
-                        <div class="col-sm-8">
+                        <label class="col-sm-3 control-label">场地证明图片</label>
+                        <div class="col-sm-9">
                             <div class="hjukugj"></div>
                         </div>
                     </div>
@@ -113,8 +120,8 @@
                     </script>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">场地合同图片</label>
-                        <div class="col-sm-8">
+                        <label class="col-sm-3 control-label">场地合同图片</label>
+                        <div class="col-sm-9">
                             <div class="tyjtjtj"></div>
                         </div>
                     </div>

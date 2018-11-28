@@ -11,7 +11,6 @@ use Yii;
  * @property string $tel 用户电话
  * @property string $password 用户密码
  * @property string $money 余额
- * @property string $cate 用户分类
  * @property string $created 创建时间
  */
 class User extends \yii\db\ActiveRecord
@@ -30,7 +29,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tel', 'cate'], 'integer'],
+            [['tel'], 'integer'],
             [['password'], 'string', 'max' => 16],
             [['money', 'created'], 'string', 'max' => 255],
         ];
@@ -46,7 +45,6 @@ class User extends \yii\db\ActiveRecord
             'tel' => '用户电话',
             'password' => '用户密码',
             'money' => '余额',
-            'cate' => '用户分类',
             'created' => '创建时间',
         ];
     }

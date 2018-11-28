@@ -14,7 +14,7 @@ use OSS\OssClient;
 class Oss
 {
     /**
-     * 阿里云OSS上传文件
+     * 阿里云OSS图片上传文件
      * @param $file
      * @return bool
      */
@@ -22,6 +22,26 @@ class Oss
     {
         try {
             $name = Helper::randStr(3, 8, 1) . strrchr($file['name'], '.');
+            $ossConfig = \Yii::$app->params['AliOss'];
+            $content = file_get_contents($file['tmp_name']);
+            $ossClient = new OssClient($ossConfig['accessKeyId'], $ossConfig['accessKeySecret'], $ossConfig['endPoint']);
+            $ossClient->putObject($ossConfig['bucket'], $name, $content);
+            return $ossConfig['url'] . $name;
+        } catch (OssException $e) {
+            return false;
+        }
+    }
+
+    /**
+     * 阿里云OSS上传文件
+     * @param $file
+     * @param $prefix
+     * @return bool|string
+     */
+    public static function aliUploadFile($file, $prefix)
+    {
+        try {
+            $name = $prefix . Helper::randStr(3, 8, 1) . strrchr($file['name'], '.');
             $ossConfig = \Yii::$app->params['AliOss'];
             $content = file_get_contents($file['tmp_name']);
             $ossClient = new OssClient($ossConfig['accessKeyId'], $ossConfig['accessKeySecret'], $ossConfig['endPoint']);
