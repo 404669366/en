@@ -371,7 +371,7 @@
 				</li>
 				<li>
 					<img src="/resources/images/num.png"/>
-					<p><a href="#">收益计算 &nbsp;&gt;</a></p>
+					<p><a href="/estimate/estimate/estimate.html">收益计算 &nbsp;&gt;</a></p>
 				</li>
 				<li class="sell_mgrt">
 					<img src="/resources/images/tz.jpg"/>

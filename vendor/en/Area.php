@@ -57,4 +57,56 @@ class Area extends \yii\db\ActiveRecord
             'lng' => '经度',
         ];
     }
+
+    /**
+     * 返回地域数据
+     * @param int $parent_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getData($parent_id = 0)
+    {
+        $data = self::find();
+        if ($parent_id) {
+            $data->where(['parent_id' => $parent_id]);
+        } else {
+            $data->where(['level' => 1]);
+        }
+        return $data->select(['area_id', 'area_name'])->asArray()->all();
+    }
+
+    /**
+     * 返回默认参数
+     * @param int $area_id
+     * @return array
+     */
+    public static function getDefault($area_id = 0)
+    {
+        $data = ['county' => 0, 'city' => 0, 'province' => 0];
+        if ($now = self::findOne(['area_id' => $area_id, 'level' => 3])) {
+            $data['county'] = '<option value="">-- 区县 --</option>' . self::doHtml($now->parent_id, $now->area_id);
+            $data['city'] = '<option value="">-- 城市 --</option>' . self::doHtml($now->province_id, $now->parent_id);
+            $data['province'] = '<option value="">-- 省份 --</option>' . self::doHtml(0, $now->province_id);
+        }
+        return $data;
+    }
+
+    /**
+     * 拼装html
+     * @param int $parent_id
+     * @param int $now
+     * @return string
+     */
+    private static function doHtml($parent_id = 0, $now = 0)
+    {
+        $html = '';
+        $data = self::getData($parent_id);
+        foreach ($data as $v) {
+            if ($now == $v['area_id']) {
+                $html .= "<option value='{$v['area_id']}' selected>{$v['area_name']}</option>";
+            } else {
+                $html .= "<option value='{$v['area_id']}'>{$v['area_name']}</option>";
+            }
+        }
+        return $html;
+    }
 }
