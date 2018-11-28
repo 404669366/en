@@ -4,6 +4,13 @@
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">场地电话</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
@@ -14,21 +21,6 @@
                     <label class="col-sm-3 control-label">详细地址</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
-                    </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">地图</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->lng . ' ' . $model->lat ?>"
-                               readonly>
-                    </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">场地电话</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -44,11 +36,19 @@
                         });
                     </script>
                 </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">地图</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $model->lng . ' ' . $model->lat ?>"
+                               readonly>
+                    </div>
+                </div>
             </div>
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地信息介绍</label>
+                    <label class="col-sm-3 control-label">场地介绍</label>
                     <div class="col-sm-4">
                         <textarea class="form-control" readonly><?= $model->intro ?></textarea>
                     </div>

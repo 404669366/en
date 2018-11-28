@@ -70,7 +70,7 @@ class Score extends \yii\db\ActiveRecord
     public static function average($field_id = 0)
     {
         $avg = self::find()->where(['field_id' => $field_id])->average('num');
-        $level = Grade::find()->where(['>=', 'max', $avg])->andWhere(['<', 'min', $avg])->select(['name'])->asArray()->one();
+        $level = Grade::find()->where(['>', 'max', $avg])->andWhere(['<=', 'min', $avg])->select(['name'])->asArray()->one();
         $min = Grade::find()->select(['min(min) min'])->one();
         $minName = Grade::findOne(['min' => $min->min])->name;
         return [

@@ -1,6 +1,7 @@
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
         <div class="row">
+            <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
             <div class="col-sm-6 ">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
@@ -54,8 +55,6 @@
                                placeholder="<?= $types[$model->type] ?>" readonly>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地图片</label>
@@ -69,6 +68,8 @@
                         });
                     </script>
                 </div>
+            </div>
+            <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">配置单图片</label>
@@ -110,31 +111,115 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">电力证明</label>
+                    <label class="col-sm-3 control-label">备案图片</label>
                     <div class="col-sm-9">
-                        <div class="la4"></div>
+                        <div class="gujtrfhdr"></div>
                     </div>
                     <script>
                         picWall({
-                            element: '.la4',
-                            image: '<?=$model->power_photo?>',
+                            element: '.gujtrfhdr',
+                            image: '<?=$model->record_photo?>',
                         });
                     </script>
                 </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">投资方合同</label>
-                    <div class="col-sm-9">
-                        <div class="la5"></div>
+                <?php if ($model->status == 10): ?>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">变压器图纸</label>
+                        <div class="col-sm-9">
+                            <div class="kklvaskdjh"></div>
+                        </div>
+                        <script>
+                            picWall({
+                                element: '.kklvaskdjh',
+                                image: '<?=$model->transformer_drawing?>',
+                            });
+                        </script>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">施工图纸</label>
+                        <div class="col-sm-9">
+                            <div class="qweoiual"></div>
+                        </div>
+                        <script>
+                            picWall({
+                                element: '.qweoiual',
+                                image: '<?=$model->field_drawing?>',
+                            });
+                        </script>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">预算报表</label>
+                        <div class="col-sm-9">
+                            <div class="ppwqelkjasd"></div>
+                        </div>
+                        <script>
+                            picWall({
+                                element: '.ppwqelkjasd',
+                                image: '<?=$model->budget_photo?>',
+                            });
+                        </script>
+                    </div>
+                <?php else: ?>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">变压器图纸</label>
+                        <div class="col-sm-9">
+                            <div class="asdfskjdfh"></div>
+                        </div>
                     </div>
                     <script>
-                        picWall({
-                            element: '.la5',
-                            image: '<?=$model->invest_photo?>',
+                        upload({
+                            max: 4,
+                            name: 'transformer_drawing',
+                            height: 12,
+                            element: '.asdfskjdfh',
+                            uploadImgUrl: '/basis/file/upload',
+                            removeImgUrl: '/basis/file/delete',
+                            default: '<?=$model->transformer_drawing?>',
                         });
                     </script>
-                </div>
-                <?php if ($model->member->status == 20): ?>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">施工图纸</label>
+                        <div class="col-sm-9">
+                            <div class="osidujlksadjkl"></div>
+                        </div>
+                    </div>
+                    <script>
+                        upload({
+                            max: 4,
+                            name: 'field_drawing',
+                            height: 12,
+                            element: '.osidujlksadjkl',
+                            uploadImgUrl: '/basis/file/upload',
+                            removeImgUrl: '/basis/file/delete',
+                            default: '<?=$model->record_photo?>',
+                        });
+                    </script>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">预算报表</label>
+                        <div class="col-sm-9">
+                            <div class="osidujlksadjkl"></div>
+                        </div>
+                    </div>
+                    <script>
+                        upload({
+                            max: 4,
+                            name: 'budget_photo',
+                            height: 12,
+                            element: '.osidujlksadjkl',
+                            uploadImgUrl: '/basis/file/upload',
+                            removeImgUrl: '/basis/file/delete',
+                            default: '<?=$model->budget_photo?>',
+                        });
+                    </script>
+
+                <?php endif; ?>
+                <?php if ($model->status == 11): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">说明</label>
@@ -145,10 +230,10 @@
                 <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <div class="col-sm-4 col-sm-offset-2">
-                        <?php if ($model->status == 18): ?>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <?php if ($model->status != 10): ?>
                             <button type="button" class="btn btn-white abandon" data-toggle="modal"
-                                    data-target="#myModal2">不通过
+                                    data-target="#myModal2">建设资料有误
                             </button>
                             <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -158,7 +243,7 @@
                                                         aria-hidden="true">&times;</span><span
                                                         class="sr-only">Close</span>
                                             </button>
-                                            <h4 class="modal-title">请填写不通过说明</h4>
+                                            <h4 class="modal-title">请填写说明</h4>
                                         </div>
                                         <div class="modal-body">
                                             <textarea class="remark"
@@ -173,20 +258,19 @@
                                             $('.save').click(function () {
                                                 var remark = $('.remark').val();
                                                 if (remark) {
-                                                    window.location.href = '/audit/third/no-pass?id=<?=$model->id?>&remark=' + remark;
+                                                    window.location.href = '/agency/build/del?st=11&id=<?=$model->id?>&remark=' + remark;
                                                 } else {
-                                                    layer.msg('请填写不通过说明');
+                                                    layer.msg('请填写说明');
                                                 }
                                             });
                                         </script>
                                     </div>
                                 </div>
-
                             </div>
                         <?php endif; ?>
                         <button class="btn btn-white back">返回</button>
-                        <?php if ($model->status == 18): ?>
-                            <a href="/audit/third/pass?id=<?= $model->id ?>" class="btn btn-white">通过</a>
+                        <?php if ($model->status != 10): ?>
+                            <button class="btn btn-white" type="submit">确认提交</button>
                         <?php endif; ?>
                     </div>
                 </div>

@@ -99,9 +99,9 @@ class BasisField extends \yii\db\ActiveRecord
         $data = self::find()->alias('b')
             ->leftJoin(Area::tableName() . ' a', 'b.area_id=a.area_id')
             ->leftJoin(User::tableName() . ' u', 'b.user_id=u.id')
-            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id')
-            ->where(['<>', 'b.status', 3]);
+            ->leftJoin(Member::tableName() . ' m', 'b.member_id=m.id');
         if ($memberId) {
+            $data->where(['<>', 'b.status', 3]);
             $data->andWhere(['b.member_id' => $memberId]);
         }
         $data = $data->select(['b.*', 'u.tel', 'a.full_name', 'm.username'])

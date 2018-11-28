@@ -49,17 +49,14 @@ class User extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * 获取合伙人
-     * @param int $type
-     * @return array|\yii\db\ActiveRecord[]
-     */
-    public static function getCobber($type = 1)
+
+    public static function getCobber($type = false)
     {
-        return User::find()->alias('u')
-            ->leftJoin(Ident::tableName() . ' i', 'i.user_id=u.id')
-            ->where(['i.type' => $type])
-            ->select(['tel username', 'id'])
-            ->asArray()->all();
+        $data = self::find()->alias('u')->leftJoin(Ident::tableName() . ' i', 'u.id=i.user_id');
+        if ($type !== false) {
+           $data->where(['i.type' => $type]);
+        }
+        $data = $data->select(['u.tel username', 'u.id'])->asArray()->all();
+        return $data;
     }
 }
