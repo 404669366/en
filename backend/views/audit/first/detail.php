@@ -19,21 +19,21 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">地域</label>
+                    <label class="col-sm-3 control-label">场地位置</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地位置</label>
+                    <label class="col-sm-3 control-label">详细地址</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地信息介绍</label>
+                    <label class="col-sm-3 control-label">场地介绍</label>
                     <div class="col-sm-4">
                         <textarea class="form-control" readonly><?= $model->intro ?></textarea>
                     </div>
@@ -111,7 +111,7 @@
                 <?php if ($model->status == 6): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">驳回说明</label>
+                        <label class="col-sm-3 control-label">说明</label>
                         <div class="col-sm-4">
                             <textarea class="form-control" readonly><?= $model->remark ?></textarea>
                         </div>

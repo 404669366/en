@@ -58,4 +58,5 @@ class Ident extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
+
 }

@@ -47,7 +47,7 @@ class GovernorController extends CommonController
         return $this->render('basis-detail', [
             'model' => BasisField::findOne($id),
             'status' => Constant::getBasisStatus(),
-            'members' => Member::getMemberByJob(4)
+            'members' => Member::getMemberByJob(4),
         ]);
     }
 
@@ -105,23 +105,46 @@ class GovernorController extends CommonController
             'model' => Field::findOne($id),
             'status' => Constant::getFieldStatus(),
             'types' => Constant::getFieldType(),
-            'commissioner' => Member::getMemberByJob(4),
-            'cobber' => User::getCobber()
+            'members' => Member::getMemberByJob(4),
+            'cobbers' => User::getCobber(1),
         ]);
     }
 
     /**
+     *
      * 恢复真实场地
      * @param $id
      * @param $mid
      * @return \yii\web\Response
      */
-    public function actionFieldRecover($id, $mid)
+    public function actionFieldRecover3($id, $mid)
     {
         Msg::set('真实场地不存在');
-        if ($model = Field::findOne(['id' => $id, 'status' => 0])) {
+        if ($model = Field::findOne(['id' => $id, 'status' => 3])) {
             $model->member_id = $mid;
             $model->status = 1;
+            if ($model->save()) {
+                Msg::set('真实场地恢复成功');
+            } else {
+                Msg::set($model->errors());
+            }
+        }
+        return $this->redirect(['field-list']);
+    }
+
+    /**
+     *
+     * 恢复真实场地
+     * @param $id
+     * @param $mid
+     * @return \yii\web\Response
+     */
+    public function actionFieldRecover17($id, $mid)
+    {
+        Msg::set('真实场地不存在');
+        if ($model = Field::findOne(['id' => $id, 'status' => 17])) {
+            $model->cobber_id = $mid;
+            $model->status = 14;
             if ($model->save()) {
                 Msg::set('真实场地恢复成功');
             } else {
