@@ -5,6 +5,13 @@
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">场地状态</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $status[$model->status] ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">场地电话</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
@@ -13,8 +20,17 @@
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
+                    <div class="col-sm-9">
+                        <div class="area"></div>
+                        <script>
+                            area({
+                                element: '.area',
+                                modify: false,
+                                area: '<?=$model->area_id?>',
+                                lat: '<?=$model->lat?>',
+                                lng: '<?=$model->lng?>',
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -26,16 +42,16 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地介绍</label>
+                    <label class="col-sm-3 control-label">场地标题</label>
                     <div class="col-sm-4">
-                        <textarea class="form-control" readonly><?= $model->intro ?></textarea>
+                        <input type="text" name="title" class="form-control" placeholder="<?= $model->title ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地状态</label>
+                    <label class="col-sm-3 control-label">场地介绍</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $status[$model->status] ?>" readonly>
+                        <textarea class="form-control" readonly><?= $model->intro ?></textarea>
                     </div>
                 </div>
                 <?php if (in_array($model->status, [6, 9, 11])): ?>

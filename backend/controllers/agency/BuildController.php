@@ -60,23 +60,23 @@ class BuildController extends CommonController
      * 建设图和造价有误
      * @param $id
      * @param $remark
-     * @param $st
-     * @return \yii\web\Response
+     * @return string|\yii\web\Response
      */
-    public function actionDel($id, $remark, $st)
+    public function actionDel($id, $remark)
     {
         $model = Field::findOne(['id' => $id, 'status' => [7, 10, 11]]);
-        if ($model->status == 7 && \Yii::$app->request->isPost) {
-            $data = \Yii::$app->request->post();
+        if (in_array($model->status, [7, 11])) {
+            $data = \Yii::$app->request->get();
             if ($model->load(['Field' => $data]) && $model->validate()) {
-                $model->status = $st;
+                $model->status = 11;
                 $model->remark = $remark;
                 if ($model->save()) {
                     Msg::set('提交成功');
                     return $this->redirect(['list']);
                 }
-                Msg::set($model->errors());
             }
+            Msg::set($model->errors());
         }
+        return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus(), 'types' => Constant::getFieldType()]);
     }
 }

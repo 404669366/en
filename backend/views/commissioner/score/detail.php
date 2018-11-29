@@ -13,8 +13,17 @@
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
+                    <div class="col-sm-9">
+                        <div class="area"></div>
+                        <script>
+                            area({
+                                element: '.area',
+                                modify: false,
+                                area: '<?=$model->area_id?>',
+                                lat: '<?=$model->lat?>',
+                                lng: '<?=$model->lng?>',
+                            });
+                        </script>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -22,6 +31,13 @@
                     <label class="col-sm-3 control-label">详细地址</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地标题</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="title" class="form-control" placeholder="<?= $model->title ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -60,8 +76,8 @@
                     </div>
                     <script>
                         picWall({
-                            element:'.adawd',
-                            image:'<?=$model->image?>',
+                            element: '.adawd',
+                            image: '<?=$model->image?>',
                         })
                     </script>
                 <?php endif; ?>

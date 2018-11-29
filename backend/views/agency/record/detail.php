@@ -5,6 +5,23 @@
             <div class="col-sm-6 ">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">场地状态</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $status[$model->status] ?>" readonly>
+                    </div>
+                </div>
+
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地类型</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $types[$model->type] ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">专员</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control"
@@ -21,9 +38,19 @@
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
+                    <div class="col-sm-9">
+                        <div class="area"></div>
+                        <script>
+                            area({
+                                element: '.area',
+                                modify: false,
+                                area: '<?=$model->area_id?>',
+                                lat: '<?=$model->lat?>',
+                                lng: '<?=$model->lng?>',
+                            });
+                        </script>
                     </div>
+                </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
@@ -37,22 +64,6 @@
                     <label class="col-sm-3 control-label">场地介绍</label>
                     <div class="col-sm-4">
                         <textarea class="form-control" readonly><?= $model->intro ?></textarea>
-                    </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">场地状态</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control"
-                               placeholder="<?= $status[$model->status] ?>" readonly>
-                    </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">场地类型</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control"
-                               placeholder="<?= $types[$model->type] ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -165,7 +176,6 @@
                         </script>
                     </div>
                 <?php endif; ?>
-
                 <?php if (in_array($model->status, [8, 9])): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
@@ -199,10 +209,10 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-white" data-dismiss="modal">关闭
                                             </button>
-                                            <button type="button" class="btn btn-primary save">保存</button>
+                                            <button type="button" class="btn btn-primary save1">保存</button>
                                         </div>
                                         <script>
-                                            $('.save').click(function () {
+                                            $('.save1').click(function () {
                                                 var remark1 = $('.remark1').val();
                                                 if (remark1) {
                                                     window.location.href = '/agency/record/del?st=8&id=<?=$model->id?>&remark=' + remark1;
@@ -234,10 +244,10 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-white" data-dismiss="modal">关闭
                                             </button>
-                                            <button type="button" class="btn btn-primary save">保存</button>
+                                            <button type="button" class="btn btn-primary save2">保存</button>
                                         </div>
                                         <script>
-                                            $('.save').click(function () {
+                                            $('.save2').click(function () {
                                                 var remark2 = $('.remark2').val();
                                                 if (remark2) {
                                                     window.location.href = '/agency/record/del?st=9&id=<?=$model->id?>&remark=' + remark2;

@@ -6,10 +6,16 @@
         </div>
     </div>
 </div>
+
 <script>
     area({
-        element:'.dawdad',
-        name:'field',
-        //default:'440703'
+        element: '.dawdad',
+        modify: false,
+        areaName: 'aaa',
+        latName: 'bbb',
+        lngName: 'ccc',
+        area: '',
+        lat: '',
+        lng: ''
     });
 </script>

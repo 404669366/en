@@ -32,4 +32,15 @@ class AreaController extends CommonController
     {
         return $this->rJson(Area::getDefault($area_id));
     }
+
+    /**
+     * 获取坐标
+     * @param $area_id
+     * @return string
+     */
+    public function actionCoordinate($area_id)
+    {
+        $model = Area::findOne(['area_id' => $area_id]);
+        return $this->rJson(['lng' => $model->lng, 'lat' => $model->lat]);
+    }
 }

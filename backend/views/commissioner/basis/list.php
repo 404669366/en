@@ -1,4 +1,4 @@
-<div class="ibox-content">
+ <div class="ibox-content">
     <div class="dataTables_wrapper form-inline">
         <div class="row tableSearchBox">
             <div class="col-sm-10">
