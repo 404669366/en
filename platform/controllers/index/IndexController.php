@@ -11,6 +11,7 @@ namespace app\controllers\index;
 
 use app\controllers\basis\BasisController;
 use vendor\en\Field;
+use vendor\helpers\BasisData;
 
 class IndexController extends BasisController
 {
@@ -20,7 +21,7 @@ class IndexController extends BasisController
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', ['data' => BasisData::getBasisData()]);
     }
 
     /**
@@ -41,5 +42,6 @@ class IndexController extends BasisController
     public function actionDetails()
     {
         return $this->render('details');
+
     }
 }
