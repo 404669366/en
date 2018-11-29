@@ -61,13 +61,13 @@ class RecordController extends CommonController
      * @param $id
      * @param $remark
      * @param $st
-     * @return \yii\web\Response
+     * @return string|\yii\web\Response
      */
     public function actionDel($id, $remark, $st)
     {
         $model = Field::findOne(['id' => $id, 'status' => [5, 7, 8, 9]]);
-        if (in_array($model->status, [8, 9]) && \Yii::$app->request->isPost) {
-            $data = \Yii::$app->request->post();
+        if (in_array($model->status, [5, 8, 9])) {
+            $data = \Yii::$app->request->get();
             if ($model->load(['Field' => $data]) && $model->validate()) {
                 $model->status = $st;
                 $model->remark = $remark;
@@ -75,9 +75,9 @@ class RecordController extends CommonController
                     Msg::set('提交成功');
                     return $this->redirect(['list']);
                 }
-                Msg::set($model->errors());
             }
-
+            Msg::set($model->errors());
         }
+        return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus(), 'types' => Constant::getFieldType()]);
     }
 }

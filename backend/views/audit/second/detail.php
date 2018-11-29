@@ -20,9 +20,19 @@
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->area->full_name ?>" readonly>
+                    <div class="col-sm-9">
+                        <div class="area"></div>
+                        <script>
+                            area({
+                                element: '.area',
+                                modify: false,
+                                area: '<?=$model->area_id?>',
+                                lat: '<?=$model->lat?>',
+                                lng: '<?=$model->lng?>',
+                            });
+                        </script>
                     </div>
+                </div>
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">

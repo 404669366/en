@@ -3,10 +3,10 @@ function area(config) {
         .append('<input type="hidden" name="' + (config.areaName || 'area') + '">')
         .append('<input type="hidden" name="' + (config.latName || 'lat') + '">')
         .append('<input type="hidden" name="' + (config.lngName || 'lng') + '">')
-        .append('<select class="col-sm-2 province"><option value="">-- 省份 --</option></select>')
-        .append('<select class="col-sm-2 city"><option value="">-- 城市 --</option></select>')
-        .append('<select class="col-sm-2 county"><option value="">-- 区县 --</option></select>');
-    $(config.element).after('<div class="row"><div class="col-sm-6" id="' + (config.areaName || 'area') + 'Map" style="height: ' + (config.mapHeight ? config.mapHeight + 'rem' : '32rem') + '"></div></div>');
+        .append('<select class="col-sm-3 province"><option value="">-- 省份 --</option></select>')
+        .append('<select class="col-sm-3 city"><option value="">-- 城市 --</option></select>')
+        .append('<select class="col-sm-3 county"><option value="">-- 区县 --</option></select>');
+    $(config.element).after('<div class="row"><div class="col-sm-9" id="' + (config.areaName || 'area') + 'Map" style="height: ' + (config.mapHeight ? config.mapHeight + 'rem' : '32rem') + '"></div></div>');
     if (config.area) {
         setVal(config.area);
         $.getJSON('/basis/area/def', {area_id: config.area}, function (re) {

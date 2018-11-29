@@ -122,12 +122,12 @@
 					<form action="" method="post">
 						<ul class="log_input">
 							<li>
-								<input type="text" class="inputs top_border" maxlength="11" placeholder="请输入手机号">
+								<input type="text" class="inputs top_border num" maxlength="11" placeholder="请输入手机号">
 							</li>
 							
 							<li class="eyes">
 								<i class="fa fa-eye" aria-hidden="true"></i>
-								<input type="password" class="inputs btm_border" maxlength="6" placeholder="请输入登录密码">
+								<input type="password" class="inputs btm_border pwd" maxlength="6" placeholder="请输入登录密码">
 							</li>
 							
 							<li class="forget_pwd">

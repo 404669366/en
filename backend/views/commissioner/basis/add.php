@@ -1,15 +1,26 @@
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+        <input type="hidden" name="local_id" class="form-control" value="<?= $data->user_id ?>">
         <div class="row">
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">场地位置</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $data->area->full_name ?>" readonly>
-                        <input type="hidden" name="area_id" class="form-control" value="<?= $data->area_id ?>">
-                        <input type="hidden" name="local_id" class="form-control" value="<?= $data->user_id ?>">
+                    <div class="col-sm-9">
+                        <div class="area"></div>
+                        <script>
+                            area({
+                                element: '.area',
+                                modify: true,
+                                areaName: 'area_id',
+                                latName: 'lat',
+                                lngName: 'lng',
+                                area: '<?=$data->area_id?>',
+                                lat: '<?=$data->area->lat?>',
+                                lng: '<?=$data->area->lng?>',
+                            });
+                        </script>
                     </div>
                 </div>
 

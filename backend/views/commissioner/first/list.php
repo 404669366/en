@@ -53,13 +53,7 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                if (row.status === '一审不通过') {
-                    return '<a class="btn btn-sm btn-warning" href="/commissioner/first/detail?id=' + data + '">重新编辑</a>'
-                }
-                if (row.status === '一审中' || row.status === '一审通过') {
-                    return '<a class="btn btn-sm btn-warning" href="/commissioner/first/detail?id=' + data + '">详情</a>'
-                }
-                return '请等待一审';
+                return '<a class="btn btn-sm btn-warning" href="/commissioner/first/detail?id=' + data + '">详情</a>';
             }
             }
         ],
