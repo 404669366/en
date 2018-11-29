@@ -314,7 +314,6 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
     <!--引入jquery-->
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    
 </head>
 <body>
 <!--头部start-->
