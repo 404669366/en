@@ -10,21 +10,73 @@ namespace app\controllers\agency;
 
 
 use app\controllers\basis\CommonController;
+use vendor\en\Field;
+use vendor\helpers\Constant;
+use vendor\helpers\Msg;
 
 class BuildController extends CommonController
 {
+    /**
+     * 建设图和造价列表
+     * @return string
+     */
     public function actionList()
     {
-
+        return $this->render('list', ['status' => Constant::getFieldStatus([7, 10, 11]), 'type' => Constant::getFieldType()]);
     }
 
+    /**
+     * 建设图和造价列表数据
+     * @return string
+     */
     public function actionData()
     {
-
+        return $this->rTableData(Field::getPageData([7, 10, 11], 0, false));
     }
 
-    public function actionSupply($id)
+    /**
+     * 建设图和造价列表详情
+     * @param $id
+     * @return string|\yii\web\Response
+     */
+    public function actionDetail($id)
     {
+        $model = Field::findOne(['id' => $id, 'status' => [7, 10, 11]]);
+        if ($model->status == 7 && \Yii::$app->request->isPost) {
+            $data = \Yii::$app->request->post();
+            if ($model->load(['Field' => $data]) && $model->validate()) {
+                $model->status = 10;
+                if ($model->save()) {
+                    Msg::set('提交成功');
+                    return $this->redirect('list');
+                }
+                Msg::set($model->errors());
+            }
+        }
+        return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus(), 'types' => Constant::getFieldType()]);
+    }
 
+    /**
+     * 建设图和造价有误
+     * @param $id
+     * @param $remark
+     * @param $st
+     * @return \yii\web\Response
+     */
+    public function actionDel($id, $remark, $st)
+    {
+        $model = Field::findOne(['id' => $id, 'status' => [7, 10, 11]]);
+        if ($model->status == 7 && \Yii::$app->request->isPost) {
+            $data = \Yii::$app->request->post();
+            if ($model->load(['Field' => $data]) && $model->validate()) {
+                $model->status = $st;
+                $model->remark = $remark;
+                if ($model->save()) {
+                    Msg::set('提交成功');
+                    return $this->redirect(['list']);
+                }
+                Msg::set($model->errors());
+            }
+        }
     }
 }

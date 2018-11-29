@@ -26,7 +26,7 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地信息介绍</label>
+                    <label class="col-sm-3 control-label">场地介绍</label>
                     <div class="col-sm-4">
                         <textarea class="form-control" readonly><?= $model->intro ?></textarea>
                     </div>
@@ -38,10 +38,10 @@
                         <input type="text" class="form-control" placeholder="<?= $status[$model->status] ?>" readonly>
                     </div>
                 </div>
-                <?php if ($model->status == 6): ?>
+                <?php if (in_array($model->status, [6, 9, 11])): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">驳回说明</label>
+                        <label class="col-sm-3 control-label">说明</label>
                         <div class="col-sm-4">
                             <textarea class="form-control" readonly><?= $model->remark ?></textarea>
                         </div>
@@ -81,7 +81,7 @@
                 <?php endif; ?>
             </div>
             <div class="col-sm-6">
-                <?php if ($model->status == 6): ?>
+                <?php if (in_array($model->status, [6, 9, 11])): ?>
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">配置单图片</label>
@@ -182,7 +182,7 @@
                 <div class="form-group">
                     <div class="col-sm-4 col-sm-offset-2">
                         <button class="btn btn-white back">返回</button>
-                        <?php if ($model->status == 6): ?>
+                        <?php if (in_array($model->status, [6, 9, 11])): ?>
                             <button type="submit" class="btn btn-white">确认提交</button>
                         <?php endif; ?>
                     </div>

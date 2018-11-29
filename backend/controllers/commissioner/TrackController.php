@@ -22,7 +22,7 @@ class TrackController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list', ['status' => Constant::getFieldStatus([7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])]);
+        return $this->render('list', ['status' => Constant::getFieldStatus([5, 7, 8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20])]);
     }
 
     /**
@@ -31,7 +31,7 @@ class TrackController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], \Yii::$app->user->id, 1));
+        return $this->rTableData(Field::getPageData([5, 7, 8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20], \Yii::$app->user->id, 1));
     }
 
     /**
@@ -42,24 +42,7 @@ class TrackController extends CommonController
     public function actionDetail($id)
     {
         if ($model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id])) {
-            if (\Yii::$app->request->isPost) {
-                $data = \Yii::$app->request->post();
-                if ($model->load(['Field' => $data]) && $model->validate()) {
-                    $map = [
-                        9 => 5,
-                        11 => 7
-                    ];
-                    if (isset($map[$model->status])) {
-                        $model->status = $map[$model->status];
-                    }
-                    if ($model->save()) {
-                        Msg::set('提交成功');
-                        return $this->redirect(['list']);
-                    }
-                    Msg::set($model->errors());
-                }
-            }
-            return $this->render('next', [
+            return $this->render('detail', [
                 'model' => $model,
                 'status' => Constant::getFieldStatus()
             ]);

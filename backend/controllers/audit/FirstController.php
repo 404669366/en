@@ -24,7 +24,7 @@ class FirstController extends CommonController
     public function actionList()
     {
         return $this->render('list', [
-            'status' => Constant::getFieldStatus(),
+            'status' => Constant::getFieldStatus([4,5,6]),
             'type' => Constant::getFieldType(),
         ]);
     }
