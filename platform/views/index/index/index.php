@@ -31,7 +31,7 @@
 				<ul class="navList">
 					<li><a href="#">首页</a></li>
 					<li><a href="/index/index/list.html">业务介绍</a></li>
-					<!--<li><a href="#">成功案例</a></li>-->
+					<li><a href="#">成功案例</a></li>
 					<li><a href="#">新闻动态</a></li>
 					<li><a href="#">开放平台</a></li>
 					<li><a href="#">收益预测</a></li>
