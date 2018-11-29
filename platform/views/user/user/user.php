@@ -17,7 +17,7 @@
 		<div class="header">
 			<div class="nav box1200">
 				<img src="/resources/images/LG.png"/>
-				<ul class="nva_list float_left">
+				<ul class="nva_list">
 					<a href="/index/index/index.html"><li>首页</li></a>
 					<a href="#"><li>业务介绍</li></a>
 					<a href="#"><li>成功案例</li></a>
@@ -50,7 +50,6 @@
 			
 			<!--右边内容-->
 			<div class="user_contRt float_right">
-				
 				<!--盒子里面的内容1-->
 				<div class="inner_Cont" style="display: block;">
 					<div class="userTit">
@@ -58,26 +57,88 @@
 					</div>
 					<!--tab标题-->
 					<ul class="tab">
-						<li class="active">二手房</li>
+						<li class="active">场地</li>
 						<li>新房</li>
 						<li>租房</li>
 					</ul>
-					<!--tab内容-->
-					<div class="tab_cont">
-						内容1
-					</div>
-					
-					<div class="tab_cont" style="display: none;">
-						内容2
-					</div>
-					
-					<div class="tab_cont" style="display: none;">
-						内容3
-					</div>
+					<!--tab_cont内容-->
+					<ul class="tab_cont">
+						<li>
+							<img src="/resources/images/cd.jpg"/>
+							<div class="ps1">
+								<p><span>小区名称：</span>光华逸家地图</p>
+								<p><span>所在区域:</span>外光华三环至绕城高速近4号线中坝站</p>
+								<p><span>看地时间:</span>提前预约时间随时可看</p>
+								<p><span>场地编号:</span>0000-0000-0000</p>
+							</div>
+							<div class="ps2">
+								222
+								<span class="w">万</span>&nbsp;<span class="fl">43.56平米</span>
+								<button class="bbtn">按钮</button>
+							</div>
+						</li>
+						<li>
+							<img src="/resources/images/cd.jpg"/>
+							<div class="ps1">
+								<p><span>小区名称：</span>光华逸家地图</p>
+								<p><span>所在区域:</span>外光华三环至绕城高速近4号线中坝站</p>
+								<p><span>看地时间:</span>提前预约时间随时可看</p>
+								<p><span>场地编号:</span>0000-0000-0000</p>
+							</div>
+							<div class="ps2">
+								222
+								<span class="w">万</span>&nbsp;<span class="fl">43.56平米</span>
+								<button class="bbtn">按钮</button>
+							</div>
+						</li>
+						<li>
+							<img src="/resources/images/cd.jpg"/>
+							<div class="ps1">
+								<p><span>小区名称：</span>光华逸家地图</p>
+								<p><span>所在区域:</span>外光华三环至绕城高速近4号线中坝站</p>
+								<p><span>看地时间:</span>提前预约时间随时可看</p>
+								<p><span>场地编号:</span>0000-0000-0000</p>
+							</div>
+							<div class="ps2">
+								222
+								<span class="w">万</span>&nbsp;<span class="fl">43.56平米</span>
+								<button class="bbtn">按钮</button>
+							</div>
+						</li>
+						<li>
+							<img src="/resources/images/cd.jpg"/>
+							<div class="ps1">
+								<p><span>小区名称：</span>光华逸家地图</p>
+								<p><span>所在区域:</span>外光华三环至绕城高速近4号线中坝站</p>
+								<p><span>看地时间:</span>提前预约时间随时可看</p>
+								<p><span>场地编号:</span>0000-0000-0000</p>
+							</div>
+							<div class="ps2">
+								222
+								<span class="w">万</span>&nbsp;<span class="fl">43.56平米</span>
+								<button class="bbtn">按钮</button>
+							</div>
+						</li>
+						<li>
+							<img src="/resources/images/cd.jpg"/>
+							<div class="ps1">
+								<p><span>小区名称：</span>光华逸家地图</p>
+								<p><span>所在区域:</span>外光华三环至绕城高速近4号线中坝站</p>
+								<p><span>看地时间:</span>提前预约时间随时可看</p>
+								<p><span>场地编号:</span>0000-0000-0000</p>
+							</div>
+							<div class="ps2">
+								222
+								<span class="w">万</span>&nbsp;<span class="fl">43.56平米</span>
+								<button class="bbtn">按钮</button>
+							</div>
+						</li>
+						<!--清除浮动-->
+						<div class="clear"></div>
+					</ul>
 				</div>
-				
 				<!--盒子里面的内容2-->
-				<div class="inner_Cont" style="display: block;">
+				<div class="inner_Cont" style="display: none;">
 					<div class="userTit">
 						我的账户信息
 					</div>
@@ -123,8 +184,6 @@
 						</ul>
 					</form>
 				</div>
-				<!--清除浮动-->
-				<div class="clear"></div>
 			</div>
 			<!--清除浮动-->
 			<div class="clear"></div>

@@ -81,7 +81,6 @@ body{
     padding: 35px 35px;
     font-size: 14px;
 }
-
 .userTit{
 	font-size: 22px;
     font-weight: bold;
@@ -111,14 +110,67 @@ body{
 }
 .inner_Cont .tab_cont{
 	width: 755px;
-    height: 270px;
     margin: 20px 0 0 0;
     background-color: #F8F8F9;
 }
+.tab_cont li{
+	width: 715px;
+	height: 100px;
+	padding: 30px 20px;
+	border-bottom: 1px solid #D2D7E1;;
+}
+.tab_cont li img{
+	display: block;
+	float: left;
+	width: 120px;
+	height: 100px;
+}
+.tab_cont li .ps1,.ps2{
+	display: block;
+	float: left;
+	margin-left: 20px;
+}
+.tab_cont li .ps1{
+	width: 380px;
+	height: 100px;
+	margin-left: 24px;
+	line-height: 26px;
+}
+.tab_cont .ps1 p span{
+	display: inline-block;
+	width:80px;
+	text-align: left;
+	font-size: 14px;
+}
+.tab_cont li .ps2{
+	width: 165px;
+	height: 100px;
+	margin-left: 20px;
+	color: red;
+	font:bold 26px/30px "微软雅黑";
+}
+.tab_cont li .w{
+	color: red;
+	font:12px/30px "微软雅黑";
+}
+.tab_cont li .fl{
+	color: #333;
+	font:bold 18px/30px "微软雅黑";
+	
+}
+.tab_cont li .bbtn{
+	width: 100px;
+	border: none;
+	color: #fff;
+    background: rgb(48, 114, 246);
+    border-radius: 2px;
+	margin: 20px 0 0 32px;
+	font: 16px/30px "微软雅黑";
+}
+/*修改密码*/
 .change_pwd {
     width: 350px;
     margin: 60px auto;
-
 }
 .change_pwd li {
     padding-top: 15px;
@@ -147,17 +199,4 @@ body{
     line-height: 40px;
     border: none;
 }
-
-/*.lj-btn {
-    width: 240px;
-    height: 40px;
-    padding: 0 5px;
-    background-color: #3072f6;
-    cursor: pointer;
-    color: #fff;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 40px;
-    }*/
-
 /*content end*/

@@ -28,9 +28,9 @@
 					<li>
 						<i class="fa fa-user-circle" aria-hidden="true"></i>
 						&nbsp;
-						<a href="#">登录</a>
+						<a href="/login/login/login.html">登录</a>
 						/
-						<a href="#">注册</a>
+						<a href="/login/login/login.html">注册</a>
 					</li>
 					<li>
 						<i class="fa fa-phone-square" aria-hidden="true"></i>
@@ -161,7 +161,7 @@
 		<div class="m_submit">
 			<div class="wrap">
 				<button class="btn_submit">去估价</button>
-				<div class="btn_text">估值结果由贝壳系统模型提供</div>
+				<div class="btn_text">估值结果由亿能系统模型提供</div>
 			</div>
 		</div>
 		<!--去估价按钮结束-->
