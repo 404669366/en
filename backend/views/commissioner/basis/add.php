@@ -33,13 +33,20 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">场地标题</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="title" class="form-control" value="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">场地信息介绍</label>
                     <div class="col-sm-4">
                         <textarea name="intro" class="form-control"><?= $data->intro ?></textarea>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-2 control-label">场地图片</label>

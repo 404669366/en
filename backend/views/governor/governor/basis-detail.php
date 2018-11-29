@@ -18,9 +18,9 @@
                             area({
                                 element: '.area',
                                 modify: false,
-                                area: '<?=$model->area_id?>',
-                                lat: '<?=$model->lat?>',
-                                lng: '<?=$model->lng?>',
+                                area: '<?=$model->area->area_id?>',
+                                lat: '<?=$model->area->lat?>',
+                                lng: '<?=$model->area->lng?>',
                             });
                         </script>
                     </div>

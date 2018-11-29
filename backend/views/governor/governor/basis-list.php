@@ -27,7 +27,7 @@
             <tr role="row">
                 <th>ID</th>
                 <th>专员</th>
-                <th>联系电话</th>
+                <th>场地电话</th>
                 <th>场地位置</th>
                 <th>场地状态</th>
                 <th>创建时间</th>

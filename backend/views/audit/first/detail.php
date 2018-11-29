@@ -33,12 +33,19 @@
                         </script>
                     </div>
                 </div>
-                </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">详细地址</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地标题</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="title" class="form-control" placeholder="<?= $model->title ?>"
+                               readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>

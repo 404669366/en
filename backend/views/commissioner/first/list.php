@@ -26,7 +26,7 @@
             <thead>
             <tr role="row">
                 <th>NO</th>
-                <th>联系电话</th>
+                <th>场地电话</th>
                 <th>场地位置</th>
                 <th>详细地址</th>
                 <th>评分等级</th>
