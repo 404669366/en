@@ -1,5 +1,75 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+	<head>
+		<meta charset="UTF-8">
+		<title>details</title>
+		<!--引入重置样式-->
+		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
+		<!--引入公共样式-->
+		<link rel="stylesheet" type="text/css" href="/resources/css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="/resources/css/header.css"/>
+		
+		<!--引入details样式-->
+		<link rel="stylesheet" type="text/css" href="/resources/css/details.css"/>
+		<!--引入字体-->
+		<link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
+		<!--引入jquery-->
+		<script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--banner start-->
+		<div class="banner">
+			<div class="box1200">
+				<ul class="bnner_nav">
+					<a href="/index/index/index.html"><li>首页</li></a>
+					<a href="#"><li class="nav_active">业务介绍</li></a>
+					<a href="#"><li>成功案例</li></a>
+					<a href="#"><li>新闻动态</li></a>
+					<a href="#"><li>开放平台</li></a>
+					<a href="#"><li>收益预测</li></a>
+					<a href="#"><li>联系我们</li></a>
+				</ul>
+				<ul class="banner_right">
+					<li>
+						<i class="fa fa-user-circle" aria-hidden="true"></i>
+						&nbsp;
+						<a href="#">登录</a>
+						/
+						<a href="#">注册</a>
+					</li>
+					<li>
+						<i class="fa fa-phone-square" aria-hidden="true"></i>
+						&nbsp; 热线电话：0000-0000
+					</li>
+				</ul>
+				<!--清除浮动-->
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!--banner end-->
+		
+		<!--head开始-->
+		<div class="header">
+			<div class="box1200 nav_logo">
+				<img src="/resources/images/logo.png" />
+			</div>
+			
+			<div class="box1200 nav_search">
+				<input type="text" class="nasech" id="" placeholder="请输入"/>
+				<button type="button" class="sea_btn"/>
+					<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+			</div>
+		</div>
+		<!--head结束-->
+		
+		<!--大标题开始-->
+		<div class="contentTit box1200">
+			<ul class="big_tit">
+				<li class="float_left">大标题</li>
+				<li class="float_right">
+=======
 <head>
     <meta charset="UTF-8">
     <title>details</title>
@@ -82,6 +152,7 @@
     <ul class="big_tit">
         <li class="float_left">大标题</li>
         <li class="float_right">
+>>>>>>> 6bb06a0ad8657d0a3aa3f1b0e50e1960ac2b3059
 					<span>
 						<i class="fa fa-share-alt" aria-hidden="true"></i>
 						<a href="#">分享此房源</a>
