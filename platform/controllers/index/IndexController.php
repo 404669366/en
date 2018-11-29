@@ -42,6 +42,10 @@ class IndexController extends BasisController
     public function actionDetails()
     {
         return $this->render('details');
+    }
 
+    public function actionNotFind()
+    {
+        return $this->render('404');
     }
 }
