@@ -15,6 +15,7 @@ use Yii;
  * @property string $local_id 场地方ID
  * @property string $cobber_id 合伙人ID
  * @property string $area_id 地域ID
+ * @property string $title 场地标题
  * @property string $address 场地位置
  * @property string $lng 经度
  * @property string $lat 纬度
@@ -58,7 +59,7 @@ class Field extends \yii\db\ActiveRecord
             [['address', 'intro', 'record_file', 'remark'], 'string', 'max' => 255],
             [['lng', 'lat'], 'string', 'max' => 50],
             [['image', 'record_photo', 'configure_photo', 'invest_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
-            [['budget'], 'string', 'max' => 30],
+            [['budget', 'title'], 'string', 'max' => 30],
         ];
     }
 
@@ -75,6 +76,7 @@ class Field extends \yii\db\ActiveRecord
             'local_id' => '场地方ID',
             'cobber_id' => '合伙人ID',
             'area_id' => '地域ID',
+            'title' => '标题',
             'address' => '场地位置',
             'lng' => '经度',
             'lat' => '纬度',
@@ -196,6 +198,16 @@ class Field extends \yii\db\ActiveRecord
             $v['status'] = Constant::getFieldStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
             $v['type'] = Constant::getFieldType()[$v['type']];
+        }
+        return $data;
+    }
+
+    public static function getFields($type = 0)
+    {
+        $data = self::find()->where(['>=', 'status', 19])
+            ->limit(4)->asArray()->all();
+        foreach ($data as &$v) {
+            $v['image'] = explode(',', $v['image'])[0];
         }
         return $data;
     }

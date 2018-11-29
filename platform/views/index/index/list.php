@@ -465,12 +465,16 @@
 	<!--脚部end-->
 	
 	<!--返回顶部开始-->
-	<div id="top"></div>
+	<div id="top" style="display: none"></div>
 	<!--返回顶部结束-->
 	<script type="text/javascript">
 		$(function(){
-			//隐藏按钮
-			$('#top').hide();
+		    //默认
+            if ($(window).scrollTop() > 500){
+                $('#top').fadeIn();
+            } else{
+                $('#top').fadeOut();
+            }
 			//滚动
 			$(window).scroll(function(){
 				//判断当window的scrolltop距离大于5时，显示图标
