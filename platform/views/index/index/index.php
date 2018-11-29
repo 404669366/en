@@ -11,6 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="/resources/css/index.css"/>
 		<!--引入字体-->
 		<link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
+		<!--引入jquery-->
+		<script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<!--头部start-->
@@ -274,5 +276,28 @@
 			</div>
 		</div>
 		<!--脚部end-->
+		<!--返回顶部开始-->
+		<div id="top"></div>
+		<!--返回顶部结束-->
+		<script type="text/javascript">
+			$(function(){
+				//隐藏按钮
+				$('#top').hide();
+				//滚动
+				$(window).scroll(function(){
+					//判断当window的scrolltop距离大于5时，显示图标
+					if ($(this).scrollTop() > 500){
+						$('#top').fadeIn();
+					} else{
+						$('#top').fadeOut();
+					}
+				});
+				//点击事件
+				$('#top').click(function(){
+					$('html,body').animate({scrollTop:0},500);
+					return false;
+				});
+			});
+		</script>
 	</body>
 </html>

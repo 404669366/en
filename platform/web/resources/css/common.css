@@ -44,6 +44,12 @@
 	float: right;
 }
 
+button:focus{
+	outline: 0;
+	cursor: pointer;
+}
+
+
 
 /*页脚开始*/
 .footer{
@@ -101,3 +107,13 @@
 	text-align: center;
 }
 /*页脚结束*/
+/*返回顶部开始*/
+#top{
+    width: 50px;
+	height: 50px;
+	background: url(/resources/images/ioc.png) no-repeat;
+	position: fixed;
+	bottom: 60px;
+	right: 1%;
+}
+/*返回顶部结束*/

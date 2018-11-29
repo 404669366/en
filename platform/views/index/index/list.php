@@ -8,7 +8,6 @@
 		<!--引入公共样式-->
 		<link rel="stylesheet" type="text/css" href="/resources/css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/header.css"/>
-		
 		<!--引入list样式-->
 		<link rel="stylesheet" type="text/css" href="/resources/css/list.css"/>
 		<!--引入字体-->
@@ -99,6 +98,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -123,6 +123,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -147,6 +148,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -171,6 +173,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -195,6 +198,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -219,6 +223,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -243,6 +248,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -267,6 +273,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -291,6 +298,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -315,6 +323,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -339,6 +348,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -363,6 +373,7 @@
 					<!--清除浮动-->
 					<div class="clear"></div>
 				</li>
+				<div class="follow">关注</div>
 				<div class="unit_price">
 					<p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
 				</div>
@@ -454,7 +465,27 @@
 	<!--脚部end-->
 	
 	<!--返回顶部开始-->
-	<div class="top"></div>
+	<div id="top"></div>
 	<!--返回顶部结束-->
+	<script type="text/javascript">
+		$(function(){
+			//隐藏按钮
+			$('#top').hide();
+			//滚动
+			$(window).scroll(function(){
+				//判断当window的scrolltop距离大于5时，显示图标
+				if ($(this).scrollTop() > 500){
+					$('#top').fadeIn();
+				} else{
+					$('#top').fadeOut();
+				}
+			});
+			//点击事件
+			$('#top').click(function(){
+				$('html,body').animate({scrollTop:0},500);
+				return false;
+			});
+		});
+	</script>
 	</body>
 </html>

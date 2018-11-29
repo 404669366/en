@@ -80,6 +80,18 @@
 	padding: 0 10px;
 	float: left;
 }
+/*关注*/
+.follow{
+	width: 40px;
+	color: #ccc;
+	text-align: center;
+	font: 14px/22px "微软雅黑";
+	position: absolute;
+	top: 38px;
+	right: 10px;
+	cursor: pointer;
+    border: 1px solid #f1f1f1;
+}
 .unit_price{
 	width: 120px;
 	text-align: left;
@@ -147,15 +159,3 @@
 	text-indent: 0.4em;
 }
 /*recommend-end*/
-/*返回顶部开始*/
-/*.top{
-	width: 90px;
-	height: 90px;
-	position: fixed;
-	right:10px;
-    bottom: 400px;
-	background-image: url(../img/ioc.png);
-	background: url(../web/resources/images/ioc.png);
-    background-position: 110px 172px;
-}*/
-/*返回顶部结束*/
