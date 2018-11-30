@@ -37,6 +37,7 @@ class IndexController extends BasisController
 
     /**
      * 渲染详情页
+     * @param $no
      * @return string
      */
     public function actionDetails($no)
