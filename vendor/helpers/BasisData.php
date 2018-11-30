@@ -17,6 +17,9 @@ class BasisData
      */
     public static function getBasisData()
     {
-        return [];
+        return [
+            'isGuest' => \Yii::$app->user->isGuest,
+            'user' => \Yii::$app->user->getIdentity()
+        ];
     }
 }

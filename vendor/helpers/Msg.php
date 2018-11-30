@@ -27,11 +27,12 @@ class Msg
 
     /**
      * 渲染消息
+     * @param string $key
      */
-    public static function run()
+    public static function run($key = 'BackstageMsg')
     {
-        if ($msg = \Yii::$app->session->get('BackstageMsg', false)) {
-            \Yii::$app->session->set('BackstageMsg',null);
+        if ($msg = \Yii::$app->session->get($key, false)) {
+            \Yii::$app->session->set($key, null);
             echo "<script>layer.msg('$msg');</script>";
         }
     }

@@ -11,6 +11,7 @@ namespace app\controllers\basis;
 
 use vendor\helpers\BasisData;
 use yii\web\Controller;
+use yii\web\Cookie;
 
 class BasisController extends Controller
 {
@@ -18,12 +19,31 @@ class BasisController extends Controller
      * 重写render，返回基础数据
      * @param string $view
      * @param array $params
+     * @param string $msg
      * @return string
      */
-    public function render($view, $params = [])
+    public function render($view, $params = [], $msg = '')
     {
+        if ($msg) {
+            \Yii::$app->session->set('PopupMsg', $msg);
+        }
         $params['basisData'] = BasisData::getBasisData();
         return parent::render($view, $params);
+    }
+
+    /**
+     * 重写redirect，返回弹窗信息
+     * @param array|string $url
+     * @param string $msg
+     * @param int $statusCode
+     * @return \yii\web\Response
+     */
+    public function redirect($url, $msg = '', $statusCode = 302)
+    {
+        if ($msg) {
+            \Yii::$app->session->set('PopupMsg', $msg);
+        }
+        return parent::redirect($url, $statusCode);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace vendor\en;
 
 use Yii;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "{{%user}}".
@@ -13,7 +14,7 @@ use Yii;
  * @property string $money 余额
  * @property string $created 创建时间
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
     /**
      * {@inheritdoc}
@@ -29,9 +30,10 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['tel'], 'integer'],
-            [['password'], 'string', 'max' => 16],
-            [['money', 'created'], 'string', 'max' => 255],
+            [['tel'], 'unique', 'message' => '手机号已注册'],
+            [['tel', 'created'], 'integer'],
+            [['password'], 'string', 'max' => 80],
+            [['money'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,6 +61,11 @@ class User extends \yii\db\ActiveRecord
     }
 
 
+    /**
+     * 获取合伙人
+     * @param bool $type
+     * @return $this|array|\yii\db\ActiveRecord[]
+     */
     public static function getCobber($type = false)
     {
         $data = self::find()->alias('u')->leftJoin(Ident::tableName() . ' i', 'u.id=i.user_id');
@@ -68,4 +75,32 @@ class User extends \yii\db\ActiveRecord
         $data = $data->select(['u.tel username', 'u.id'])->asArray()->all();
         return $data;
     }
+
+    //todo**********************  登录接口实现  ***************************
+
+    public static function findIdentity($id)
+    {
+        return self::findOne($id);
+    }
+
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        return self::findOne(['password' => $token]);
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getAuthKey()
+    {
+        return $this->password;
+    }
+
+    public function validateAuthKey($authKey)
+    {
+        return $this->password === $authKey;
+    }
+
 }

@@ -52,7 +52,7 @@ $config = [
             'database' => 0,
         ],
         'user' => [
-            'identityClass' => 'vendor\en\EnMemberBase',
+            'identityClass' => 'vendor\en\User',
             'enableAutoLogin' => true,
         ],
     ],
