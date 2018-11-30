@@ -44,13 +44,13 @@
         <!--title-->
         <div class="head_Tit">
             <div class="title_small">
-                <span>标题一</span>
+                <span>省心</span>
                 &nbsp;/&nbsp;
-                <span>标题二</span>
+                <span>放心</span>
                 &nbsp;/&nbsp;
-                <span>标题三</span>
+                <span>安心</span>
             </div>
-            <div class="title_big">海量建桩源 省心上亿能</div>
+            <div class="title_big">海量场地源 省心上亿能</div>
         </div>
         <!--search-->
         <div class="search">
@@ -71,9 +71,9 @@
     <!--内容1-->
     <div class="main1 box1200 marginTop80">
         <div class="big_tit">
-            标题一
+            最新发布
         </div>
-        <p class="p1">好房源那么多，我们为你精选 <span class="float_right span1"><a href="/index/index/details.html">更多推荐</a></span>
+        <p class="p1">好场地那么多，最新发布抢先看 <span class="float_right span1"><a href="/index/index/details.html">更多推荐</a></span>
         </p>
         <ul class="main1_ul list1"></ul>
         <!--清除浮动-->
@@ -83,43 +83,11 @@
     <!--内容2-->
     <div class="main1 box1200 marginTop80">
         <div class="big_tit">
-            标题二
+            融资火热
         </div>
-        <p class="p1">纵览小区，恋上这座城<span class="float_right span1"><a href="#">更多成都小区</a></span></p>
-        <ul class="main1_ul2">
-            <li>
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                    <div class="resblock-desc">
-                        <span class="ul2_name float_left">南湖国际社区</span>
-                        <span class="ul2_price float_right">13851元/平</span>
-                    </div>
-                    <p class="ul2_smtxt float_left">2010年建</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                    <div class="resblock-desc">
-                        <span class="ul2_name float_left">南湖国际社区</span>
-                        <span class="ul2_price float_right">13851元/平</span>
-                    </div>
-                    <p class="ul2_smtxt float_left">2010年建</p>
-                </a>
-            </li>
-            <li class="marginLt">
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                    <div class="resblock-desc">
-                        <span class="ul2_name float_left">南湖国际社区</span>
-                        <span class="ul2_price float_right">13851元/平</span>
-                    </div>
-                    <p class="ul2_smtxt float_left">2010年建</p>
-                </a>
-            </li>
+        <p class="p1">融资建站全方位，真诚服务零距离<span class="float_right span1"><a href="#">更多推荐</a></span></p>
+        <ul class="main1_ul2 list2">
+
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -128,28 +96,11 @@
     <!--内容3-->
     <div class="main1 box1200 marginTop80">
         <div class="big_tit">
-            标题三
+            人气最佳
         </div>
-        <p class="p1">真实信息准确同步，建桩动态一手掌握<span class="float_right span1"><a href="#">更多成都建桩</a></span></p>
-        <ul class="main1_ul3">
-            <li>
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                </a>
-            </li>
-            <li class="marginLt">
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                </a>
-            </li>
+        <p class="p1">真实场地准确同步，炙手可热<span class="float_right span1"><a href="#">更多推荐</a></span></p>
+        <ul class="main1_ul3 list3">
+
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -158,50 +109,11 @@
     <!--内容4-->
     <div class="main1 box1200 marginTop80">
         <div class="big_tit">
-            标题四
+            点击火爆
         </div>
-        <p class="p1">高品质租房体验，从贝壳开始<span class="float_right span1"><a href="#">更多成都小区</a></span></p>
-        <ul class="main1_ul4">
-            <li>
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                    <p class="ul4_tit">独栋·乐乎城市青年社区 天府广场店 C户型</p>
-                    <p class="ul4_smtit">人民公园 / 1室1厅1卫
-                        <span class="ul4_price float_right">2510 元/月</span>
-                    </p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                    <p class="ul4_tit">独栋·乐乎城市青年社区 天府广场店 C户型</p>
-                    <p class="ul4_smtit">人民公园 / 1室1厅1卫
-                        <span class="ul4_price float_right">2510 元/月</span>
-                    </p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                    <p class="ul4_tit">独栋·乐乎城市青年社区 天府广场店 C户型</p>
-                    <p class="ul4_smtit">人民公园 / 1室1厅1卫
-                        <span class="ul4_price float_right">2510 元/月</span>
-                    </p>
-                </a>
-            </li>
-            <li class="marginLt">
-                <a href="#">
-                    <img src="/resources/images/01.jpg" alt="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"
-                         title="光华逸家 精装修 套三双卫 带阳台 朝南对中庭 不临街"/>
-                    <p class="ul4_tit">独栋·乐乎城市青年社区 天府广场店 C户型</p>
-                    <p class="ul4_smtit">人民公园 / 1室1厅1卫
-                        <span class="ul4_price float_right">2510 元/月</span>
-                    </p>
-                </a>
-            </li>
+        <p class="p1">高品质场地，从亿能开始<span class="float_right span1"><a href="#">更多推荐</a></span></p>
+        <ul class="main1_ul4 list4">
+
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -255,39 +167,127 @@
 <!--返回顶部结束-->
 <script type="text/javascript">
     $(function () {
-        $.getJSON('/index/index/fields.html',{type:0},function (re) {
-            if(re.type){
+        $.getJSON('/index/index/fields.html', {type: 1}, function (re) {
+            if (re.type) {
                 var list1 = '';
-                $.each(re.data,function (k,v) {
-                    if(re.data.length===k+1){
+                $.each(re.data, function (k, v) {
+                    if (re.data.length === k + 1) {
                         list1 += '<li class="marginLt">\n' +
-                            '                <a href="/index/index/details.html?no='+v.no+'">\n' +
-                            '                    <img src="'+v.image+'" alt="'+v.title+'"\n' +
-                            '                         title="'+v.title+'"/>\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
                             '                </a>\n' +
                             '                <p class="main_tit">\n' +
-                            '                    <a href="/index/index/details.html?no='+v.no+'" class="ma1">'+v.title+'</a>\n' +
+                            '                    <a href="/index/index/details.html?no=' + v.no + '" class="ma1">' + v.title + '</a>\n' +
                             '                </p>\n' +
-                            '                <p class="small_tit"><a href="/index/index/details.html?no='+v.no+'" class="sm_a">光华逸家·3室1厅·93.89平米</a>\n' +
-                            '                    <span class="price float_right"><a href="/index/index/details.html?no='+v.no+'" class="pra">'+v.budget+'￥</a></span>\n' +
+                            '                <p class="small_tit"><a href="/index/index/details.html?no=' + v.no + '" class="sm_a">光华逸家·3室1厅·93.89平米</a>\n' +
+                            '                    <span class="price float_right"><a href="/index/index/details.html?no=' + v.no + '" class="pra">' + v.budget + '￥</a></span>\n' +
                             '                </p>\n' +
                             '            </li>';
-                    }else {
+                    } else {
                         list1 += '<li>\n' +
-                            '                <a href="/index/index/details.html?no='+v.no+'">\n' +
-                            '                    <img src="'+v.image+'" alt="'+v.title+'"\n' +
-                            '                         title="'+v.title+'"/>\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
                             '                </a>\n' +
                             '                <p class="main_tit">\n' +
-                            '                    <a href="/index/index/details.html?no='+v.no+'" class="ma1">'+v.title+'</a>\n' +
+                            '                    <a href="/index/index/details.html?no=' + v.no + '" class="ma1">' + v.title + '</a>\n' +
                             '                </p>\n' +
-                            '                <p class="small_tit"><a href="/index/index/details.html?no='+v.no+'" class="sm_a">光华逸家·3室1厅·93.89平米</a>\n' +
-                            '                    <span class="price float_right"><a href="/index/index/details.html?no='+v.no+'" class="pra">'+v.budget+'￥</a></span>\n' +
+                            '                <p class="small_tit"><a href="/index/index/details.html?no=' + v.no + '" class="sm_a">光华逸家·3室1厅·93.89平米</a>\n' +
+                            '                    <span class="price float_right"><a href="/index/index/details.html?no=' + v.no + '" class="pra">' + v.budget + '￥</a></span>\n' +
                             '                </p>\n' +
                             '            </li>';
                     }
                 });
                 $('.list1').html(list1);
+            }
+        });
+        $.getJSON('/index/index/fields.html', {type: 2}, function (re) {
+            if (re.type) {
+                var list2 = '';
+                $.each(re.data, function (k, v) {
+                    if (re.data.length === k + 1) {
+                        list2 += ' <li class="marginLt">\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
+                            '                    <div class="resblock-desc">\n' +
+                            '                        <span class="ul2_name float_left">' + v.title + '</span>\n' +
+                            '                        <span class="ul2_price float_right">' + v.budget + '￥</span>\n' +
+                            '                    </div>\n' +
+                            '                    <p class="ul2_smtxt float_left">2010年建</p>\n' +
+                            '                </a>\n' +
+                            '            </li>';
+                    } else {
+                        list2 += ' <li>\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
+                            '                    <div class="resblock-desc">\n' +
+                            '                        <span class="ul2_name float_left">' + v.title + '</span>\n' +
+                            '                        <span class="ul2_price float_right">' + v.budget + '￥</span>\n' +
+                            '                    </div>\n' +
+                            '                    <p class="ul2_smtxt float_left">2010年建</p>\n' +
+                            '                </a>\n' +
+                            '            </li>';
+                    }
+                });
+                $('.list2').html(list2);
+            }
+        });
+        $.getJSON('/index/index/fields.html', {type: 3}, function (re) {
+            if (re.type) {
+                var list3 = '';
+                $.each(re.data, function (k, v) {
+                    if (re.data.length === k + 1) {
+                        list3 += ' <li class="marginLt">\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                   <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
+                            '                </a>\n' +
+                            '            </li>';
+                    } else {
+                        list3 += ' <li>\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
+                            '                </a>\n' +
+                            '            </li>';
+                    }
+                });
+                $('.list3').html(list3);
+            }
+        });
+        $.getJSON('/index/index/fields.html', {type: 4}, function (re) {
+            if (re.type) {
+                var list4 = '';
+                $.each(re.data, function (k, v) {
+                    if (re.data.length === k + 1) {
+                        list4 += '  <li class="marginLt">\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
+                            '                    <p class="ul4_tit">' + v.title + '</p>\n' +
+                            '                    <p class="ul4_smtit">人民公园 / 1室1厅1卫\n' +
+                            '                        <span class="ul4_price float_right">' + v.budget + '￥</span>\n' +
+                            '                    </p>\n' +
+                            '                </a>\n' +
+                            '            </li>';
+                    } else {
+
+                        list4 += '  <li>\n' +
+                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
+                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
+                            '                         title="' + v.title + '"/>\n' +
+                            '                    <p class="ul4_tit">' + v.title + '</p>\n' +
+                            '                    <p class="ul4_smtit">人民公园 / 1室1厅1卫\n' +
+                            '                        <span class="ul4_price float_right">' + v.budget + '￥</span>\n' +
+                            '                    </p>\n' +
+                            '                </a>\n' +
+                            '            </li>';
+                    }
+                });
+                $('.list4').html(list4);
             }
         });
         //默认

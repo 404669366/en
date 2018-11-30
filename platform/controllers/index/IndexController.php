@@ -33,7 +33,7 @@ class IndexController extends BasisController
     {
         return $this->rJson(Field::getFields($type));
     }
-    
+
     public function actionDetails()
     {
         return $this->render('details');
