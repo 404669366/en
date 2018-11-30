@@ -21,7 +21,7 @@ class IndexController extends BasisController
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        return $this->render('index', ['data' => BasisData::getBasisData()]);
     }
 
     /**
@@ -32,6 +32,11 @@ class IndexController extends BasisController
     public function actionFields($type = 0)
     {
         return $this->rJson(Field::getFields($type));
+    }
+
+    public function actionList()
+    {
+        return $this->render('list');
     }
 
     public function actionDetails()
