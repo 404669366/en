@@ -7,13 +7,20 @@ use app\controllers\basis\BasisController;
 
 class LoginController extends BasisController
 {
-    public function actionLogin()
+    public function actionLoginP()
     {
-        return $this->render('login');
+        if(\Yii::$app->request->isPost){
+
+        }
     }
+
+    public function actionLoginT()
+    {
+
+    }
+
 
     public function actionRegister()
     {
-        return $this->render('register');
     }
 }

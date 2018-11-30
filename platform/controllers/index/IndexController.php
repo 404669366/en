@@ -21,17 +21,12 @@ class IndexController extends BasisController
      */
     public function actionIndex()
     {
-        return $this->render('index', ['data' => BasisData::getBasisData()]);
-    }
-
-    /**
-     * 首页场地数据接口
-     * @param int $type
-     * @return string
-     */
-    public function actionFields($type = 0)
-    {
-        return $this->rJson(Field::getFields($type));
+        return $this->render('index', [
+            'field1' => Field::getFields(1),
+            'field2' => Field::getFields(2),
+            'field3' => Field::getFields(3),
+            'field4' => Field::getFields(4)
+        ]);
     }
 
     public function actionList()

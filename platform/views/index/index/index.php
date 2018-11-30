@@ -58,7 +58,7 @@
         <div class="search">
             <input type="text" class="search_txt float_left" placeholder="请输入"/>
             <button type="button" class="search_btn float_left"/>
-            <i class="fa fa-search" aria-hidden="true"></i>
+                <i class="fa fa-search" aria-hidden="true"></i>
             </button>
 
         </div>
@@ -251,9 +251,24 @@
         <div class="big_tit">
             最新发布
         </div>
-        <p class="p1">好场地那么多，最新发布抢先看 <span class="float_right span1"><a href="/index/index/details.html">更多推荐</a></span>
+        <p class="p1">好场地那么多，最新发布抢先看 <span class="float_right span1"><a href="/index/index/list.html">更多推荐</a></span>
         </p>
-        <ul class="main1_ul list1"></ul>
+        <ul class="main1_ul">
+            <?php foreach ($field1 as $k => $v): ?>
+                <li <?= count($field1) == ($k + 1) ? 'class="marginLt"' : '' ?>>
+                    <a href="/index/index/details.html?no=<?= $v['no'] ?>">
+                        <img src="<?= $v['image'] ?>" alt="<?= $v['title'] ?>" title="<?= $v['title'] ?>"/>
+                    </a>
+                    <p class="main_tit">
+                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
+                    </p>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a">光华逸家·3室1厅·93.89平米</a>
+                        <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                                           class="pra"><?= $v['budget'] ?>￥</a></span>
+                    </p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
         <!--清除浮动-->
         <div class="clear"></div>
     </div>
@@ -264,8 +279,19 @@
             融资火热
         </div>
         <p class="p1">融资建站全方位，真诚服务零距离<span class="float_right span1"><a href="#">更多推荐</a></span></p>
-        <ul class="main1_ul2 list2">
-
+        <ul class="main1_ul2">
+            <?php foreach ($field2 as $k => $v): ?>
+                <li <?= count($field2) == ($k + 1) ? 'class="marginLt"' : '' ?>>
+                    <a href="/index/index/details.html?no=<?= $v['no'] ?>">
+                        <img src="<?= $v['image'] ?>" alt="<?= $v['title'] ?>" title="<?= $v['title'] ?>"/>
+                        <div class="resblock-desc">
+                            <span class="ul2_name float_left"><?= $v['title'] ?></span>
+                            <span class="ul2_price float_right"><?= $v['budget'] ?>￥</span>
+                        </div>
+                        <p class="ul2_smtxt float_left"><?= date('Y-m-d H:i:s', $v['created']) ?></p>
+                    </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -277,8 +303,14 @@
             人气最佳
         </div>
         <p class="p1">真实场地准确同步，炙手可热<span class="float_right span1"><a href="#">更多推荐</a></span></p>
-        <ul class="main1_ul3 list3">
-
+        <ul class="main1_ul3">
+            <?php foreach ($field3 as $k => $v): ?>
+                <li <?= count($field3) == ($k + 1) ? 'class="marginLt"' : '' ?>>
+                    <a href="/index/index/details.html?no=<?= $v['no'] ?>">
+                        <img src="<?= $v['image'] ?>" alt="<?= $v['title'] ?>" title="<?= $v['title'] ?>"/>
+                    </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -290,8 +322,18 @@
             点击火爆
         </div>
         <p class="p1">高品质场地，从亿能开始<span class="float_right span1"><a href="#">更多推荐</a></span></p>
-        <ul class="main1_ul4 list4">
-
+        <ul class="main1_ul4">
+            <?php foreach ($field4 as $k => $v): ?>
+                <li <?= count($field4) == ($k + 1) ? 'class="marginLt"' : '' ?>>
+                    <a href="/index/index/details.html?no=<?= $v['no'] ?>">
+                        <img src="<?= $v['image'] ?>" alt="<?= $v['title'] ?>" title="<?= $v['title'] ?>"/>
+                        <p class="ul4_tit"><?= $v['title'] ?></p>
+                        <p class="ul4_smtit">人民公园 / 1室1厅1卫
+                            <span class="ul4_price float_right"><?= $v['budget'] ?>￥</span>
+                        </p>
+                    </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -342,129 +384,7 @@
 <!--脚部end-->
 <script type="text/javascript">
     $(function () {
-        $.getJSON('/index/index/fields.html', {type: 1}, function (re) {
-            if (re.type) {
-                var list1 = '';
-                $.each(re.data, function (k, v) {
-                    if (re.data.length === k + 1) {
-                        list1 += '<li class="marginLt">\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                </a>\n' +
-                            '                <p class="main_tit">\n' +
-                            '                    <a href="/index/index/details.html?no=' + v.no + '" class="ma1">' + v.title + '</a>\n' +
-                            '                </p>\n' +
-                            '                <p class="small_tit"><a href="/index/index/details.html?no=' + v.no + '" class="sm_a">光华逸家·3室1厅·93.89平米</a>\n' +
-                            '                    <span class="price float_right"><a href="/index/index/details.html?no=' + v.no + '" class="pra">' + v.budget + '￥</a></span>\n' +
-                            '                </p>\n' +
-                            '            </li>';
-                    } else {
-                        list1 += '<li>\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                </a>\n' +
-                            '                <p class="main_tit">\n' +
-                            '                    <a href="/index/index/details.html?no=' + v.no + '" class="ma1">' + v.title + '</a>\n' +
-                            '                </p>\n' +
-                            '                <p class="small_tit"><a href="/index/index/details.html?no=' + v.no + '" class="sm_a">光华逸家·3室1厅·93.89平米</a>\n' +
-                            '                    <span class="price float_right"><a href="/index/index/details.html?no=' + v.no + '" class="pra">' + v.budget + '￥</a></span>\n' +
-                            '                </p>\n' +
-                            '            </li>';
-                    }
-                });
-                $('.list1').html(list1);
-            }
-        });
-        $.getJSON('/index/index/fields.html', {type: 2}, function (re) {
-            if (re.type) {
-                var list2 = '';
-                $.each(re.data, function (k, v) {
-                    if (re.data.length === k + 1) {
-                        list2 += ' <li class="marginLt">\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                    <div class="resblock-desc">\n' +
-                            '                        <span class="ul2_name float_left">' + v.title + '</span>\n' +
-                            '                        <span class="ul2_price float_right">' + v.budget + '￥</span>\n' +
-                            '                    </div>\n' +
-                            '                    <p class="ul2_smtxt float_left">2010年建</p>\n' +
-                            '                </a>\n' +
-                            '            </li>';
-                    } else {
-                        list2 += ' <li>\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                    <div class="resblock-desc">\n' +
-                            '                        <span class="ul2_name float_left">' + v.title + '</span>\n' +
-                            '                        <span class="ul2_price float_right">' + v.budget + '￥</span>\n' +
-                            '                    </div>\n' +
-                            '                    <p class="ul2_smtxt float_left">2010年建</p>\n' +
-                            '                </a>\n' +
-                            '            </li>';
-                    }
-                });
-                $('.list2').html(list2);
-            }
-        });
-        $.getJSON('/index/index/fields.html', {type: 3}, function (re) {
-            if (re.type) {
-                var list3 = '';
-                $.each(re.data, function (k, v) {
-                    if (re.data.length === k + 1) {
-                        list3 += ' <li class="marginLt">\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                   <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                </a>\n' +
-                            '            </li>';
-                    } else {
-                        list3 += ' <li>\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                </a>\n' +
-                            '            </li>';
-                    }
-                });
-                $('.list3').html(list3);
-            }
-        });
-        $.getJSON('/index/index/fields.html', {type: 4}, function (re) {
-            if (re.type) {
-                var list4 = '';
-                $.each(re.data, function (k, v) {
-                    if (re.data.length === k + 1) {
-                        list4 += '  <li class="marginLt">\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                    <p class="ul4_tit">' + v.title + '</p>\n' +
-                            '                    <p class="ul4_smtit">人民公园 / 1室1厅1卫\n' +
-                            '                        <span class="ul4_price float_right">' + v.budget + '￥</span>\n' +
-                            '                    </p>\n' +
-                            '                </a>\n' +
-                            '            </li>';
-                    } else {
 
-                        list4 += '  <li>\n' +
-                            '                <a href="/index/index/details.html?no=' + v.no + '">\n' +
-                            '                    <img src="' + v.image + '" alt="' + v.title + '"\n' +
-                            '                         title="' + v.title + '"/>\n' +
-                            '                    <p class="ul4_tit">' + v.title + '</p>\n' +
-                            '                    <p class="ul4_smtit">人民公园 / 1室1厅1卫\n' +
-                            '                        <span class="ul4_price float_right">' + v.budget + '￥</span>\n' +
-                            '                    </p>\n' +
-                            '                </a>\n' +
-                            '            </li>';
-                    }
-                });
-                $('.list4').html(list4);
-            }
-        });
     });
 </script>
 </body>
