@@ -29,6 +29,7 @@ use Yii;
  * @property string $field_drawing 施工图纸
  * @property string $transformer_drawing 变压器图纸
  * @property string $budget_photo 预算报表
+ * @property string $areas 场地面积
  * @property string $budget 预算总金额
  * @property string $financing_ratio 融资比例
  * @property string $attention 关注量
@@ -57,6 +58,7 @@ class Field extends \yii\db\ActiveRecord
     {
         return [
             [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created', 'click', 'attention'], 'integer'],
+            [['areas'], 'number'],
             [['no'], 'string', 'max' => 20],
             [['level', 'financing_ratio'], 'string', 'max' => 10],
             [['address', 'intro', 'record_file', 'remark'], 'string', 'max' => 255],
@@ -93,6 +95,7 @@ class Field extends \yii\db\ActiveRecord
             'field_drawing' => '施工图纸',
             'transformer_drawing' => '变压器图纸',
             'budget_photo' => '预算报表',
+            'areas' => '场地面积',
             'budget' => '预算总金额',
             'financing_ratio' => '融资比例',
             'attention' => '关注量',
@@ -208,32 +211,26 @@ class Field extends \yii\db\ActiveRecord
         return $data;
     }
 
+    /**
+     * 获取场地数据
+     * @param int $type
+     * @return array|\yii\db\ActiveRecord[]
+     */
     public static function getFields($type = 0)
     {
+        $map = [
+            1 => 'f.created',
+            2 => 'f.financing_ratio',
+            3 => 'f.attention',
+            4 => 'f.click',
+        ];
         $data = [];
-        if ($type == 1) {
-            $data = self::find()->where(['>=', 'status', 19])->orderBy(['created' => 'desc'])
-                ->limit(4)->asArray()->all();
-            foreach ($data as &$v) {
-                $v['image'] = explode(',', $v['image'])[0];
-            }
-        }
-        if ($type == 2) {
-            $data = self::find()->where(['>=', 'status', 19])->andWhere(['>', 'financing_ratio', 0.5])
-                ->limit(3)->asArray()->all();
-            foreach ($data as &$v) {
-                $v['image'] = explode(',', $v['image'])[0];
-            }
-        }
-        if ($type == 3) {
-            $data = self::find()->where(['>=', 'status', 19])->orderBy(['attention' => 'desc'])
-                ->limit(3)->asArray()->all();
-            foreach ($data as &$v) {
-                $v['image'] = explode(',', $v['image'])[0];
-            }
-        }
-        if ($type == 4) {
-            $data = self::find()->where(['>=', 'status', 19])->orderBy(['click' => 'desc'])
+        if (isset($map[$type])) {
+            $data = self::find()->alias('f')
+                ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
+                ->where(['>=', 'f.status', 19])
+                ->select(['f.*', 'a.full_name'])
+                ->orderBy($map[$type] . ' desc')
                 ->limit(4)->asArray()->all();
             foreach ($data as &$v) {
                 $v['image'] = explode(',', $v['image'])[0];
@@ -242,8 +239,55 @@ class Field extends \yii\db\ActiveRecord
         return $data;
     }
 
-    public static function getDetailFields($no = 0)
+    /**
+     * 获取场地详情
+     * @param string $no
+     * @return null|static
+     */
+    public static function getDetailFields($no = '')
     {
-        return self::findOne(['no' => $no]);
+        return self::findOne(['no' => $no, 'status' => 19]);
+    }
+
+    /**
+     * 前台列表页数据
+     * @param array $get
+     * @return array
+     */
+    public static function getFieldData($get = [])
+    {
+        $map = [
+            1 => 'f.created',
+            2 => 'f.financing_ratio',
+            3 => 'f.attention',
+            4 => 'f.click',
+            5 => 'f.areas',
+            6 => 'f.budget',
+        ];
+        $data = self::find()->alias('f')
+            ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
+            ->select(['f.*', 'a.full_name'])
+            ->where(['>=', 'f.status', 19]);
+        if (isset($get['search']) && $get['search']) {
+            $data->andWhere([
+                'or',
+                ['like', 'f.title', $get['search']],
+                ['like', 'a.full_name', $get['search']],
+                ['f.no' => $get['search']],
+            ]);
+        }
+        if (isset($get['type']) && isset($map[$get['type']])) {
+            $now = $get['type'];
+            $data->orderBy($map[$get['type']] . ' desc');
+        } else {
+            $now = 1;
+            $data->orderBy($map[$now] . ' desc');
+        }
+        $data = $data->asArray()->all();
+        foreach ($data as &$v) {
+            $v['image'] = explode(',', $v['image']);
+            $v['created'] = date('Y-m-d H:i:s', $v['created']);
+        }
+        return ['total' => count($data), 'data' => $data, 'now' => $now];
     }
 }

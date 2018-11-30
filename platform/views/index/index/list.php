@@ -284,7 +284,7 @@
         <img src="/resources/images/logo.png"/>
     </div>
     <div class="box1200 nav_search">
-        <input type="text" class="nasech" id="" placeholder="请输入"/>
+        <input type="text" class="nasech" id="" placeholder="请输入关键词"/>
         <button type="button" class="sea_btn"/>
         <i class="fa fa-search" aria-hidden="true"></i>
         </button>
@@ -296,344 +296,66 @@
 <div class="content box1200">
     <div class="list_group1">
         <ul>
-            <a href="#">
-                <li class=" ">默认排序</li>
+            <a href="/index/index/list.html?type=1">
+                <li type="1">最新</li>
             </a>
-            <a href="#">
-                <li>最新</li>
+            <a href="/index/index/list.html?type=2">
+                <li type="2">火热</li>
             </a>
-            <a href="#">
-                <li>总价</li>
+            <a href="/index/index/list.html?type=3">
+                <li type="3">人气</li>
             </a>
-            <a href="#">
-                <li>房屋单价</li>
+            <a href="/index/index/list.html?type=4">
+                <li type="4">点击</li>
             </a>
-            <a href="#">
-                <li>面积</li>
+            <a href="/index/index/list.html?type=5">
+                <li type="5">面积</li>
             </a>
-            <a href="#">
-                <li>带看较多</li>
+            <a href="/index/index/list.html?type=6">
+                <li type="6">总价</li>
             </a>
         </ul>
+        <script>
+            var now = '<?=$fields['now']?>';
+            $('.list_group1').find('[type="' + now + '"]').addClass('sort_active');
+        </script>
         <!--清除浮动-->
         <div class="clear"></div>
     </div>
     <!--标题-->
     <div class="list_tit">
-        共找到 <span style="color:#3072F6;">56476</span> 套成都二手房
+        共找到 <span style="color:#3072F6;"><?= $fields['total'] ?></span> 个场地
     </div>
     <!--推荐列表1-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="/index/index/details.html"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
+    <?php foreach ($fields['data'] as $data): ?>
+        <ul class="listCont">
+            <li class="listData">
+                <a href="/index/index/details.html?no=<?= $data['no'] ?>"><img src="<?= $data['image'][0] ?>"/></a>
+                <div class="info">
+                    <p class="info_tit"><a href="#"></a></p>
+                    <p class="address">&nbsp;<i class="fa fa-map-marker"
+                                                aria-hidden="true"></i>&nbsp;<?= $data['full_name'] ?></p>
+                    <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<?= $data['address'] ?>
+                        &nbsp;<?= $data['areas'] ?>㎡</p>
+                    <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;<?= $data['attention'] ?>人关注
+                        / 共<?= $data['click'] ?>次点击 / <?= $data['created'] ?>发布</p>
+                    <div class="spans">
+                        <span>随时看房</span>
+                        <span>随时看房</span>
+                        <span>随时看房</span>
+                        <span>随时看房</span>
+                    </div>
                 </div>
+                <!--清除浮动-->
+                <div class="clear"></div>
+            </li>
+            <div class="follow">关注</div>
+            <div class="unit_price">
+                <p class="price"><span
+                            style="font-size: 26px;font-weight: 600;margin: 0 6px;"><?= $data['budget'] ?></span>￥</p>
             </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表2-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="/index/index/details.html"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表3-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表4-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表5-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表6-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表7-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表8-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表9-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表10-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表11-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
-    <!--推荐列表12-->
-    <ul class="listCont">
-        <li class="listData">
-            <a href="#"><img src="/resources/images/list1.jpg"/></a>
-            <div class="info">
-                <p class="info_tit"><a href="#">光华逸家标准套三，带装修，朝西南对小区里面</a></p>
-                <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;光华逸家 | 3室1厅 | 90.33平米 | 南 | 其他 |
-                    有电梯</p>
-                <p class="address"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;中楼层(共22层)2014年建板楼 - 外光华</p>
-                <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;20人关注 / 共25次带看 / 4个月以前发布</p>
-                <div class="spans">
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                    <span>随时看房</span>
-                </div>
-            </div>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </li>
-        <div class="follow">关注</div>
-        <div class="unit_price">
-            <p class="price"><span style="font-size: 26px;font-weight: 600;margin: 0 6px;">222</span>万</p>
-        </div>
-    </ul>
-
+        </ul>
+    <?php endforeach; ?>
 </div>
 <!--content end-->
 
