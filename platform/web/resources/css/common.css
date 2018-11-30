@@ -111,7 +111,7 @@ button:focus{
 #top{
     width: 50px;
 	height: 50px;
-	background: url(/resources/images/ioc.png) no-repeat;
+	background: url(../images/ioc.png) no-repeat;
 	position: fixed;
 	bottom: 60px;
 	right: 2%;
