@@ -297,7 +297,7 @@
     <div class="list_group1">
         <ul>
             <a href="#">
-                <li class="sort_active">默认排序</li>
+                <li class=" ">默认排序</li>
             </a>
             <a href="#">
                 <li>最新</li>

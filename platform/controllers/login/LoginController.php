@@ -5,6 +5,7 @@ namespace app\controllers\login;
 
 use app\controllers\basis\BasisController;
 use vendor\en\User;
+use vendor\helpers\Msg;
 use vendor\helpers\Sms;
 
 class LoginController extends BasisController
@@ -116,6 +117,7 @@ class LoginController extends BasisController
     public function actionLogout()
     {
         \Yii::$app->user->logout();
-        return $this->redirect(['/index/index/index'], '注销成功');
+        Msg::set('注销成功', 'PopupMsg');
+        return $this->goBack();
     }
 }

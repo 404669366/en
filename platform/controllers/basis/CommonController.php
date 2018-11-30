@@ -9,15 +9,12 @@
 namespace app\controllers\basis;
 
 
-use vendor\helpers\Msg;
-
 class CommonController extends BasisController
 {
     public function beforeAction($action)
     {
         if (\Yii::$app->user->isGuest) {
-            Msg::set('请先登录', 'PopupMsg');
-            return $this->goBack();
+            return $this->redirect(['/index/index/index'], '请先登录');
         }
         return parent::beforeAction($action);
     }

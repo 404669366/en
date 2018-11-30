@@ -16,6 +16,17 @@ use yii\web\Cookie;
 class BasisController extends Controller
 {
     /**
+     * 重写goBack，返回上一页
+     * @param null $defaultUrl
+     * @return \yii\web\Response
+     */
+    public function goBack($defaultUrl = null)
+    {
+        $defaultUrl = $defaultUrl ? $defaultUrl : \Yii::$app->request->getReferrer();
+        return parent::goBack($defaultUrl);
+    }
+
+    /**
      * 重写render，返回基础数据
      * @param string $view
      * @param array $params
