@@ -8,13 +8,15 @@
     <!--引入公共样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/header.css"/>
-
+    <link rel="stylesheet" type="text/css" href="/resources/css/mag.css"/>
     <!--引入details样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/details.css"/>
     <!--引入字体-->
     <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
     <!--引入jquery-->
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/mag.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/map.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <!--banner start-->
@@ -88,8 +90,6 @@
 					</span>
         </li>
     </ul>
-    <!--清除浮动-->
-    <div class="clear"></div>
 </div>
 <!--大标题结束-->
 
@@ -97,22 +97,44 @@
 <div class="main box1200">
     <div class="main_box">
         <!--左边内容-->
-        <ul class="mainLeft float_left">
-            <li class="top_img">
-                <img src="/resources/images/01.jpg"/>
-            </li>
-            <li class="btm_nav">
-                <div class="pre float_left">&lt;</div>
-                <ul class="nav_imgs">
-                    <li><img src="/resources/images/01.jpg"/></li>
-                    <li><img src="/resources/images/01.jpg"/></li>
-                    <li><img src="/resources/images/01.jpg"/></li>
-                    <li><img src="/resources/images/01.jpg"/></li>
-                    <li><img src="/resources/images/01.jpg"/></li>
-                </ul>
-                <div class="next float_right">&gt;</div>
-            </li>
-        </ul>
+        <div class="mainLeft float_left">
+            <div class="show">
+                <img src="/resources/images/01.jpg" alt="">
+                <div class="mask"></div>
+            </div>
+            <div class="smallshow">
+                <p class="prev prevnone"></p>
+                <div class="middle_box">
+                    <ul class="middle">
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                    </ul>
+                </div>
+                <p class="next "></p>
+            </div>
+        </div>
+        <div class="bigshow">
+            <div class="bigitem">
+                <img src="/resources/images/01.jpg" alt="">
+            </div>
+        </div>
+        <script>
+            $(function () {
+                var obj = new mag('.show', '.bigshow', '.smallshow', '.mask', '.bigitem');
+                obj.init();
+            });
+        </script>
         <!--右边内容-->
         <div class="mainRight float_right">
             <div class="tit_prc">
@@ -124,11 +146,10 @@
             </div>
 
             <ul class="detailed">
-                <li><span class="gray">小区名称</span><a href="#" class="marginRt20">光华逸家</a><a href="#">地图</a></li>
-                <li><span class="gray">所在区域</span><a href="#" class="marginRt20">外光华三环至绕城高速</a><a href="#">近4号线中坝站</a>
-                </li>
-                <li><span class="gray">看地时间</span><a href="#" class="marginRt20">提前预约时间随时可看</a></li>
-                <li><span class="gray">场地编号</span><a href="#" class="marginRt20">0000-0000-0000</a></li>
+                <li><span class="gray">小区名称</span>光华逸家</li>
+                <li><span class="gray">所在区域</span>外光华三环至绕城高速</li>
+                <li><span class="gray">看地时间</span>提前预约时间随时可看</li>
+                <li><span class="gray">场地编号</span>0000-0000-0000</li>
             </ul>
             <!--联系人-->
             <div class="contacts">
@@ -143,7 +164,6 @@
                 <div class="clear"></div>
                 <p class="phone">189-0000-0000</p>
             </div>
-
         </div>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -205,17 +225,27 @@
         <div class="h2">
             场地源特色
         </div>
+        <div class="infors"></div>
     </div>
-</div>
-<!--内容2结束-->
 
-<!--周边配套开始-->
-<div class="map box1200">
-    <div style="width: 730px;height: 500px;margin-top: 40px;">
-        <img style="width:100%; height: 100%;" src="/resources/images/map.jpg"/>
+    <!--地图开始-->
+    <div class="map">
+        <!--title-->
+        <div class="h2">
+            地图
+        </div>
+        <div id="map" style="width:100%; height: 500px;"></div>
+        <script>
+            var map = new BMap.Map('map');
+            map.enableScrollWheelZoom(true);
+            var point = new BMap.Point(116.404, 39.915);
+            map.centerAndZoom(point, 16);
+            map.addOverlay(new BMap.Marker(point));
+        </script>
     </div>
 </div>
-<!--周边配套结束-->
+
+<!--内容2结束-->
 
 <!--好场地为您推荐开始-->
 <div class="good_site box1200 marginTop80">
@@ -447,6 +477,13 @@
 <script type="text/javascript">
     $(function () {
         //默认
+        if ($(window).scrollTop() > 270 && $(window).scrollTop() <= 1380) {
+            $('.mainRight').css({'position': 'fixed', 'right': 351.5, 'top': 0});
+        } else if ($(window).scrollTop() > 1380) {
+            $('.mainRight').css({'position': 'absolute', 'right': 0, 'top': 1124});
+        } else {
+            $('.mainRight').css({'position': 'static', 'right': 0, 'top': 0});
+        }
         if ($(window).scrollTop() > 500) {
             $('#top').fadeIn();
         } else {
@@ -454,6 +491,14 @@
         }
         //滚动
         $(window).scroll(function () {
+            console.log($(window).scrollTop());
+            if ($(window).scrollTop() > 270 && $(window).scrollTop() <= 1380) {
+                $('.mainRight').css({'position': 'fixed', 'right': 351.5, 'top': 0});
+            } else if ($(window).scrollTop() > 1380) {
+                $('.mainRight').css({'position': 'absolute', 'right': 0, 'top': 1124});
+            } else {
+                $('.mainRight').css({'position': 'static', 'right': 0, 'top': 0});
+            }
             //判断当window的scrolltop距离大于5时，显示图标
             if ($(this).scrollTop() > 500) {
                 $('#top').fadeIn();
