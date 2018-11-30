@@ -14,12 +14,13 @@ class Msg
     /**
      * 设置消息
      * @param string $msg
+     * @param string $key
      * @return bool
      */
-    public static function set($msg = '')
+    public static function set($msg = '', $key = 'BackstageMsg')
     {
         if ($msg) {
-            \Yii::$app->session->set('BackstageMsg', $msg);
+            \Yii::$app->session->set($key, $msg);
             return true;
         }
         return false;

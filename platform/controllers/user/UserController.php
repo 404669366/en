@@ -9,9 +9,9 @@
 namespace app\controllers\user;
 
 
-use app\controllers\basis\BasisController;
+use app\controllers\basis\CommonController;
 
-class UserController extends BasisController
+class UserController extends CommonController
 {
     public function actionUser()
     {
