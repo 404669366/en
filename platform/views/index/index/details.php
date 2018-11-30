@@ -349,7 +349,7 @@
             <div class="tit_prc">
                 <p class="price float_left"><?= $model->budget ?><span class="span_a">￥</span></p>
                 <p class="price2 float_left">
-                    43.56平米
+                    <?= $model->areas ?>
                 </p>
             </div>
 

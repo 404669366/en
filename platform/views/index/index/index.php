@@ -291,7 +291,7 @@
         <div class="big_tit">
             最新发布
         </div>
-        <p class="p1">好场地那么多，最新发布抢先看 <span class="float_right span1"><a href="/index/index/list.html">更多推荐</a></span>
+        <p class="p1">好场地那么多，最新发布抢先看 <span class="float_right span1"><a href="/index/index/list.html?type=1">更多推荐</a></span>
         </p>
         <ul class="main1_ul">
             <?php foreach ($field1 as $k => $v): ?>
@@ -302,7 +302,7 @@
                     <p class="main_tit">
                         <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
                     </p>
-                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a">光华逸家·3室1厅·93.89平米</a>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
                         <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
                                                            class="pra"><?= $v['budget'] ?>￥</a></span>
                     </p>
@@ -313,23 +313,24 @@
         <div class="clear"></div>
     </div>
 
-    <!--内容2-->
     <div class="main1 box1200 marginTop80">
         <div class="big_tit">
             融资火热
         </div>
-        <p class="p1">融资建站全方位，真诚服务零距离<span class="float_right span1"><a href="#">更多推荐</a></span></p>
-        <ul class="main1_ul2">
+        <p class="p1">融资建站全方位，真诚服务零距离<span class="float_right span1"><a href="/index/index/list.html?type=2">更多推荐</a></span></p>
+        <ul class="main1_ul">
             <?php foreach ($field2 as $k => $v): ?>
                 <li <?= count($field2) == ($k + 1) ? 'class="marginLt"' : '' ?>>
                     <a href="/index/index/details.html?no=<?= $v['no'] ?>">
                         <img src="<?= $v['image'] ?>" alt="<?= $v['title'] ?>" title="<?= $v['title'] ?>"/>
-                        <div class="resblock-desc">
-                            <span class="ul2_name float_left"><?= $v['title'] ?></span>
-                            <span class="ul2_price float_right"><?= $v['budget'] ?>￥</span>
-                        </div>
-                        <p class="ul2_smtxt float_left"><?= date('Y-m-d H:i:s', $v['created']) ?></p>
                     </a>
+                    <p class="main_tit">
+                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
+                    </p>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
+                        <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                                           class="pra"><?= $v['budget'] ?>￥</a></span>
+                    </p>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -337,18 +338,24 @@
         <div class="clear"></div>
     </div>
 
-    <!--内容3-->
     <div class="main1 box1200 marginTop80">
         <div class="big_tit">
             人气最佳
         </div>
-        <p class="p1">真实场地准确同步，炙手可热<span class="float_right span1"><a href="#">更多推荐</a></span></p>
-        <ul class="main1_ul3">
+        <p class="p1">真实场地准确同步，炙手可热<span class="float_right span1"><a href="/index/index/list.html?type=3">更多推荐</a></span></p>
+        <ul class="main1_ul">
             <?php foreach ($field3 as $k => $v): ?>
                 <li <?= count($field3) == ($k + 1) ? 'class="marginLt"' : '' ?>>
                     <a href="/index/index/details.html?no=<?= $v['no'] ?>">
                         <img src="<?= $v['image'] ?>" alt="<?= $v['title'] ?>" title="<?= $v['title'] ?>"/>
                     </a>
+                    <p class="main_tit">
+                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
+                    </p>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
+                        <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                                           class="pra"><?= $v['budget'] ?>￥</a></span>
+                    </p>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -356,22 +363,24 @@
         <div class="clear"></div>
     </div>
 
-    <!--内容4-->
     <div class="main1 box1200 marginTop80">
         <div class="big_tit">
             点击火爆
         </div>
-        <p class="p1">高品质场地，从亿能开始<span class="float_right span1"><a href="#">更多推荐</a></span></p>
-        <ul class="main1_ul4">
+        <p class="p1">高品质场地，从亿能开始<span class="float_right span1"><a href="/index/index/list.html?type=4">更多推荐</a></span></p>
+        <ul class="main1_ul">
             <?php foreach ($field4 as $k => $v): ?>
                 <li <?= count($field4) == ($k + 1) ? 'class="marginLt"' : '' ?>>
                     <a href="/index/index/details.html?no=<?= $v['no'] ?>">
                         <img src="<?= $v['image'] ?>" alt="<?= $v['title'] ?>" title="<?= $v['title'] ?>"/>
-                        <p class="ul4_tit"><?= $v['title'] ?></p>
-                        <p class="ul4_smtit">人民公园 / 1室1厅1卫
-                            <span class="ul4_price float_right"><?= $v['budget'] ?>￥</span>
-                        </p>
                     </a>
+                    <p class="main_tit">
+                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
+                    </p>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
+                        <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                                           class="pra"><?= $v['budget'] ?>￥</a></span>
+                    </p>
                 </li>
             <?php endforeach; ?>
         </ul>

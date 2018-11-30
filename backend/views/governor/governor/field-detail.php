@@ -181,6 +181,20 @@
                             image: '<?=$model->budget_photo?>',
                         })
                     </script>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">预算总金额</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="<?= $model->budget ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">场地面积</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" placeholder="<?= $model->areas . '㎡' ?>" readonly>
+                        </div>
+                    </div>
                 <?php endif; ?>
                 <?php if ($model->status >= 14): ?>
                     <div class="hr-line-dashed"></div>
