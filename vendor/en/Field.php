@@ -30,6 +30,9 @@ use Yii;
  * @property string $transformer_drawing 变压器图纸
  * @property string $budget_photo 预算报表
  * @property string $budget 预算总金额
+ * @property string $financing_ratio 融资比例
+ * @property string $attention 关注量
+ * @property string $click 点击量
  * @property string $record_file 备案文件
  * @property string $record_photo 备案图片
  * @property string $remark 备注
@@ -53,9 +56,9 @@ class Field extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created'], 'integer'],
+            [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created', 'click', 'attention'], 'integer'],
             [['no'], 'string', 'max' => 20],
-            [['level'], 'string', 'max' => 10],
+            [['level', 'financing_ratio'], 'string', 'max' => 10],
             [['address', 'intro', 'record_file', 'remark'], 'string', 'max' => 255],
             [['lng', 'lat'], 'string', 'max' => 50],
             [['image', 'record_photo', 'configure_photo', 'invest_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
@@ -91,6 +94,9 @@ class Field extends \yii\db\ActiveRecord
             'transformer_drawing' => '变压器图纸',
             'budget_photo' => '预算报表',
             'budget' => '预算总金额',
+            'financing_ratio' => '融资比例',
+            'attention' => '关注量',
+            'click' => '点击量',
             'record_file' => '备案文件',
             'record_photo' => '备案图片',
             'remark' => '备注',
@@ -204,10 +210,34 @@ class Field extends \yii\db\ActiveRecord
 
     public static function getFields($type = 0)
     {
-        $data = self::find()->where(['>=', 'status', 19])
-            ->limit(4)->asArray()->all();
-        foreach ($data as &$v) {
-            $v['image'] = explode(',', $v['image'])[0];
+        $data = [];
+        if ($type == 1) {
+            $data = self::find()->where(['>=', 'status', 19])->orderBy(['created' => 'desc'])
+                ->limit(4)->asArray()->all();
+            foreach ($data as &$v) {
+                $v['image'] = explode(',', $v['image'])[0];
+            }
+        }
+        if ($type == 2) {
+            $data = self::find()->where(['>=', 'status', 19])->andWhere(['>', 'financing_ratio', 0.5])
+                ->limit(3)->asArray()->all();
+            foreach ($data as &$v) {
+                $v['image'] = explode(',', $v['image'])[0];
+            }
+        }
+        if ($type == 3) {
+            $data = self::find()->where(['>=', 'status', 19])->orderBy(['attention' => 'desc'])
+                ->limit(3)->asArray()->all();
+            foreach ($data as &$v) {
+                $v['image'] = explode(',', $v['image'])[0];
+            }
+        }
+        if ($type == 4) {
+            $data = self::find()->where(['>=', 'status', 19])->orderBy(['click' => 'desc'])
+                ->limit(4)->asArray()->all();
+            foreach ($data as &$v) {
+                $v['image'] = explode(',', $v['image'])[0];
+            }
         }
         return $data;
     }
