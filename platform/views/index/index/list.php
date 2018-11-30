@@ -300,7 +300,7 @@
                 <li type="1">最新</li>
             </a>
             <a href="/index/index/list.html?type=2">
-                <li type="2">火热</li>
+                <li type="2">融资</li>
             </a>
             <a href="/index/index/list.html?type=3">
                 <li type="3">人气</li>
