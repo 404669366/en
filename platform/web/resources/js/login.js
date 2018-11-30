@@ -23,4 +23,8 @@ $(function () {
         $('.login_bg').fadeIn();
         $('.doRegister').fadeIn();
     });
+    $('.backTelLogin').click(function () {
+        $('.doRetrieve').fadeOut();
+        $('.doLoginPwd').fadeIn();
+    });
 });
