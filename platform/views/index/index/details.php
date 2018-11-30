@@ -84,7 +84,7 @@
 <!--大标题开始-->
 <div class="contentTit box1200">
     <ul class="big_tit">
-        <li class="float_left">大标题</li>
+        <li class="float_left"><?= $model->title ?></li>
         <li class="float_right">
 					<span>
 						<i class="fa fa-share-alt" aria-hidden="true"></i>
@@ -101,26 +101,17 @@
         <!--左边内容-->
         <div class="mainLeft float_left">
             <div class="show">
-                <img src="/resources/images/01.jpg" alt="">
+                <?php $images = explode(',', $model->image); ?>
+                <img src="<?= $images[0] ?>" alt="">
                 <div class="mask"></div>
             </div>
             <div class="smallshow">
                 <p class="prev prevnone"></p>
                 <div class="middle_box">
                     <ul class="middle">
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
-                        <li><img src="/resources/images/01.jpg" alt=""></li>
+                        <?php foreach ($images as $image): ?>
+                            <li><img src="<?= $image ?>" alt=""></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
                 <p class="next "></p>
@@ -128,7 +119,7 @@
         </div>
         <div class="bigshow">
             <div class="bigitem">
-                <img src="/resources/images/01.jpg" alt="">
+                <img src="<?= $images[0] ?>" alt="">
             </div>
         </div>
         <script>
@@ -140,31 +131,30 @@
         <!--右边内容-->
         <div class="mainRight float_right">
             <div class="tit_prc">
-                <p class="price float_left">222<span class="span_a">万</span></p>
+                <p class="price float_left"><?= $model->budget ?><span class="span_a">￥</span></p>
                 <p class="price2 float_left">
                     43.56平米
-                    <span class="span_b">2018年建</span>
                 </p>
             </div>
 
             <ul class="detailed">
-                <li><span class="gray">小区名称</span>光华逸家</li>
-                <li><span class="gray">所在区域</span>外光华三环至绕城高速</li>
-                <li><span class="gray">看地时间</span>提前预约时间随时可看</li>
-                <li><span class="gray">场地编号</span>0000-0000-0000</li>
+                <li><span class="gray">场地编号</span><?= $model->no ?></li>
+                <li><span class="gray">所在区域</span><?= $model->area->full_name ?></li>
+                <li><span class="gray">详细地址</span><?= $model->address ?></li>
+                <li><span class="gray">发布时间</span><?= date('Y-m-d H:i:s', $model->created) ?></li>
             </ul>
             <!--联系人-->
             <div class="contacts">
                 <ul>
                     <li class="head_port float_left"><img src="/resources/images/head1.png"/></li>
                     <li class="infor float_left">
-                        <span class="names">吴磊</span>
+                        <span class="names"><?= $model->cobber->ident->name ?></span>
                         <span class="ntxt">本场地信息由我维护，有变化最快得知</span>
                     </li>
                 </ul>
                 <!--清除浮动-->
                 <div class="clear"></div>
-                <p class="phone">189-0000-0000</p>
+                <p class="phone"><?= $model->cobber->tel ?></p>
             </div>
         </div>
         <!--清除浮动-->

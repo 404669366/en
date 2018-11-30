@@ -241,4 +241,9 @@ class Field extends \yii\db\ActiveRecord
         }
         return $data;
     }
+
+    public static function getDetailFields($no = 0)
+    {
+        return self::findOne(['no' => $no]);
+    }
 }

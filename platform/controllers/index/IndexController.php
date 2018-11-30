@@ -39,10 +39,16 @@ class IndexController extends BasisController
         return $this->render('list');
     }
 
-    public function actionDetails()
+
+    /**
+     * 渲染详情页
+     * @return string
+     */
+    public function actionDetails($no)
     {
-        return $this->render('details');
+        return $this->render('details', ['model' => Field::getDetailFields($no)]);
     }
+
 
     public function actionNotFind()
     {

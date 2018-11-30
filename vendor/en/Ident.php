@@ -10,6 +10,7 @@ use Yii;
  * @property int $id
  * @property string $user_id 用户ID
  * @property string $area_id 地域ID
+ * @property string $name 真实姓名
  * @property string $address 联系地址
  * @property string $card_positive 身份证正面
  * @property string $card_opposite 身份证反面
@@ -36,6 +37,7 @@ class Ident extends \yii\db\ActiveRecord
         return [
             [['user_id', 'area_id', 'type', 'status', 'created'], 'integer'],
             [['address'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 20],
             [['card_positive', 'card_opposite', 'money_ident'], 'string', 'max' => 500],
         ];
     }
@@ -49,6 +51,7 @@ class Ident extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_id' => '用户ID',
             'area_id' => '地域ID',
+            'name' => '真实姓名',
             'address' => '联系地址',
             'card_positive' => '身份证正面',
             'card_opposite' => '身份证反面',

@@ -49,12 +49,21 @@ class User extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * 关联合伙人信息表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdent()
+    {
+        return $this->hasOne(Ident::class, ['user_id' => 'id']);
+    }
+
 
     public static function getCobber($type = false)
     {
         $data = self::find()->alias('u')->leftJoin(Ident::tableName() . ' i', 'u.id=i.user_id');
         if ($type !== false) {
-           $data->where(['i.type' => $type]);
+            $data->where(['i.type' => $type]);
         }
         $data = $data->select(['u.tel username', 'u.id'])->asArray()->all();
         return $data;
