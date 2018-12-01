@@ -364,41 +364,15 @@
     <div class="recom_cont box1200">
         <p class="recomTit">推荐场地</p>
         <ul class="recomList">
-            <li>
-                <a href="#">
-                    <img src="/resources/images/cd1.jpg"/>
-                    <div class="description">高新－天府新谷</div>
-                </a>
-                <p class="rec_price">4200<span>元/平</span></p>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/resources/images/cd2.jpg"/>
-                    <div class="description">高新－银泰中心</div>
-                </a>
-                <p class="rec_price">4200<span>元/平</span></p>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/resources/images/cd3.jpg"/>
-                    <div class="description">高新－天府五街</div>
-                </a>
-                <p class="rec_price">4200<span>元/平</span></p>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/resources/images/cd4.jpg"/>
-                    <div class="description">高新－环球中心</div>
-                </a>
-                <p class="rec_price">4200<span>元/平</span></p>
-            </li>
-            <li class="marginRt">
-                <a href="#">
-                    <img src="/resources/images/cd5.jpg"/>
-                    <div class="description">高新－天府三街</div>
-                </a>
-                <p class="rec_price">4200<span>元/平</span></p>
-            </li>
+            <?php foreach ($recommend as $k => $v): ?>
+                <li <?= count($recommend) == $k + 1 ? 'class="marginRt"' : '' ?>>
+                    <a href="/index/index/details.html?no=<?= $v['no'] ?>">
+                        <img src="<?= $v['image'][0] ?>"/>
+                        <div class="description"><?= $v['full_name'] ?></div>
+                    </a>
+                    <p class="rec_price"><?= $v['areas'] ?><span>㎡</span></p>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <div class="clear"></div>
     </div>
