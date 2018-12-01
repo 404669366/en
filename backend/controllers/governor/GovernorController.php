@@ -153,4 +153,19 @@ class GovernorController extends CommonController
         }
         return $this->redirect(['field-list']);
     }
+
+    /**
+     * 意向列表
+     * @return string
+     */
+    public function actionIntentionList()
+    {
+        return $this->render('intention-list', [
+            'status' => Constant::getIntentionType()
+        ]);
+    }
+
+    public function actionIntentionData(){
+        return $this->rTableData(Field::);
+    }
 }

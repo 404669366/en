@@ -160,4 +160,21 @@ class Constant
             '1' => '专员上传场地'
         ];
     }
+
+    /**
+     * 意向状态
+     * @return array
+     */
+    public static function getIntentionType()
+    {
+        return [
+            '0' => '待确认',
+            '1' => '已确认',
+            '2' => '已放弃',
+            '3' => '待审核',
+            '4' => '已付款',
+            '5' => '审核不通过',
+            '6' => '已完成',
+        ];
+    }
 }

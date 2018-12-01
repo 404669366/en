@@ -55,4 +55,16 @@ class Intention extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
+    /**
+     * 关联普通用户表获取投资人信息
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCobber()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    public static function getIntentionData(){
+        $data = self::find();
+    }
 }
