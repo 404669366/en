@@ -32,7 +32,8 @@ class IndexController extends BasisController
     public function actionList()
     {
         return $this->render('list', [
-            'fields' => Field::getFieldData(\Yii::$app->request->get())
+            'fields' => Field::getFieldData(\Yii::$app->request->get()),
+            'recommend'=>Field::getRecommendField()
         ]);
     }
 

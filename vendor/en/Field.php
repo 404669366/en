@@ -228,7 +228,7 @@ class Field extends \yii\db\ActiveRecord
         if (isset($map[$type])) {
             $data = self::find()->alias('f')
                 ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
-                ->where(['>=', 'f.status', 19])
+                ->where(['=', 'f.status', 15])
                 ->select(['f.*', 'a.full_name'])
                 ->orderBy($map[$type] . ' desc')
                 ->limit(4)->asArray()->all();
@@ -246,7 +246,7 @@ class Field extends \yii\db\ActiveRecord
      */
     public static function getDetailFields($no = '')
     {
-        return self::findOne(['no' => $no, 'status' => 19]);
+        return self::findOne(['no' => $no, 'status' => 15]);
     }
 
     /**
@@ -267,7 +267,7 @@ class Field extends \yii\db\ActiveRecord
         $data = self::find()->alias('f')
             ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
             ->select(['f.*', 'a.full_name'])
-            ->where(['>=', 'f.status', 19]);
+            ->where(['=', 'f.status', 15]);
         if (isset($get['search']) && $get['search']) {
             $data->andWhere([
                 'or',
@@ -289,5 +289,27 @@ class Field extends \yii\db\ActiveRecord
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
         return ['total' => count($data), 'data' => $data, 'now' => $now];
+    }
+
+    /**
+     * 推荐场地
+     * @param int $limit
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getRecommendField($limit = 5)
+    {
+        $data = self::find()->alias('f')
+            ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
+            ->select(['f.*', 'a.full_name'])
+            ->where(['=', 'f.status', 15])
+            ->andWhere(['f.level' => ['A', 'B']])
+            ->orderBy('RAND()')
+            ->limit($limit)
+            ->asArray()->all();
+        foreach ($data as &$v) {
+            $v['image'] = explode(',', $v['image']);
+            $v['created'] = date('Y-m-d H:i:s', $v['created']);
+        }
+        return $data;
     }
 }
