@@ -12,6 +12,7 @@ namespace app\controllers\governor;
 use app\controllers\basis\CommonController;
 use vendor\en\BasisField;
 use vendor\en\Field;
+use vendor\en\Intention;
 use vendor\en\Member;
 use vendor\en\User;
 use vendor\helpers\Constant;

@@ -301,10 +301,10 @@
 <div class="contentTit box1200">
     <ul class="big_tit">
         <li class="float_left"><?= $model->title ?></li>
-        <li class="float_right">
+        <li class="float_right" style="display: none">
 					<span>
 						<i class="fa fa-share-alt" aria-hidden="true"></i>
-						<a href="#">分享此房源</a>
+						<a href="#">分享此场地</a>
 					</span>
         </li>
     </ul>
@@ -381,59 +381,49 @@
 
 <!--内容2开始-->
 <div class="main2 box1200">
-    <!--场地信息-->
     <div class="site">
-        <!--title-->
         <div class="h2">
-            场地基本信息
+            配置单
         </div>
-        <!--基本属性-->
         <div class="infors">
-            <div class="infors_name">基本属性</div>
-            <ul class="list_info">
-                <li><span class="list_cont">房屋户型</span>2室1厅1厨1卫</li>
-                <li><span class="list_cont">所在楼层</span>低楼层 (共17层)</li>
-                <li><span class="list_cont">建筑面积</span>43.56㎡</li>
-                <li><span class="list_cont">户型结构</span>平层</li>
-                <li><span class="list_cont">套内面积</span>暂无数据</li>
-                <li><span class="list_cont">建筑类型</span>板楼</li>
-                <li><span class="list_cont">房屋朝向</span>南</li>
-                <li><span class="list_cont">建筑结构</span>钢混结构</li>
-                <li><span class="list_cont">装修情况</span>其他</li>
-                <li><span class="list_cont">梯户比例</span>两梯八户</li>
-                <li><span class="list_cont">配备电梯</span>有</li>
-                <li><span class="list_cont">产权年限</span>70年</li>
-            </ul>
-            <!--清除浮动-->
-            <div class="clear"></div>
+            <?php foreach (explode(',', $model->configure_photo) as $v): ?>
+                <img src="<?= $v ?>" alt=""
+                     style="width: 100%;margin-bottom: 20px">
+            <?php endforeach; ?>
         </div>
-
-        <!--交易属性-->
-        <div class="trade">
-            <div class="infors_name">交易属性</div>
-            <ul class="list_info">
-                <li><span class="list_cont">挂牌时间</span>2018-09-19</li>
-                <li><span class="list_cont">交易属性</span>商品房</li>
-                <li><span class="list_cont">上次交易</span>2018-10-22</li>
-                <li><span class="list_cont">房屋用途</span>普通中住宅</li>
-                <li><span class="list_cont">房屋年限</span>满两年</li>
-                <li><span class="list_cont">产权所属</span>非共有</li>
-                <li><span class="list_cont">抵押信息</span>暂无数据</li>
-                <li><span class="list_cont">房本备件</span>已上传房本照片</li>
-            </ul>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </div>
-        <div class="disclaimer">注：房源所示“房屋用途、交易权属、建成年代、产权年限、建筑结构”仅供参考，购房时请以房本信息为准。</div>
     </div>
-
-    <!--场地源特色-->
-    <div class="field">
-        <!--title-->
+    <div class="site">
         <div class="h2">
-            场地源特色
+            预算报表
         </div>
-        <div class="infors"></div>
+        <div class="infors">
+            <?php foreach (explode(',', $model->budget_photo) as $v): ?>
+                <img src="<?= $v ?>" alt=""
+                     style="width: 100%;margin-bottom: 20px">
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="site">
+        <div class="h2">
+            施工图纸
+        </div>
+        <div class="infors">
+            <?php foreach (explode(',', $model->field_drawing) as $v): ?>
+                <img src="<?= $v ?>" alt=""
+                     style="width: 100%;margin-bottom: 20px">
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="site">
+        <div class="h2">
+            场地备案
+        </div>
+        <div class="infors">
+            <?php foreach (explode(',', $model->record_photo) as $v): ?>
+                <img src="<?= $v ?>" alt=""
+                     style="width: 100%;margin-bottom: 20px">
+            <?php endforeach; ?>
+        </div>
     </div>
 
     <!--地图开始-->
@@ -458,162 +448,26 @@
 <!--好场地为您推荐开始-->
 <div class="good_site box1200 marginTop80">
     <div class="gdTit">
-        好场地为您推荐开始
+        好场地为您推荐
     </div>
     <ul class="gd_list">
-        <li>
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd5.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
-
-        <li>
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd4.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
-        <li>
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd3.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
-        <li class="mgrt0">
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd2.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
-        <li>
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd4.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
-        <li>
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd1.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
-        <li>
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd2.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
-        <li class="mgrt0">
-            <a href="#">
-                <img style="width: 290px; height: 210px;" src="/resources/images/cd3.jpg"/>
-            </a>
-            <span class="marked">116万</span>
-            <p class="htitle">
-                <span class="htitle_name"><a target="_blank" href="#">保利香槟光华</a></span>
-                <span class="htitle_info">2室1厅/55.72平米</span>
-            </p>
-        </li>
+        <?php foreach ($recommends as $k => $recommend): ?>
+            <li <?= ($k + 1) % 4 == 0 ? 'class="mgrt0"' : '' ?>>
+                <a href="/index/index/details.html?no=<?= $recommend['no'] ?>">
+                    <img style="width: 290px; height: 210px;" src="<?= $recommend['image'][0] ?>"/>
+                </a>
+                <span class="marked"><?= $recommend['budget'] ?>￥</span>
+                <p class="htitle">
+                    <span class="htitle_name"><a target="_blank" href="#"><?= $recommend['address'] ?></a></span>
+                    <span class="htitle_info"><?= $recommend['areas'] . '㎡' ?></span>
+                </p>
+            </li>
+        <?php endforeach; ?>
     </ul>
     <!--清除浮动-->
     <div class="clear"></div>
 </div>
 <!--好场地为您推荐结束-->
-
-<!--同总价场地开始-->
-<div class="same_price box1200 marginTop80">
-    <div class="gdTit">
-        好场地为您推荐开始
-    </div>
-    <ul class="same_list">
-        <a href="#">
-            <li>
-                <img src="/resources/images/cd3.jpg"/>
-                <div class="txt_same">
-                    高新 - 天府五街
-                </div>
-                <span class="type">116万</span>
-                <p class="avg_price">均价：<span style="color: #cb4c3f;">11111</span>元/平</p>
-            </li>
-        </a>
-
-        <a href="#">
-            <li>
-                <img src="/resources/images/cd3.jpg"/>
-                <div class="txt_same">
-                    高新 - 天府五街
-                </div>
-                <span class="type">116万</span>
-                <p class="avg_price">均价：<span style="color: #cb4c3f;">11111</span>元/平</p>
-            </li>
-        </a>
-
-        <a href="#">
-            <li>
-                <img src="/resources/images/cd3.jpg"/>
-                <div class="txt_same">
-                    高新 - 天府五街
-                </div>
-                <span class="type">116万</span>
-                <p class="avg_price">均价：<span style="color: #cb4c3f;">11111</span>元/平</p>
-            </li>
-        </a>
-
-        <a href="#">
-            <li>
-                <img src="/resources/images/cd3.jpg"/>
-                <div class="txt_same">
-                    高新 - 天府五街
-                </div>
-                <span class="type">116万</span>
-                <p class="avg_price">均价：<span style="color: #cb4c3f;">11111</span>元/平</p>
-            </li>
-        </a>
-
-        <a href="#">
-            <li class="mgrts0">
-                <img src="/resources/images/cd3.jpg"/>
-                <div class="txt_same">
-                    高新 - 天府五街
-                </div>
-                <span class="type">116万</span>
-                <p class="avg_price">均价：<span style="color: #cb4c3f;">11111</span>元/平</p>
-            </li>
-        </a>
-        <!--清除浮动-->
-        <div class="clear"></div>
-    </ul>
-</div>
-<!--同总价场地结束-->
-
 <!--我要卖场地开始-->
 <div class="sell_site box1200 marginTop80">
     <div class="gdTit">
@@ -645,33 +499,13 @@
         <ul class="footer_nav">
             <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
             </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
         </ul>
         <!--关于我们-->
         <ul class="footer_list">
             <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a></li>
         </ul>
         <!--公众号-->
         <ul class="public">
-            <li><img src="/resources/images/en2.png"/></li>
             <li><img src="/resources/images/en2.png"/></li>
         </ul>
         <!--底部版权-->

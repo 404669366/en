@@ -165,7 +165,7 @@ class Constant
      * 意向状态
      * @return array
      */
-    public static function getIntentionType()
+    public static function getIntentionStatus()
     {
         return [
             '0' => '待确认',
