@@ -188,4 +188,32 @@ class Constant
             '6' => '已完成',
         ];
     }
+
+    /**
+     * 合伙人状态
+     * @return array
+     */
+    public static function getCobberStatus()
+    {
+        return [
+            0 => '普通合伙人待审核',
+            1 => '普通合伙人审核通过',
+            2 => '普通合伙人审核不通过',
+            3 => '正式合伙人待审核',
+            4 => '正式合伙人审核通过',
+            5 => '正式合伙人审核不通过',
+        ];
+    }
+
+    /**
+     * 合伙人类型
+     * @return array
+     */
+    public static function getCobberType()
+    {
+        return [
+            0 => '普通合伙人',
+            1 => '正式合伙人',
+        ];
+    }
 }

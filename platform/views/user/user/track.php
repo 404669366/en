@@ -46,48 +46,43 @@
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础发布</a></li>
-            <?php if ($basisData['isCobber']): ?>
-                <li><a href="/user/user/track-field.html">场地跟踪</a></li>
-            <?php endif; ?>
+            <li class="actives"><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php if (!$basisData['isCobber'] || $basisData['isCobber']->type == 1): ?>
                 <li><a href="/user/user/ident.html">认证合伙人</a></li>
             <?php endif; ?>
-            <li class="actives"><a href="/user/user/update.html">修改密码</a></li>
+            <li><a href="/user/user/update.html">修改密码</a></li>
         </ul>
     </div>
 
     <!--右边内容-->
     <div class="user_contRt float_right">
-        <!--盒子里面的内容2-->
+        <!--盒子里面的内容1-->
         <div class="inner_Cont">
             <div class="userTit">
-                修改密码
+                共<span><?= count($field) ?></span>个 关注场地
             </div>
-            <!--tab内容2-->
-            <form action="/site/password/" method="post" id="updatePwd">
-                <ul class="change_pwd">
+            <ul class="tab_cont">
+                <?php foreach ($field as $v): ?>
                     <li>
-                        <span>输入旧密码：</span>
-                        <input type="password" name="password" id="password" placeholder="请输入密码"
-                               validate="notNull,minLength" validatedata="minLength=6" validatename="密码" maxlength="20">
+                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" style="color: #333333">
+                            <img src="<?= explode(',', $v['image'])[0] ?>"/>
+                            <div class="ps1">
+                                <p><span>场地编号:</span><?= $v['no'] ?></p>
+                                <p><span>场地地域:</span><?= $v['full_name'] ?></p>
+                                <p><span>详细地址：</span><?= $v['address'] ?></p>
+                                <p><span>关注时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?></p>
+                            </div>
+                        </a>
+                        <div class="ps2">
+                            <?= $v['budget'] ?>
+                            <span class="w">万</span>&nbsp;<span class="fl"><?= $v['areas'] ?>㎡</span>
+                            <a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="bbtn">取消关注</a>
+                        </div>
                     </li>
-                    <li>
-                        <span>设置新密码：</span>
-                        <input type="password" name="newPassword" id="password1" placeholder="请输入新密码"
-                               validate="notNull,minLength,isStandard" validatedata="minLength=8" validatename="密码"
-                               maxlength="20">
-                    </li>
-                    <li>
-                        <span>确认新密码：</span>
-                        <input type="password" placeholder="请确认新密码" validate="notNull,isSame"
-                               validatedata="isSame=#password1" validatename="确认新密码" maxlength="20">
-                    </li>
-                    <li>
-                        <span></span>
-                        <button>保存修改</button>
-                    </li>
-                </ul>
-            </form>
+                <?php endforeach; ?>
+                <!--清除浮动-->
+                <div class="clear"></div>
+            </ul>
         </div>
     </div>
     <!--清除浮动-->

@@ -25,12 +25,12 @@ class UserController extends CommonController
     }
 
     /**
-     * 修改密码
+     * 合伙人认证
      * @return string
      */
-    public function actionUpdate()
+    public function actionIdent()
     {
-        return $this->render('update');
+        return $this->render('ident');
     }
 
     /**
@@ -40,5 +40,23 @@ class UserController extends CommonController
     public function actionBasisField()
     {
         return $this->render('basis', ['basis' => BasisField::getBasisData()]);
+    }
+
+    /**
+     * 场地跟踪
+     * @return string
+     */
+    public function actionTrackField()
+    {
+        return $this->render('track', ['field' => Follow::getFollow(\Yii::$app->user->id)]);
+    }
+
+    /**
+     * 修改密码
+     * @return string
+     */
+    public function actionUpdate()
+    {
+        return $this->render('update');
     }
 }

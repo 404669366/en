@@ -76,6 +76,18 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return $data;
     }
 
+    /**
+     * 是否合伙人
+     * @return bool|mixed
+     */
+    public static function isCobber()
+    {
+        if ($user_id = Yii::$app->user->id) {
+            return Ident::findOne(['user_id' => $user_id, 'status' => [1, 4]]);
+        }
+        return false;
+    }
+
     //todo**********************  登录接口实现  ***************************
 
     public static function findIdentity($id)
