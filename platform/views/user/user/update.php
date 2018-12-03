@@ -49,10 +49,10 @@
             <?php if ($basisData['isCobber']): ?>
                 <li><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php endif; ?>
+            <li class="actives"><a href="/user/user/update.html">修改密码</a></li>
             <?php if (!$basisData['isCobber'] || $basisData['isCobber']->type == 1): ?>
                 <li><a href="/user/user/ident.html">认证合伙人</a></li>
             <?php endif; ?>
-            <li class="actives"><a href="/user/user/update.html">修改密码</a></li>
         </ul>
     </div>
 
