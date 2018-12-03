@@ -46,7 +46,7 @@
         <p class="welcome">欢迎你，<?= $basisData['user']['tel'] ?></p>
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
-            <li><a href="/user/user/basis-field.html">基础发布</a></li>
+            <li><a href="/user/user/basis-field.html">基础场地</a></li>
             <?php if ($basisData['isCobber']): ?>
                 <li><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php endif; ?>

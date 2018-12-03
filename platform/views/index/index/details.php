@@ -348,7 +348,7 @@
                 <li><span class="gray">详细地址</span><?= $model->address ?></li>
                 <li><span class="gray">发布时间</span><?= date('Y-m-d H:i:s', $model->created) ?></li>
             </ul>
-            <div id="cycle"><?=$model->financing_ratio * 100?></div>
+            <div id="cycle"><?= $model->financing_ratio * 100 ?></div>
             <!--联系人-->
             <div class="contacts">
                 <ul>
@@ -461,20 +461,20 @@
 <!--我要卖场地开始-->
 <div class="sell_site box1200 marginTop80">
     <div class="gdTit">
-        我要卖场地
+        快捷通道
     </div>
     <ul class="sell_list">
         <li>
             <img src="/resources/images/cd.jpg"/>
-            <p><a href="#">我有场地 &nbsp;&gt;</a></p>
+            <p><a href="/user/release/release-basis.html">我有场地 &gt;</a></p>
         </li>
         <li>
             <img src="/resources/images/num.png"/>
-            <p><a href="/estimate/estimate/estimate.html">我要估计 &nbsp;&gt;</a></p>
+            <p><a href="/estimate/estimate/estimate.html">投资计算 &gt;</a></p>
         </li>
         <li class="sell_mgrt">
             <img src="/resources/images/tz.jpg"/>
-            <p><a href="#">我要投资 &nbsp;&gt;</a></p>
+            <p><a href="#">成为合伙人 &gt;</a></p>
         </li>
     </ul>
     <!--清除浮动-->
