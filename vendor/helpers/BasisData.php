@@ -9,6 +9,8 @@
 namespace vendor\helpers;
 
 
+use vendor\en\Friends;
+
 class BasisData
 {
     /**
@@ -19,7 +21,8 @@ class BasisData
     {
         return [
             'isGuest' => \Yii::$app->user->isGuest,
-            'user' => \Yii::$app->user->getIdentity()
+            'user' => \Yii::$app->user->getIdentity(),
+            'friends' => Friends::getFriends()
         ];
     }
 }

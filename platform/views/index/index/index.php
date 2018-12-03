@@ -249,13 +249,9 @@
             </div>
         <?php endif; ?>
         <ul class="navList">
-            <li><a href="#">首页</a></li>
-            <li><a href="/index/index/list.html">业务介绍</a></li>
-            <li><a href="#">成功案例</a></li>
-            <li><a href="#">新闻动态</a></li>
-            <li><a href="#">开放平台</a></li>
-            <li><a href="#">收益预测</a></li>
-            <li><a href="#">联系我们</a></li>
+            <?php foreach (\vendor\en\Menu::getMenu() as $v): ?>
+                <li><a href="<?= $v['url'] ?>"><?= $v['name'] ?></a></li>
+            <?php endforeach; ?>
         </ul>
     </div>
     <!--标题+搜索-->
@@ -291,7 +287,8 @@
         <div class="big_tit">
             最新发布
         </div>
-        <p class="p1">好场地那么多，最新发布抢先看 <span class="float_right span1"><a href="/index/index/list.html?type=1">更多推荐</a></span>
+        <p class="p1">好场地那么多，最新发布抢先看 <span class="float_right span1"><a
+                        href="/index/index/list.html?type=1">更多推荐</a></span>
         </p>
         <ul class="main1_ul">
             <?php foreach ($field1 as $k => $v): ?>
@@ -302,7 +299,8 @@
                     <p class="main_tit">
                         <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
                     </p>
-                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                            class="sm_a"><?= $v['full_name'] ?></a>
                         <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
                                                            class="pra"><?= $v['budget'] ?>￥</a></span>
                     </p>
@@ -317,7 +315,8 @@
         <div class="big_tit">
             融资火热
         </div>
-        <p class="p1">融资建站全方位，真诚服务零距离<span class="float_right span1"><a href="/index/index/list.html?type=2">更多推荐</a></span></p>
+        <p class="p1">融资建站全方位，真诚服务零距离<span class="float_right span1"><a
+                        href="/index/index/list.html?type=2">更多推荐</a></span></p>
         <ul class="main1_ul">
             <?php foreach ($field2 as $k => $v): ?>
                 <li <?= count($field2) == ($k + 1) ? 'class="marginLt"' : '' ?>>
@@ -327,7 +326,8 @@
                     <p class="main_tit">
                         <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
                     </p>
-                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                            class="sm_a"><?= $v['full_name'] ?></a>
                         <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
                                                            class="pra"><?= $v['budget'] ?>￥</a></span>
                     </p>
@@ -342,7 +342,8 @@
         <div class="big_tit">
             人气最佳
         </div>
-        <p class="p1">真实场地准确同步，炙手可热<span class="float_right span1"><a href="/index/index/list.html?type=3">更多推荐</a></span></p>
+        <p class="p1">真实场地准确同步，炙手可热<span class="float_right span1"><a
+                        href="/index/index/list.html?type=3">更多推荐</a></span></p>
         <ul class="main1_ul">
             <?php foreach ($field3 as $k => $v): ?>
                 <li <?= count($field3) == ($k + 1) ? 'class="marginLt"' : '' ?>>
@@ -352,7 +353,8 @@
                     <p class="main_tit">
                         <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
                     </p>
-                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                            class="sm_a"><?= $v['full_name'] ?></a>
                         <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
                                                            class="pra"><?= $v['budget'] ?>￥</a></span>
                     </p>
@@ -367,7 +369,8 @@
         <div class="big_tit">
             点击火爆
         </div>
-        <p class="p1">高品质场地，从亿能开始<span class="float_right span1"><a href="/index/index/list.html?type=4">更多推荐</a></span></p>
+        <p class="p1">高品质场地，从亿能开始<span class="float_right span1"><a href="/index/index/list.html?type=4">更多推荐</a></span>
+        </p>
         <ul class="main1_ul">
             <?php foreach ($field4 as $k => $v): ?>
                 <li <?= count($field4) == ($k + 1) ? 'class="marginLt"' : '' ?>>
@@ -377,7 +380,8 @@
                     <p class="main_tit">
                         <a href="/index/index/details.html?no=<?= $v['no'] ?>" class="ma1"><?= $v['title'] ?></a>
                     </p>
-                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>" class="sm_a"><?= $v['full_name'] ?></a>
+                    <p class="small_tit"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
+                                            class="sm_a"><?= $v['full_name'] ?></a>
                         <span class="price float_right"><a href="/index/index/details.html?no=<?= $v['no'] ?>"
                                                            class="pra"><?= $v['budget'] ?>￥</a></span>
                     </p>
@@ -395,31 +399,19 @@
     <div class="box1200">
         <!--合作商-->
         <ul class="footer_nav">
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
+            <?php foreach ($basisData['friends'] as $v): ?>
+                <li><a rel="nofollow" target="_blank" href="<?= $v['url'] ?>"><img
+                                src="<?= $v['image'] ?>"/></a></li>
+            <?php endforeach; ?>
         </ul>
         <!--关于我们-->
         <ul class="footer_list">
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a></li>
+
+            <?php foreach (\vendor\en\Menu::getMenu() as $k => $v): ?>
+                <li>
+                    <a href="<?= $v['url'] ?>"><?= $v['name'] ?></a><?= count(\vendor\en\Menu::getMenu()) == $k + 1 ? '' : '&nbsp; |&nbsp;' ?>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <!--公众号-->
         <ul class="public">
