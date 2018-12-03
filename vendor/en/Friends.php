@@ -6,21 +6,22 @@ use vendor\helpers\redis;
 use Yii;
 
 /**
- * This is the model class for table "menu".
+ * This is the model class for table "friends".
  *
  * @property string $id
- * @property string $name 菜单名
+ * @property string $name 名称
+ * @property string $image 图片
  * @property string $url 路由
  * @property string $sort 排序
  */
-class Menu extends \yii\db\ActiveRecord
+class Friends extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'menu';
+        return 'friends';
     }
 
     /**
@@ -30,8 +31,8 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             [['sort'], 'integer'],
-            [['name'], 'string', 'max' => 20],
-            [['url'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => 50],
+            [['image', 'url'], 'string', 'max' => 255],
         ];
     }
 
@@ -42,21 +43,23 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => '菜单名',
+            'name' => '名称',
+            'image' => '图片',
             'url' => '路由',
             'sort' => '排序',
         ];
     }
 
     /**
-     * 获取分页数据
+     * 获取友情链接数据
      * @return mixed
      */
     public static function getPageData()
     {
-        $data = self::find()->page([
-            'name' => ['like', 'name']
-        ]);
+        $data = self::find()
+            ->page([
+                'name' => ['like', 'name']
+            ]);
         return $data;
     }
 
@@ -64,26 +67,22 @@ class Menu extends \yii\db\ActiveRecord
      * 更新缓存
      * @param $id
      */
-    public function updateMenu($id = false)
+    public function updateFriends($id = false)
     {
         if ($id) {
-            redis::app()->hDel('PlatformMenu', $id);
+            redis::app()->hDel('PlatformFriends', $id);
         } else {
-            redis::app()->hSet('PlatformMenu', $this->id, json_encode([
-                'name' => $this->name, 'url' => $this->url,
-                'sort' => $this->sort
+            redis::app()->hSet('PlatformFriends', $this->id, json_encode([
+                'name' => $this->name, 'image' => $this->image,
+                'url' => $this->url, 'sort' => $this->sort,
             ]));
         }
     }
 
-    /**
-     * 获取菜单
-     * @return array
-     */
-    public static function getMenu()
+    public static function getFriends()
     {
-        $menu = [];
-        $data = redis::app()->hGetAll('PlatformMenu');
+        $new = [];
+        $data = redis::app()->hGetAll('PlatformFriends');
         if ($data) {
             $sort = [];
             foreach ($data as $k => &$v) {
@@ -92,9 +91,9 @@ class Menu extends \yii\db\ActiveRecord
             }
             array_multisort($sort, SORT_ASC, $data);
             foreach ($data as &$v) {
-                array_push($menu, $v);
+                array_push($new, $v);
             }
         }
-        return $menu;
+        return $new;
     }
 }
