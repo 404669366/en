@@ -29,6 +29,10 @@ class IndexController extends BasisController
         ]);
     }
 
+    /**
+     * 渲染列表页
+     * @return string
+     */
     public function actionList()
     {
         return $this->render('list', [
@@ -47,7 +51,6 @@ class IndexController extends BasisController
     {
         return $this->render('details', ['model' => Field::getDetailFields($no), 'recommends' => Field::getRecommendField(8)]);
     }
-
 
 
     public function actionNotFind()
