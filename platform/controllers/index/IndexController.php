@@ -33,7 +33,7 @@ class IndexController extends BasisController
     {
         return $this->render('list', [
             'fields' => Field::getFieldData(\Yii::$app->request->get()),
-            'recommend'=>Field::getRecommendField()
+            'recommend' => Field::getRecommendField()
         ]);
     }
 
@@ -45,9 +45,10 @@ class IndexController extends BasisController
      */
     public function actionDetails($no)
     {
-        return $this->render('details', ['model' => Field::getDetailFields($no)]);
+        return $this->render('details', ['model' => Field::getDetailFields($no), 'recommends' => Field::getRecommendField(8)]);
     }
 
+    public function action
 
     public function actionNotFind()
     {

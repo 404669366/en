@@ -2,7 +2,7 @@
 
 namespace vendor\en;
 
-use Yii;
+use vendor\helpers\Constant;
 
 /**
  * This is the model class for table "{{%intention}}".
@@ -55,16 +55,44 @@ class Intention extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
+
     /**
      * 关联普通用户表获取投资人信息
      * @return \yii\db\ActiveQuery
      */
-    public function getCobber()
+    public function getInvestor()
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
-    public static function getIntentionData(){
-        $data = self::find();
+    /**
+     * 意向列表数据
+     * @param int $userId
+     * @param string $no
+     * @return $this|mixed
+     */
+    public static function getIntentionData($userId = 0, $no = '')
+    {
+        $data = self::find()->alias('i')
+            ->leftJoin(Field::tableName() . ' f', 'f.id=i.field.id')
+            ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id');
+        if (isset($userId) && $userId) {
+            $data->where(['user_id' => $userId]);
+        }
+        if (isset($no) && $no) {
+            $data->andWhere(['no' => $no]);
+        }
+        $data = $data->select(['i.*', 'f.no', 'u.tel'])
+            ->page([
+                'no' => ['=', 'f.no'],
+                'tel' => ['=', 'u.tel'],
+                'status' => ['=', 'i.status']
+            ]);
+        foreach ($data['data'] as $v) {
+            $v['status'] = Constant::getFieldStatus($v['status']);
+            $v['created'] = date('Y-m-d H:i:s', $v['created']);
+            $v['contract_photo'] = explode(',', $v['contract_photo']);
+        }
+        return $data;
     }
 }
