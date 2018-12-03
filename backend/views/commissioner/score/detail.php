@@ -5,6 +5,21 @@
             <div class="col-sm-6">
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">场地编号</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->no ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地标题</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $model->title ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">场地电话</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
@@ -35,52 +50,24 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地标题</label>
-                    <div class="col-sm-4">
-                        <input type="text" name="title" class="form-control" placeholder="<?= $model->title ?>" readonly>
-                    </div>
-                </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
                     <label class="col-sm-3 control-label">场地介绍</label>
                     <div class="col-sm-4">
                         <textarea class="form-control" readonly><?= $model->intro ?></textarea>
                     </div>
                 </div>
-                <?php if ($model->status == 1): ?>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">场地图片</label>
-                        <div class="col-sm-9">
-                            <div class="adawd"></div>
-                        </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地图片</label>
+                    <div class="col-sm-9">
+                        <div class="adawd"></div>
                     </div>
-                    <script>
-                        upload({
-                            max: 8,
-                            name: 'image',
-                            height: 12,
-                            element: '.adawd',
-                            uploadImgUrl: '/basis/file/upload',
-                            removeImgUrl: '/basis/file/delete',
-                            default: '<?=$model->image?>'
-                        });
-                    </script>
-                <?php else: ?>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">场地图片</label>
-                        <div class="col-sm-9">
-                            <div class="adawd"></div>
-                        </div>
-                    </div>
-                    <script>
-                        picWall({
-                            element: '.adawd',
-                            image: '<?=$model->image?>',
-                        })
-                    </script>
-                <?php endif; ?>
+                </div>
+                <script>
+                    picWall({
+                        element: '.adawd',
+                        image: '<?=$model->image?>',
+                    })
+                </script>
             </div>
             <div class="col-sm-6">
                 <?php if ($model->status == 1): ?>

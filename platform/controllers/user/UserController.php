@@ -13,6 +13,10 @@ use app\controllers\basis\CommonController;
 
 class UserController extends CommonController
 {
+    /**
+     * 用户中心
+     * @return string
+     */
     public function actionUser()
     {
         return $this->render('user');

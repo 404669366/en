@@ -18,32 +18,32 @@ use vendor\helpers\Msg;
 class ThirdController extends CommonController
 {
     /**
-     * 一审列表
+     * 三审列表
      * @return string
      */
     public function actionList()
     {
-        return $this->render('list', ['status' => Constant::getFieldStatus([18, 19, 20])]);
+        return $this->render('list', ['status' => Constant::getFieldStatus([14, 15, 16])]);
     }
 
     /**
-     * 一审列表数据
+     * 三审列表数据
      * @return string
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([18, 19, 20], 0, false));
+        return $this->rTableData(Field::getPageData([14, 15, 16], 0, false));
     }
 
     /**
-     * 一审详情列表
+     * 三审详情列表
      * @param $id
      * @return string
      */
     public function actionDetail($id)
     {
         return $this->render(
-            'detail', ['model' => Field::findOne($id),
+            'detail', ['model' => Field::findOne(['id' => $id, 'status' => [14, 15, 16]]),
             'status' => Constant::getFieldStatus(),
             'types' => Constant::getFieldType(),
         ]);
@@ -57,8 +57,8 @@ class ThirdController extends CommonController
     public function actionPass($id)
     {
         Msg::set('真实场地不存在');
-        if ($model = Field::findOne(['id' => $id, 'status' => 18])) {
-            $model->status = 19;
+        if ($model = Field::findOne(['id' => $id, 'status' => 14])) {
+            $model->status = 15;
             if ($model->save()) {
                 Msg::set('保存成功');
                 return $this->redirect('list');
@@ -77,8 +77,8 @@ class ThirdController extends CommonController
     public function actionNoPass($id, $remark)
     {
         Msg::set('真实场地不存在');
-        if ($model = Field::findOne(['id' => $id, 'status' => 18])) {
-            $model->status = 20;
+        if ($model = Field::findOne(['id' => $id, 'status' => 14])) {
+            $model->status = 16;
             if ($model->save()) {
                 Msg::set('保存成功');
                 return $this->redirect(['list']);

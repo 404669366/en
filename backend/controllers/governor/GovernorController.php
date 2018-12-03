@@ -120,7 +120,7 @@ class GovernorController extends CommonController
     public function actionFieldRecover3($id, $mid)
     {
         Msg::set('真实场地不存在');
-        if ($model = Field::findOne(['id' => $id, 'status' => 3])) {
+        if ($model = Field::findOne(['id' => $id, 'status' => [3, 7]])) {
             $model->member_id = $mid;
             $model->status = 1;
             if ($model->save()) {
@@ -142,9 +142,14 @@ class GovernorController extends CommonController
     public function actionFieldRecover17($id, $mid)
     {
         Msg::set('真实场地不存在');
-        if ($model = Field::findOne(['id' => $id, 'status' => 17])) {
+        if ($model = Field::findOne(['id' => $id, 'status' => [13, 17]])) {
             $model->cobber_id = $mid;
-            $model->status = 14;
+            if ($model->status == 13) {
+                $model->status = 11;
+            }
+            if ($model->status == 17) {
+                $model->status = 15;
+            }
             if ($model->save()) {
                 Msg::set('真实场地恢复成功');
             } else {
@@ -152,20 +157,5 @@ class GovernorController extends CommonController
             }
         }
         return $this->redirect(['field-list']);
-    }
-
-    /**
-     * 意向列表
-     * @return string
-     */
-    public function actionIntentionList()
-    {
-        return $this->render('intention-list', [
-            'status' => Constant::getIntentionType()
-        ]);
-    }
-
-    public function actionIntentionData(){
-        return $this->rTableData(Field::);
     }
 }

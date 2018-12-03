@@ -22,7 +22,7 @@ class RecordController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list', ['status' => Constant::getFieldStatus([5, 7, 8, 9]), 'type' => Constant::getFieldType()]);
+        return $this->render('list', ['status' => Constant::getFieldStatus([5, 8, 9]), 'type' => Constant::getFieldType()]);
     }
 
     /**
@@ -31,7 +31,7 @@ class RecordController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([5, 7, 8, 9,], 0, false));
+        return $this->rTableData(Field::getPageData([5, 8, 9], 0, false));
     }
 
     /**
@@ -41,7 +41,7 @@ class RecordController extends CommonController
      */
     public function actionDetail($id)
     {
-        $model = Field::findOne(['id' => $id, 'status' => [5, 7, 8, 9]]);
+        $model = Field::findOne(['id' => $id, 'status' => [5, 8, 9]]);
         if (in_array($model->status, [5, 9]) && \Yii::$app->request->isPost) {
             $data = \Yii::$app->request->post();
             if ($model->load(['Field' => $data]) && $model->validate()) {
@@ -60,16 +60,15 @@ class RecordController extends CommonController
      * 备案失败/资料有误
      * @param $id
      * @param $remark
-     * @param $st
      * @return string|\yii\web\Response
      */
-    public function actionDel($id, $remark, $st)
+    public function actionDel($id, $remark)
     {
-        $model = Field::findOne(['id' => $id, 'status' => [5, 7, 8, 9]]);
-        if (in_array($model->status, [5, 8, 9])) {
+        $model = Field::findOne(['id' => $id, 'status' => [5, 9]]);
+        if (in_array($model->status, [5, 9])) {
             $data = \Yii::$app->request->get();
             if ($model->load(['Field' => $data]) && $model->validate()) {
-                $model->status = $st;
+                $model->status = 9;
                 $model->remark = $remark;
                 if ($model->save()) {
                     Msg::set('提交成功');

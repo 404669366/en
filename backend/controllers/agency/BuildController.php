@@ -22,7 +22,7 @@ class BuildController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list', ['status' => Constant::getFieldStatus([7, 10, 11]), 'type' => Constant::getFieldType()]);
+        return $this->render('list', ['status' => Constant::getFieldStatus([8, 10, 11, 12]), 'type' => Constant::getFieldType()]);
     }
 
     /**
@@ -31,7 +31,7 @@ class BuildController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([7, 10, 11], 0, false));
+        return $this->rTableData(Field::getPageData([8, 10, 11, 12], 0, false));
     }
 
     /**
@@ -41,8 +41,8 @@ class BuildController extends CommonController
      */
     public function actionDetail($id)
     {
-        $model = Field::findOne(['id' => $id, 'status' => [7, 10, 11]]);
-        if ($model->status == 7 && \Yii::$app->request->isPost) {
+        $model = Field::findOne(['id' => $id, 'status' => [8, 10, 11, 12]]);
+        if (in_array($model->status, [8, 12]) && \Yii::$app->request->isPost) {
             $data = \Yii::$app->request->post();
             if ($model->load(['Field' => $data]) && $model->validate()) {
                 $model->status = 10;
@@ -52,30 +52,6 @@ class BuildController extends CommonController
                 }
                 Msg::set($model->errors());
             }
-        }
-        return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus(), 'types' => Constant::getFieldType()]);
-    }
-
-    /**
-     * 建设图和造价有误
-     * @param $id
-     * @param $remark
-     * @return string|\yii\web\Response
-     */
-    public function actionDel($id, $remark)
-    {
-        $model = Field::findOne(['id' => $id, 'status' => [7, 10, 11]]);
-        if (in_array($model->status, [7, 11])) {
-            $data = \Yii::$app->request->get();
-            if ($model->load(['Field' => $data]) && $model->validate()) {
-                $model->status = 11;
-                $model->remark = $remark;
-                if ($model->save()) {
-                    Msg::set('提交成功');
-                    return $this->redirect(['list']);
-                }
-            }
-            Msg::set($model->errors());
         }
         return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus(), 'types' => Constant::getFieldType()]);
     }

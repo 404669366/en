@@ -1,37 +1,43 @@
 <div class="ibox-content">
     <form method="post" class="form-horizontal">
         <div class="row">
-            <div class="col-sm-6 ">
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">专员</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control"
-                               placeholder="<?= $model->member->username ?>" readonly>
-                    </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">场地编号</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control"
+                           placeholder="<?= $model->no ?>" readonly>
                 </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">场地电话</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
-                    </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">专员</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control"
+                           placeholder="<?= $model->member->username ?>" readonly>
                 </div>
-                <div class="hr-line-dashed"></div>
-                <div class="form-group">
-                    <label class="col-sm-3 control-label">场地位置</label>
-                    <div class="col-sm-9">
-                        <div class="area"></div>
-                        <script>
-                            area({
-                                element: '.area',
-                                modify: false,
-                                area: '<?=$model->area_id?>',
-                                lat: '<?=$model->lat?>',
-                                lng: '<?=$model->lng?>',
-                            });
-                        </script>
-                    </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">场地电话</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" placeholder="<?= $model->local->tel ?>" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">场地位置</label>
+                <div class="col-sm-9">
+                    <div class="area"></div>
+                    <script>
+                        area({
+                            element: '.area',
+                            modify: false,
+                            area: '<?=$model->area_id?>',
+                            lat: '<?=$model->lat?>',
+                            lng: '<?=$model->lng?>',
+                        });
+                    </script>
                 </div>
             </div>
             <div class="hr-line-dashed"></div>
@@ -41,38 +47,6 @@
                     <input type="text" class="form-control" placeholder="<?= $model->address ?>" readonly>
                 </div>
             </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">场地标题</label>
-                <div class="col-sm-4">
-                    <input type="text" name="title" class="form-control" placeholder="<?= $model->title ?>" readonly>
-                </div>
-            </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">场地介绍</label>
-                <div class="col-sm-4">
-                    <textarea class="form-control" readonly><?= $model->intro ?></textarea>
-                </div>
-            </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">场地状态</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control"
-                           placeholder="<?= $status[$model->status] ?>" readonly>
-                </div>
-            </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">场地类型</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control"
-                           placeholder="<?= $types[$model->type] ?>" readonly>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
             <div class="hr-line-dashed"></div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">场地图片</label>
@@ -101,44 +75,60 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">场地证明</label>
+                <label class="col-sm-3 control-label">施工图纸</label>
                 <div class="col-sm-9">
-                    <div class="la2"></div>
+                    <div class="la1"></div>
                 </div>
                 <script>
                     picWall({
-                        element: '.la2',
-                        image: '<?=$model->prove_photo?>',
+                        element: '.la1',
+                        image: '<?=$model->field_drawing?>',
                     });
                 </script>
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">场地合同</label>
+                <label class="col-sm-3 control-label">变压器图纸</label>
                 <div class="col-sm-9">
-                    <div class="la3"></div>
+                    <div class="la1"></div>
                 </div>
                 <script>
                     picWall({
-                        element: '.la3',
-                        image: '<?=$model->field_photo?>',
+                        element: '.la1',
+                        image: '<?=$model->transformer_drawing?>',
                     });
                 </script>
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">电力证明</label>
+                <label class="col-sm-3 control-label">预算报表</label>
                 <div class="col-sm-9">
-                    <div class="la4"></div>
+                    <div class="la1"></div>
                 </div>
                 <script>
                     picWall({
-                        element: '.la4',
-                        image: '<?=$model->power_photo?>',
+                        element: '.la1',
+                        image: '<?=$model->budget_photo?>',
                     });
                 </script>
             </div>
-            <?php if ($model->member->status == 16): ?>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">场地面积</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control"
+                           placeholder="<?= $model->areas ?>" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">预算金额</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control"
+                           placeholder="<?= $model->budget ?>" readonly>
+                </div>
+            </div>
+            <?php if ($model->member->status == 12): ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">说明</label>
@@ -149,8 +139,16 @@
             <?php endif; ?>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
+                <label class="col-sm-3 control-label">场地状态</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control"
+                           placeholder="<?= $status[$model->status] ?>" readonly>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-2">
-                    <?php if ($model->status == 15): ?>
+                    <?php if ($model->status == 10): ?>
                         <button type="button" class="btn btn-white abandon" data-toggle="modal"
                                 data-target="#myModal2">不通过
                         </button>
@@ -188,12 +186,11 @@
                         </div>
                     <?php endif; ?>
                     <button class="btn btn-white back">返回</button>
-                    <?php if ($model->status == 15): ?>
+                    <?php if ($model->status == 10): ?>
                         <a href="/audit/second/pass?id=<?= $model->id ?>" class="btn btn-white">通过</a>
                     <?php endif; ?>
                 </div>
             </div>
         </div>
-</div>
-</form>
+    </form>
 </div>

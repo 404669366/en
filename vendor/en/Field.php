@@ -3,6 +3,7 @@
 namespace vendor\en;
 
 use vendor\helpers\Constant;
+use vendor\helpers\redis;
 use Yii;
 
 /**
@@ -22,7 +23,6 @@ use Yii;
  * @property string $intro 场地介绍信息
  * @property string $image 场地图片
  * @property string $configure_photo 配置单图片
- * @property string $invest_photo 投资方合同
  * @property string $field_photo 场地方合同
  * @property string $prove_photo 场地证明
  * @property string $power_photo 电力证明
@@ -63,7 +63,7 @@ class Field extends \yii\db\ActiveRecord
             [['level', 'financing_ratio'], 'string', 'max' => 10],
             [['address', 'intro', 'record_file', 'remark'], 'string', 'max' => 255],
             [['lng', 'lat'], 'string', 'max' => 50],
-            [['image', 'record_photo', 'configure_photo', 'invest_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
+            [['image', 'record_photo', 'configure_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
             [['budget', 'title'], 'string', 'max' => 30],
         ];
     }
@@ -88,7 +88,6 @@ class Field extends \yii\db\ActiveRecord
             'intro' => '场地介绍信息',
             'image' => '场地图片',
             'configure_photo' => '配置单图片',
-            'invest_photo' => '投资方合同',
             'field_photo' => '场地方合同',
             'prove_photo' => '场地证明',
             'power_photo' => '电力证明',
@@ -120,7 +119,7 @@ class Field extends \yii\db\ActiveRecord
     }
 
     /**
-     * 关联普通用户表获取投资人信息
+     * 关联普通用户表获取合伙人信息
      * @return \yii\db\ActiveQuery
      */
     public function getCobber()
@@ -144,6 +143,15 @@ class Field extends \yii\db\ActiveRecord
     public function getArea()
     {
         return $this->hasOne(Area::class, ['area_id' => 'area_id']);
+    }
+
+    /**
+     * 关联意向表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIntention()
+    {
+        return $this->hasMany(Intention::class, ['field_id' => 'id']);
     }
 
     /**
@@ -211,6 +219,29 @@ class Field extends \yii\db\ActiveRecord
         return $data;
     }
 
+
+    /**
+     * 合伙人抢单
+     * @return string
+     */
+    public static function rob()
+    {
+        if ($user_id = Yii::$app->user->id) {
+            if ($now = redis::app()->lPop('BackendField')) {
+                if ($model = self::findOne($now)) {
+                    $model->cobber_id = $user_id;
+                    $model->status = 1;
+                    if ($model->save()) {
+                        return '抢单成功';
+                    }
+                }
+                return '系统错误';
+            }
+            return '动作慢了';
+        }
+        return '非法操作';
+    }
+
     /**
      * 获取场地数据
      * @param int $type
@@ -246,7 +277,7 @@ class Field extends \yii\db\ActiveRecord
      */
     public static function getDetailFields($no = '')
     {
-        return self::findOne(['no' => $no, 'status' => 15]);
+        return self::findOne(['no' => $no, 'status' => [15, 19]]);
     }
 
     /**

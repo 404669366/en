@@ -23,7 +23,7 @@ class FirstController extends CommonController
     public function actionList()
     {
         return $this->render('list', [
-            'status' => Constant::getFieldStatus([4, 5, 6, 9, 11])
+            'status' => Constant::getFieldStatus([4, 5, 6])
         ]);
     }
 
@@ -33,7 +33,7 @@ class FirstController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([4, 5, 6, 9, 11], \Yii::$app->user->id, 1));
+        return $this->rTableData(Field::getPageData([4, 5, 6], \Yii::$app->user->id, 1));
     }
 
     /**
@@ -43,7 +43,7 @@ class FirstController extends CommonController
      */
     public function actionDetail($id)
     {
-        $model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => [4, 5, 6, 9, 11]]);
+        $model = Field::findOne(['id' => $id, 'member_id' => \Yii::$app->user->id, 'status' => [4, 5, 6]]);
         if (\Yii::$app->request->isPost) {
             $data = \Yii::$app->request->post();
             if ($model->load(['Field' => $data]) && $model->validate()) {
@@ -57,4 +57,27 @@ class FirstController extends CommonController
         }
         return $this->render('detail', ['model' => $model, 'status' => Constant::getFieldStatus()]);
     }
+
+    /**
+     * 放弃操作
+     * @param $id
+     * @param $remark
+     * @return \yii\web\Response
+     */
+    public function actionDel($id, $remark)
+    {
+        if ($model = Field::findOne(['id' => $id, 'status' => 6, 'member_id' => \Yii::$app->user->id])) {
+            $model->status = 7;
+            $model->remark = $remark;
+            if ($model->save()) {
+                Msg::set('放弃成功');
+                return $this->redirect(['list']);
+            }
+            Msg::set($model->errors());
+            return $this->redirect(['detail?id=' . $id]);
+        }
+        Msg::set('场地不存在');
+        return $this->redirect(['list']);
+    }
+
 }

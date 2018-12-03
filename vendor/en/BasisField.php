@@ -127,7 +127,7 @@ class BasisField extends \yii\db\ActiveRecord
     }
 
     /**
-     * 业务员抢单
+     * 专员抢单
      */
     public static function rob()
     {
