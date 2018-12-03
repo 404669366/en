@@ -17,13 +17,15 @@ class BasisController extends Controller
 {
     /**
      * 重写goBack，返回上一页
-     * @param null $defaultUrl
+     * @param string $msg
      * @return \yii\web\Response
      */
-    public function goBack($defaultUrl = null)
+    public function goBack($msg = '')
     {
-        $defaultUrl = $defaultUrl ? $defaultUrl : \Yii::$app->request->getReferrer();
-        return parent::goBack($defaultUrl);
+        if ($msg) {
+            \Yii::$app->session->set('PopupMsg', $msg);
+        }
+        return parent::goBack(\Yii::$app->request->getReferrer());
     }
 
     /**

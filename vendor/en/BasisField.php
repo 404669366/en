@@ -139,6 +139,7 @@ class BasisField extends \yii\db\ActiveRecord
                 if ($model = self::findOne($now)) {
                     $model->member_id = $member_id;
                     $model->status = 1;
+                    $model->updated = time();
                     if ($model->save()) {
                         Msg::set('抢单成功');
                     } else {

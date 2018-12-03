@@ -61,7 +61,7 @@
         <!--盒子里面的内容1-->
         <div class="inner_Cont">
             <div class="userTit">
-                共发布<span><?= count($basis) ?></span>个基础场地
+                共发布<span><?= count($basis) ?></span>个基础场地<a href="/user/release/release-basis.html"><strong style="float: right;cursor: pointer;color: #3072F6">发布场地</strong></a>
             </div>
             <ul class="tab_cont">
                 <?php foreach ($basis as $v): ?>

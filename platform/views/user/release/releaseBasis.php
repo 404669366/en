@@ -18,6 +18,7 @@
     <script src="/resources/js/sms.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/eye.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/submit.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/area.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <?php \vendor\helpers\Msg::run('PopupMsg') ?>
@@ -228,27 +229,11 @@
 <div class="banner">
     <div class="box1200">
         <ul class="bnner_nav">
-            <a href="/index/index/index.html">
-                <li>首页</li>
-            </a>
-            <a href="#">
-                <li class="nav_active">业务介绍</li>
-            </a>
-            <a href="#">
-                <li>成功案例</li>
-            </a>
-            <a href="#">
-                <li>新闻动态</li>
-            </a>
-            <a href="#">
-                <li>开放平台</li>
-            </a>
-            <a href="#">
-                <li>收益预测</li>
-            </a>
-            <a href="#">
-                <li>联系我们</li>
-            </a>
+            <?php foreach (\vendor\en\Menu::getMenu() as $v): ?>
+                <a href="<?= $v['url'] ?>">
+                    <li <?= $v['name'] == '场地发布' ? 'class="nav_active"' : '' ?>><?= $v['name'] ?></li>
+                </a>
+            <?php endforeach; ?>
         </ul>
         <ul class="banner_right">
             <li>
@@ -280,154 +265,99 @@
     <div class="box1200 nav_logo">
         <img src="/resources/images/logo.png"/>
         <ul class="head_list">
-            <li><a href="#">我要卖场地</a></li>
-            <li><a href="#" class="active">我要估价</a></li>
-            <li><a href="#">我要出租</a></li>
+            <li><a href="#" class="active">我有场地</a></li>
+            <li><a href="#">我要估价</a></li>
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>
     </div>
     <!--大标题-->
     <div class="box1200 nav_tit">
-        看看我的场地值多少钱
-        <p class="sub_tit">添加场地信息，查看场地估值</p>
+        发布我的场地,一站式建站服务
+        <p class="sub_tit">添加场地信息，实现场地价值</p>
     </div>
 </div>
 <!--head结束-->
 
 <!--估价表单开始-->
-<div class="m_form">
-    <ul class="form_list">
-        <li>
-            <span class="list_names">小区</span>
-            <input type="text" name="" id="" value="" placeholder="输入场地所在区域"/>
-        </li>
-        <li>
-            <span class="list_names">建筑年代</span>
-            <select name="">
-                <option value="">请选择</option>
-                <option value="">2008年</option>
-                <option value="">2009年</option>
-                <option value="">2010年</option>
-                <option value="">2011年</option>
-                <option value="">2012年</option>
-                <option value="">2013年</option>
-                <option value="">2014年</option>
-                <option value="">2015年</option>
-                <option value="">2016年</option>
-                <option value="">2017年</option>
-                <option value="">2018年</option>
-            </select>
-        </li>
-        <li>
-            <span class="list_names">面积</span>
-            <input style="width: 450px;" type="text" name="" id="" value="" placeholder="输入大于零的数字"/>
-            <span class="avgm">平方米</span>
-        </li>
-        <li>
-            <span class="list_names">户型</span>
-            <select name="">
-                <option value="">请选择</option>
-                <option value="">2008年</option>
-                <option value="">2009年</option>
-                <option value="">2010年</option>
-                <option value="">2011年</option>
-                <option value="">2012年</option>
-                <option value="">2013年</option>
-                <option value="">2014年</option>
-                <option value="">2015年</option>
-                <option value="">2016年</option>
-                <option value="">2017年</option>
-                <option value="">2018年</option>
-            </select>
-        </li>
-        <li>
-            <span class="list_names">朝向</span>
-            <select name="">
-                <option value="">请选择</option>
-                <option value="">东</option>
-                <option value="">南</option>
-                <option value="">西</option>
-                <option value="">北</option>
-            </select>
-        </li>
-        <li>
-            <span class="list_names">楼层</span>
-            <select name="">
-                <option value="">请选择</option>
-                <option value="">东</option>
-                <option value="">南</option>
-                <option value="">西</option>
-                <option value="">北</option>
-            </select>
-        </li>
+<form action="/user/release/add-basis.html" method="post">
+    <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+    <div class="m_form">
+        <ul class="form_list">
+            <li class="area">
+                <span class="list_names">场地地域 :</span>
+                <select class="province"></select>
+                <select class="city"></select>
+                <select class="county"></select>
+            </li>
+            <script>
+                area({element: '.area'});
+            </script>
+            <li>
+                <span class="list_names">详细地址 :</span>
+                <input type="text" name="address" placeholder="请填写场地详细地址" minlength="1"/>
+            </li>
+            <li>
+                <span class="list_names" style="margin-top: 0;float: left">场地描述 :</span>
+                <textarea style="width: 700px;height: 300px;margin-top: 20px;font-size: 14px" name="intro"
+                          maxlength="500" placeholder="请填写场地描述" minlength="10"></textarea>
+            </li>
 
-        <li>
-            <span class="list_names">场地特色</span>
-            <ul class="inputBox">
-                <li>
-                    <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                    <span>满五</span>
-                </li>
-                <li>
-                    <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                    <span>唯一</span>
-                </li>
-                <li>
-                    <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                    <span>精装修</span>
-                </li>
-                <li>
-                    <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                    <span>地铁房</span>
-                </li>
-            </ul>
-        </li>
-        <!--清除浮动-->
-        <div class="clear"></div>
-    </ul>
-</div>
-<!--估价表单结束-->
-
-<!--去估价按钮-->
-<div class="m_submit">
-    <div class="wrap">
-        <button class="btn_submit">去估价</button>
-        <div class="btn_text">估值结果由亿能系统模型提供</div>
+            <li style="display: none">
+                <span class="list_names">场地特色</span>
+                <ul class="inputBox">
+                    <li>
+                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
+                        <span>满五</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
+                        <span>唯一</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
+                        <span>精装修</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
+                        <span>地铁房</span>
+                    </li>
+                </ul>
+            </li>
+            <!--清除浮动-->
+            <div class="clear"></div>
+        </ul>
     </div>
-</div>
-<!--去估价按钮结束-->
+    <!--估价表单结束-->
+
+    <!--去估价按钮-->
+    <div class="m_submit">
+        <div class="wrap">
+            <button type="submit" class="btn_submit">立即发布</button>
+            <div class="btn_text" style="display: none">估值结果由亿能系统模型提供</div>
+        </div>
+    </div>
+    <!--去估价按钮结束-->
+</form>
+
 
 <!--脚部start-->
 <div class="footer marginTop80">
     <div class="box1200">
         <!--合作商-->
         <ul class="footer_nav">
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
+            <?php foreach ($basisData['friends'] as $v): ?>
+                <li><a rel="nofollow" target="_blank" href="<?= $v['url'] ?>"><img
+                                src="<?= $v['image'] ?>"/></a></li>
+            <?php endforeach; ?>
         </ul>
         <!--关于我们-->
         <ul class="footer_list">
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a></li>
+            <?php foreach (\vendor\en\Menu::getMenu() as $k => $v): ?>
+                <li>
+                    <a href="<?= $v['url'] ?>"><?= $v['name'] ?></a><?= count(\vendor\en\Menu::getMenu()) == $k + 1 ? '' : '&nbsp; |&nbsp;' ?>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <!--公众号-->
         <ul class="public">

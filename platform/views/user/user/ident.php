@@ -101,31 +101,18 @@
     <div class="box1200">
         <!--合作商-->
         <ul class="footer_nav">
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
-            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
-            </li>
+            <?php foreach ($basisData['friends'] as $v): ?>
+                <li><a rel="nofollow" target="_blank" href="<?= $v['url'] ?>"><img
+                                src="<?= $v['image'] ?>"/></a></li>
+            <?php endforeach; ?>
         </ul>
         <!--关于我们-->
         <ul class="footer_list">
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
-            <li><a href="#">关于我们</a></li>
+            <?php foreach (\vendor\en\Menu::getMenu() as $k => $v): ?>
+                <li>
+                    <a href="<?= $v['url'] ?>"><?= $v['name'] ?></a><?= count(\vendor\en\Menu::getMenu()) == $k + 1 ? '' : '&nbsp; |&nbsp;' ?>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <!--公众号-->
         <ul class="public">
