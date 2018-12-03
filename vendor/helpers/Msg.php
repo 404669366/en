@@ -34,7 +34,9 @@ class Msg
     {
         if ($msg = \Yii::$app->session->get($key, false)) {
             \Yii::$app->session->set($key, null);
-            echo "<script>layer.msg('$msg');</script>";
+            echo "<script>$(function() {
+  layer.msg('$msg');
+})</script>";
         }
     }
 }

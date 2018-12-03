@@ -27,7 +27,7 @@
     <script src="/resources/js/submit.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<? \vendor\helpers\Msg::run('PopupMsg') ?>
+<?php \vendor\helpers\Msg::run('PopupMsg') ?>
 <?php if ($basisData['isGuest']): ?>
     <div class="loninContaner">
         <div class="login_bg" style="display: none"></div>
@@ -351,6 +351,8 @@
                 <p class="price2 float_left">
                     <?= $model->areas ?>㎡
                 </p>
+                <a href="/user/follow/follow.html?no=<?= $model->no ?>"
+                   style="text-decoration: none;font-size: 18px;float: right;margin-top: 18px;line-height: 22px;color: #919191">关注</a>
             </div>
 
             <ul class="detailed">
@@ -365,12 +367,12 @@
                     <li class="head_port float_left"><img src="/resources/images/head1.png"/></li>
                     <li class="infor float_left">
                         <span class="names"><?= $model->cobber->ident->name ?></span>
-                        <span class="ntxt">本场地信息由我维护，有变化最快得知</span>
+                        <span class="ntxt">联系电话: <?= $model->cobber->tel ?></span>
                     </li>
                 </ul>
                 <!--清除浮动-->
                 <div class="clear"></div>
-                <p class="phone"><?= $model->cobber->tel ?></p>
+                <p class="phone" style="cursor: pointer">我有意向</p>
             </div>
         </div>
         <!--清除浮动-->
@@ -436,7 +438,7 @@
         <script>
             var map = new BMap.Map('map');
             map.enableScrollWheelZoom(true);
-            var point = new BMap.Point(116.404, 39.915);
+            var point = new BMap.Point('<?=$model->lng?>' || 116.404, '<?=$model->lat?>' || 39.915);
             map.centerAndZoom(point, 16);
             map.addOverlay(new BMap.Marker(point));
         </script>

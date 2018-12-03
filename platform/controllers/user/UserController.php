@@ -10,6 +10,7 @@ namespace app\controllers\user;
 
 
 use app\controllers\basis\CommonController;
+use vendor\en\Follow;
 
 class UserController extends CommonController
 {
@@ -19,6 +20,11 @@ class UserController extends CommonController
      */
     public function actionUser()
     {
-        return $this->render('user');
+        return $this->render('user', ['follow' => Follow::getFollow(\Yii::$app->user->id)]);
+    }
+
+    public function actionUpdate()
+    {
+        return $this->render('update');
     }
 }

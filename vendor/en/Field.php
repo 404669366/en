@@ -259,7 +259,7 @@ class Field extends \yii\db\ActiveRecord
         if (isset($map[$type])) {
             $data = self::find()->alias('f')
                 ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
-                ->where(['=', 'f.status', 15])
+                ->where(['f.status' => Constant::getShowStatus()])
                 ->select(['f.*', 'a.full_name'])
                 ->orderBy($map[$type] . ' desc')
                 ->limit(4)->asArray()->all();
@@ -277,7 +277,7 @@ class Field extends \yii\db\ActiveRecord
      */
     public static function getDetailFields($no = '')
     {
-        return self::findOne(['no' => $no, 'status' => [15, 19]]);
+        return self::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
     }
 
     /**
@@ -298,7 +298,7 @@ class Field extends \yii\db\ActiveRecord
         $data = self::find()->alias('f')
             ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
             ->select(['f.*', 'a.full_name'])
-            ->where(['=', 'f.status', 15]);
+            ->where(['f.status' => Constant::getShowStatus()]);
         if (isset($get['search']) && $get['search']) {
             $data->andWhere([
                 'or',
@@ -332,7 +332,7 @@ class Field extends \yii\db\ActiveRecord
         $data = self::find()->alias('f')
             ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
             ->select(['f.*', 'a.full_name'])
-            ->where(['=', 'f.status', 15])
+            ->where(['f.status' => Constant::getShowStatus()])
             ->andWhere(['f.level' => ['A', 'B']])
             ->orderBy('RAND()')
             ->limit($limit)

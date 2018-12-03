@@ -70,15 +70,17 @@ body{
     text-align: center;
     font: 14px/40px "微软雅黑";
     display: inline-block;
+	text-decoration: none;
 }
 .user_contLt ul .actives a{
+	text-decoration: none;
 	color: #fff;
     background-color: #3072f6;
 }
 /*盒子里面的内容*/
 .inner_Cont{
 	width: 755px;
-	font-size: 22px;
+	min-height: 198px;
     padding: 35px 35px;
     font-size: 14px;
 }
@@ -160,13 +162,16 @@ body{
 	
 }
 .tab_cont li .bbtn{
+	display: block;
+	text-align: center;
+	text-decoration: none;
 	width: 100px;
 	border: none;
 	color: #fff;
     background: rgb(48, 114, 246);
     border-radius: 2px;
-	margin: 20px 0 0 32px;
 	font: 16px/30px "微软雅黑";
+	margin-top: 6px;
 }
 /*修改密码*/
 .change_pwd {

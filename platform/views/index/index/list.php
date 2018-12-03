@@ -23,7 +23,7 @@
     <script src="/resources/js/submit.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<? \vendor\helpers\Msg::run('PopupMsg') ?>
+<?php \vendor\helpers\Msg::run('PopupMsg') ?>
 <?php if ($basisData['isGuest']): ?>
     <div class="loninContaner">
         <div class="login_bg" style="display: none"></div>
@@ -331,25 +331,28 @@
         <ul class="listCont">
             <li class="listData">
                 <a href="/index/index/details.html?no=<?= $data['no'] ?>"><img src="<?= $data['image'][0] ?>"/></a>
-                <div class="info">
-                    <p class="info_tit"><a href="#"></a></p>
-                    <p class="address">&nbsp;<i class="fa fa-map-marker"
-                                                aria-hidden="true"></i>&nbsp;<?= $data['full_name'] ?></p>
-                    <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<?= $data['address'] ?>
-                        &nbsp;<?= $data['areas'] ?>㎡</p>
-                    <p class="address"><i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;<?= $data['attention'] ?>人关注
-                        / 共<?= $data['click'] ?>次点击 / <?= $data['created'] ?>发布</p>
-                    <div class="spans">
-                        <span>随时看房</span>
-                        <span>随时看房</span>
-                        <span>随时看房</span>
-                        <span>随时看房</span>
+                <a href="/index/index/details.html?no=<?= $data['no'] ?>" style="color: #333333">
+                    <div class="info">
+                        <p class="info_tit"><?=$data['title']?></p>
+                        <p class="address">&nbsp;<i class="fa fa-map-marker"
+                                                    aria-hidden="true"></i>&nbsp;<?= $data['full_name'] ?></p>
+                        <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<?= $data['address'] ?>
+                            &nbsp;<?= $data['areas'] ?>㎡</p>
+                        <p class="address"><i class="fa fa-star-o"
+                                              aria-hidden="true"></i>&nbsp;<?= $data['attention'] ?>人关注
+                            / 共<?= $data['click'] ?>次点击 / <?= $data['created'] ?>发布</p>
+                        <div class="spans" style="display: none">
+                            <span>随时看房</span>
+                            <span>随时看房</span>
+                            <span>随时看房</span>
+                            <span>随时看房</span>
+                        </div>
                     </div>
-                </div>
+                </a>
                 <!--清除浮动-->
                 <div class="clear"></div>
             </li>
-            <div class="follow">关注</div>
+            <a class="follow" href="/user/follow/follow.html?no=<?=$data['no']?>" style="text-decoration: none">关注</a>
             <div class="unit_price">
                 <p class="price"><span
                             style="font-size: 26px;font-weight: 600;margin: 0 6px;"><?= $data['budget'] ?></span>￥</p>

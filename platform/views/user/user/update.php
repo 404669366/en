@@ -60,40 +60,43 @@
         <img src="/resources/images/user.png"/>
         <p class="welcome">欢迎你，<?= $basisData['user']['tel'] ?></p>
         <ul>
-            <li class="actives"><a href="/user/user/user.html">关注场地</a></li>
-            <li><a href="/user/user/update.html">修改密码</a></li>
+            <li><a href="/user/user/user.html">关注场地</a></li>
+            <li class="actives"><a href="/user/user/update.html">修改密码</a></li>
         </ul>
     </div>
 
     <!--右边内容-->
     <div class="user_contRt float_right">
-        <!--盒子里面的内容1-->
+        <!--盒子里面的内容2-->
         <div class="inner_Cont">
             <div class="userTit">
-                共<span><?= count($follow) ?></span>个 关注场地
+                修改密码
             </div>
-            <ul class="tab_cont">
-                <?php foreach ($follow as $v): ?>
+            <!--tab内容2-->
+            <form action="/site/password/" method="post" id="updatePwd">
+                <ul class="change_pwd">
                     <li>
-                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" style="color: #333333">
-                            <img src="<?= explode(',', $v['image'])[0] ?>"/>
-                            <div class="ps1">
-                                <p><span>场地编号:</span><?= $v['no'] ?></p>
-                                <p><span>场地地域:</span><?= $v['full_name'] ?></p>
-                                <p><span>详细地址：</span><?= $v['address'] ?></p>
-                                <p><span>关注时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?></p>
-                            </div>
-                        </a>
-                        <div class="ps2">
-                            <?= $v['budget'] ?>
-                            <span class="w">万</span>&nbsp;<span class="fl"><?= $v['areas'] ?>㎡</span>
-                            <a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="bbtn">取消关注</a>
-                        </div>
+                        <span>输入旧密码：</span>
+                        <input type="password" name="password" id="password" placeholder="请输入密码"
+                               validate="notNull,minLength" validatedata="minLength=6" validatename="密码" maxlength="20">
                     </li>
-                <?php endforeach; ?>
-                <!--清除浮动-->
-                <div class="clear"></div>
-            </ul>
+                    <li>
+                        <span>设置新密码：</span>
+                        <input type="password" name="newPassword" id="password1" placeholder="请输入新密码"
+                               validate="notNull,minLength,isStandard" validatedata="minLength=8" validatename="密码"
+                               maxlength="20">
+                    </li>
+                    <li>
+                        <span>确认新密码：</span>
+                        <input type="password" placeholder="请确认新密码" validate="notNull,isSame"
+                               validatedata="isSame=#password1" validatename="确认新密码" maxlength="20">
+                    </li>
+                    <li>
+                        <span></span>
+                        <button>保存修改</button>
+                    </li>
+                </ul>
+            </form>
         </div>
     </div>
     <!--清除浮动-->

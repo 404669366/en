@@ -150,6 +150,17 @@ class Constant
     }
 
     /**
+     * 返回前台展示状态
+     * @return array
+     */
+    public static function getShowStatus()
+    {
+        return [
+            15, 19
+        ];
+    }
+
+    /**
      * 场地类型
      * @return array
      */

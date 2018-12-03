@@ -26,4 +26,10 @@ class CobberController extends CommonController
         }
         return $this->rJson([], false, $re);
     }
+
+
+    public function actionPowerList()
+    {
+
+    }
 }
