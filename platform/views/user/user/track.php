@@ -45,10 +45,8 @@
         <p class="welcome">欢迎你，<?= $basisData['user']['tel'] ?></p>
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
-            <li  class="actives"><a href="/user/user/basis-field.html">基础发布</a></li>
-            <?php if ($basisData['isCobber']): ?>
-                <li><a href="/user/user/track-field.html">场地跟踪</a></li>
-            <?php endif; ?>
+            <li><a href="/user/user/basis-field.html">基础发布</a></li>
+            <li class="actives"><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php if (!$basisData['isCobber'] || $basisData['isCobber']->type == 1): ?>
                 <li><a href="/user/user/ident.html">认证合伙人</a></li>
             <?php endif; ?>
@@ -61,12 +59,25 @@
         <!--盒子里面的内容1-->
         <div class="inner_Cont">
             <div class="userTit">
-                共发布<span><?= count($basis) ?></span>个基础场地
+                共<span><?= count($field) ?></span>个 关注场地
             </div>
             <ul class="tab_cont">
-                <?php foreach ($basis as $v): ?>
+                <?php foreach ($field as $v): ?>
                     <li>
-
+                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" style="color: #333333">
+                            <img src="<?= explode(',', $v['image'])[0] ?>"/>
+                            <div class="ps1">
+                                <p><span>场地编号:</span><?= $v['no'] ?></p>
+                                <p><span>场地地域:</span><?= $v['full_name'] ?></p>
+                                <p><span>详细地址：</span><?= $v['address'] ?></p>
+                                <p><span>关注时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?></p>
+                            </div>
+                        </a>
+                        <div class="ps2">
+                            <?= $v['budget'] ?>
+                            <span class="w">万</span>&nbsp;<span class="fl"><?= $v['areas'] ?>㎡</span>
+                            <a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="bbtn">取消关注</a>
+                        </div>
                     </li>
                 <?php endforeach; ?>
                 <!--清除浮动-->
@@ -84,18 +95,31 @@
     <div class="box1200">
         <!--合作商-->
         <ul class="footer_nav">
-            <?php foreach ($basisData['friends'] as $v): ?>
-                <li><a rel="nofollow" target="_blank" href="<?= $v['url'] ?>"><img
-                                src="<?= $v['image'] ?>"/></a></li>
-            <?php endforeach; ?>
+            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
+            </li>
+            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
+            </li>
+            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
+            </li>
+            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
+            </li>
+            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
+            </li>
+            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
+            </li>
+            <li><a rel="nofollow" target="_blank" href="//online.unionpay.com/"><img src="/resources/images/logo.png"/></a>
+            </li>
         </ul>
         <!--关于我们-->
         <ul class="footer_list">
-            <?php foreach (\vendor\en\Menu::getMenu() as $k => $v): ?>
-                <li>
-                    <a href="<?= $v['url'] ?>"><?= $v['name'] ?></a><?= count(\vendor\en\Menu::getMenu()) == $k + 1 ? '' : '&nbsp; |&nbsp;' ?>
-                </li>
-            <?php endforeach; ?>
+            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
+            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
+            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
+            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
+            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
+            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
+            <li><a href="#">关于我们</a>&nbsp; |&nbsp;</li>
+            <li><a href="#">关于我们</a></li>
         </ul>
         <!--公众号-->
         <ul class="public">

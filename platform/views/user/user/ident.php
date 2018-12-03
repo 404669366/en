@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/user.css"/>
     <!--引入字体-->
     <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css"/>
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -49,10 +50,8 @@
             <?php if ($basisData['isCobber']): ?>
                 <li><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php endif; ?>
-            <?php if (!$basisData['isCobber'] || $basisData['isCobber']->type == 1): ?>
-                <li><a href="/user/user/ident.html">认证合伙人</a></li>
-            <?php endif; ?>
-            <li class="actives"><a href="/user/user/update.html">修改密码</a></li>
+            <li class="actives"><a href="/user/user/ident.html">认证合伙人</a></li>
+            <li><a href="/user/user/update.html">修改密码</a></li>
         </ul>
     </div>
 
@@ -61,11 +60,12 @@
         <!--盒子里面的内容2-->
         <div class="inner_Cont">
             <div class="userTit">
-                修改密码
+                认证合伙人
             </div>
             <!--tab内容2-->
             <form action="/site/password/" method="post" id="updatePwd">
                 <ul class="change_pwd">
+                    <?php if(!$basisData['isCobber']):?>
                     <li>
                         <span>输入旧密码：</span>
                         <input type="password" name="password" id="password" placeholder="请输入密码"
@@ -82,6 +82,7 @@
                         <input type="password" placeholder="请确认新密码" validate="notNull,isSame"
                                validatedata="isSame=#password1" validatename="确认新密码" maxlength="20">
                     </li>
+                    <?php endif;?>
                     <li>
                         <span></span>
                         <button>保存修改</button>
