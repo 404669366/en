@@ -45,7 +45,7 @@
         <p class="welcome">欢迎你，<?= $basisData['user']['tel'] ?></p>
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
-            <li  class="actives"><a href="/user/user/basis-field.html">场地发布</a></li>
+            <li class="actives"><a href="/user/user/basis-field.html">场地发布</a></li>
             <li><a href="/user/user/update.html">修改密码</a></li>
         </ul>
     </div>
@@ -59,8 +59,10 @@
             </div>
             <ul class="tab_cont">
                 <?php foreach ($basis as $v): ?>
-                    <li>
-
+                    <li style="height: 20px;width: 718px">
+                        <div style="width: 226px;float: left;text-align: center"> <?= $v['full_name'] ?></div>
+                        <div style="width: 226px;float: left;text-align: center"> <?= $v['address'] ?></div>
+                        <div style="width: 226px;float: left;text-align: center"> <?= date('Y-m-d H:i:s', $v['created']) ?></div>
                     </li>
                 <?php endforeach; ?>
                 <!--清除浮动-->

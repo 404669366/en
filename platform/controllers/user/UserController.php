@@ -10,6 +10,7 @@ namespace app\controllers\user;
 
 
 use app\controllers\basis\CommonController;
+use vendor\en\BasisField;
 use vendor\en\Follow;
 
 class UserController extends CommonController
@@ -38,6 +39,6 @@ class UserController extends CommonController
      */
     public function actionBasisField()
     {
-        return $this->render('basis', ['basis'=>[]]);
+        return $this->render('basis', ['basis' => BasisField::getBasisData()]);
     }
 }
