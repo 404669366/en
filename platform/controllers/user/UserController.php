@@ -23,8 +23,21 @@ class UserController extends CommonController
         return $this->render('user', ['follow' => Follow::getFollow(\Yii::$app->user->id)]);
     }
 
+    /**
+     * 修改密码
+     * @return string
+     */
     public function actionUpdate()
     {
         return $this->render('update');
+    }
+
+    /**
+     * 基础场地
+     * @return string
+     */
+    public function actionBasisField()
+    {
+        return $this->render('basis', ['basis'=>[]]);
     }
 }

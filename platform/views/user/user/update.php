@@ -21,27 +21,11 @@
     <div class="nav box1200">
         <img src="/resources/images/LG.png"/>
         <ul class="nva_list">
-            <a href="/index/index/index.html">
-                <li>首页</li>
-            </a>
-            <a href="#">
-                <li>业务介绍</li>
-            </a>
-            <a href="#">
-                <li>成功案例</li>
-            </a>
-            <a href="#">
-                <li>新闻动态</li>
-            </a>
-            <a href="#">
-                <li>开放平台</li>
-            </a>
-            <a href="#">
-                <li>收益预测</li>
-            </a>
-            <a href="#">
-                <li>联系我们</li>
-            </a>
+            <?php foreach (\vendor\en\Menu::getMenu() as $v): ?>
+                <a href="<?= $v['url'] ?>">
+                    <li><?= $v['name'] ?></li>
+                </a>
+            <?php endforeach; ?>
         </ul>
         <div class="esc">
             <?= $basisData['user']['tel'] ?> |
@@ -61,6 +45,7 @@
         <p class="welcome">欢迎你，<?= $basisData['user']['tel'] ?></p>
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
+            <li><a href="/user/user/basis-field.html">场地发布</a></li>
             <li class="actives"><a href="/user/user/update.html">修改密码</a></li>
         </ul>
     </div>

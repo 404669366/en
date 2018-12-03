@@ -44,8 +44,8 @@
         <img src="/resources/images/user.png"/>
         <p class="welcome">欢迎你，<?= $basisData['user']['tel'] ?></p>
         <ul>
-            <li class="actives"><a href="/user/user/user.html">关注场地</a></li>
-            <li><a href="/user/user/basis-field.html">场地发布</a></li>
+            <li><a href="/user/user/user.html">关注场地</a></li>
+            <li  class="actives"><a href="/user/user/basis-field.html">场地发布</a></li>
             <li><a href="/user/user/update.html">修改密码</a></li>
         </ul>
     </div>
@@ -55,25 +55,12 @@
         <!--盒子里面的内容1-->
         <div class="inner_Cont">
             <div class="userTit">
-                共<span><?= count($follow) ?></span>个 关注场地
+                共发布<span><?= count($basis) ?></span>个基础场地
             </div>
             <ul class="tab_cont">
-                <?php foreach ($follow as $v): ?>
+                <?php foreach ($basis as $v): ?>
                     <li>
-                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" style="color: #333333">
-                            <img src="<?= explode(',', $v['image'])[0] ?>"/>
-                            <div class="ps1">
-                                <p><span>场地编号:</span><?= $v['no'] ?></p>
-                                <p><span>场地地域:</span><?= $v['full_name'] ?></p>
-                                <p><span>详细地址：</span><?= $v['address'] ?></p>
-                                <p><span>关注时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?></p>
-                            </div>
-                        </a>
-                        <div class="ps2">
-                            <?= $v['budget'] ?>
-                            <span class="w">万</span>&nbsp;<span class="fl"><?= $v['areas'] ?>㎡</span>
-                            <a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="bbtn">取消关注</a>
-                        </div>
+
                     </li>
                 <?php endforeach; ?>
                 <!--清除浮动-->
