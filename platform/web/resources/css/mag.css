@@ -60,6 +60,7 @@ ul, li {
     overflow: hidden;
     display: none;
     border: 1px solid #E8E8E8;
+    z-index: 88;
 }
 
 .bigshow img {

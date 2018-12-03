@@ -7,13 +7,14 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <!--引入公共样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/header.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/mag.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/login.css"/>
     <!--引入details样式-->
+    <link rel="stylesheet" type="text/css" href="/resources/css/radialIndicator.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/details.css"/>
     <!--引入字体-->
-    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
     <!--引入jquery-->
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
@@ -25,6 +26,7 @@
     <script src="/resources/js/sms.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/eye.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/submit.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/radialIndicator.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <?php \vendor\helpers\Msg::run('PopupMsg') ?>
@@ -330,7 +332,7 @@
             });
         </script>
         <!--右边内容-->
-        <div class="mainRight float_right">
+        <div class="mainRight float_right" style="position: relative">
             <div class="tit_prc">
                 <p class="price float_left"><?= $model->budget ?><span class="span_a">￥</span></p>
                 <p class="price2 float_left">
@@ -346,6 +348,7 @@
                 <li><span class="gray">详细地址</span><?= $model->address ?></li>
                 <li><span class="gray">发布时间</span><?= date('Y-m-d H:i:s', $model->created) ?></li>
             </ul>
+            <div id="cycle"><?=$model->financing_ratio * 100?></div>
             <!--联系人-->
             <div class="contacts">
                 <ul>
@@ -482,7 +485,7 @@
 <!--脚部start-->
 <div class="footer marginTop80">
     <div class="box1200">
-        <!--合作商-->s
+        <!--合作商-->
         <ul class="footer_nav">
             <?php foreach ($basisData['friends'] as $v): ?>
                 <li><a rel="nofollow" target="_blank" href="<?= $v['url'] ?>"><img
