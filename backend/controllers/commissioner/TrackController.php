@@ -22,7 +22,7 @@ class TrackController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list', ['status' => Constant::getFieldStatus([5, 7, 8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20])]);
+        return $this->render('list', ['status' => Constant::getFieldStatus([8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])]);
     }
 
     /**
@@ -31,7 +31,7 @@ class TrackController extends CommonController
      */
     public function actionData()
     {
-        return $this->rTableData(Field::getPageData([5, 7, 8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20], \Yii::$app->user->id, 1));
+        return $this->rTableData(Field::getPageData([8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], \Yii::$app->user->id, 1));
     }
 
     /**

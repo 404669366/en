@@ -17,7 +17,6 @@
                 </div>
             </div>
             <div class="hr-line-dashed"></div>
-            <div class="hr-line-dashed"></div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">场地位置</label>
                 <div class="col-sm-9">

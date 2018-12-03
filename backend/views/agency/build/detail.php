@@ -149,7 +149,7 @@
                         element: '.osidujlksadjkl',
                         uploadImgUrl: '/basis/file/upload',
                         removeImgUrl: '/basis/file/delete',
-                        default: '<?=$model->record_photo?>',
+                        default: '<?=$model->field_drawing?>',
                     });
                 </script>
                 <div class="hr-line-dashed"></div>

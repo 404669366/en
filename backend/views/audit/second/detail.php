@@ -90,11 +90,11 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">变压器图纸</label>
                 <div class="col-sm-9">
-                    <div class="la1"></div>
+                    <div class="la2"></div>
                 </div>
                 <script>
                     picWall({
-                        element: '.la1',
+                        element: '.la2',
                         image: '<?=$model->transformer_drawing?>',
                     });
                 </script>
@@ -103,11 +103,11 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">预算报表</label>
                 <div class="col-sm-9">
-                    <div class="la1"></div>
+                    <div class="la3"></div>
                 </div>
                 <script>
                     picWall({
-                        element: '.la1',
+                        element: '.la3',
                         image: '<?=$model->budget_photo?>',
                     });
                 </script>

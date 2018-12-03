@@ -179,7 +179,7 @@
                     </div>
                 </div>
             <?php endif; ?>
-            <?php if ($model->status == 15 && $model->status >= 17): ?>
+            <?php if (in_array($model->status, [14, 15]) && $model->status >= 17): ?>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">合伙人电话</label>
                     <div class="col-sm-4">

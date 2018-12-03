@@ -61,19 +61,6 @@
                     });
                 </script>
             </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">场地合同</label>
-                <div class="col-sm-9">
-                    <div class="la3"></div>
-                </div>
-                <script>
-                    picWall({
-                        element: '.la3',
-                        image: '<?=$model->field_photo?>',
-                    });
-                </script>
-            </div>
             <?php if ($model->status == 8): ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">

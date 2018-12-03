@@ -45,7 +45,7 @@ class RecordController extends CommonController
         if (in_array($model->status, [5, 9]) && \Yii::$app->request->isPost) {
             $data = \Yii::$app->request->post();
             if ($model->load(['Field' => $data]) && $model->validate()) {
-                $model->status = 7;
+                $model->status = 8;
                 if ($model->save()) {
                     Msg::set('提交成功');
                     return $this->redirect(['list']);
@@ -57,7 +57,7 @@ class RecordController extends CommonController
     }
 
     /**
-     * 备案失败/资料有误
+     * 备案失败
      * @param $id
      * @param $remark
      * @return string|\yii\web\Response
