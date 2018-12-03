@@ -48,8 +48,6 @@ class IndexController extends BasisController
         return $this->render('details', ['model' => Field::getDetailFields($no), 'recommends' => Field::getRecommendField(8)]);
     }
 
-    public function action
-
     public function actionNotFind()
     {
         return $this->render('404');
