@@ -277,7 +277,10 @@ class Field extends \yii\db\ActiveRecord
      */
     public static function getDetailFields($no = '')
     {
-        return self::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
+        $model = self::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
+        $model->click += 1;
+        $model->save();
+        return $model;
     }
 
     /**
