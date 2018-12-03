@@ -233,7 +233,7 @@
         <ul class="bnner_nav">
             <?php foreach (\vendor\en\Menu::getMenu() as $v): ?>
                 <a href="<?= $v['url'] ?>">
-                    <li <?= $v['name'] == '场地介绍' ? 'class="nav_active"' : '' ?>><?= $v['name'] ?></li>
+                    <li <?= $v['name'] == '场地搜索' ? 'class="nav_active"' : '' ?>><?= $v['name'] ?></li>
                 </a>
             <?php endforeach; ?>
         </ul>
