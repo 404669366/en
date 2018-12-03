@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Constant;
 use Yii;
 
 /**
@@ -40,7 +41,7 @@ class Ident extends \yii\db\ActiveRecord
         return [
             [['user_id', 'area_id', 'bank_type', 'type', 'status', 'created'], 'integer'],
             [['name'], 'string', 'max' => 20],
-            [['address','remark'], 'string', 'max' => 255],
+            [['address', 'remark'], 'string', 'max' => 255],
             [['card_positive', 'card_opposite', 'money_ident'], 'string', 'max' => 500],
             [['bank_no'], 'string', 'max' => 30],
         ];
@@ -67,5 +68,45 @@ class Ident extends \yii\db\ActiveRecord
             'status' => '状态',
             'created' => '创建时间',
         ];
+    }
+
+    /**
+     * 关联普通用户表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCobber()
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * 关联地域表
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArea()
+    {
+        return $this->hasOne(Area::class, ['area_id' => 'area_id']);
+    }
+
+    /**
+     * 获取分页数据
+     * @return mixed
+     */
+    public static function getPageData()
+    {
+        $data = self::find()->alias('i')
+            ->leftJoin(Area::tableName() . ' a', 'a.area_id=i.area_id')
+            ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id')
+            ->select(['i.*', 'u.tel', 'a.full_name'])->page([
+                'name' => ['like', 'name'],
+                'full_name' => ['like', 'full_name'],
+                'type' => ['=', 'type'],
+                'tel' => ['=', 'tel'],
+            ]);
+        foreach ($data['data'] as &$v) {
+            $v['type'] = Constant::getCobberType()[$v['type']];
+            $v['created'] = date('Y-m-d H:i:s', $v['created']);
+        }
+        return $data;
     }
 }
