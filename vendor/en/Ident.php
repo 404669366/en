@@ -116,13 +116,15 @@ class Ident extends \yii\db\ActiveRecord
             ->leftJoin(Area::tableName() . ' a', 'a.area_id=i.area_id')
             ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id')
             ->select(['i.*', 'u.tel', 'a.full_name'])->page([
-                'name' => ['like', 'name'],
-                'full_name' => ['like', 'full_name'],
-                'type' => ['=', 'type'],
-                'tel' => ['=', 'tel'],
+                'name' => ['like', 'i.name'],
+                'full_name' => ['like', 'a.full_name'],
+                'type' => ['=', 'i.type'],
+                'status' => ['=', 'i.status'],
+                'tel' => ['=', 'u.tel'],
             ]);
         foreach ($data['data'] as &$v) {
             $v['type'] = Constant::getCobberType()[$v['type']];
+            $v['status'] = Constant::getCobberStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
         return $data;
