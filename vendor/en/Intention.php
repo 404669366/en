@@ -124,4 +124,17 @@ class Intention extends \yii\db\ActiveRecord
         }
         return $re;
     }
+
+    /**
+     * 意向数据
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getIntentionData()
+    {
+        $data = self::find()->alias('i')
+            ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
+            ->select(['i.*', 'f.no field_no'])
+            ->where(['i.user_id' => \Yii::$app->user->id])->asArray()->all();
+        return $data;
+    }
 }

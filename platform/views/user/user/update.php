@@ -46,6 +46,7 @@
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
+            <li><a href="/user/intention/list.html">我的意向</a></li>
             <?php if ($basisData['isCobber']): ?>
                 <li><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php endif; ?>
@@ -62,27 +63,28 @@
                 修改密码
             </div>
             <!--tab内容2-->
-            <form action="/site/password/" method="post" id="updatePwd">
+            <form action="/user/user/modify-password.html" method="post" id="updatePwd">
                 <ul class="change_pwd">
+                    <input type="hidden" name="_csrf" value="=<?= Yii::$app->request->csrfToken ?>">
                     <li>
                         <span>输入旧密码：</span>
-                        <input type="password" name="password" id="password" placeholder="请输入密码"
-                               validate="notNull,minLength" validatedata="minLength=6" validatename="密码" maxlength="20">
+                        <input type="password" name="password" id="password" placeholder="输入旧密码"
+                               validate="notNull,minLength" validatedata="minLength=8" validatename="密码" maxlength="20">
                     </li>
                     <li>
                         <span>设置新密码：</span>
-                        <input type="password" name="newPassword" id="password1" placeholder="请输入新密码"
+                        <input type="password" name="password1" id="password1" placeholder="请输入新密码"
                                validate="notNull,minLength,isStandard" validatedata="minLength=8" validatename="密码"
                                maxlength="20">
                     </li>
                     <li>
                         <span>确认新密码：</span>
                         <input type="password" placeholder="请确认新密码" validate="notNull,isSame"
-                               validatedata="isSame=#password1" validatename="确认新密码" maxlength="20">
+                               name="password2" validatedata="isSame=#password1" validatename="密码" maxlength="20">
                     </li>
                     <li>
                         <span></span>
-                        <button>保存修改</button>
+                        <button type="submit">保存修改</button>
                     </li>
                 </ul>
             </form>

@@ -45,8 +45,8 @@
         <p class="welcome">欢迎你，<?= $basisData['user']['tel'] ?></p>
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
-            <li class="actives"><a href="/user/user/basis-field.html">基础场地</a></li>
-            <li><a href="/user/intention/list.html">我的意向</a></li>
+            <li><a href="/user/user/basis-field.html">基础场地</a></li>
+            <li class="actives"><a href="/user/intention/list.html">我的意向</a></li>
             <?php if ($basisData['isCobber']): ?>
                 <li><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php endif; ?>
@@ -60,19 +60,24 @@
         <!--盒子里面的内容1-->
         <div class="inner_Cont">
             <div class="userTit">
-                共发布<span><?= count($basis) ?></span>个基础场地<a href="/user/release/release-basis.html"><strong style="float: right;cursor: pointer;color: #3072F6">发布场地</strong></a>
+                共有<span><?= count($model) ?></span>个场地意向<a href="/user/release/release-basis.html"><strong
+                            style="float: right;cursor: pointer;color: #3072F6">发布场地</strong></a>
             </div>
             <ul class="tab_cont">
                 <li style="height: 20px;width: 718px">
-                    <div style="width: 226px;float: left;text-align: center">地理位置</div>
-                    <div style="width: 226px;float: left;text-align: center">详细地址</div>
-                    <div style="width: 226px;float: left;text-align: center">创建时间</div>
+                    <div style="width: 179.5px;float: left;text-align: center">场地编号</div>
+                    <div style="width: 179.5px;float: left;text-align: center">意向编号</div>
+                    <div style="width: 179.5px;float: left;text-align: center">意向金额</div>
+                    <div style="width: 179.5px;float: left;text-align: center">创建时间</div>
                 </li>
-                <?php foreach ($basis as $v): ?>
+                <?php foreach ($model as $v): ?>
                     <li style="height: 20px;width: 718px">
-                        <div style="width: 226px;float: left;text-align: center"> <?= $v['full_name'] ?></div>
-                        <div style="width: 226px;float: left;text-align: center"> <?= $v['address'] ?></div>
-                        <div style="width: 226px;float: left;text-align: center"> <?= date('Y-m-d H:i:s', $v['created']) ?></div>
+                        <div style="width: 179.5px;float: left;text-align: center"><a
+                                    href="/index/index/details.html?no=<?= $v['field_no'] ?>"><?= $v['field_no'] ?></a>
+                        </div>
+                        <div style="width: 179.5px;float: left;text-align: center"><?= $v['no'] ?></div>
+                        <div style="width: 179.5px;float: left;text-align: center"><?= $v['money'] ?></div>
+                        <div style="width: 179.5px;float: left;text-align: center"><?= date('Y-m-d H:i:s', $v['created']) ?></div>
                     </li>
                 <?php endforeach; ?>
                 <!--清除浮动-->

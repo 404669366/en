@@ -46,6 +46,7 @@
         <ul>
             <li class="actives"><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
+            <li><a href="/user/intention/list.html">我的意向</a></li>
             <?php if ($basisData['isCobber']): ?>
                 <li><a href="/user/user/track-field.html">场地跟踪</a></li>
             <?php endif; ?>
