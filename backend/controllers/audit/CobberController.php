@@ -6,7 +6,7 @@
  * Time: 21:51
  */
 
-namespace app\controllers\governor;
+namespace app\controllers\audit;
 
 
 use app\controllers\basis\CommonController;
@@ -22,7 +22,7 @@ class CobberController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list', ['type' => Constant::getCobberType()]);
+        return $this->render('list', ['type' => Constant::getCobberType(), 'status' => Constant::getCobberStatus()]);
     }
 
     /**
@@ -42,7 +42,7 @@ class CobberController extends CommonController
     public function actionDetail($id)
     {
         $model = Ident::findOne($id);
-        return $this->render('detail', ['model' => $model, 'type' => Constant::getCobberType(), 'bank' => Constant::getBankType()]);
+        return $this->render('detail', ['model' => $model, 'types' => Constant::getCobberType(), 'bank' => Constant::getBankType(), 'status' => Constant::getCobberStatus()]);
     }
 
     /**
@@ -54,8 +54,8 @@ class CobberController extends CommonController
     {
         Msg::set('非法操作');
         if ($model = Ident::findOne(['id' => $id, 'status' => [0, 3]])) {
-            $model->status = $model->status == 0 ? 1 : 4;
             $model->type = $model->status == 0 ? 1 : 2;
+            $model->status = $model->status == 0 ? 1 : 4;
             if ($model->save()) {
                 Msg::set('审核通过');
             } else {

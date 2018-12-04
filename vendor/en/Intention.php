@@ -8,7 +8,7 @@ use vendor\helpers\Constant;
  * This is the model class for table "{{%intention}}".
  *
  * @property int $id
- * @property string $user_id 场地方ID
+ * @property string $user_id 投资方ID
  * @property int $field_id 场地ID
  * @property int $no 意向编号
  * @property string $money 预购金额
@@ -47,7 +47,7 @@ class Intention extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'no' => '意向编号',
-            'user_id' => '场地方ID',
+            'user_id' => '投资方ID',
             'field_id' => '场地ID',
             'money' => '预购金额',
             'contract_photo' => '投资合同',
@@ -66,32 +66,32 @@ class Intention extends \yii\db\ActiveRecord
     }
 
     /**
-     * 意向列表数据
-     * @param int $userId
-     * @param string $no
-     * @return $this|mixed
+     * 关联场地表
+     * @return \yii\db\ActiveQuery
      */
-    public static function getIntentionData($userId = 0, $no = '')
+    public function getField()
+    {
+        return $this->hasOne(Field::class, ['id' => 'field_id']);
+    }
+
+    /**
+     * 意向列表数据
+     * @return mixed
+     */
+    public static function getPageData()
     {
         $data = self::find()->alias('i')
             ->leftJoin(Field::tableName() . ' f', 'f.id=i.field.id')
-            ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id');
-        if (isset($userId) && $userId) {
-            $data->where(['user_id' => $userId]);
-        }
-        if (isset($no) && $no) {
-            $data->andWhere(['no' => $no]);
-        }
-        $data = $data->select(['i.*', 'f.no', 'u.tel'])
+            ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id')
+            ->select(['i.*', 'f.no', 'u.tel'])
             ->page([
                 'no' => ['=', 'f.no'],
                 'tel' => ['=', 'u.tel'],
                 'status' => ['=', 'i.status']
             ]);
         foreach ($data['data'] as $v) {
-            $v['status'] = Constant::getFieldStatus($v['status']);
+            $v['status'] = Constant::getIntentionStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
-            $v['contract_photo'] = explode(',', $v['contract_photo']);
         }
         return $data;
     }
