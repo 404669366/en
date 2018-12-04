@@ -60,8 +60,7 @@
         <!--盒子里面的内容1-->
         <div class="inner_Cont">
             <div class="userTit">
-                共有<span><?= count($model) ?></span>个场地意向<a href="/user/release/release-basis.html"><strong
-                            style="float: right;cursor: pointer;color: #3072F6">发布场地</strong></a>
+                共有<span><?= count($model) ?></span>个场地意向
             </div>
             <ul class="tab_cont">
                 <li style="height: 20px;width: 718px">

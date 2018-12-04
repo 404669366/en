@@ -13,6 +13,7 @@ use vendor\helpers\Constant;
  * @property int $no 意向编号
  * @property string $money 预购金额
  * @property string $contract_photo 投资合同
+ * @property string $money_audit 转账凭证
  * @property string $ratio 分成比例
  * @property string $remark 备注
  * @property string $created 创建时间
@@ -33,9 +34,11 @@ class Intention extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'field_id'], 'integer'],
-            [['money', 'ratio', 'created', 'remark'], 'string', 'max' => 255],
-            [['contract_photo'], 'string', 'max' => 1000],
+            [['user_id', 'field_id', 'money'], 'required'],
+            [['money', 'ratio'], 'number'],
+            [['user_id', 'field_id', 'created'], 'integer'],
+            [['remark'], 'string', 'max' => 255],
+            [['contract_photo', 'money_audit'], 'string', 'max' => 1000],
             [['no'], 'string', 'max' => 20],
         ];
     }
@@ -52,6 +55,7 @@ class Intention extends \yii\db\ActiveRecord
             'field_id' => '场地ID',
             'money' => '预购金额',
             'contract_photo' => '投资合同',
+            'money_audit' => '转账凭证',
             'ratio' => '分成比例',
             'remark' => '备注',
             'created' => '创建时间',

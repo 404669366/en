@@ -338,8 +338,19 @@
                 <p class="price2 float_left">
                     <?= $model->areas ?>㎡
                 </p>
-                <a href="/user/follow/follow.html?no=<?= $model->no ?>"
-                   style="text-decoration: none;font-size: 18px;float: right;margin-top: 18px;line-height: 22px;color: #919191">关注</a>
+                <a class="guan"
+                   style="text-decoration: none;font-size: 18px;float: right;margin-top: 18px;line-height: 22px;color: #919191;cursor: pointer">关注</a>
+                <script>
+                    var isGuest = '<?=$basisData['isGuest']?>';
+                    var url = '/user/follow/follow.html?no=<?= $model->no ?>';
+                    $('.guan').click(function () {
+                        if (!isGuest) {
+                            window.location.href = url;
+                        } else {
+                            $('.goLogin').click();
+                        }
+                    });
+                </script>
             </div>
 
             <ul class="detailed">
@@ -360,13 +371,66 @@
                 </ul>
                 <!--清除浮动-->
                 <div class="clear"></div>
-                <p class="phone" style="cursor: pointer">我有意向</p>
+                <p class="phone haveIntent" style="cursor: pointer">我有意向</p>
             </div>
         </div>
         <!--清除浮动-->
         <div class="clear"></div>
     </div>
 </div>
+<div class="intent"
+     style="display: none;width: 100%;height: 100%;position: fixed;z-index: 999;background: rgba(0, 0, 0, 0.7);;top: 0;left: 0">
+    <div style="width: 340px;height: 235px;background: #fcfcfc;margin: 300px auto;border-radius: 3px;position: relative">
+        <div class="close"
+             style="position: absolute;right: 15px;top: 15px;height: 20px;line-height: 20px;width: 20px;text-align: center;font-size: 16px;cursor: pointer">
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
+        <div style="width: 310px;height: 200px;position: absolute;top: 35px;padding: 0 15px">
+            <span style="width: 310px;text-align: center;height: 30px;line-height: 30px;font-size: 24px;display: inline-block">我的意向</span>
+            <input class="intentMoney"
+                   style="width: 200px;height: 30px;line-height: 30px;font-size: 16px;display: block;margin: 45px auto 0 auto;"
+                   placeholder="请填写意向金额"/>
+            <span style="width: 310px;text-align: center;height: 30px;font-size: 16px;display: inline-block;margin-top: 30px;">
+                <button class="intentButton" type="button"
+                        style="border: none;border-radius:3px;color: white;background-color: #3072F6;width: 120px;display: inline-block;height: 30px;line-height: 30px;">提交意向</button>
+            </span>
+        </div>
+    </div>
+</div>
+<script>
+    $('.haveIntent').click(function () {
+        if (!isGuest) {
+            var status = '<?=$model->status?>';
+            if (status != 15) {
+                layer.msg('抱歉,融资已结束...');
+                return false;
+            }
+            $('.intent').fadeIn();
+        } else {
+            $('.goLogin').click();
+        }
+    });
+    $('.intent .close').click(function () {
+        $('.intent').fadeOut();
+    });
+    $('.intentButton').click(function () {
+        if ($('.intentMoney').val()) {
+            $.getJSON('/user/intention/add.html', {
+                no: '<?=$model->no?>',
+                money: $('.intentMoney').val()
+            }, function (re) {
+                if (re.type) {
+                    layer.msg('提交成功,工作人员将尽快联系您!');
+                } else {
+                    layer.msg(re.msg);
+                }
+                $('.intent').fadeOut();
+            })
+        } else {
+            layer.msg('请填写意向金额');
+        }
+    });
+</script>
 <!--内容1结束-->
 
 <!--内容2开始-->
