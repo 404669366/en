@@ -489,10 +489,10 @@
         <div id="map" style="width:100%; height: 500px;"></div>
         <script>
             var map = new BMap.Map('map');
-            map.enableScrollWheelZoom(true);
             var point = new BMap.Point('<?=$model->lng?>' || 116.404, '<?=$model->lat?>' || 39.915);
             map.centerAndZoom(point, 16);
             map.addOverlay(new BMap.Marker(point));
+            map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));
         </script>
     </div>
 </div>
