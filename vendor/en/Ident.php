@@ -39,7 +39,9 @@ class Ident extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['user_id', 'area_id', 'bank_type', 'name', 'address', 'card_positive', 'card_opposite', 'bank_no'], 'required'],
             [['user_id', 'area_id', 'bank_type', 'type', 'status', 'created'], 'integer'],
+            [['money_ident'], 'validateMoneyIdent'],
             [['name'], 'string', 'max' => 20],
             [['address', 'remark'], 'string', 'max' => 255],
             [['card_positive', 'card_opposite', 'money_ident'], 'string', 'max' => 500],
@@ -56,7 +58,7 @@ class Ident extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_id' => '用户ID',
             'name' => '真实姓名',
-            'area_id' => '地域ID',
+            'area_id' => '地域',
             'address' => '联系地址',
             'card_positive' => '身份证正面',
             'card_opposite' => '身份证反面',
@@ -68,6 +70,21 @@ class Ident extends \yii\db\ActiveRecord
             'status' => '状态',
             'created' => '创建时间',
         ];
+    }
+
+    /**
+     * 自定义验证方法验证打款凭证
+     * @return bool
+     */
+    public function validateMoneyIdent()
+    {
+        if ($this->type) {
+            if (!$this->money_ident) {
+                $this->addError('money_ident', '请上传打款凭证');
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

@@ -11,9 +11,10 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/user.css"/>
     <!--引入字体-->
     <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css"/>
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/area.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/upload/upload.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <?php \vendor\helpers\Msg::run('PopupMsg') ?>
@@ -62,33 +63,128 @@
             <div class="userTit">
                 认证合伙人
             </div>
-            <!--tab内容2-->
-            <form action="/site/password/" method="post" id="updatePwd">
-                <ul class="change_pwd">
-                    <?php if(!$basisData['isCobber']):?>
-                    <li>
-                        <span>输入旧密码：</span>
-                        <input type="password" name="password" id="password" placeholder="请输入密码"
-                               validate="notNull,minLength" validatedata="minLength=6" validatename="密码" maxlength="20">
-                    </li>
-                    <li>
-                        <span>设置新密码：</span>
-                        <input type="password" name="newPassword" id="password1" placeholder="请输入新密码"
-                               validate="notNull,minLength,isStandard" validatedata="minLength=8" validatename="密码"
-                               maxlength="20">
-                    </li>
-                    <li>
-                        <span>确认新密码：</span>
-                        <input type="password" placeholder="请确认新密码" validate="notNull,isSame"
-                               validatedata="isSame=#password1" validatename="确认新密码" maxlength="20">
-                    </li>
-                    <?php endif;?>
-                    <li>
-                        <span></span>
-                        <button>保存修改</button>
-                    </li>
-                </ul>
-            </form>
+            <?php if (!$basisData['isCobber']): ?>
+                <form action="/user/user/add-ident.html" method="post">
+                    <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+                    <input type="hidden" name="now_type" value="1">
+                    <ul class="change_pwd">
+                        <li class="area">
+                            <span>场地地域 :</span>
+                            <select class="province"
+                                    style="width: auto;text-align: center;text-align-last: center"></select>
+                            <select class="city"
+                                    style="width: auto;text-align: center;text-align-last: center"></select>
+                            <select class="county"
+                                    style="width: auto;text-align: center;text-align-last: center"></select>
+                        </li>
+                        <li>
+                            <span>详细地址：</span>
+                            <input type="text" placeholder="请填写详细地址" name="address" validate="notNull" maxlength="20">
+                        </li>
+                        <li>
+                            <span>银行类型：</span>
+                            <select name="bank_type" style="width: 249px;height: 40px">
+                                <?php foreach (\vendor\helpers\Constant::getBankType() as $k => $v): ?>
+                                    <option value="<?= $k ?>"><?= $v ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </li>
+                        <li>
+                            <span>银行卡号：</span>
+                            <input type="text" placeholder="请填写银行卡号" name="bank_no" validate="notNull" maxlength="20">
+                        </li>
+                        <li>
+                            <span>真实姓名：</span>
+                            <input type="text" placeholder="请填写真实姓名" name="name" validate="notNull" maxlength="20">
+                        </li>
+                        <li>
+                            <span>身份证正面：</span>
+                            <div class="card_positive"></div>
+                            <script>
+                                upload({
+                                    element: '.card_positive',
+                                    name: 'card_positive',
+                                    height: 10
+                                });
+                            </script>
+                        </li>
+                        <li>
+                            <span>身份证反面：</span>
+                            <div class="card_opposite"></div>
+                            <script>
+                                upload({
+                                    element: '.card_opposite',
+                                    name: 'card_opposite',
+                                    height: 10
+                                });
+                            </script>
+                        </li>
+                        <li class="formal" style="text-align: center;height: 30px;line-height: 30px;cursor: pointer">
+                            申请成为正式合伙人
+                        </li>
+                        <li class="moneyIdent" style="display: none">
+                            <span>打款凭证：</span>
+                            <div class="money_ident"></div>
+                            <script>
+                                upload({
+                                    element: '.money_ident',
+                                    name: 'money_ident',
+                                    max: 4,
+                                    height: 10
+                                });
+                            </script>
+                        </li>
+                        <li class="ordinary"
+                            style="text-align: center;height: 30px;line-height: 30px;cursor: pointer;display: none">
+                            申请成为普通合伙人
+                        </li>
+                        <li>
+                            <span></span>
+                            <button type="submit">开始认证</button>
+                        </li>
+                    </ul>
+                </form>
+                <script>
+                    $('.formal').click(function () {
+                        $('.moneyIdent').fadeIn();
+                        $('.ordinary').fadeIn();
+                        $(this).fadeOut();
+                        $('[name="now_type"]').val(2);
+                    });
+                    $('.ordinary').click(function () {
+                        $('.moneyIdent').fadeOut();
+                        $(this).fadeOut();
+                        $('.formal').fadeIn();
+                        $('[name="now_type"]').val(1);
+                    });
+                </script>
+            <?php endif; ?>
+            <?php if ($basisData['isCobber'] && $basisData['isCobber']->type == 1): ?>
+                <form action="/user/user/update-ident.html?id=<?=$basisData['isCobber']->id?>" method="post">
+                    <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+                    <ul class="change_pwd">
+                        <li>
+                            <span>打款凭证：</span>
+                            <div class="money_ident"></div>
+                            <script>
+                                upload({
+                                    element: '.money_ident',
+                                    name: 'money_ident',
+                                    max: 4,
+                                    height: 10
+                                });
+                            </script>
+                        </li>
+                        <li style="text-align: center;height: 30px;line-height: 30px;cursor: pointer;">
+                            申请成为正式合伙人
+                        </li>
+                        <li>
+                            <span></span>
+                            <button type="submit">开始认证</button>
+                        </li>
+                    </ul>
+                </form>
+            <?php endif; ?>
         </div>
     </div>
     <!--清除浮动-->
