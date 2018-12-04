@@ -7,7 +7,18 @@ function area(config) {
 
     $(config.element).append('<input type="hidden" name="' + (config.name || 'area_id') + '"/>');
 
-    getData();
+    if (config.def) {
+        setVal(config.def);
+        $.getJSON('/basis/area/def.html', {area_id: config.def}, function (re) {
+            if (re.type) {
+                $(config.element).find('.province').html(re.data.province);
+                $(config.element).find('.city').html(re.data.city);
+                $(config.element).find('.county').html(re.data.county);
+            }
+        });
+    } else {
+        getData();
+    }
 
     $(config.element).find('.province').html(def['province']).change(function () {
         getData($(this).val(), 'city');
@@ -46,8 +57,10 @@ function area(config) {
 
 $(function () {
     var area_name = $('.area').attr('name') || 'area_id';
+    var def = $('.area').attr('def') || '';
     area({
         element: '.area',
         name: area_name,
+        def: def
     });
 });

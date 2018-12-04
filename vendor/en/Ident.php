@@ -39,6 +39,7 @@ class Ident extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['user_id'], 'unique'],
             [['user_id', 'area_id', 'bank_type', 'name', 'address', 'card_positive', 'card_opposite', 'bank_no'], 'required'],
             [['user_id', 'area_id', 'bank_type', 'type', 'status', 'created'], 'integer'],
             [['money_ident'], 'validateMoneyIdent'],
@@ -78,7 +79,7 @@ class Ident extends \yii\db\ActiveRecord
      */
     public function validateMoneyIdent()
     {
-        if ($this->type) {
+        if ($this->status == 3) {
             if (!$this->money_ident) {
                 $this->addError('money_ident', '请上传打款凭证');
                 return false;
