@@ -224,7 +224,7 @@
                     </div>
                 </div>
             <?php endif; ?>
-            <?php if (in_array($model->status, [6, 12, 16, 20])): ?>
+            <?php if (in_array($model->status, [6, 12, 16])): ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">驳回说明</label>
