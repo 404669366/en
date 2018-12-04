@@ -174,7 +174,7 @@ body{
 }
 /*修改密码*/
 .change_pwd {
-    width: 350px;
+    width: 600px;
     margin: 60px auto;
 }
 .change_pwd li {
@@ -186,7 +186,7 @@ body{
     font-size: 14px;
 }
 
-.change_pwd li input {
+.change_pwd li input,.change_pwd li select {
     width: 237px;
     height: 38px;
     border: 1px solid #c8c8c8;
@@ -200,7 +200,6 @@ body{
     color: #fff;
     text-align: center;
     vertical-align: middle;
-    float: right;
     line-height: 40px;
     border: none;
 }

@@ -12,6 +12,7 @@ namespace app\controllers\user;
 use app\controllers\basis\CommonController;
 use vendor\en\BasisField;
 use vendor\en\Follow;
+use vendor\en\Ident;
 
 class UserController extends CommonController
 {
@@ -31,6 +32,48 @@ class UserController extends CommonController
     public function actionIdent()
     {
         return $this->render('ident');
+    }
+
+    /**
+     * 合伙人认证提交
+     * @return string
+     */
+    public function actionAddIdent()
+    {
+        if (\Yii::$app->request->isPost && $user_id = \Yii::$app->user->id) {
+            $post = \Yii::$app->request->post();
+            $model = new Ident();
+            $model->created = time();
+            $model->user_id = $user_id;
+            if (isset($post['now_type']) && $post['now_type'] == 2) {
+                $model->status = 3;
+            }
+            if ($model->load(['Ident' => $post]) && $model->validate() && $model->save()) {
+                return $this->render('ident', [], '提交成功,请等待审核');
+            }
+            return $this->render('ident', [], $model->errors());
+        }
+        return $this->render('ident', [], '非法操作');
+    }
+
+    /**
+     * 合伙人认证升级
+     * @param int $id
+     * @return string
+     */
+    public function actionUpdateIdent($id = 0)
+    {
+        if (\Yii::$app->request->isPost && $user_id = \Yii::$app->user->id) {
+            $post = \Yii::$app->request->post();
+            if ($model = Ident::findOne(['id' => $id, 'user_id' => $user_id])) {
+                $model->status = 3;
+                if ($model->load(['Ident' => $post]) && $model->validate() && $model->save()) {
+                    return $this->render('ident', [], '提交成功,请等待审核');
+                }
+                return $this->render('ident', [], $model->errors());
+            }
+        }
+        return $this->render('ident', [], '非法操作');
     }
 
     /**

@@ -43,3 +43,11 @@ function area(config) {
         $(config.element).find('[name="' + (config.name || 'area_id') + '"]').val(val);
     }
 }
+
+$(function () {
+    var area_name = $('.area').attr('name') || 'area_id';
+    area({
+        element: '.area',
+        name: area_name,
+    });
+});
