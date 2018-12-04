@@ -83,7 +83,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public static function isCobber()
     {
         if ($user_id = Yii::$app->user->id) {
-            return Ident::findOne(['user_id' => $user_id, 'status' => [1, 4]]);
+            if ($model = Ident::findOne(['user_id' => $user_id, 'status' => [1, 3, 4, 5]])) {
+                if (in_array($model->type, [1, 2])) {
+                    return $model->type;
+                }
+            }
         }
         return false;
     }
