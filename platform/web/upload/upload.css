@@ -62,8 +62,8 @@
 
 .myUpload .myUploadImgDel{
     float: right;
-    width: 5rem;
-    height: 100%;
+    width: 3rem;
+    height: 90%;
     background-image: url("img/del.png");
     background-repeat: no-repeat;
     background-position: center;

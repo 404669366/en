@@ -193,8 +193,9 @@ body{
     padding: 0 5px;
 }
 .change_pwd li button{
+	float: left;
     text-decoration: none;
-    width: 251px;
+    width: 180px;
     background-color: #3072f6;
     cursor: pointer;
     color: #fff;
@@ -202,5 +203,20 @@ body{
     vertical-align: middle;
     line-height: 40px;
     border: none;
+}
+
+.change_pwd li a{
+	float: right;
+	text-decoration: none;
+	margin-left: 20px;
+	width: 180px;
+	background-color: #aa1111;
+	cursor: pointer;
+	color: #fff;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 40px;
+	border: none;
+	display: block;
 }
 /*content end*/

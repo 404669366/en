@@ -15,6 +15,7 @@
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/area.js" type="text/javascript" charset="utf-8"></script>
     <script src="/upload/upload.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/sinlar/sinlar.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <?php \vendor\helpers\Msg::run('PopupMsg') ?>
@@ -63,7 +64,7 @@
             <div class="userTit">
                 认证合伙人
             </div>
-            <?php if (!$basisData['isCobber']): ?>
+            <?php if (!$model): ?>
                 <form action="/user/user/add-ident.html" method="post">
                     <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
                     <input type="hidden" name="now_type" value="1">
@@ -159,29 +160,196 @@
                     });
                 </script>
             <?php endif; ?>
-            <?php if ($basisData['isCobber'] && $basisData['isCobber']->type == 1): ?>
-                <form action="/user/user/update-ident.html?id=<?=$basisData['isCobber']->id?>" method="post">
+            <?php if ($model): ?>
+                <form action="/user/user/add-ident.html?id=<?= in_array($model->status, [1, 2, 5]) ? $model->id : '' ?>"
+                      method="post">
                     <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
                     <ul class="change_pwd">
                         <li>
-                            <span>打款凭证：</span>
-                            <div class="money_ident"></div>
+                            <span>认证状态 :</span>
+                            <input type="text"
+                                   placeholder="<?= \vendor\helpers\Constant::getCobberStatus()[$model->status] ?>"
+                                   readonly>
+                        </li>
+                        <?php if ($model->status == 2): ?>
+                            <li class="area" def="<?= $model->area_id ?>">
+                                <span>场地地域 :</span>
+                                <select class="province"
+                                        style="width: auto;text-align: center;text-align-last: center"></select>
+                                <select class="city"
+                                        style="width: auto;text-align: center;text-align-last: center"></select>
+                                <select class="county"
+                                        style="width: auto;text-align: center;text-align-last: center"></select>
+                            </li>
+                            <li>
+                                <span>详细地址：</span>
+                                <input type="text" placeholder="请填写详细地址" name="address" validate="notNull"
+                                       maxlength="20" value="<?= $model->address ?>">
+                            </li>
+                            <li>
+                                <span>银行类型：</span>
+                                <select name="bank_type" style="width: 249px;height: 40px">
+                                    <?php foreach (\vendor\helpers\Constant::getBankType() as $k => $v): ?>
+                                        <option value="<?= $k ?>" <?= $model->bank_type == $k ? 'selected' : '' ?>><?= $v ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </li>
+                            <li>
+                                <span>银行卡号：</span>
+                                <input type="text" placeholder="请填写银行卡号" name="bank_no" validate="notNull"
+                                       maxlength="30" value="<?= $model->bank_no ?>">
+                            </li>
+                            <li>
+                                <span>真实姓名：</span>
+                                <input type="text" placeholder="请填写真实姓名" name="name" validate="notNull" maxlength="20"
+                                       value="<?= $model->name ?>">
+                            </li>
+                            <li>
+                                <span>身份证正面：</span>
+                                <div class="card_positive"></div>
+                                <script>
+                                    upload({
+                                        element: '.card_positive',
+                                        name: 'card_positive',
+                                        height: 10,
+                                        default: '<?=$model->card_positive?>'
+                                    });
+                                </script>
+                            </li>
+                            <li>
+                                <span>身份证反面：</span>
+                                <div class="card_opposite"></div>
+                                <script>
+                                    upload({
+                                        element: '.card_opposite',
+                                        name: 'card_opposite',
+                                        height: 10,
+                                        default: '<?=$model->card_opposite?>'
+                                    });
+                                </script>
+                            </li>
+                        <?php else: ?>
+                            <li>
+                                <span>场地地域 :</span>
+                                <input type="text" placeholder="<?= $model->area->full_name ?>" readonly>
+                            </li>
+                            <li>
+                                <span>详细地址：</span>
+                                <input type="text" placeholder="<?= $model->address ?>" readonly>
+                            </li>
+                            <li>
+                                <span>银行类型：</span>
+                                <input type="text"
+                                       placeholder="<?= \vendor\helpers\Constant::getBankType()[$model->bank_type] ?>"
+                                       readonly>
+                            </li>
+                            <li>
+                                <span>银行卡号：</span>
+                                <input type="text" placeholder="<?= $model->bank_no ?>" readonly>
+                            </li>
+                            <li>
+                                <span>真实姓名：</span>
+                                <input type="text" placeholder="<?= $model->name ?>" readonly>
+                            </li>
+                            <li>
+                                <span>身份证正面：</span>
+                                <div class="card_positive"></div>
+                                <script>
+                                    picWall({
+                                        element: '.card_positive',
+                                        image: '<?=$model->card_positive?>'
+                                    });
+                                </script>
+                            </li>
+                            <li>
+                                <span>身份证反面：</span>
+                                <div class="card_opposite"></div>
+                                <script>
+                                    picWall({
+                                        element: '.card_opposite',
+                                        image: '<?=$model->card_opposite?>'
+                                    });
+                                </script>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($model->status == 5): ?>
+                            <li>
+                                <span>打款凭证：</span>
+                                <div class="money_ident"></div>
+                                <script>
+                                    upload({
+                                        element: '.money_ident',
+                                        name: 'money_ident',
+                                        max: 4,
+                                        height: 10,
+                                        default: '<?=$model->money_ident?>'
+                                    });
+                                </script>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (in_array($model->status, [3, 4])): ?>
+                            <li>
+                                <span>打款凭证：</span>
+                                <div class="money_ident"></div>
+                                <script>
+                                    picWall({
+                                        element: '.money_ident',
+                                        image: '<?=$model->money_ident?>'
+                                    });
+                                </script>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (in_array($model->status, [2, 5])): ?>
+                            <li>
+                                <span>驳回说明：</span>
+                                <div style="height: 100px;width: 100%;margin-top: 4px;text-indent: 24px"><?= $model->remark ?></div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <button type="submit">开始认证</button>
+                                <a href="/user/user/del-ident.html" style="">撤销认证</a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($model->status == 1): ?>
+                            <li class="formal"
+                                style="text-align: center;height: 30px;line-height: 30px;cursor: pointer">
+                                申请成为正式合伙人
+                            </li>
+                            <li class="moneyIdent" style="display: none">
+                                <span>打款凭证：</span>
+                                <div class="money_ident"></div>
+                                <script>
+                                    upload({
+                                        element: '.money_ident',
+                                        name: 'money_ident',
+                                        max: 4,
+                                        height: 10
+                                    });
+                                </script>
+                            </li>
+                            <li class="ordinary"
+                                style="text-align: center;height: 30px;line-height: 30px;cursor: pointer;display: none">
+                                暂不申请
+                            </li>
+                            <li class="sub" style="display: none">
+                                <span></span>
+                                <button type="submit">开始认证</button>
+                            </li>
                             <script>
-                                upload({
-                                    element: '.money_ident',
-                                    name: 'money_ident',
-                                    max: 4,
-                                    height: 10
+                                $('.formal').click(function () {
+                                    $('.moneyIdent').fadeIn();
+                                    $('.ordinary').fadeIn();
+                                    $('.sub').fadeIn();
+                                    $(this).fadeOut();
+                                });
+                                $('.ordinary').click(function () {
+                                    $('.moneyIdent').fadeOut();
+                                    $('.sub').fadeOut();
+                                    $(this).fadeOut();
+                                    $('.formal').fadeIn();
                                 });
                             </script>
-                        </li>
-                        <li style="text-align: center;height: 30px;line-height: 30px;cursor: pointer;">
-                            申请成为正式合伙人
-                        </li>
-                        <li>
-                            <span></span>
-                            <button type="submit">开始认证</button>
-                        </li>
+                        <?php endif; ?>
                     </ul>
                 </form>
             <?php endif; ?>

@@ -13,6 +13,7 @@ use app\controllers\basis\CommonController;
 use vendor\en\BasisField;
 use vendor\en\Follow;
 use vendor\en\Ident;
+use vendor\helpers\Msg;
 
 class UserController extends CommonController
 {
@@ -31,49 +32,52 @@ class UserController extends CommonController
      */
     public function actionIdent()
     {
-        return $this->render('ident');
+        return $this->render('ident', ['model' => Ident::findOne(['user_id' => \Yii::$app->user->id])]);
     }
 
     /**
      * 合伙人认证提交
-     * @return string
-     */
-    public function actionAddIdent()
-    {
-        if (\Yii::$app->request->isPost && $user_id = \Yii::$app->user->id) {
-            $post = \Yii::$app->request->post();
-            $model = new Ident();
-            $model->created = time();
-            $model->user_id = $user_id;
-            if (isset($post['now_type']) && $post['now_type'] == 2) {
-                $model->status = 3;
-            }
-            if ($model->load(['Ident' => $post]) && $model->validate() && $model->save()) {
-                return $this->render('ident', [], '提交成功,请等待审核');
-            }
-            return $this->render('ident', [], $model->errors());
-        }
-        return $this->render('ident', [], '非法操作');
-    }
-
-    /**
-     * 合伙人认证升级
      * @param int $id
-     * @return string
+     * @return \yii\web\Response
      */
-    public function actionUpdateIdent($id = 0)
+    public function actionAddIdent($id = 0)
     {
         if (\Yii::$app->request->isPost && $user_id = \Yii::$app->user->id) {
             $post = \Yii::$app->request->post();
             if ($model = Ident::findOne(['id' => $id, 'user_id' => $user_id])) {
-                $model->status = 3;
-                if ($model->load(['Ident' => $post]) && $model->validate() && $model->save()) {
-                    return $this->render('ident', [], '提交成功,请等待审核');
+                if ($model->status == 5 || $model->status == 1) {
+                    $model->status = 3;
+                } else {
+                    $model->status = 0;
                 }
-                return $this->render('ident', [], $model->errors());
+            } else {
+                $model = new Ident();
+                $model->user_id = $user_id;
+                if (isset($post['now_type']) && $post['now_type'] == 2) {
+                    $model->status = 3;
+                }
             }
+            $model->created = time();
+            if ($model->load(['Ident' => $post]) && $model->validate() && $model->save()) {
+                return $this->redirect(['ident'], '提交成功,请等待审核');
+            }
+            return $this->redirect(['ident'], $model->errors());
         }
-        return $this->render('ident', [], '非法操作');
+        return $this->redirect(['ident'], '非法操作');
+    }
+
+    /**
+     * 撤销合伙人认证
+     * @return string
+     */
+    public function actionDelIdent()
+    {
+        Msg::set('非法操作');
+        if ($model = Ident::findOne(['user_id' => \Yii::$app->user->id, 'status' => [2, 5]])) {
+            $model->delete();
+            Msg::set('撤销成功');
+        }
+        return $this->redirect(['ident']);
     }
 
     /**
