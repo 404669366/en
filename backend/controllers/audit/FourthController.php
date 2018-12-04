@@ -15,7 +15,7 @@ use vendor\en\Intention;
 use vendor\helpers\Constant;
 use vendor\helpers\Msg;
 
-class FouthController extends CommonController
+class FourthController extends CommonController
 {
     /**
      * 四审列表
@@ -42,11 +42,7 @@ class FouthController extends CommonController
      */
     public function actionDetail($id)
     {
-        return $this->render(
-            'detail', ['model' => Field::findOne(['id' => $id, 'status' => [14, 15, 16]]),
-            'status' => Constant::getFieldStatus(),
-            'types' => Constant::getFieldType(),
-        ]);
+        return $this->render('detail', ['model' => Intention::findOne($id),]);
     }
 
     /**
@@ -56,16 +52,17 @@ class FouthController extends CommonController
      */
     public function actionPass($id)
     {
-        Msg::set('真实场地不存在');
-        if ($model = Field::findOne(['id' => $id, 'status' => 14])) {
-            $model->status = 15;
-            if ($model->save()) {
+        Msg::set('意向不存在');
+        if ($model = Intention::findOne(['id' => $id, 'status' => 2])) {
+            $model->status = 3;
+            if ($model->updateRatio() && $model->save()) {
                 Msg::set('保存成功');
                 return $this->redirect('list');
+            } else {
+                Msg::set($model->errors());
             }
-            Msg::set($model->errors());
-            return $this->redirect(['detail?id=' . $id]);
         }
+        return $this->redirect(['detail?id=' . $id]);
     }
 
     /**
@@ -76,15 +73,17 @@ class FouthController extends CommonController
      */
     public function actionNoPass($id, $remark)
     {
-        Msg::set('真实场地不存在');
-        if ($model = Field::findOne(['id' => $id, 'status' => 14])) {
-            $model->status = 16;
+        Msg::set('意向不存在');
+        if ($model = Intention::findOne(['id' => $id, 'status' => 2])) {
+            $model->status = 4;
+            $model->remark = $remark;
             if ($model->save()) {
                 Msg::set('保存成功');
-                return $this->redirect(['list']);
+                return $this->redirect('list');
+            } else {
+                Msg::set($model->errors());
             }
-            Msg::set($model->errors());
-            return $this->redirect('detail?id=' . $id);
         }
+        return $this->redirect(['detail?id=' . $id]);
     }
 }

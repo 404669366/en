@@ -134,9 +134,7 @@ class Constant
             '15' => '三审通过',
             '16' => '三审不通过',
             '17' => '三审后放弃',
-            '18' => '四审中',
-            '19' => '四审通过',
-            '20' => '四审不通过',
+            '18' => '融资完成',
         ];
         if ($keys && is_array($keys)) {
             $new = [];
@@ -157,7 +155,7 @@ class Constant
     public static function getShowStatus()
     {
         return [
-            15, 19
+            15, 18
         ];
     }
 
@@ -171,6 +169,15 @@ class Constant
             '0' => '合伙人上传场地',
             '1' => '专员上传场地'
         ];
+    }
+
+    /**
+     * 融资结束节点(返回百分比)
+     * @return int
+     */
+    public static function getFieldNode()
+    {
+        return 1;
     }
 
     /**

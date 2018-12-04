@@ -14,6 +14,7 @@ use vendor\helpers\Constant;
  * @property string $money 预购金额
  * @property string $contract_photo 投资合同
  * @property string $ratio 分成比例
+ * @property string $remark 备注
  * @property string $created 创建时间
  */
 class Intention extends \yii\db\ActiveRecord
@@ -33,7 +34,7 @@ class Intention extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'field_id'], 'integer'],
-            [['money', 'ratio', 'created'], 'string', 'max' => 255],
+            [['money', 'ratio', 'created', 'remark'], 'string', 'max' => 255],
             [['contract_photo'], 'string', 'max' => 1000],
             [['no'], 'string', 'max' => 20],
         ];
@@ -52,6 +53,7 @@ class Intention extends \yii\db\ActiveRecord
             'money' => '预购金额',
             'contract_photo' => '投资合同',
             'ratio' => '分成比例',
+            'remark' => '备注',
             'created' => '创建时间',
         ];
     }
@@ -81,18 +83,45 @@ class Intention extends \yii\db\ActiveRecord
     public static function getPageData()
     {
         $data = self::find()->alias('i')
-            ->leftJoin(Field::tableName() . ' f', 'f.id=i.field.id')
+            ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
             ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id')
-            ->select(['i.*', 'f.no', 'u.tel'])
+            ->select(['i.*', 'f.no field_no', 'u.tel'])
             ->page([
                 'no' => ['=', 'f.no'],
                 'tel' => ['=', 'u.tel'],
                 'status' => ['=', 'i.status']
             ]);
-        foreach ($data['data'] as $v) {
+        foreach ($data['data'] as &$v) {
             $v['status'] = Constant::getIntentionStatus()[$v['status']];
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
         return $data;
+    }
+
+    /**
+     * 更新场地融资比例
+     * @return mixed
+     */
+    public function updateRatio()
+    {
+        $sum = self::find()->where(['field_id' => $this->field_id])
+            ->andWhere([
+                'or',
+                ['status' => 3],
+                ['id' => $this->id]
+            ])
+            ->select(['sum(money) money'])->asArray()->one();
+        $sum = $sum['money'] ? $sum['money'] : 0;
+        $model = $this->field;
+        $model->financing_ratio = round($sum / $model->budget, 4);
+
+        if ($model->financing_ratio >= Constant::getFieldNode()) {
+            $model->status = 18;
+        }
+        $re = $model->save();
+        if (!$re) {
+            $this->addError('money', '更新场地融资比例出错');
+        }
+        return $re;
     }
 }

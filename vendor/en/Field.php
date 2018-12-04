@@ -58,9 +58,9 @@ class Field extends \yii\db\ActiveRecord
     {
         return [
             [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created', 'click', 'attention'], 'integer'],
-            [['areas'], 'number'],
+            [['areas', 'financing_ratio'], 'number'],
             [['no'], 'string', 'max' => 20],
-            [['level', 'financing_ratio'], 'string', 'max' => 10],
+            [['level'], 'string', 'max' => 10],
             [['address', 'intro', 'record_file', 'remark'], 'string', 'max' => 255],
             [['lng', 'lat'], 'string', 'max' => 50],
             [['image', 'record_photo', 'configure_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
