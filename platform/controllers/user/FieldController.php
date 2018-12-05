@@ -88,10 +88,7 @@ class FieldController extends CommonController
         if ($user_id = \Yii::$app->user->id) {
             if ($model = Field::findOne(['no' => $no, 'cobber_id' => $user_id, 'status' => [1, 6, 11, 16]])) {
                 $post = \Yii::$app->request->post();
-                if ($model->status == 1) {
-                    $model->status = 0;
-                }
-                if ($model->status == 6) {
+                if ($model->status == 1 || $model->status == 6) {
                     $model->status = 4;
                 }
                 if ($model->status == 11 && $model->status == 16) {
