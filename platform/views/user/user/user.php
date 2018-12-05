@@ -48,7 +48,7 @@
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
             <li><a href="/user/intention/list.html">我的意向</a></li>
             <?php if ($basisData['isCobber']): ?>
-                <li><a href="/user/user/track-field.html">场地跟踪</a></li>
+                <li><a href="/user/field/track-field.html">场地跟踪</a></li>
                 <li><a href="/user/intention/manage.html">意向管理</a></li>
             <?php endif; ?>
             <li><a href="/user/user/update.html">修改密码</a></li>
@@ -76,8 +76,8 @@
                             </div>
                         </a>
                         <div class="ps2">
-                            <?= $v['budget'] ?>
-                            <span class="w">万</span>&nbsp;<span class="fl"><?= $v['areas'] ?>㎡</span>
+                            <?= $v['budget'] ?><span class="w">￥</span>
+                            <span class="fl"><?= $v['areas'] ?>㎡</span>
                             <a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="bbtn">取消关注</a>
                         </div>
                     </li>

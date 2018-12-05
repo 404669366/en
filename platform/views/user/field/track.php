@@ -47,7 +47,7 @@
             <li><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
             <li><a href="/user/intention/list.html">我的意向</a></li>
-            <li class="actives"><a href="/user/user/track-field.html">场地跟踪</a></li>
+            <li class="actives"><a href="/user/field/track-field.html">场地跟踪</a></li>
             <li><a href="/user/user/update.html">修改密码</a></li>
             <li><a href="/user/ident/ident.html">认证合伙人</a></li>
         </ul>
@@ -58,24 +58,30 @@
         <!--盒子里面的内容1-->
         <div class="inner_Cont">
             <div class="userTit">
-                共<span><?= count($field) ?></span>个 关注场地
+                共<span><?= count($field) ?></span>个 真实场地
+                <?php if ($basisData['isCobber'] == 2): ?>
+                    <a href="/user/field/rob.html">
+                        <strong style="float: right;cursor: pointer;color: #3072F6">
+                            抢单(<?= \vendor\helpers\redis::app()->lLen('BackendField') ?>)</strong>
+                    </a>
+                <?php endif; ?>
             </div>
             <ul class="tab_cont">
                 <?php foreach ($field as $v): ?>
                     <li>
-                        <a href="/index/index/details.html?no=<?= $v['no'] ?>" style="color: #333333">
-                            <img src="<?= explode(',', $v['image'])[0] ?>"/>
-                            <div class="ps1">
-                                <p><span>场地编号:</span><?= $v['no'] ?></p>
-                                <p><span>场地地域:</span><?= $v['full_name'] ?></p>
-                                <p><span>详细地址：</span><?= $v['address'] ?></p>
-                                <p><span>关注时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?></p>
-                            </div>
-                        </a>
-                        <div class="ps2">
-                            <?= $v['budget'] ?>
-                            <span class="w">万</span>&nbsp;<span class="fl"><?= $v['areas'] ?>㎡</span>
-                            <a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="bbtn">取消关注</a>
+                        <img src="<?= explode(',', $v['image'])[0] ?>"/>
+                        <div class="ps1" style="width: 410px">
+                            <p><span>场地编号:</span><?= $v['no'] ?></p>
+                            <p><span>场地地域:</span><?= $v['full_name'] ?></p>
+                            <p><span>详细地址：</span><?= $v['address'] ?></p>
+                            <p>
+                                <span>发布时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?>&emsp;场地状态: <?= \vendor\helpers\Constant::getFieldStatus()[$v['status']] ?>
+                            </p>
+                        </div>
+                        <div class="ps2" style="width:135px;">
+                            <?= $v['budget'] ?><span class="w">￥</span>
+                            <span class="fl"><?= $v['areas'] ?>㎡</span>
+                            <a href="/user/field/detail.html?no=<?= $v['no'] ?>" class="bbtn">详情</a>
                         </div>
                     </li>
                 <?php endforeach; ?>

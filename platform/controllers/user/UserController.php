@@ -36,15 +36,6 @@ class UserController extends CommonController
     }
 
     /**
-     * 场地跟踪
-     * @return string
-     */
-    public function actionTrackField()
-    {
-        return $this->render('track', ['field' => Follow::getFollow(\Yii::$app->user->id)]);
-    }
-
-    /**
      * 修改密码页
      * @return string
      */

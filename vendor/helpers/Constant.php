@@ -120,7 +120,6 @@ class Constant
             '2' => '评分不通过',
             '3' => '评分后放弃',
             '4' => '一审中',
-
             '5' => '一审通过',
             '6' => '一审不通过',
             '7' => '一审后放弃',
@@ -155,7 +154,7 @@ class Constant
     public static function getShowStatus()
     {
         return [
-            15, 18
+            15, 17, 18,
         ];
     }
 

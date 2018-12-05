@@ -227,17 +227,18 @@ class Field extends \yii\db\ActiveRecord
     public static function rob()
     {
         if ($user_id = Yii::$app->user->id) {
-            if ($now = redis::app()->lPop('BackendField')) {
-                if ($model = self::findOne($now)) {
-                    $model->cobber_id = $user_id;
-                    $model->status = 1;
-                    if ($model->save()) {
-                        return '抢单成功';
+            if(User::isCobber() == 2){
+                if ($now = redis::app()->lPop('BackendField')) {
+                    if ($model = self::findOne($now)) {
+                        $model->cobber_id = $user_id;
+                        if ($model->save()) {
+                            return '抢单成功';
+                        }
                     }
+                    return '系统错误';
                 }
-                return '系统错误';
+                return '动作慢了';
             }
-            return '动作慢了';
         }
         return '非法操作';
     }
@@ -345,5 +346,19 @@ class Field extends \yii\db\ActiveRecord
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
         return $data;
+    }
+
+    public static function getTrack($user_id = 0)
+    {
+        if ($user_id) {
+            $data = self::find()->alias('f')
+                ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
+                ->where(['f.status' => [0, 1, 2, 4, 5, 6, 8, 9, 10, 11, 12, 14, 15, 18], 'cobber_id' => $user_id])
+                ->select(['f.*', 'a.full_name'])
+                ->orderBy('f.created DESC')
+                ->asArray()->all();
+            return $data;
+        }
+        return [];
     }
 }
