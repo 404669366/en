@@ -65,6 +65,7 @@ class Field extends \yii\db\ActiveRecord
             [['lng', 'lat'], 'string', 'max' => 50],
             [['image', 'record_photo', 'configure_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
             [['budget', 'title'], 'string', 'max' => 30],
+            [['status'], 'validateStatus'],
         ];
     }
 
@@ -106,6 +107,97 @@ class Field extends \yii\db\ActiveRecord
             'status' => '状态状态0初审中1初审通过2初审不通过3二审中4二审通过5二审不通过6备案成功7备案失败8资料有误9三审中10三审通过11三审不通过12四审中13四审通过14四审不通过',
             'created' => '创建时间',
         ];
+    }
+
+    /**
+     * 自定义验证方法
+     * @return bool
+     */
+    public function validateStatus()
+    {
+        if ($this->status == 0) {
+            if (!$this->no) {
+                $this->addError('no', '系统错误');
+                return false;
+            }
+            if (!$this->local_id) {
+                $this->addError('local_id', '系统错误');
+                return false;
+            }
+            if (!$this->area_id) {
+                $this->addError('area_id', '系统错误');
+                return false;
+            }
+            if (!$this->title) {
+                $this->addError('title', '请填写标题');
+                return false;
+            }
+            if (!$this->address) {
+                $this->addError('address', '请填写详细地址');
+                return false;
+            }
+            if (!$this->intro) {
+                $this->addError('intro', '请填写场地描述');
+                return false;
+            }
+            if (!$this->image) {
+                $this->addError('image', '请添加场地图片');
+                return false;
+            }
+        }
+        if ($this->status == 4) {
+            if (!$this->configure_photo) {
+                $this->addError('configure_photo', '请添加配置单图片');
+                return false;
+            }
+            if (!$this->prove_photo) {
+                $this->addError('prove_photo', '请添加场地证明图片');
+                return false;
+            }
+            if (!$this->field_photo) {
+                $this->addError('field_photo', '请添加场地合同图片');
+                return false;
+            }
+        }
+        if ($this->status == 8) {
+            if (!$this->record_photo) {
+                $this->addError('record_photo', '请添加备案图片');
+                return false;
+            }
+            if (!$this->record_file) {
+                $this->addError('record_file', '请添加备案文件');
+                return false;
+            }
+        }
+        if ($this->status == 10) {
+            if (!$this->field_drawing) {
+                $this->addError('field_drawing', '请添加施工图纸');
+                return false;
+            }
+            if (!$this->transformer_drawing) {
+                $this->addError('transformer_drawing', '请添加变压器图纸');
+                return false;
+            }
+            if (!$this->budget_photo) {
+                $this->addError('budget_photo', '请添加预算报表');
+                return false;
+            }
+            if (!$this->areas) {
+                $this->addError('areas', '请填写场地面积');
+                return false;
+            }
+            if (!$this->budget) {
+                $this->addError('budget', '请填写预算总金额');
+                return false;
+            }
+        }
+        if ($this->status == 14) {
+            if (!$this->power_photo) {
+                $this->addError('power_photo', '请添加电力证明');
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -227,7 +319,7 @@ class Field extends \yii\db\ActiveRecord
     public static function rob()
     {
         if ($user_id = Yii::$app->user->id) {
-            if(User::isCobber() == 2){
+            if (User::isCobber() == 2) {
                 if ($now = redis::app()->lPop('BackendField')) {
                     if ($model = self::findOne($now)) {
                         $model->cobber_id = $user_id;

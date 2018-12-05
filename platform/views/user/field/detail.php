@@ -50,6 +50,7 @@
             <li><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
             <li class="actives"><a href="/user/field/track-field.html">场地跟踪</a></li>
+            <li><a href="/user/intention/manage.html">意向管理</a></li>
             <li><a href="/user/user/update.html">修改密码</a></li>
             <li><a href="/user/ident/ident.html">认证合伙人</a></li>
         </ul>
@@ -65,6 +66,11 @@
             <form action="/user/field/update.html?no=<?= $field->no ?>" method="post">
                 <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
                 <ul class="change_pwd">
+                    <li>
+                        <span>场地类型：</span>
+                        <input type="text" placeholder="<?= \vendor\helpers\Constant::getFieldType()[$field->type] ?>"
+                               readonly>
+                    </li>
                     <li>
                         <span>场地标题：</span>
                         <input type="text" placeholder="<?= $field->title ?>" readonly>
@@ -228,7 +234,7 @@
                     <?php if (in_array($field->status, [14, 15])): ?>
                         <li>
                             <span>电力证明：</span>
-                            <div class="transformer_drawing"></div>
+                            <div class="power_photo"></div>
                             <script>
                                 picWall({
                                     element: '.power_photo',
@@ -245,16 +251,61 @@
                             </div>
                         </li>
                     <?php endif; ?>
-                    <?php if (in_array($field->status, [1, 6, 11, 16])): ?>
+                    <?php if (in_array($field->status, [1, 6, 11, 15, 16])): ?>
                         <li>
                             <span></span>
-                            <button type="submit">确认提交</button>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (in_array($field->status, [3, 7, 13, 17])): ?>
-                        <li>
-                            <span></span>
-                            <button type="button">放弃</button>
+                            <?php if ($field->status != 15): ?>
+                                <button type="submit">确认提交</button>
+                            <?php endif; ?>
+                            <?php if ($field->status != 16): ?>
+                                <button type="button" class="del" style="margin-left: 20px;background-color: red">放弃
+                                </button>
+                                <div class="intent"
+                                     style="display: none;width: 100%;height: 100%;position: fixed;z-index: 999;background: rgba(0, 0, 0, 0.7);;top: 0;left: 0">
+                                    <div style="width: 340px;height: 235px;background: #fcfcfc;margin: 300px auto;border-radius: 3px;position: relative">
+                                        <div class="close"
+                                             style="position: absolute;right: 15px;top: 15px;height: 20px;line-height: 20px;width: 20px;text-align: center;font-size: 16px;cursor: pointer">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </div>
+                                        <div style="width: 310px;height: 200px;position: absolute;top: 35px;padding: 0 15px">
+                                            <span style="width: 310px;text-align: center;height: 30px;line-height: 30px;font-size: 24px;display: inline-block">放弃说明</span>
+                                            <textarea class="explain"
+                                                      style="width: 200px;height: 95px;line-height: 30px;font-size: 16px;display: block;margin: 10px auto 0 auto;"
+                                                      placeholder="请填写放弃说明"></textarea>
+                                            <span style="width: 310px;text-align: center;height: 30px;font-size: 16px;display: inline-block;margin-top: 10px;">
+                <button class="up" type="button"
+                        style="border: none;border-radius:3px;color: white;background-color: #3072F6;width: 120px;display: inline-block;height: 30px;line-height: 30px;float: none">确认</button>
+            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script>
+                                    $('.del').click(function () {
+                                        $('.intent').fadeIn();
+                                    });
+                                    $('.intent .close').click(function () {
+                                        $('.intent').fadeOut();
+                                    });
+                                    $('.up').click(function () {
+                                        if ($('.explain').val()) {
+                                            $.getJSON('/user/field/del.html', {
+                                                no: '<?=$field->no?>',
+                                                remark: $('.explain').val()
+                                            }, function (re) {
+                                                if (re.type) {
+                                                    layer.msg('提交成功');
+                                                    window.location.href = '/user/field/track-field.html';
+                                                } else {
+                                                    layer.msg(re.msg);
+                                                }
+                                                $('.intent').fadeOut();
+                                            })
+                                        } else {
+                                            layer.msg('请填写放弃说明');
+                                        }
+                                    });
+                                </script>
+                            <?php endif; ?>
                         </li>
                     <?php endif; ?>
                 </ul>

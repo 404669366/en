@@ -45,4 +45,64 @@ class FieldController extends CommonController
         }
         return $this->goBack('非法操作');
     }
+
+    /**
+     * 场地放弃
+     * @param $no
+     * @param $remark
+     * @return string
+     */
+    public function actionDel($no, $remark)
+    {
+        if ($no && $remark) {
+            if ($user_id = \Yii::$app->user->id) {
+                if ($model = Field::findOne(['no' => $no, 'cobber_id' => $user_id, 'status' => [1, 6, 11, 15]])) {
+                    if ($model->status == 1) {
+                        $model->status = 3;
+                    }
+                    if ($model->status == 6) {
+                        $model->status = 7;
+                    }
+                    if ($model->status == 11) {
+                        $model->status = 13;
+                    }
+                    if ($model->status == 15) {
+                        $model->status = 17;
+                    }
+                    if ($model->save()) {
+                        return $this->rJson();
+                    }
+                }
+            }
+        }
+        return $this->rJson([], false, '请填写放弃说明');
+    }
+
+    /**
+     * 场地操作保存
+     * @param $no
+     * @return \yii\web\Response
+     */
+    public function actionUpdate($no)
+    {
+        if ($user_id = \Yii::$app->user->id) {
+            if ($model = Field::findOne(['no' => $no, 'cobber_id' => $user_id, 'status' => [1, 6, 11, 16]])) {
+                $post = \Yii::$app->request->post();
+                if ($model->status == 1) {
+                    $model->status = 0;
+                }
+                if ($model->status == 6) {
+                    $model->status = 4;
+                }
+                if ($model->status == 11 && $model->status == 16) {
+                    $model->status = 14;
+                }
+                if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
+                    return $this->redirect(['detail?no=' . $no], '提交成功');
+                }
+                return $this->redirect(['detail?no=' . $no], $model->errors());
+            }
+        }
+        return $this->redirect(['track-field'], '非法操作');
+    }
 }

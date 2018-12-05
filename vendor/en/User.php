@@ -70,9 +70,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         $data = self::find()->alias('u')->leftJoin(Ident::tableName() . ' i', 'u.id=i.user_id');
         if ($type !== false) {
-            $data->where(['i.type' => $type]);
+            $data->where(['i.type' => $type, 'i.status' => [1, 3, 4, 5]]);
+        } else {
+            $data->where(['i.type' => [1, 2], 'i.status' => [1, 3, 4, 5]]);
         }
-        $data = $data->select(['u.tel username', 'u.id'])->asArray()->all();
+        $data = $data->select(['u.tel', 'u.id'])->asArray()->all();
         return $data;
     }
 

@@ -244,91 +244,93 @@
             <div class="hr-line-dashed"></div>
             <div class="form-group">
                 <div class="col-sm-4 col-sm-offset-8">
-                    <?php if (in_array($model->status, [3, 7])): ?>
-                        <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
-                        </button>
-                        <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content animated flipInY">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span
-                                                    aria-hidden="true">&times;</span><span
-                                                    class="sr-only">Close</span>
-                                        </button>
-                                        <h4 class="modal-title">请指派专员</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">专员</label>
-                                            <div class="col-sm-4">
-                                                <select class="form-control member">
-                                                    <?php foreach ($members as $member): ?>
-                                                        <option value="<?= $member['id'] ?>"><?= $member['username'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
+                    <?php if (in_array($model->status, [3, 7, 13, 17])): ?>
+                        <?php if (in_array($model->status, [3, 7]) && $model->type == 1): ?>
+                            <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
+                            </button>
+                            <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content animated flipInY">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                        aria-hidden="true">&times;</span><span
+                                                        class="sr-only">Close</span>
+                                            </button>
+                                            <h4 class="modal-title">请指派专员</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">专员</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control member">
+                                                        <?php foreach ($members as $member): ?>
+                                                            <option value="<?= $member['id'] ?>"><?= $member['username'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary save">保存</button>
+                                        </div>
+                                        <script>
+                                            $('.save').click(function () {
+                                                var mid = $('.member').val();
+                                                if (mid) {
+                                                    window.location.href = '/governor/governor/field-recover?id=<?=$model->id?>&mid=' + mid;
+                                                } else {
+                                                    layer.msg('请选择专员');
+                                                }
+                                            });
+                                        </script>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                                        <button type="button" class="btn btn-primary save">保存</button>
-                                    </div>
-                                    <script>
-                                        $('.save').click(function () {
-                                            var mid = $('.member').val();
-                                            if (mid) {
-                                                window.location.href = '/governor/governor/field-recover3?id=<?=$model->id?>&mid=' + mid;
-                                            } else {
-                                                layer.msg('请选择专员');
-                                            }
-                                        });
-                                    </script>
                                 </div>
                             </div>
-                        </div>
-                    <?php endif; ?>
-                    <?php if (in_array($model->status, [13, 17])): ?>
-                        <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
-                        </button>
-                        <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content animated flipInY">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"><span
-                                                    aria-hidden="true">&times;</span><span
-                                                    class="sr-only">Close</span>
-                                        </button>
-                                        <h4 class="modal-title">请指派合伙人</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-group">
-                                            <label class="col-sm-4 control-label">合伙人</label>
-                                            <div class="col-sm-4">
-                                                <select class="form-control cobber">
-                                                    <?php foreach ($cobbers as $cobber): ?>
-                                                        <option value="<?= $cobber['id'] ?>"><?= $cobber['tel'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
+                        <?php endif; ?>
+                        <?php if ($model->type == 0): ?>
+                            <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
+                            </button>
+                            <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content animated flipInY">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span
+                                                        aria-hidden="true">&times;</span><span
+                                                        class="sr-only">Close</span>
+                                            </button>
+                                            <h4 class="modal-title">请指派合伙人</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">合伙人</label>
+                                                <div class="col-sm-4">
+                                                    <select class="form-control cobber">
+                                                        <?php foreach ($cobbers as $cobber): ?>
+                                                            <option value="<?= $cobber['id'] ?>"><?= $cobber['tel'] ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                                            <button type="button" class="btn btn-primary save">保存</button>
+                                        </div>
+                                        <script>
+                                            $('.save').click(function () {
+                                                var mid = $('.cobber').val();
+                                                if (mid) {
+                                                    window.location.href = '/governor/governor/field-recover?id=<?=$model->id?>&mid=' + mid;
+                                                } else {
+                                                    layer.msg('请选择合伙人');
+                                                }
+                                            });
+                                        </script>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                                        <button type="button" class="btn btn-primary save">保存</button>
-                                    </div>
-                                    <script>
-                                        $('.save').click(function () {
-                                            var mid = $('.$cobber').val();
-                                            if (mid) {
-                                                window.location.href = '/governor/governor/field-recover17?id=<?=$model->id?>&mid=' + mid;
-                                            } else {
-                                                layer.msg('请选择合伙人');
-                                            }
-                                        });
-                                    </script>
                                 </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                     <?php endif; ?>
                     <button class="btn btn-white back">返回</button>
                 </div>
