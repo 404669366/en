@@ -98,9 +98,9 @@ class FieldController extends CommonController
                     $model->status = 14;
                 }
                 if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
-                    return $this->redirect(['detail?no=' . $no], '提交成功');
+                    return $this->redirect(['detail.html?no=' . $no], '提交成功');
                 }
-                return $this->redirect(['detail?no=' . $no], $model->errors());
+                return $this->redirect(['detail.html?no=' . $no], $model->errors());
             }
         }
         return $this->redirect(['track-field'], '非法操作');
