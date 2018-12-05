@@ -10,7 +10,12 @@ namespace app\controllers\user;
 
 
 use app\controllers\basis\CommonController;
+use vendor\en\Area;
 use vendor\en\BasisField;
+use vendor\en\Field;
+use vendor\en\User;
+use vendor\helpers\Constant;
+use vendor\helpers\Helper;
 use vendor\helpers\Msg;
 use vendor\helpers\redis;
 
@@ -66,5 +71,40 @@ class ReleaseController extends CommonController
     public function actionRelease()
     {
         return $this->render('release');
+    }
+
+    /**
+     * 添加真实场地
+     * @return \yii\web\Response
+     */
+    public function actionAdd()
+    {
+        if (\Yii::$app->request->isPost) {
+            $model = new Field();
+            $post = \Yii::$app->request->post();
+            if (!$post['area_id']) {
+                return $this->redirect(['release'], '请选择地域');
+            }
+            if ($user = User::findOne(['tel' => $post['tel']])) {
+                $model->local_id = $user->id;
+            } else {
+                return $this->redirect(['release'], '场地方账号不存在');
+            }
+            if($cobber_id=\Yii::$app->user->id){
+                if ($model->load(['Field' => $post]) && $model->validate()) {
+                    $area = Area::findOne(['area_id'=>$post['area_id']]);
+                    $model->lng = $area->lng;
+                    $model->lat = $area->lat;
+                    $model->no = Helper::createNo('F');
+                    $model->created = time();
+                    $model->cobber_id=$cobber_id;
+                    if ($model->save()) {
+                        return $this->redirect(['/user/field/track-field'], '发布成功');
+                    }
+                }
+                return $this->redirect(['release'], $model->errors());
+            }
+        }
+        return $this->redirect(['release'], '非法操作');
     }
 }

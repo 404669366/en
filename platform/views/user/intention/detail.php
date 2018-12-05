@@ -51,6 +51,7 @@
             <li><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
             <li><a href="/user/intention/list.html">我的意向</a></li>
+            <li><a href="/user/release/release.html">发布真实场地</a></li>
             <li><a href="/user/field/track-field.html">场地跟踪</a></li>
             <li class="actives"><a href="/user/intention/manage.html">意向管理</a></li>
             <li><a href="/user/user/update.html">修改密码</a></li>
@@ -145,7 +146,7 @@
                     <?php if ($data->status == 4): ?>
                         <li>
                             <span>驳回说明：</span>
-                            <div style="height: 100px;width: 100%;margin-top: 4px;text-indent: 24px"><?= $data->remark ?></div>
+                            <div style="height: 100px;width: 100%;margin-top: 4px;text-indent: 24px;border: 1px dashed rgb(17, 17, 17);"><?= $data->remark ?></div>
                         </li>
                     <?php endif; ?>
                     <li>

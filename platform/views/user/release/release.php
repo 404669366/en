@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/area.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/upload/upload.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/sinlar/sinlar.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 <?php \vendor\helpers\Msg::run('PopupMsg') ?>
@@ -47,7 +50,11 @@
             <li><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
             <li><a href="/user/intention/list.html">我的意向</a></li>
-            <li class="actives"><a href="/user/field/track-field.html">场地跟踪</a></li>
+            <?php if ($basisData['isCobber']): ?>
+                <li class="actives"><a href="/user/release/release.html">发布真实场地</a></li>
+                <li><a href="/user/field/track-field.html">场地跟踪</a></li>
+                <li><a href="/user/intention/manage.html">意向管理</a></li>
+            <?php endif; ?>
             <li><a href="/user/user/update.html">修改密码</a></li>
             <li><a href="/user/ident/ident.html">认证合伙人</a></li>
         </ul>
@@ -58,30 +65,52 @@
         <!--盒子里面的内容2-->
         <div class="inner_Cont">
             <div class="userTit">
-                修改密码
+                发布真实场地
             </div>
-            <!--tab内容2-->
-            <form action="/site/password/" method="post" id="updatePwd">
+            <form action="/user/release/add.html" method="post">
+                <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
                 <ul class="change_pwd">
                     <li>
-                        <span>输入旧密码：</span>
-                        <input type="password" name="password" id="password" placeholder="请输入密码"
-                               validate="notNull,minLength" validatedata="minLength=6" validatename="密码" maxlength="20">
+                        <span>场地方电话：</span>
+                        <input type="text" placeholder="请填写场地方电话" name="tel" validate="notNull" maxlength="20">
                     </li>
                     <li>
-                        <span>设置新密码：</span>
-                        <input type="password" name="newPassword" id="password1" placeholder="请输入新密码"
-                               validate="notNull,minLength,isStandard" validatedata="minLength=8" validatename="密码"
-                               maxlength="20">
+                        <span>场地标题：</span>
+                        <input type="text" placeholder="请填写场地标题" name="title" validate="notNull">
+                    </li>
+                    <li class="area">
+                        <span>场地地域 :</span>
+                        <select class="province"
+                                style="width: auto;text-align: center;text-align-last: center"></select>
+                        <select class="city"
+                                style="width: auto;text-align: center;text-align-last: center"></select>
+                        <select class="county"
+                                style="width: auto;text-align: center;text-align-last: center"></select>
                     </li>
                     <li>
-                        <span>确认新密码：</span>
-                        <input type="password" placeholder="请确认新密码" validate="notNull,isSame"
-                               validatedata="isSame=#password1" validatename="确认新密码" maxlength="20">
+                        <span>详细地址：</span>
+                        <input type="text" placeholder="请填写详细地址" name="address" validate="notNull" maxlength="20">
+                    </li>
+                    <li>
+                        <span>场地介绍：</span>
+                        <textarea style="height: 100px;width: 100%;margin-top: 4px;border: 1px dashed rgb(17, 17, 17);"
+                                  type="text" placeholder="请填写场地介绍" name="address" validate="notNull"></textarea>
+                    </li>
+                    <li>
+                        <span>场地图片：</span>
+                        <div class="image"></div>
+                        <script>
+                            upload({
+                                element: '.image',
+                                name: 'image',
+                                height: 10,
+                                max:8
+                            });
+                        </script>
                     </li>
                     <li>
                         <span></span>
-                        <button>保存修改</button>
+                        <button type="submit">确定提交</button>
                     </li>
                 </ul>
             </form>
