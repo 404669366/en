@@ -130,15 +130,36 @@ class Intention extends \yii\db\ActiveRecord
     }
 
     /**
-     * 意向数据
+     * 我的意向数据
      * @return array|\yii\db\ActiveRecord[]
      */
     public static function getIntentionData()
     {
-        $data = self::find()->alias('i')
-            ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
-            ->select(['i.*', 'f.no field_no'])
-            ->where(['i.user_id' => \Yii::$app->user->id])->asArray()->all();
-        return $data;
+        if ($user_id = \Yii::$app->user->id) {
+            $data = self::find()->alias('i')
+                ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
+                ->select(['i.*', 'f.no field_no'])
+                ->where(['i.user_id' => $user_id])
+                ->asArray()->all();
+            return $data;
+        }
+        return [];
+    }
+
+    /**
+     * 返回意向管理数据
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getIntentionManage()
+    {
+        if ($user_id = \Yii::$app->user->id) {
+            $data = self::find()->alias('i')
+                ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
+                ->select(['i.*', 'f.no field_no'])
+                ->where(['i.user_id' => $user_id])
+                ->asArray()->all();
+            return $data;
+        }
+        return [];
     }
 }

@@ -23,7 +23,7 @@ class IntentionController extends CommonController
      */
     public function actionList()
     {
-        return $this->render('list', ['model' => Intention::getIntentionData()]);
+        return $this->render('list', ['data' => Intention::getIntentionData()]);
     }
 
     /**
@@ -55,5 +55,14 @@ class IntentionController extends CommonController
             return $this->rJson([], false, '抱歉,融资已结束...');
         }
         return $this->rJson([], false, '非法操作');
+    }
+
+    /**
+     * 意向管理列表
+     * @return string
+     */
+    public function actionManage()
+    {
+        return $this->render('manage', ['data' => []]);
     }
 }
