@@ -46,10 +46,9 @@
         <ul>
             <li><a href="/user/user/user.html">关注场地</a></li>
             <li><a href="/user/user/basis-field.html">基础场地</a></li>
-            <li class="actives"><a href="/user/intention/list.html">我的意向</a></li>
-            <?php if ($basisData['isCobber']): ?>
-                <li><a href="/user/user/track-field.html">场地跟踪</a></li>
-            <?php endif; ?>
+            <li><a href="/user/intention/list.html">我的意向</a></li>
+            <li><a href="/user/user/track-field.html">场地跟踪</a></li>
+            <li class="actives"><a href="/user/intention/manage.html">意向管理</a></li>
             <li><a href="/user/user/update.html">修改密码</a></li>
             <li><a href="/user/ident/ident.html">认证合伙人</a></li>
         </ul>
@@ -64,19 +63,26 @@
             </div>
             <ul class="tab_cont">
                 <li style="height: 20px;width: 718px">
-                    <div style="width: 179.5px;float: left;text-align: center">场地编号</div>
-                    <div style="width: 179.5px;float: left;text-align: center">意向编号</div>
-                    <div style="width: 179.5px;float: left;text-align: center">意向金额</div>
-                    <div style="width: 179.5px;float: left;text-align: center">创建时间</div>
+                    <div style="width: 134.6px;float: left;text-align: center">场地编号</div>
+                    <div style="width: 134.6px;float: left;text-align: center">意向编号</div>
+                    <div style="width: 109.6px;float: left;text-align: center">意向金额</div>
+                    <div style="width: 109.6px;float: left;text-align: center">意向状态</div>
+                    <div style="width: 109.6px;float: left;text-align: center">创建时间</div>
+                    <div style="width: 109.6px;float: left;text-align: center">操作</div>
                 </li>
                 <?php foreach ($data as $v): ?>
                     <li style="height: 20px;width: 718px">
-                        <div style="width: 179.5px;float: left;text-align: center"><a
+                        <div style="width: 134.6px;float: left;text-align: center"><a
                                     href="/index/index/details.html?no=<?= $v['field_no'] ?>"><?= $v['field_no'] ?></a>
                         </div>
-                        <div style="width: 179.5px;float: left;text-align: center"><?= $v['no'] ?></div>
-                        <div style="width: 179.5px;float: left;text-align: center"><?= $v['money'] ?></div>
-                        <div style="width: 179.5px;float: left;text-align: center"><?= date('Y-m-d H:i:s', $v['created']) ?></div>
+                        <div style="width: 134.6px;float: left;text-align: center"><?= $v['no'] ?></div>
+                        <div style="width: 109.6px;float: left;text-align: center"><?= $v['money'] ?></div>
+                        <div style="width: 109.6px;float: left;text-align: center"><?= \vendor\helpers\Constant::getIntentionStatus()[$v['status']] ?></div>
+                        <div style="width: 109.6px;float: left;text-align: center"><?= date('Y-m-d H:i:s', $v['created']) ?></div>
+                        <div style="width: 109.6px;float: left;text-align: center"><a
+                                    href="/user/intention/detail.html?no=<?= $v['no'] ?>"
+                                    style="background-color: #0B57F0;width: 60px;height: 20px;display: block;color: white;border-radius: 3px;margin: 0 auto;text-decoration: none;">详情</a>
+                        </div>
                     </li>
                 <?php endforeach; ?>
                 <!--清除浮动-->

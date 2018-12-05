@@ -14,6 +14,7 @@ use vendor\en\Field;
 use vendor\en\Intention;
 use vendor\helpers\Constant;
 use vendor\helpers\Helper;
+use vendor\helpers\Msg;
 
 class IntentionController extends CommonController
 {
@@ -63,6 +64,60 @@ class IntentionController extends CommonController
      */
     public function actionManage()
     {
-        return $this->render('manage', ['data' => []]);
+        return $this->render('manage', ['data' => Intention::getIntentionManage()]);
+    }
+
+    /**
+     * 意向管理详情页面
+     * @param $no
+     * @return string
+     */
+    public function actionDetail($no)
+    {
+        $model = Intention::find()->alias('i')
+            ->leftJoin(Field::tableName() . ' f', 'i.field_id=f.id')
+            ->where(['i.no' => $no, 'f.cobber_id' => \Yii::$app->user->id])
+            ->one();
+        Msg::set('非法操作');
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            if ($model->load(['Intention' => $post]) && $model->validate()) {
+                $model->status = 2;
+                if ($model->save()) {
+                    return $this->redirect(['manage'], '提交成功');
+                }
+            }
+            Msg::set($model->errors());
+        }
+        return $this->render('detail', ['data' => $model]);
+    }
+
+    /**
+     * 放弃意向
+     * @return string
+     */
+    public function actionDel()
+    {
+        if (\Yii::$app->request->isGet) {
+            $get = \Yii::$app->request->get();
+            if (!isset($get['no']) || !$get['no']) {
+                return $this->rJson([], false, '非法操作');
+            }
+            if (!isset($get['explain']) || !$get['explain']) {
+                return $this->rJson([], false, '请填写放弃说明');
+            }
+            $model = Intention::find()->alias('i')
+                ->leftJoin(Field::tableName() . ' f', 'i.field_id=f.id')
+                ->where(['i.no' => $get['no'], 'f.cobber_id' => \Yii::$app->user->id])
+                ->one();
+            if ($model) {
+                $model->status = 1;
+                $model->remark = $get['explain'];
+                if ($model->save()) {
+                    return $this->rJson();
+                }
+            }
+        }
+        return $this->rJson([], false, '非法操作');
     }
 }

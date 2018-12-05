@@ -156,7 +156,7 @@ class Intention extends \yii\db\ActiveRecord
             $data = self::find()->alias('i')
                 ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
                 ->select(['i.*', 'f.no field_no'])
-                ->where(['i.user_id' => $user_id])
+                ->where(['f.cobber_id' => $user_id, 'i.status' => [0, 2, 3, 4]])
                 ->asArray()->all();
             return $data;
         }
