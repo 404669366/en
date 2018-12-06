@@ -35,12 +35,10 @@
             <tr role="row">
                 <th>NO</th>
                 <th>评分等级</th>
-                <th>创建时间</th>
-                <th>专员</th>
                 <th>场地位置</th>
                 <th>详细地址</th>
                 <th>场地电话</th>
-                <th>场地类型</th>
+                <th>创建时间</th>
                 <th>状态</th>
                 <th>操作</th>
             </tr>
@@ -60,12 +58,10 @@
                 return data || '未评分';
             }
             },
-            {"data": "created"},
-            {"data": "username"},
             {"data": "full_name"},
             {"data": "address"},
             {"data": "tel"},
-            {"data": "type"},
+            {"data": "created"},
             {"data": "status"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
@@ -73,7 +69,7 @@
             }
             }
         ],
-        default_order: [1, 'desc']
+        default_order: [5, 'desc']
     });
     myTable.search();
 </script>

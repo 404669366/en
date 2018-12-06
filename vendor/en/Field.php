@@ -60,12 +60,13 @@ class Field extends \yii\db\ActiveRecord
             [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created', 'click', 'attention'], 'integer'],
             [['areas', 'financing_ratio'], 'number'],
             [['no'], 'string', 'max' => 20],
+            [['no'], 'required'],
             [['level'], 'string', 'max' => 10],
             [['address', 'intro', 'record_file', 'remark'], 'string', 'max' => 255],
             [['lng', 'lat'], 'string', 'max' => 50],
             [['image', 'record_photo', 'configure_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
             [['budget', 'title'], 'string', 'max' => 30],
-            [['status'], 'validateStatus'],
+            [['no'], 'validateField'],
         ];
     }
 
@@ -113,9 +114,9 @@ class Field extends \yii\db\ActiveRecord
      * 自定义验证方法
      * @return bool
      */
-    public function validateStatus()
+    public function validateField()
     {
-        if ($this->status == 0) {
+        if ($this->isNewRecord) {
             if (!$this->no) {
                 $this->addError('no', '系统错误');
                 return false;
@@ -144,55 +145,74 @@ class Field extends \yii\db\ActiveRecord
                 $this->addError('image', '请添加场地图片');
                 return false;
             }
+            if (!$this->lng) {
+                $this->addError('lng', '请添加经度');
+                return false;
+            }
+            if (!$this->lat) {
+                $this->addError('lat', '请添加纬度');
+                return false;
+            }
         }
         if ($this->status == 4) {
             if (!$this->configure_photo) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('configure_photo', '请添加配置单图片');
                 return false;
             }
             if (!$this->prove_photo) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('prove_photo', '请添加场地证明图片');
                 return false;
             }
             if (!$this->field_photo) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('field_photo', '请添加场地合同图片');
                 return false;
             }
         }
         if ($this->status == 8) {
             if (!$this->record_photo) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('record_photo', '请添加备案图片');
                 return false;
             }
             if (!$this->record_file) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('record_file', '请添加备案文件');
                 return false;
             }
         }
         if ($this->status == 10) {
             if (!$this->field_drawing) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('field_drawing', '请添加施工图纸');
                 return false;
             }
             if (!$this->transformer_drawing) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('transformer_drawing', '请添加变压器图纸');
                 return false;
             }
             if (!$this->budget_photo) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('budget_photo', '请添加预算报表');
                 return false;
             }
             if (!$this->areas) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('areas', '请填写场地面积');
                 return false;
             }
             if (!$this->budget) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('budget', '请填写预算总金额');
                 return false;
             }
         }
         if ($this->status == 14) {
             if (!$this->power_photo) {
+                $this->status = $this->oldAttributes['status'];
                 $this->addError('power_photo', '请添加电力证明');
                 return false;
             }

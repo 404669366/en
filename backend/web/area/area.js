@@ -9,6 +9,7 @@ function area(config) {
     $(config.element).after('<div class="row"><div class="col-sm-9" id="' + (config.areaName || 'area') + 'Map" style="height: ' + (config.mapHeight ? config.mapHeight + 'rem' : '32rem') + '"></div></div>');
     if (config.area) {
         setVal(config.area);
+        setCoordinate(config.lng || '', config.lat || '');
         $.getJSON('/basis/area/def', {area_id: config.area}, function (re) {
             if (re.type) {
                 $(config.element).find('.province').html(re.data.province);
