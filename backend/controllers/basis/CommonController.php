@@ -18,7 +18,7 @@ class CommonController extends BasisController
         $re = parent::beforeAction($action);
         if (\Yii::$app->user->isGuest) {
             Msg::set('请先登录');
-            return $this->redirect([\Yii::$app->params['loginRoute']]);
+            return $this->redirect([\Yii::$app->params['loginRoute']])->send();
         }
         return $re;
     }

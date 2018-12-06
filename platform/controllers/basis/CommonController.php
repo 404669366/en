@@ -14,7 +14,7 @@ class CommonController extends BasisController
     public function beforeAction($action)
     {
         if (\Yii::$app->user->isGuest) {
-            return $this->redirect(['/index/index/index'], '请先登录');
+            return $this->redirect(['/index/index/index'], '请先登录')->send();
         }
         return parent::beforeAction($action);
     }
