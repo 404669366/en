@@ -219,14 +219,14 @@
                     <?php if (in_array($field->status, [11, 16])): ?>
                         <li>
                             <span>电力证明：</span>
-                            <div class="transformer_drawing"></div>
+                            <div class="power_photo"></div>
                             <script>
                                 upload({
-                                    element: '.transformer_drawing',
-                                    name: 'transformer_drawing',
+                                    element: '.power_photo',
+                                    name: 'power_photo',
                                     max: 4,
                                     height: 10,
-                                    default: '<?=$field->transformer_drawing?>'
+                                    default: '<?=$field->power_photo?>'
                                 });
                             </script>
                         </li>

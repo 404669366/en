@@ -12,7 +12,7 @@ $(function () {
 });
 
 function picWall(config) {
-    var times = Math.ceil(config.image.split(',').length / 4);
+    var times = Math.ceil(config.image.split(',').length / 3);
     $(config.element).css({
         'border': '1px dashed #111',
         'padding': '15px',
