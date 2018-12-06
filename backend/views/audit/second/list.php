@@ -61,7 +61,7 @@
             }
             }
         ],
-        default_order: [0, 'desc']
+        default_order: [7, 'desc']
     });
     myTable.search();
 </script>

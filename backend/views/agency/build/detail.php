@@ -205,7 +205,7 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <div class="col-sm-8 col-sm-offset-2">
+                <div class="col-sm-8 col-sm-offset-3">
                     <button class="btn btn-white back">返回</button>
                     <?php if (in_array($model->status, [8, 12])): ?>
                         <button class="btn btn-white" type="submit">确认提交</button>
