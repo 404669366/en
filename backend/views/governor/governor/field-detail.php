@@ -24,14 +24,16 @@
                     <input type="text" name="title" class="form-control" placeholder="<?= $model->title ?>" readonly>
                 </div>
             </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">专员</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control"
-                           placeholder="<?= $model->member->username ?>" readonly>
+            <?php if ($model->type == 1): ?>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">专员</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->member->username ?>" readonly>
+                    </div>
                 </div>
-            </div>
+            <?php endif;?>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">场地电话</label>
@@ -243,7 +245,7 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-8">
+                <div class="col-sm-4 col-sm-offset-3">
                     <?php if (in_array($model->status, [3, 7, 13, 17])): ?>
                         <?php if (in_array($model->status, [3, 7]) && $model->type == 1): ?>
                             <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
@@ -287,8 +289,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php endif; ?>
-                        <?php if ($model->type == 0): ?>
+                        <?php else: ?>
                             <button type="button" class="btn btn-white" data-toggle="modal" data-target="#myModal2">恢复
                             </button>
                             <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">

@@ -40,6 +40,7 @@ class Intention extends \yii\db\ActiveRecord
             [['remark'], 'string', 'max' => 255],
             [['contract_photo', 'money_audit'], 'string', 'max' => 1000],
             [['no'], 'string', 'max' => 20],
+            [['no'], 'validateIntention'],
         ];
     }
 
@@ -60,6 +61,37 @@ class Intention extends \yii\db\ActiveRecord
             'remark' => '备注',
             'created' => '创建时间',
         ];
+    }
+
+    /**
+     * 自定义验证规则
+     * @return bool
+     */
+    public function validateIntention()
+    {
+        if ($this->status == 2) {
+            if (!$this->money) {
+                $this->status = $this->oldAttributes['status'];
+                $this->addError('money', '请填写融资金额');
+                return false;
+            }
+            if (!$this->ratio || $this->ratio > 1) {
+                $this->status = $this->oldAttributes['status'];
+                $this->addError('ratio', '请填写正确的分成比例(大于0,小于等于1)');
+                return false;
+            }
+            if (!$this->contract_photo) {
+                $this->status = $this->oldAttributes['status'];
+                $this->addError('contract_photo', '请添加投资合同');
+                return false;
+            }
+            if (!$this->money_audit) {
+                $this->status = $this->oldAttributes['status'];
+                $this->addError('money_audit', '请添加转账凭证');
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -157,6 +189,7 @@ class Intention extends \yii\db\ActiveRecord
                 ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
                 ->select(['i.*', 'f.no field_no'])
                 ->where(['f.cobber_id' => $user_id, 'i.status' => [0, 2, 3, 4]])
+                ->orderBy('i.created DESC')
                 ->asArray()->all();
             return $data;
         }

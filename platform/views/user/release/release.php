@@ -94,7 +94,7 @@
                     <li>
                         <span>场地介绍：</span>
                         <textarea style="height: 100px;width: 100%;margin-top: 4px;border: 1px dashed rgb(17, 17, 17);"
-                                  type="text" placeholder="请填写场地介绍" name="address" validate="notNull"></textarea>
+                                  type="text" placeholder="请填写场地介绍" name="intro" validate="notNull"></textarea>
                     </li>
                     <li>
                         <span>场地图片：</span>

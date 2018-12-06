@@ -115,7 +115,7 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-2">
+                <div class="col-sm-4 col-sm-offset-3">
                     <?php if (in_array($model->status, [0, 3])): ?>
                         <button type="button" class="btn btn-white abandon" data-toggle="modal"
                                 data-target="#myModal2">不通过

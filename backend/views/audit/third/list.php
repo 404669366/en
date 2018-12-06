@@ -55,13 +55,11 @@
             {"data": "created"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
-                var str = '<a class="btn btn-sm btn-warning" href="/audit/third/detail?id=' + data + '">详情</a>';
-
-                return str;
+                return '<a class="btn btn-sm btn-warning" href="/audit/third/detail?id=' + data + '">详情</a>';
             }
             }
         ],
-        default_order: [0, 'desc']
+        default_order: [7, 'desc']
     });
     myTable.search();
 </script>

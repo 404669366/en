@@ -59,7 +59,7 @@
                     });
                 </script>
             </div>
-            <?php if ($model->member->status == 16): ?>
+            <?php if ($model->status == 16): ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">说明</label>
@@ -78,7 +78,7 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <div class="col-sm-4 col-sm-offset-2">
+                <div class="col-sm-4 col-sm-offset-3">
                     <?php if ($model->status == 14): ?>
                         <button type="button" class="btn btn-white abandon" data-toggle="modal"
                                 data-target="#myModal2">不通过

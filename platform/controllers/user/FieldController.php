@@ -69,6 +69,7 @@ class FieldController extends CommonController
                     if ($model->status == 15) {
                         $model->status = 17;
                     }
+                    $model->remark = $remark;
                     if ($model->save()) {
                         return $this->rJson();
                     }
@@ -81,7 +82,7 @@ class FieldController extends CommonController
     /**
      * 场地操作保存
      * @param $no
-     * @return \yii\web\Response
+     * @return string|\yii\web\Response
      */
     public function actionUpdate($no)
     {
@@ -91,13 +92,13 @@ class FieldController extends CommonController
                 if ($model->status == 1 || $model->status == 6) {
                     $model->status = 4;
                 }
-                if ($model->status == 11 && $model->status == 16) {
+                if ($model->status == 11 || $model->status == 16) {
                     $model->status = 14;
                 }
                 if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
-                    return $this->redirect(['detail.html?no=' . $no], '提交成功');
+                    return $this->render('detail', ['field' => $model], '提交成功');
                 }
-                return $this->redirect(['detail.html?no=' . $no], $model->errors());
+                return $this->render('detail', ['field' => $model], $model->errors());
             }
         }
         return $this->redirect(['track-field'], '非法操作');

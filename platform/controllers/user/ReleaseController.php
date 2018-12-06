@@ -90,14 +90,14 @@ class ReleaseController extends CommonController
             } else {
                 return $this->redirect(['release'], '场地方账号不存在');
             }
-            if($cobber_id=\Yii::$app->user->id){
+            if ($cobber_id = \Yii::$app->user->id) {
+                $area = Area::findOne(['area_id' => $post['area_id']]);
+                $model->no = Helper::createNo('F');
+                $model->lng = $area->lng;
+                $model->lat = $area->lat;
+                $model->created = time();
+                $model->cobber_id = $cobber_id;
                 if ($model->load(['Field' => $post]) && $model->validate()) {
-                    $area = Area::findOne(['area_id'=>$post['area_id']]);
-                    $model->lng = $area->lng;
-                    $model->lat = $area->lat;
-                    $model->no = Helper::createNo('F');
-                    $model->created = time();
-                    $model->cobber_id=$cobber_id;
                     if ($model->save()) {
                         return $this->redirect(['/user/field/track-field'], '发布成功');
                     }

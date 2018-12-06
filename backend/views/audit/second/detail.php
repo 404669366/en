@@ -9,14 +9,25 @@
                            placeholder="<?= $model->no ?>" readonly>
                 </div>
             </div>
-            <div class="hr-line-dashed"></div>
-            <div class="form-group">
-                <label class="col-sm-3 control-label">专员</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control"
-                           placeholder="<?= $model->member->username ?>" readonly>
+            <?php if ($model->type == 1): ?>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">专员</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->member->username ?>" readonly>
+                    </div>
                 </div>
-            </div>
+            <?php else: ?>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">合伙人电话</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->cobber->tel ?>" readonly>
+                    </div>
+                </div>
+            <?php endif;?>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">场地电话</label>
@@ -128,7 +139,7 @@
                            placeholder="<?= $model->budget ?>" readonly>
                 </div>
             </div>
-            <?php if ($model->member->status == 12): ?>
+            <?php if ($model->status == 12): ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">说明</label>

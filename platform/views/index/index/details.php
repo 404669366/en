@@ -359,7 +359,7 @@
                 <li><span class="gray">详细地址</span><?= $model->address ?></li>
                 <li><span class="gray">发布时间</span><?= date('Y-m-d H:i:s', $model->created) ?></li>
             </ul>
-            <div id="cycle"><?= $model->financing_ratio * 100 ?></div>
+            <div id="cycle"><?= ((float)$model->financing_ratio) * 100 ?></div>
             <!--联系人-->
             <div class="contacts">
                 <ul>
@@ -414,21 +414,22 @@
         $('.intent').fadeOut();
     });
     $('.intentButton').click(function () {
-        if ($('.intentMoney').val()) {
-            $.getJSON('/user/intention/add.html', {
-                no: '<?=$model->no?>',
-                money: $('.intentMoney').val()
-            }, function (re) {
-                if (re.type) {
-                    layer.msg('提交成功,工作人员将尽快联系您!');
-                } else {
-                    layer.msg(re.msg);
-                }
-                $('.intent').fadeOut();
-            })
-        } else {
-            layer.msg('请填写意向金额');
+        var money = $('.intentMoney').val();
+        if (!money || isNaN(money)) {
+            layer.msg('请填写正确的意向金额');
+            return;
         }
+        $.getJSON('/user/intention/add.html', {
+            no: '<?=$model->no?>',
+            money: money
+        }, function (re) {
+            if (re.type) {
+                layer.msg('提交成功,工作人员将尽快联系您!');
+            } else {
+                layer.msg(re.msg);
+            }
+            $('.intent').fadeOut();
+        })
     });
 </script>
 <!--内容1结束-->
@@ -492,7 +493,10 @@
             var point = new BMap.Point('<?=$model->lng?>' || 116.404, '<?=$model->lat?>' || 39.915);
             map.centerAndZoom(point, 16);
             map.addOverlay(new BMap.Marker(point));
-            map.addControl(new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}));
+            map.addControl(new BMap.NavigationControl({
+                anchor: BMAP_ANCHOR_TOP_RIGHT,
+                type: BMAP_NAVIGATION_CONTROL_SMALL
+            }));
         </script>
     </div>
 </div>
@@ -538,7 +542,7 @@
         </li>
         <li class="sell_mgrt">
             <img src="/resources/images/tz.jpg"/>
-            <p><a href="#">成为合伙人 &gt;</a></p>
+            <p><a href="/user/ident/ident.html">成为合伙人 &gt;</a></p>
         </li>
     </ul>
     <!--清除浮动-->

@@ -78,7 +78,6 @@ class IntentionController extends CommonController
             ->leftJoin(Field::tableName() . ' f', 'i.field_id=f.id')
             ->where(['i.no' => $no, 'f.cobber_id' => \Yii::$app->user->id])
             ->one();
-        Msg::set('非法操作');
         if (\Yii::$app->request->isPost) {
             $post = \Yii::$app->request->post();
             if ($model->load(['Intention' => $post]) && $model->validate()) {
@@ -87,7 +86,7 @@ class IntentionController extends CommonController
                     return $this->redirect(['manage'], '提交成功');
                 }
             }
-            Msg::set($model->errors());
+            Msg::set($model->errors(), 'PopupMsg');
         }
         return $this->render('detail', ['data' => $model]);
     }

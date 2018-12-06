@@ -61,7 +61,9 @@ class SecondController extends CommonController
         if ($model = Field::findOne(['id' => $id, 'status' => 10])) {
             $model->status = 11;
             if ($model->save()) {
-                redis::app()->rPush('BackendField', $model->id);
+                if ($model->type == 1) {
+                    redis::app()->rPush('BackendField', $model->id);
+                }
                 Msg::set('保存成功');
                 return $this->redirect(['list']);
             }
