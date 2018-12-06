@@ -86,6 +86,7 @@
                             element: '.p',
                             uploadImgUrl: '/basis/file/upload',
                             removeImgUrl: '/basis/file/delete',
+                            default: '<?=$model->configure_photo?>',
                         });
                     </script>
                     <div class="hr-line-dashed"></div>
@@ -103,6 +104,7 @@
                             element: '.i',
                             uploadImgUrl: '/basis/file/upload',
                             removeImgUrl: '/basis/file/delete',
+                            default: '<?=$model->prove_photo?>',
                         });
                     </script>
                     <div class="hr-line-dashed"></div>
@@ -120,8 +122,16 @@
                             element: '.f',
                             uploadImgUrl: '/basis/file/upload',
                             removeImgUrl: '/basis/file/delete',
+                            default: '<?=$model->field_photo?>',
                         });
                     </script>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">场地分成比例</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="field_ratio" placeholder="不填默认为0">
+                        </div>
+                    </div>
                 <?php endif; ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">

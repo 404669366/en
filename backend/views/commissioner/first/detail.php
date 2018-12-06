@@ -68,6 +68,13 @@
                 </script>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
+                    <label class="col-sm-3 control-label">场地分成比例</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" name="field_ratio" value="<?=$model->field_ratio?>" placeholder="不填默认为0">
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
                     <label class="col-sm-3 control-label">驳回说明</label>
                     <div class="col-sm-4">
                         <textarea class="form-control" readonly><?= $model->remark ?></textarea>
@@ -113,6 +120,14 @@
                             image: '<?=$model->field_photo?>',
                         });
                     </script>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地分成比例</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->field_ratio ?>" readonly>
+                    </div>
                 </div>
             <?php endif; ?>
             <div class="hr-line-dashed"></div>

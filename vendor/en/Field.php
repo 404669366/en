@@ -24,6 +24,7 @@ use Yii;
  * @property string $image 场地图片
  * @property string $configure_photo 配置单图片
  * @property string $field_photo 场地方合同
+ * @property string $field_ratio 场地分成比例
  * @property string $prove_photo 场地证明
  * @property string $power_photo 电力证明
  * @property string $field_drawing 施工图纸
@@ -58,7 +59,7 @@ class Field extends \yii\db\ActiveRecord
     {
         return [
             [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created', 'click', 'attention'], 'integer'],
-            [['areas', 'financing_ratio'], 'number'],
+            [['areas', 'financing_ratio', 'field_ratio'], 'number'],
             [['no'], 'string', 'max' => 20],
             [['no'], 'required'],
             [['level'], 'string', 'max' => 10],
@@ -91,6 +92,7 @@ class Field extends \yii\db\ActiveRecord
             'image' => '场地图片',
             'configure_photo' => '配置单图片',
             'field_photo' => '场地方合同',
+            'field_ratio' => '场地分成比例',
             'prove_photo' => '场地证明',
             'power_photo' => '电力证明',
             'field_drawing' => '施工图纸',
@@ -169,6 +171,13 @@ class Field extends \yii\db\ActiveRecord
                 $this->status = $this->oldAttributes['status'];
                 $this->addError('field_photo', '请添加场地合同图片');
                 return false;
+            }
+            if ($this->field_ratio) {
+                if ($this->field_ratio > Constant::getFieldMaxRatio()) {
+                    $this->status = $this->oldAttributes['status'];
+                    $this->addError('field_ratio', '场地分成比例不大于' . Constant::getFieldMaxRatio());
+                    return false;
+                }
             }
         }
         if ($this->status == 8) {

@@ -74,6 +74,14 @@
                     });
                 </script>
             </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">场地分成比例</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control"
+                           placeholder="<?= $model->field_ratio ?>" readonly>
+                </div>
+            </div>
             <?php if ($model->status == 6): ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">

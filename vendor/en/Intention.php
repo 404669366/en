@@ -77,7 +77,7 @@ class Intention extends \yii\db\ActiveRecord
             }
             if (!$this->ratio || $this->ratio > 1) {
                 $this->status = $this->oldAttributes['status'];
-                $this->addError('ratio', '请填写正确的分成比例(大于0,小于等于1)');
+                $this->addError('ratio', '请填写正确的分成比例(大于0且不大于1)');
                 return false;
             }
             if (!$this->contract_photo) {

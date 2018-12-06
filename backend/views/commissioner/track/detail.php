@@ -108,6 +108,14 @@
                         image: '<?=$model->field_photo?>',
                     })
                 </script>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">场地分成比例</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->field_ratio ?>" readonly>
+                    </div>
+                </div>
             <?php endif; ?>
             <?php if ($model->status == 8 || $model->status >= 10): ?>
                 <div class="hr-line-dashed"></div>

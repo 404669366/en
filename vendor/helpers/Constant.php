@@ -171,6 +171,15 @@ class Constant
     }
 
     /**
+     * 场地方最高分成比例(返回百分比)
+     * @return int
+     */
+    public static function getFieldMaxRatio()
+    {
+        return 1;
+    }
+
+    /**
      * 融资结束节点(返回百分比)
      * @return int
      */

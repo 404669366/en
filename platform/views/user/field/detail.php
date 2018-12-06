@@ -139,6 +139,10 @@
                                 });
                             </script>
                         </li>
+                        <li>
+                            <span>场地分成比例：</span>
+                            <input type="text" name="field_ratio" placeholder="不填默认为0" value="<?=$field->field_ratio?>">
+                        </li>
                     <?php endif; ?>
                     <?php if (in_array($field->status, [4, 5]) || $field->status >= 8): ?>
                         <li>
@@ -170,6 +174,10 @@
                                     image: '<?=$field->field_photo?>'
                                 });
                             </script>
+                        </li>
+                        <li>
+                            <span>场地分成比例：</span>
+                            <input type="text" placeholder="<?= $field->field_ratio ?>" readonly>
                         </li>
                     <?php endif; ?>
                     <?php if ($field->status == 11 || $field->status >= 14): ?>
