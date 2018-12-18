@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>list</title>
+    <title>场地搜索</title>
     <!--引入重置样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <!--引入公共样式-->
@@ -16,6 +16,7 @@
     <!--引入jquery-->
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/top.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/login.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/sms.js" type="text/javascript" charset="utf-8"></script>
@@ -268,11 +269,27 @@
         <img src="/resources/images/logo.png"/>
     </div>
     <div class="box1200 nav_search">
-        <input type="text" class="nasech" id="" placeholder="请输入关键词"/>
+        <input type="text" class="nasech" id="" placeholder="搜索场地"/>
         <button type="button" class="sea_btn"/>
         <i class="fa fa-search" aria-hidden="true"></i>
         </button>
     </div>
+    <script>
+        $('.nasech').val(getParams('search'));
+        $('.sea_btn').click(function () {
+            search('.nasech');
+        });
+        $(document).keypress(function (event) {
+            if (event.which === 13) {
+                search('.nasech');
+            }
+        });
+
+        function search(element) {
+            var params = '?type=' + getParams('type', 1) + '&search=' + $(element).val();
+            window.location.href = '/index/index/list.html' + params;
+        }
+    </script>
 </div>
 <!--head结束-->
 
@@ -280,28 +297,20 @@
 <div class="content box1200">
     <div class="list_group1">
         <ul>
-            <a href="/index/index/list.html?type=1">
-                <li type="1">最新</li>
-            </a>
-            <a href="/index/index/list.html?type=2">
-                <li type="2">融资</li>
-            </a>
-            <a href="/index/index/list.html?type=3">
-                <li type="3">人气</li>
-            </a>
-            <a href="/index/index/list.html?type=4">
-                <li type="4">点击</li>
-            </a>
-            <a href="/index/index/list.html?type=5">
-                <li type="5">面积</li>
-            </a>
-            <a href="/index/index/list.html?type=6">
-                <li type="6">总价</li>
-            </a>
+            <li type="1">最新</li>
+            <li type="2">融资</li>
+            <li type="3">人气</li>
+            <li type="4">点击</li>
+            <li type="5">面积</li>
+            <li type="6">总价</li>
         </ul>
         <script>
-            var now = '<?=$fields['now']?>';
-            $('.list_group1').find('[type="' + now + '"]').addClass('sort_active');
+
+            $('.list_group1').find('[type="' + getParams('type', 1) + '"]').addClass('sort_active');
+            $('.list_group1 li').click(function () {
+                var params = '?type=' + $(this).attr('type') + '&search=' + $('.nasech').val();
+                window.location.href = '/index/index/list.html' + params;
+            });
         </script>
         <!--清除浮动-->
         <div class="clear"></div>
@@ -317,7 +326,9 @@
                 <a href="/index/index/details.html?no=<?= $data['no'] ?>"><img src="<?= $data['image'][0] ?>"/></a>
                 <a href="/index/index/details.html?no=<?= $data['no'] ?>" style="color: #333333">
                     <div class="info">
-                        <p class="info_tit"><?=$data['title']?></p>
+                        <p class="info_tit"><?= $data['title'] ?></p>
+                        <p class="address"><i class="fa fa-barcode"
+                                              aria-hidden="true"></i>&nbsp;<?= $data['no'] ?>
                         <p class="address">&nbsp;<i class="fa fa-map-marker"
                                                     aria-hidden="true"></i>&nbsp;<?= $data['full_name'] ?></p>
                         <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<?= $data['address'] ?>
@@ -336,7 +347,7 @@
                 <!--清除浮动-->
                 <div class="clear"></div>
             </li>
-            <a class="follow" href="/user/follow/follow.html?no=<?=$data['no']?>" style="text-decoration: none">关注</a>
+            <a class="follow" href="/user/follow/follow.html?no=<?= $data['no'] ?>" style="text-decoration: none">关注</a>
             <div class="unit_price">
                 <p class="price"><span
                             style="font-size: 26px;font-weight: 600;margin: 0 6px;"><?= $data['budget'] ?></span>￥</p>

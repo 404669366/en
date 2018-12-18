@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>estimate</title>
+    <title>发布场地</title>
     <!--引入重置样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <!--引入公共样式-->
@@ -265,8 +265,8 @@
     <div class="box1200 nav_logo">
         <img src="/resources/images/logo.png"/>
         <ul class="head_list">
-            <li><a href="#" class="active">我有场地</a></li>
-            <li><a href="#">我要估价</a></li>
+            <li><a href="/user/release/release-basis.html" class="active">我有场地</a></li>
+            <li><a href="/estimate/estimate/estimate.html">收益测算</a></li>
         </ul>
         <!--清除浮动-->
         <div class="clear"></div>

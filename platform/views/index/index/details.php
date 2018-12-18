@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>details</title>
+    <title>场地详情</title>
     <!--引入重置样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <!--引入公共样式-->
@@ -276,11 +276,26 @@
     </div>
 
     <div class="box1200 nav_search">
-        <input type="text" class="nasech" id="" placeholder="请输入"/>
+        <input type="text" class="nasech" id="" placeholder="搜索场地"/>
         <button type="button" class="sea_btn"/>
         <i class="fa fa-search" aria-hidden="true"></i>
         </button>
     </div>
+    <script>
+        $('.sea_btn').click(function () {
+            search('.nasech');
+        });
+        $(document).keypress(function (event) {
+            if (event.which === 13) {
+                search('.nasech');
+            }
+        });
+
+        function search(element) {
+            var params = '?search=' + $(element).val();
+            window.location.href = '/index/index/list.html' + params;
+        }
+    </script>
 </div>
 <!--head结束-->
 
@@ -538,7 +553,7 @@
         </li>
         <li>
             <img src="/resources/images/num.png"/>
-            <p><a href="/estimate/estimate/estimate.html">投资计算 &gt;</a></p>
+            <p><a href="/estimate/estimate/estimate.html">收益测算 &gt;</a></p>
         </li>
         <li class="sell_mgrt">
             <img src="/resources/images/tz.jpg"/>

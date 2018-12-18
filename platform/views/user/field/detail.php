@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>user</title>
+    <title>场地跟踪详情</title>
     <!--引入重置样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <!--引入公共样式-->

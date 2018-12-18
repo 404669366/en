@@ -433,18 +433,16 @@ class Field extends \yii\db\ActiveRecord
             ]);
         }
         if (isset($get['type']) && isset($map[$get['type']])) {
-            $now = $get['type'];
             $data->orderBy($map[$get['type']] . ' desc');
         } else {
-            $now = 1;
-            $data->orderBy($map[$now] . ' desc');
+            $data->orderBy($map[1] . ' desc');
         }
         $data = $data->asArray()->all();
         foreach ($data as &$v) {
             $v['image'] = explode(',', $v['image']);
             $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
-        return ['total' => count($data), 'data' => $data, 'now' => $now];
+        return ['total' => count($data), 'data' => $data];
     }
 
     /**

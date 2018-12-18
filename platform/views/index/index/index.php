@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>首页</title>
     <!--引入重置样式-->
     <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <!--引入公共样式-->
@@ -269,12 +269,26 @@
         </div>
         <!--search-->
         <div class="search">
-            <input type="text" class="search_txt float_left" placeholder="请输入"/>
+            <input type="text" class="search_txt float_left" placeholder="搜索场地"/>
             <button type="button" class="search_btn float_left"/>
             <i class="fa fa-search" aria-hidden="true"></i>
             </button>
-
         </div>
+        <script>
+            $('.search_btn').click(function () {
+                search('.search_txt');
+            });
+            $(document).keypress(function (event) {
+                if (event.which === 13) {
+                    search('.search_txt');
+                }
+            });
+
+            function search(element) {
+                var params = '?search=' + $(element).val();
+                window.location.href = '/index/index/list.html' + params;
+            }
+        </script>
     </div>
     <!--清除浮动-->
     <div class="clear"></div>

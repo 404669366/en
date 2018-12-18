@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>useProtocol</title>
+    <title>亿能隐私政策</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/protocol.css"/>
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
