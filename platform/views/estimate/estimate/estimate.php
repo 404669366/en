@@ -270,8 +270,7 @@
     </div>
     <!--大标题-->
     <div class="box1200 nav_tit">
-        发布我的场地,一站式建站服务
-        <p class="sub_tit">添加场地信息，实现场地价值</p>
+        开始收益测算,了解未来行情
     </div>
 </div>
 <!--head结束-->
@@ -281,15 +280,6 @@
     <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
     <div class="m_form">
         <ul class="form_list">
-            <li class="area">
-                <span class="list_names">场地地域 :</span>
-                <select class="province"></select>
-                <select class="city"></select>
-                <select class="county"></select>
-            </li>
-            <script>
-                area({element: '.area'});
-            </script>
             <li>
                 <span class="list_names">详细地址 :</span>
                 <input type="text" name="address" placeholder="请填写场地详细地址" minlength="1"/>
@@ -298,28 +288,6 @@
                 <span class="list_names" style="margin-top: 0;float: left">场地描述 :</span>
                 <textarea style="width: 700px;height: 300px;margin-top: 20px;font-size: 14px" name="intro"
                           maxlength="500" placeholder="请填写场地描述" minlength="10"></textarea>
-            </li>
-
-            <li style="display: none">
-                <span class="list_names">场地特色</span>
-                <ul class="inputBox">
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>满五</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>唯一</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>精装修</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>地铁房</span>
-                    </li>
-                </ul>
             </li>
             <!--清除浮动-->
             <div class="clear"></div>
@@ -331,7 +299,7 @@
     <div class="m_submit">
         <div class="wrap">
             <button type="submit" class="btn_submit">立即发布</button>
-            <div class="btn_text" style="display: none">估值结果由亿能系统模型提供</div>
+            <div class="btn_text" style="display: none">预测结果由亿能系统模型提供</div>
         </div>
     </div>
     <!--去估价按钮结束-->
@@ -362,7 +330,7 @@
             <li><img src="/resources/images/en2.png"/></li>
         </ul>
         <!--底部版权-->
-        <p>Copyright © 2018 en.link，All Rights Reserved. 四川亿能天成科技有限公司</p>
+        <p>Copyright © 2018 en.ink，All Rights Reserved. 四川亿能天成科技有限公司</p>
     </div>
 </div>
 <!--脚部end-->

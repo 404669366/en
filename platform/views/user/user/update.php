@@ -121,7 +121,7 @@
             <li><img src="/resources/images/en2.png"/></li>
         </ul>
         <!--底部版权-->
-        <p>Copyright © 2018 en.link，All Rights Reserved. 四川亿能天成科技有限公司</p>
+        <p>Copyright © 2018 en.ink，All Rights Reserved. 四川亿能天成科技有限公司</p>
     </div>
 </div>
 <!--脚部end-->
