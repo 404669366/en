@@ -1,0 +1,48 @@
+<?php
+
+namespace vendor\en;
+
+use Yii;
+
+/**
+ * This is the model class for table "univalent".
+ *
+ * @property int $id
+ * @property string $min 功率最小值
+ * @property string $max 功率最大值
+ * @property string $price 范围单价
+ */
+class Univalent extends \yii\db\ActiveRecord
+{
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'univalent';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['price'], 'number'],
+            [['min', 'max'], 'string', 'max' => 50],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'min' => '功率最小值',
+            'max' => '功率最大值',
+            'price' => '范围单价',
+        ];
+    }
+}

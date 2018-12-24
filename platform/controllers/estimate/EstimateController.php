@@ -16,4 +16,9 @@ class EstimateController extends BasisController
     {
         return $this->render('estimate');
     }
+
+    public function actionData()
+    {
+        
+    }
 }

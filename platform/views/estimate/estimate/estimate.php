@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/submit.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/resources/js/sms.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/login.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/eye.js" type="text/javascript" charset="utf-8"></script>
 </head>
@@ -276,34 +278,32 @@
 <!--head结束-->
 
 <!--估价表单开始-->
-<form action="/user/release/add-basis.html" method="post">
-    <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
-    <div class="m_form">
-        <ul class="form_list">
-            <li>
-                <span class="list_names">详细地址 :</span>
-                <input type="text" name="address" placeholder="请填写场地详细地址" minlength="1"/>
-            </li>
-            <li>
-                <span class="list_names" style="margin-top: 0;float: left">场地描述 :</span>
-                <textarea style="width: 700px;height: 300px;margin-top: 20px;font-size: 14px" name="intro"
-                          maxlength="500" placeholder="请填写场地描述" minlength="10"></textarea>
-            </li>
-            <!--清除浮动-->
-            <div class="clear"></div>
-        </ul>
-    </div>
-    <!--估价表单结束-->
+<input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+<div class="m_form">
+    <ul class="form_list">
+        <li>
+            <span class="list_names" style="width: 80px">投建功率 :</span>
+            <input type="text" placeholder="请填写预计投建功率" minlength="1"/>
+        </li>
+        <li>
+            <div style="100%;height: 300px;font-size: 14px;border: 1px solid;">
 
-    <!--去估价按钮-->
-    <div class="m_submit">
-        <div class="wrap">
-            <button type="submit" class="btn_submit">立即发布</button>
-            <div class="btn_text" style="display: none">预测结果由亿能系统模型提供</div>
-        </div>
+            </div>
+        </li>
+        <!--清除浮动-->
+        <div class="clear"></div>
+    </ul>
+</div>
+<!--估价表单结束-->
+
+<!--去估价按钮-->
+<div class="m_submit">
+    <div class="wrap">
+        <button type="button" class="btn_submit">立即测算</button>
+        <div class="btn_text">测算结果由亿能系统模型提供</div>
     </div>
-    <!--去估价按钮结束-->
-</form>
+</div>
+<!--去估价按钮结束-->
 
 
 <!--脚部start-->
