@@ -50,7 +50,7 @@
             }
             }
         ],
-        default_order: [0, 'desc']
+        default_order: [2, 'asc']
     });
     myTable.search();
 </script>

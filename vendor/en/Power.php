@@ -33,6 +33,7 @@ class Power extends \yii\db\ActiveRecord
     {
         return [
             [['type', 'sort', 'last'], 'integer'],
+            [['url'], 'unique'],
             [['no'], 'string', 'max' => 8],
             [['name'], 'string', 'max' => 30],
             [['url'], 'string', 'max' => 100],
@@ -140,6 +141,32 @@ class Power extends \yii\db\ActiveRecord
     }
 
     /**
+     * 获取Root菜单
+     * @return string
+     */
+    public static function getRootMenu()
+    {
+        $menu = '';
+        $powers = self::find()->where(['last' => 0, 'type' => 1])
+            ->select(['id', 'name', 'url'])
+            ->orderBy('sort desc')
+            ->asArray()->all();
+        foreach ($powers as $v) {
+            $menu .= "<li><a href='#'><span class='nav-label'>{$v['name']}</span><span class='fa arrow'></span></a>";
+            $sons = self::find()->where(['last' => $v['id'], 'type' => 1])
+                ->select(['name', 'url'])
+                ->orderBy('sort desc')
+                ->asArray()->all();
+            $menu .= '<ul class="nav nav-second-level">';
+            foreach ($sons as $son) {
+                $menu .= "<li><a class='J_menuItem' href='{$son['url']}'>{$son['name']}</a></li>";
+            }
+            $menu .= '</ul>';
+        }
+        return $menu;
+    }
+
+    /**
      * 查询拥有对应权限的用户数量
      * @param string $no
      * @return int|string
@@ -153,6 +180,22 @@ class Power extends \yii\db\ActiveRecord
                 ->count();
         }
         return 0;
+    }
+
+    /**
+     * 判断用户是否有权限
+     * @return array|bool|null|\yii\db\ActiveRecord
+     */
+    public static function pass()
+    {
+        if (!in_array(Yii::$app->user->identity->username, \Yii::$app->params['rootName'])) {
+            if ($rule = self::findOne(['url' => '/' . Yii::$app->controller->getRoute()])) {
+                return Job::find()->where(['id' => Yii::$app->user->identity->job_id])
+                    ->andWhere('find_in_set(' . $rule->id . ',powers)')
+                    ->one();
+            }
+        }
+        return true;
     }
 
 }

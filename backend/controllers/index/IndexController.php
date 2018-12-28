@@ -9,6 +9,7 @@
 namespace app\controllers\index;
 
 use app\controllers\basis\CommonController;
+use vendor\en\Power;
 use vendor\helpers\redis;
 
 class IndexController extends CommonController
@@ -21,10 +22,14 @@ class IndexController extends CommonController
     {
         $this->layout = false;
         $user = \Yii::$app->user->getIdentity() ? \Yii::$app->user->getIdentity() : '';
-        $data = [
-            'username' => $user ? $user->username : '',
-            'menus' => redis::app()->hGet('BackendMenu', $user ? $user->job_id : 0),
-        ];
+        $data['username'] = $user ? $user->username : '';
+        if (in_array($data['username'], \Yii::$app->params['rootName'])) {
+            $data['menus'] = Power::getRootMenu();
+        } elseif ($data['username']) {
+            $data['menus'] = redis::app()->hGet('BackendMenu', $user->job_id);
+        } else {
+            $data['menus'] = '';
+        }
         return $this->render('menu', ['data' => $data]);
     }
 
