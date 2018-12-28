@@ -28,8 +28,8 @@ class Univalent extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['price'], 'number'],
-            [['min', 'max'], 'string', 'max' => 50],
+            [['price', 'min', 'max'], 'required'],
+            [['price', 'min', 'max'], 'number'],
         ];
     }
 
@@ -44,5 +44,19 @@ class Univalent extends \yii\db\ActiveRecord
             'max' => '功率最大值',
             'price' => '范围单价',
         ];
+    }
+
+    public static function getPageData()
+    {
+        return self::find()->page();
+    }
+
+    public static function getMin()
+    {
+        $data = self::find()->select(['max(max) as min'])->asArray()->one();
+        if ($data && $data['min']) {
+            return $data['min'];
+        }
+        return 0;
     }
 }
