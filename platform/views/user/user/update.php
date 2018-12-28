@@ -86,7 +86,7 @@
                     </li>
                     <li>
                         <span></span>
-                        <button type="submit">保存修改</button>
+                        <button type="submit" style="float: none;width: 250px">保存修改</button>
                     </li>
                 </ul>
             </form>
