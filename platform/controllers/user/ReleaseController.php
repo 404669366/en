@@ -59,7 +59,7 @@ class ReleaseController extends CommonController
                 redis::app()->rPush('BackendBasisField', $model->id);
                 return $this->redirect(['/user/user/basis-field'], '发布成功');
             }
-            Msg::set('发布失败', 'PopupMsg');
+            Msg::set('发布失败');
         }
         return $this->render('releaseBasis');
     }

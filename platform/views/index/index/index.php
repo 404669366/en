@@ -22,7 +22,7 @@
     <script src="/resources/js/submit.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<?php \vendor\helpers\Msg::run('PopupMsg') ?>
+<?php \vendor\helpers\Msg::run() ?>
 <!--头部start-->
 <?php if ($basisData['isGuest']): ?>
     <div class="loninContaner">

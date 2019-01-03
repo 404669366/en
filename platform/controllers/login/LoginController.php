@@ -117,7 +117,7 @@ class LoginController extends BasisController
     public function actionLogout()
     {
         \Yii::$app->user->logout();
-        Msg::set('注销成功', 'PopupMsg');
+        Msg::set('注销成功');
         return $this->goBack();
     }
 }

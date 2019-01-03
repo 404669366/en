@@ -77,7 +77,7 @@ class Constant
     }
 
     /**
-     * 返回预测配置参数
+     * 返回预测配置参数(旧版)
      * @return array
      */
     public static function getBudget()
@@ -88,6 +88,25 @@ class Constant
             'roof' => 0.15,//平台分成比例
             'subsidy' => 0.3,//政府补贴比例
             'price' => 0.62,//基础电价
+            'safe' => 350,//保险费
+            'tax' => 0.84//增值税
+        ];
+    }
+
+    /**
+     * 返回预测配置参数(新版)
+     * @return array
+     */
+    public static function getBudgetNew()
+    {
+        return [
+            'yearDay' => 330,//年计算日
+            'dayHours' => 2,//日均满功率时间
+            'servers' => 0.6,//服务费
+            'price' => 0.62,//基础电价
+            'field' => 0.2,//场地分成比例
+            'roof' => 0.15,//平台分成比例
+            'pLoss' => 0.07,//电损
             'safe' => 350,//保险费
             'tax' => 0.84//增值税
         ];

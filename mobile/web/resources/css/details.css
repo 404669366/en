@@ -1,0 +1,249 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*banner*/
+.banner{
+	width: 100%;
+	height: 40rem;
+}
+.banner img{
+	display: block;
+	width: 100%;
+	height: 40rem;
+}
+body{
+	background-color: #f8f8f9;
+}
+
+/*title*/
+.detTitle{
+	width: 100%;
+    /*height: 50rem;*/
+    background: #fff;
+}
+.detCont{
+	width: 90%;
+	padding: 3rem;
+}
+.detTitle .tit{
+	width:88%;
+	height: 10rem;
+	color: #101D37;
+	font: bold 3.5rem/5rem "宋体";
+	overflow: hidden;
+	float: left;
+}
+.detTitle .follow{
+	width: 12%;
+	height: 10rem;
+	text-align: center;
+	float: right;
+}
+.follow .heart{
+	font: 3.5rem/2rem "宋体";
+	margin-top: 2rem;
+}
+
+.follow .txt{
+	font: 2.5rem/3rem "宋体";
+}
+
+/*场地价格信息*/
+.priceData{
+	height: 7.2rem;
+	margin-top: 12rem;
+}
+.similar_data {
+	width: 25%;
+	float: left;
+}
+.priceTxt{
+	width: 36%;
+	float: left;
+	text-align: center;
+	border-left: solid 0.15rem #e4e6f0;
+}
+.similar_data .price,.priceTxt .price{
+	color: #fa5741;
+	font:bold 3.5rem/5rem '宋体';
+}
+.similar_data .gray,.priceTxt .gray{
+	color: #9399a5;
+	font: 2rem/2rem '宋体';
+}
+.priceTxt .rigth10{
+	padding-right: 10rem;
+}
+.priceTxt .rigth5{
+	padding-right: 5rem;
+}
+
+/*详情*/
+.agent{
+	width: 100%;
+    /*height: 50rem;*/
+    background: #fff;
+    border-bottom: 0.2rem solid #E4E6F0;
+}
+.agentCont{
+	width: 90%;
+	padding: 3rem;
+}
+.agentImg{
+	width: 100%;
+	height: 20rem;
+	background: pink;
+}
+/*更多场地信息*/
+.viewMore {
+    height: 8rem;
+    text-align: center;
+    font: 3rem/8rem '宋体';
+    margin-top: 2rem;
+    border-radius: 1rem;
+    background: rgba(48,114,246,.05);
+}
+.viewMore a {
+    color: #3072F7;
+}
+
+/*map*/
+.map{
+	width: 100%;
+	height: 30rem;
+	background: #ccc;
+}
+
+/*场地介绍开始*/
+.venues{
+	width: 100%;
+	background: #fff;
+	border-bottom: 0.1rem solid #e4e6f0;
+}
+.venuesCont{
+	width: 90%;
+	padding: 3rem;
+}
+.venTit{
+	height: 7rem;
+	font: 3rem/7rem '宋体';
+}
+.content{
+	height: 21rem;
+	color: #101d37;
+	font: 2.5rem/3.5rem '宋体';
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 6;
+	overflow: hidden;
+	padding-top: 1rem;
+}
+
+/*猜你喜欢开始*/
+.guesUlike{
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+.mod_cont{
+	width: 90%;
+	padding:3rem;
+}
+.guseTit{
+	height: 8rem;
+	font:600 3rem/8rem '宋体';
+}
+.recont{
+	width: 100%;
+	height: 16rem;
+	padding: 2rem 0;
+	border-bottom: .1rem solid #e4e6f0;
+}
+.recimg{
+	width: 20.75rem;
+	height: 15.375rem;
+	float: left;
+}
+.recimg img{
+	width: 20.75rem;
+	height: 15.375rem;
+}
+.redadat{
+	width: 56%;
+	height: 16rem;
+	float: right;
+}
+.redadat .tit{
+    margin-bottom: 1rem;
+    line-height: 1.2em;
+    overflow: hidden;
+    font-size: 2.7rem;
+    color: #101d37;
+}
+.redadat .tit_txt{
+    margin-bottom: 1rem;
+    font-size: 2.1rem;
+    font-family: "微软雅黑";
+    color: #101d37;
+}
+.redadat .price{
+	font-size: 3rem;
+	color: #fa5741;
+	font-weight: 600;
+}
+.none_border{
+	border: none;
+}
+
+/*helpSell*/
+.helpSell{
+	width: 100%;
+	height: 47rem;
+	border-top: 0.1rem solid #e4e6f0;
+}
+.helpCont{
+	text-align: center;
+}
+.helpCont h2{
+	color: #101d37;
+	font: 3.5rem/4rem '宋体';
+	margin-top: 4rem;
+}
+.helpCont .help{
+	color: #9399a5;
+	text-align: center;
+	font: 2.3rem/4rem '宋体';
+}
+.helpBtn{
+	margin: auto;
+	width: 36%;
+	height: 7rem;
+	font: 2.65rem/7rem '宋体';
+	border-radius: 4rem;
+	border: solid 0.1rem #9399a5;
+	margin-top: 2.5rem;
+}
+.helpBtn a{
+	color: #101d37;
+}
+.flexbox{
+	height: 4rem;
+	color: #9399a5;
+	margin: 8rem  3rem 0 3rem;
+	font: 2.3rem/4rem '宋体';
+}
+.flexbox p{
+	float: left;
+}
+.flexbox a{
+	display: block;
+    color: #3072f6;
+	float: right;
+}
+.hintStyle {
+    padding: 3rem;
+    color: #CDCFD0;
+    letter-spacing: -.55px;
+	font: 2rem/2.7rem '宋体';
+}

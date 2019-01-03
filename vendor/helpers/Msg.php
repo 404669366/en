@@ -14,13 +14,12 @@ class Msg
     /**
      * 设置消息
      * @param string $msg
-     * @param string $key
      * @return bool
      */
-    public static function set($msg = '', $key = 'BackstageMsg')
+    public static function set($msg = '')
     {
         if ($msg) {
-            \Yii::$app->session->set($key, $msg);
+            \Yii::$app->session->set(\Yii::$app->params['entryName'], $msg);
             return true;
         }
         return false;
@@ -28,12 +27,11 @@ class Msg
 
     /**
      * 渲染消息
-     * @param string $key
      */
-    public static function run($key = 'BackstageMsg')
+    public static function run()
     {
-        if ($msg = \Yii::$app->session->get($key, false)) {
-            \Yii::$app->session->set($key, null);
+        if ($msg = \Yii::$app->session->get(\Yii::$app->params['entryName'], false)) {
+            \Yii::$app->session->set(\Yii::$app->params['entryName'], null);
             echo "<script>$(function() {
   layer.msg('$msg');
 })</script>";

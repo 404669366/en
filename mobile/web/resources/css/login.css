@@ -1,0 +1,92 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*head*/
+.header{
+	width: 91%;
+	margin: 0 auto;
+	height: 8rem;
+	padding: 0 3rem;
+	font: 3rem/8rem '宋体';
+    color: #9399A5;
+}
+.header .close{
+	float: left;
+	font-size: 4rem;
+}
+.header .zhuCe{
+	float: right;
+}
+.header .zhuCe a{
+    color: #9399A5;
+}
+
+/*主体内容*/
+.loginCont{
+	width: 87.8%;
+	margin: 0 auto;
+	padding:0 4rem;
+}
+.phTit{
+	height: 8rem;
+	color: #101D37;
+	font: 4rem/8rem '宋体';
+}
+.prompt{
+	height: 7rem;
+	color: #9399A5;
+	font: 2.5rem/3.5rem '宋体';
+}
+.form{
+	width: 100%;
+}
+.form .proving1{
+	height: 10rem;
+	border-bottom: 0.15rem solid rgb(226, 226, 226);
+}
+.form input{
+	width: 70%;
+	border: none;
+	font: 2.7rem/10rem '宋体';
+}
+.form .short_input2{
+	width: 100%;
+}
+.proving1 a{
+	color: #101D37;
+	font: 2.7rem/10rem '宋体';
+	float: right;
+}
+
+/*按钮*/
+.btn{
+	height: 16rem;
+	text-align: center;
+	margin-top: 2rem;
+}
+.btn .loginBtn{
+	color: #fff;
+	width: 100%;
+	border: none;
+	height: 9rem;
+	font: 3rem/9rem '宋体';
+	background-color: #008AFF;
+}
+.btn span{
+	display: inline-block;
+	height: 4rem;
+	color: #000;
+	font: 2.5rem/4rem '宋体';
+	padding-top: 2rem;
+}
+
+/*协议*/
+.agree_protocol{
+	height: 6rem;
+	color: #CBCDCD;
+	font: 2.2rem/3rem '宋体';
+}
+.agree_protocol a{
+	color: #008AFF;
+}

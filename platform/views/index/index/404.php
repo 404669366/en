@@ -12,7 +12,7 @@
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<?php \vendor\helpers\Msg::run('PopupMsg') ?>
+<?php \vendor\helpers\Msg::run() ?>
 <div class="not_find">
     <img src="/resources/images/404.jpg"/>
     <div class="notMain" id="notMain">10秒后页面将跳转到首页...</div>

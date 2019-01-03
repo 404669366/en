@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'entryName' => 'Platform',
     'defaultRoute' => 'index/index/index',
     'loginRoute' => 'user/login/login',
     'AliOss' => [

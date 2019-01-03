@@ -8,7 +8,7 @@
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<?php \vendor\helpers\Msg::run('PopupMsg') ?>
+<?php \vendor\helpers\Msg::run() ?>
 <div class="box1200">
     <div class="imgs">
         <img src="/resources/images/logo.png"/>

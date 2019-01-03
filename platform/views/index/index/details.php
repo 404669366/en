@@ -29,7 +29,7 @@
     <script src="/resources/js/radialIndicator.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<?php \vendor\helpers\Msg::run('PopupMsg') ?>
+<?php \vendor\helpers\Msg::run() ?>
 <?php if ($basisData['isGuest']): ?>
     <div class="loninContaner">
         <div class="login_bg" style="display: none"></div>

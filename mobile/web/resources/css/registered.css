@@ -1,0 +1,78 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+/*header*/
+.header{
+	width: 91%;
+	margin: 0 auto;
+	height: 8rem;
+	padding: 0 3rem;
+	font: 3rem/8rem '宋体';
+	color: #101D37;
+}
+.header .return{
+	float: left;
+	font-size: 4rem;
+}
+.header .return a{
+    color: #9399A5;
+}
+.header .zhuCe{
+	color: #101D37;
+	text-align: center;
+}
+
+/*主体内容*/
+.loginCont{
+	width: 87.8%;
+	margin: 0 auto;
+	padding:0 4rem;
+}
+
+.form{
+	width: 100%;
+}
+.form .proving1{
+	height: 10rem;
+	border-bottom: 0.15rem solid rgb(226, 226, 226);
+}
+.form input{
+	width: 70%;
+	border: none;
+	font: 2.7rem/10rem '宋体';
+}
+.form .short_input2{
+	width: 100%;
+}
+.proving1 a{
+	color: #101D37;
+	font: 2.7rem/10rem '宋体';
+	float: right;
+}
+
+/*按钮*/
+.btn{
+	height: 10rem;
+	text-align: center;
+	margin: 2rem 0;
+}
+.btn .loginBtn{
+	color: #fff;
+	width: 100%;
+	border: none;
+	height: 9rem;
+	font: 3rem/9rem '宋体';
+	background-color: #008AFF;
+}
+
+/*协议*/
+.agree_protocol{
+	height: 6rem;
+	color: #CBCDCD;
+	font: 2.2rem/3rem '宋体';
+	margin-top: 5rem;
+}
+.agree_protocol a{
+	color: #008AFF;
+}

@@ -1,0 +1,42 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.password{
+	width: 100%;
+}
+.pwdBox{
+	width: 90%;
+	padding: 3rem;
+}
+.pwdTit{
+	height: 5rem;
+	font: 3rem/5rem "微软雅黑";
+}
+.oldPwd{
+	height: 10rem;
+}
+.oldPwd span{
+	display: inline-block;
+	width: 28%;
+	height: 10rem;
+	font: 2.3rem/10rem "微软雅黑";
+}
+.oldPwd input{
+	display: inline-block;
+	width: 67%;
+	height: 6rem;
+	font-size: 2.2rem;
+	padding: 0 1rem;
+	border: .1rem solid #c8c8c8;
+}
+.oldPwd button{
+	width: 100%;
+	height: 7rem;
+	color: #fff;
+	text-align: center;
+	font: 2.3rem/7rem "微软雅黑";
+	border: none;
+	background-color: #3072f6;
+	margin-top: 2rem;
+}

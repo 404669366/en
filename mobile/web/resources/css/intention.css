@@ -1,0 +1,41 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+/*intention*/
+.intention{
+	width: 100%;
+	height: 100%;
+	
+}
+.intentionCont{
+	padding: 2rem;
+}
+.userTit{
+	font: 2.65rem/5rem "微软雅黑";
+}
+.userTit span{
+	color: #E4393C;
+    margin: 0 0.5rem;
+}
+.intenList,.intenList2{
+	/*width: 100%;*/
+	height: 10rem;
+	text-align: center;
+	background: #F8F8F9;
+	border-bottom: 0.1rem solid #ccc;
+}
+.intenList p,.intenList2 p{
+	width: 25%;
+	height: 10rem;
+	float: left;
+}
+.intenList p {
+	font: 2.4rem/10rem "微软雅黑";
+}
+.intenList2 p{
+	font: 2.15rem/5rem "微软雅黑";
+	word-break: break-all;
+	word-wrap: break-word;
+}

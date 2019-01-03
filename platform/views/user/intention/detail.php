@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<?php \vendor\helpers\Msg::run('PopupMsg') ?>
+<?php \vendor\helpers\Msg::run() ?>
 <!--header-->
 <div class="header">
     <div class="nav box1200">

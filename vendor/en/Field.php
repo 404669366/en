@@ -367,9 +367,10 @@ class Field extends \yii\db\ActiveRecord
     /**
      * 获取场地数据
      * @param int $type
+     * @param int $limit
      * @return array|\yii\db\ActiveRecord[]
      */
-    public static function getFields($type = 0)
+    public static function getFields($type = 0, $limit = 4)
     {
         $map = [
             1 => 'f.created',
@@ -384,7 +385,7 @@ class Field extends \yii\db\ActiveRecord
                 ->where(['f.status' => Constant::getShowStatus()])
                 ->select(['f.*', 'a.full_name'])
                 ->orderBy($map[$type] . ' desc')
-                ->limit(4)->asArray()->all();
+                ->limit($limit)->asArray()->all();
             foreach ($data as &$v) {
                 $v['image'] = explode(',', $v['image'])[0];
             }
