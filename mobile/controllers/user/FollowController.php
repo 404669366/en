@@ -24,11 +24,11 @@ class FollowController extends CommonController
      */
     public function actionFollow($no = '')
     {
-        Msg::set('请先登录', 'PopupMsg');
+        Msg::set('请先登录');
         if(!\Yii::$app->user->isGuest){
-            Msg::set('错误操作', 'PopupMsg');
+            Msg::set('错误操作');
             if ($no) {
-                Msg::set('您已关注', 'PopupMsg');
+                Msg::set('您已关注');
                 if ($model = Follow::notFollow($no)) {
                     $follow = new Follow();
                     $follow->user_id = \Yii::$app->user->id;
@@ -36,9 +36,9 @@ class FollowController extends CommonController
                     $follow->created = time();
                     $model->attention = $model->attention + 1;
                     if ($model->save() && $follow->save()) {
-                        Msg::set('关注成功', 'PopupMsg');
+                        Msg::set('关注成功');
                     } else {
-                        Msg::set('系统错误', 'PopupMsg');
+                        Msg::set('系统错误');
                     }
                 }
             }
@@ -53,7 +53,7 @@ class FollowController extends CommonController
      */
     public function actionCancel($no = '')
     {
-        Msg::set('错误操作', 'PopupMsg');
+        Msg::set('错误操作');
         if ($no && \Yii::$app->user->id) {
             $field = Field::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
             if ($field && $field->attention > 0) {
@@ -64,7 +64,7 @@ class FollowController extends CommonController
                     }
                 }
             }
-            Msg::set('取消关注成功', 'PopupMsg');
+            Msg::set('取消关注成功');
         }
         return $this->goBack();
     }
