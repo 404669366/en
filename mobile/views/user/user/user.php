@@ -113,7 +113,7 @@
 				</a>
 			</div>
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/user/update.html">
 					<div class="mainLeft" style="color:#17A05E;">
 						<i class="fa fa-unlock" aria-hidden="true"></i>
 					</div>

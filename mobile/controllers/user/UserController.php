@@ -66,7 +66,7 @@ class UserController extends CommonController
                     if ($data['password'] !== $data['password1']) {
                         $model->password = \Yii::$app->security->generatePasswordHash($data['password1']);
                         if ($model->save()) {
-                            return $this->redirect(['update'],'修改密码成功');
+                            return $this->redirect(['user/user/user'],'修改密码成功');
                         }
                         Msg::set($model->errors());
                     }
