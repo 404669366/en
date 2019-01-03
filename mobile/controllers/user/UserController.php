@@ -23,7 +23,16 @@ class UserController extends CommonController
      */
     public function actionUser()
     {
-        return $this->render('user', ['follow' => Follow::getFollow(\Yii::$app->user->id)]);
+        return $this->render('user');
+    }
+
+    /**
+     * 关注场地
+     * @return string
+     */
+    public function actionFollow()
+    {
+        return $this->render('follow', ['follow' => Follow::getFollow(\Yii::$app->user->id)]);
     }
 
     /**
@@ -55,10 +64,10 @@ class UserController extends CommonController
             $data = \Yii::$app->request->post();
             if ($model = User::findOne(['id' => \Yii::$app->user->id])) {
                 if (!$data['password'] || !$data['password1'] || !$data['password2']) {
-                    return $this->redirect(['update'],'密码不能为空');
+                    return $this->redirect(['update'], '密码不能为空');
                 }
                 if ($data['password1'] != $data['password2']) {
-                    return $this->redirect(['update'],'两次输入不一致');
+                    return $this->redirect(['update'], '两次输入不一致');
                 }
                 Msg::set('密码错误');
                 if (\Yii::$app->security->validatePassword($data['password'], $model->password)) {
@@ -66,7 +75,7 @@ class UserController extends CommonController
                     if ($data['password'] !== $data['password1']) {
                         $model->password = \Yii::$app->security->generatePasswordHash($data['password1']);
                         if ($model->save()) {
-                            return $this->redirect(['user/user/user'],'修改密码成功');
+                            return $this->redirect(['user/user/user'], '修改密码成功');
                         }
                         Msg::set($model->errors());
                     }

@@ -35,7 +35,7 @@
 				<div class="pwdTit">
 					修改密码
 				</div>
-                <form action="/user/user/modify-password.html" method="post"></form>
+                <form action="/user/user/modify-password.html" method="post">
                     <input type="hidden" name="_csrf" value="<?=Yii::$app->request->csrfToken?>">
 					<div class="oldPwd">
 						<span>输入密码:</span>
@@ -53,6 +53,7 @@
 					<div class="oldPwd">
 						<button type="submit">保存修改</button>
 					</div>
+                </form>
 			</div>
 		</div>
 		<!--change_spassword end-->

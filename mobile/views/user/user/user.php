@@ -35,7 +35,7 @@
 		<div class="main">
 			<!--列表内容-->
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/user/follow.html">
 					<div class="mainLeft">
 						<i class="fa fa-star-half-o" aria-hidden="true"></i>
 					</div>
@@ -48,7 +48,7 @@
 				</a>
 			</div>
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/user/basis-field.html">
 					<div class="mainLeft" style="color: #84CB7F;">
 						<i class="fa fa-gavel" aria-hidden="true"></i>
 					</div>
