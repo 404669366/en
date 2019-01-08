@@ -61,7 +61,7 @@
 				</a>
 			</div>
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/intention/list.html">
 					<div class="mainLeft" style="color: #7FD1CC;">
 						<i class="fa fa-thumb-tack" aria-hidden="true"></i>
 					</div>
@@ -87,7 +87,7 @@
 				</a>
 			</div>
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/field/track-field.html">
 					<div class="mainLeft" style="color:#DE5448;">
 						<i class="fa fa-video-camera" aria-hidden="true"></i>
 					</div>
@@ -100,7 +100,7 @@
 				</a>
 			</div>
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/intention/manage.html">
 					<div class="mainLeft" style="color:#6DB8F7;">
 						<i class="fa fa-hourglass-half" aria-hidden="true"></i>
 					</div>

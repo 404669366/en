@@ -7,7 +7,6 @@
 	width: 100%;
 }
 .mainList{
-	width: 93.5%;
 	padding: 2rem;
 }
 .mainTit{
@@ -38,10 +37,15 @@
 }
 .information{
 	width: 64%;
-	height: 16rem;
 	float: left;
 	margin-left: 2rem;
 	font: 2.35rem/3.5rem "宋体";
+}
+.information p{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	height: 3.76rem;
 }
 .information span{
 	width: 30%;
