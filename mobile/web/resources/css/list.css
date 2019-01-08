@@ -66,6 +66,9 @@ body{
 	padding: 2rem 0;
 	border-bottom: .1rem solid #e4e6f0;
 }
+.recont:last-child{
+	border: none;
+}
 .recimg{
 	width: 20.75rem;
 	height: 15.375rem;
@@ -83,7 +86,8 @@ body{
 }
 .redadat .tit{
     margin-bottom: 1rem;
-    line-height: 1.2em;
+    line-height: 2.8rem;
+	max-height: 5.6rem;
     overflow: hidden;
     font-size: 2.7rem;
     color: #101d37;
