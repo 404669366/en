@@ -138,7 +138,7 @@
 <!--帮我卖场地开始-->
 <div class="helpSell">
     <div class="helpCont">
-        <h2>空闲场地如何使用？我们可以帮到你</h2>
+        <h2>空闲场地如何处理？我们可以帮到你</h2>
         <div class="helpBtn">
             <a href="/user/release/release-basis.html">发布我的场地</a>
         </div>

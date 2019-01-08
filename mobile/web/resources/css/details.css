@@ -29,7 +29,7 @@ body{
 	padding: 3rem;
 }
 .detTitle .tit{
-	width:88%;
+	width:86%;
 	height: 10rem;
 	color: #101D37;
 	font: bold 3.5rem/5rem "宋体";
@@ -37,7 +37,7 @@ body{
 	float: left;
 }
 .detTitle .follow{
-	width: 12%;
+	width: 14%;
 	height: 10rem;
 	text-align: center;
 	float: right;
