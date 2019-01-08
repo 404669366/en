@@ -22,7 +22,9 @@
             <img src="/resources/img/logo.png"/>
         </a>
         <p>
-            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <a href="/user/user/user.html">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </a>
         </p>
     </div>
 </div>
@@ -80,21 +82,17 @@
 
 <!--map start-->
 
-<div class="map">
-    <!--title-->
-    <div id="map" style="width:100%; height: 500px;"></div>
-    <script>
-        var map = new BMap.Map('map');
-        var point = new BMap.Point('<?=$model->lng?>' || 116.404, '<?=$model->lat?>' || 39.915);
-        map.centerAndZoom(point, 16);
-        map.addOverlay(new BMap.Marker(point));
-        map.addControl(new BMap.NavigationControl({
-            anchor: BMAP_ANCHOR_TOP_RIGHT,
-            type: BMAP_NAVIGATION_CONTROL_SMALL
-        }));
-    </script>
-</div>
-
+<div class="map" id="map"></div>
+<script>
+    var map = new BMap.Map('map');
+    var point = new BMap.Point('<?=$model->lng?>' || 116.404, '<?=$model->lat?>' || 39.915);
+    map.centerAndZoom(point, 16);
+    map.addOverlay(new BMap.Marker(point));
+    map.addControl(new BMap.NavigationControl({
+        anchor: BMAP_ANCHOR_TOP_RIGHT,
+        type: BMAP_NAVIGATION_CONTROL_SMALL
+    }));
+</script>
 <!--map end-->
 
 <!--场地介绍开始-->

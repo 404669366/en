@@ -23,6 +23,7 @@ body{
     background: #fff;
 }
 .detCont{
+	height: 18rem;
 	margin: 0 auto;
 	width: 90%;
 	padding: 3rem;
@@ -52,8 +53,9 @@ body{
 
 /*场地价格信息*/
 .priceData{
-	height: 7.2rem;
-	margin-top: 12rem;
+	width: 100%;
+	height: 8rem;
+	float: left;
 }
 .similar_data {
 	width: 32.9%;
@@ -66,11 +68,13 @@ body{
 	border-left: solid 0.15rem #e4e6f0;
 }
 .similar_data .price,.priceTxt .price{
+	height: 6rem;
 	text-align: center;
 	color: #fa5741;
-	font:bold 2.5rem/5rem '宋体';
+	font:bold 2.5rem/3rem '宋体';
 }
 .similar_data .gray,.priceTxt .gray{
+	height: 2rem;
 	text-align: center;
 	color: #9399a5;
 	font: 2rem/2rem '宋体';
@@ -134,14 +138,10 @@ body{
 	font: 3rem/7rem '宋体';
 }
 .content{
-	height: 21rem;
+	text-indent: 5rem;
+	height: 20rem;
 	color: #101d37;
 	font: 2.5rem/3.5rem '宋体';
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 6;
-	overflow: hidden;
-	padding-top: 1rem;
 }
 
 /*猜你喜欢开始*/
