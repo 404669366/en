@@ -126,7 +126,7 @@
 				</a>
 			</div>
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/ident/ident.html">
 					<div class="mainLeft" style="color: #4371FB;">
 						<i class="fa fa-users" aria-hidden="true"></i>
 					</div>

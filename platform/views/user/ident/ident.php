@@ -68,7 +68,7 @@
                 认证合伙人
             </div>
             <?php if (!$model): ?>
-                <form action="/user/user/add-ident.html" method="post">
+                <form action="/user/ident/add-ident.html" method="post">
                     <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
                     <input type="hidden" name="now_type" value="1">
                     <ul class="change_pwd">
@@ -164,7 +164,7 @@
                 </script>
             <?php endif; ?>
             <?php if ($model): ?>
-                <form action="/user/user/add-ident.html?id=<?= in_array($model->status, [1, 2, 5]) ? $model->id : '' ?>"
+                <form action="/user/ident/add-ident.html?id=<?= in_array($model->status, [1, 2, 5]) ? $model->id : '' ?>"
                       method="post">
                     <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
                     <ul class="change_pwd">
@@ -310,7 +310,7 @@
                             <li>
                                 <span></span>
                                 <button type="submit">开始认证</button>
-                                <a href="/user/user/del-ident.html" style="">撤销认证</a>
+                                <a href="/user/ident/del-ident.html" style="">撤销认证</a>
                             </li>
                         <?php endif; ?>
                         <?php if ($model->status == 1): ?>

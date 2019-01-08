@@ -100,7 +100,7 @@ function upload(config) {
                 arr.push(t);
             }
         });
-        return arr.join(',');
+        return arr.join(limit);
     }
 }
 

@@ -32,7 +32,7 @@ class IdentController extends CommonController
     public function actionAddIdent($id = 0)
     {
         if (\Yii::$app->request->isPost) {
-            if ( $user_id = \Yii::$app->user->id){
+            if ($user_id = \Yii::$app->user->id) {
                 $post = \Yii::$app->request->post();
                 if ($model = Ident::findOne(['id' => $id, 'user_id' => $user_id])) {
                     if ($model->status == 5 || $model->status == 1) {
@@ -46,8 +46,8 @@ class IdentController extends CommonController
                     if (isset($post['now_type']) && $post['now_type'] == 2) {
                         $model->status = 3;
                     }
+                    $model->created = time();
                 }
-                $model->created = time();
                 if ($model->load(['Ident' => $post]) && $model->validate() && $model->save()) {
                     return $this->redirect(['ident'], '提交成功,请等待审核');
                 }

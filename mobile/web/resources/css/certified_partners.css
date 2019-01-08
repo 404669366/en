@@ -7,6 +7,7 @@
 }
 .partnersBox{
 	width: 90%;
+	margin: 0 auto;
 	padding: 3rem;
 }
 .partnersTit{
@@ -19,24 +20,103 @@
 }
 .oldPwd span{
 	display: inline-block;
-	width: 28%;
+	width: 20%;
 	height: 10rem;
 	font: 2.3rem/10rem "微软雅黑";
 }
 .oldPwd input{
 	display: inline-block;
-	width: 67%;
+	width: 70%;
 	height: 6rem;
 	font-size: 2.2rem;
 	padding: 0 1rem;
 	border: .1rem solid #c8c8c8;
 }
 
+.oldPwd select{
+	display: inline-block;
+	height: 6rem;
+	font-size: 2.2rem;
+	padding: 0 1rem;
+	border: .1rem solid #c8c8c8;
+}
+
+.moneyIdent{
+	display: none;
+}
 /*ID card*/
+.idcard .change{
+	text-align:  center;
+	width: 40%;
+	margin: 1rem auto 0 auto;
+	color: #3072f6;
+	border: none;
+	height: 4rem;
+	font: 2rem/4rem "微软雅黑";
+}
+.idcard button{
+	width: 100%;
+	height: 7rem;
+	color: #fff;
+	text-align: center;
+	font: 2.3rem/7rem "微软雅黑";
+	border: none;
+	background-color: #3072f6;
+	margin-top: 1rem;
+}
+
+.idcard a{
+	display: block;
+	width: 100%;
+	height: 7rem;
+	color: #fff;
+	text-align: center;
+	font: 2.3rem/7rem "微软雅黑";
+	border: none;
+	background-color: red;
+	margin-top: 1rem;
+}
+
 .idcard .idTit{
 	font: 2.3rem/6rem "微软雅黑";
+}
+
+.idTit .add{
+	margin-left: 0.4rem;
+	width: 16%;
+	height: 5rem;
+	color: #fff;
+	text-align: center;
+	font: 2.3rem/5rem "微软雅黑";
+	border: none;
+	background-color: #3072f6;
 }
 .idcard .id_img{
 	height: 20rem;
 	border: dashed  .1rem #2F3130;
+	padding: 2rem;
 }
+.idcard .id_img>img{
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.idcard .id_imgs{
+	min-height: 20rem;
+	border: dashed  .1rem #2F3130;
+	padding: 2rem;
+	font-size: 1.2rem;
+}
+
+.idcard .id_imgs>img{
+	display: block;
+	margin: 0 auto 2rem auto;
+	max-width: 100%;
+	max-height: 20rem;
+}
+.idcard .id_imgs>img:last-child{
+	margin-bottom: 0;
+}
+
