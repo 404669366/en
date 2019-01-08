@@ -52,7 +52,7 @@
 				<div class="box_col" title="火热">
 					<a href="/index/index/list.html?type=2">
 						<div class="ico"><img src="/resources/img/icon_02.png" /></div>
-						<div class="name">火热</div>
+						<div class="name">融资</div>
 					</a>
 				</div>
 				<div class="box_col" title="人气">
@@ -130,68 +130,7 @@
 				</div>
 			</h3>
 			<!--推荐列表-->
-			<div class="mod_cont">
-				<div class="recont">
-					<a href="#">
-						<div class="recimg">
-							<img src="/resources/img/list_01.jpg" />
-						</div>
-						<div class="redadat">
-							<p class="tit">此场地已满两年，无增值税</p>
-							<p class="tit_txt">3室1厅/90.33m²m²/南/外光华</p>
-							<p class="price">222万</p>
-						</div>
-					</a>
-				</div>
-				<div class="recont">
-					<a href="#">
-						<div class="recimg">
-							<img src="/resources/img/list_01.jpg" />
-						</div>
-						<div class="redadat">
-							<p class="tit">此场地已满两年，无增值税</p>
-							<p class="tit_txt">3室1厅/90.33m²m²/南/外光华</p>
-							<p class="price">222万</p>
-						</div>
-					</a>
-				</div>
-				<div class="recont">
-					<a href="#">
-						<div class="recimg">
-							<img src="/resources/img/list_01.jpg" />
-						</div>
-						<div class="redadat">
-							<p class="tit">此场地已满两年，无增值税</p>
-							<p class="tit_txt">3室1厅/90.33m²m²/南/外光华</p>
-							<p class="price">222万</p>
-						</div>
-					</a>
-				</div>
-				<div class="recont">
-					<a href="#">
-						<div class="recimg">
-							<img src="/resources/img/list_01.jpg" />
-						</div>
-						<div class="redadat">
-							<p class="tit">此场地已满两年，无增值税</p>
-							<p class="tit_txt">3室1厅/90.33m²m²/南/外光华</p>
-							<p class="price">222万</p>
-						</div>
-					</a>
-				</div>
-				<div class="recont">
-					<a href="#">
-						<div class="recimg">
-							<img src="/resources/img/list_01.jpg" />
-						</div>
-						<div class="redadat">
-							<p class="tit">此场地已满两年，无增值税</p>
-							<p class="tit_txt">3室1厅/90.33m²m²/南/外光华</p>
-							<p class="price">222万</p>
-						</div>
-					</a>
-				</div>
-			</div>
+			<div class="mod_cont"></div>
             <script>
                 addField(1);
                 $('.reList>span').click(function () {

@@ -23,6 +23,7 @@ body{
     background: #fff;
 }
 .detCont{
+	margin: 0 auto;
 	width: 90%;
 	padding: 3rem;
 }
@@ -55,20 +56,22 @@ body{
 	margin-top: 12rem;
 }
 .similar_data {
-	width: 25%;
+	width: 32.9%;
 	float: left;
 }
 .priceTxt{
-	width: 36%;
+	width: 32.9%;
 	float: left;
 	text-align: center;
 	border-left: solid 0.15rem #e4e6f0;
 }
 .similar_data .price,.priceTxt .price{
+	text-align: center;
 	color: #fa5741;
-	font:bold 3.5rem/5rem '宋体';
+	font:bold 2.5rem/5rem '宋体';
 }
 .similar_data .gray,.priceTxt .gray{
+	text-align: center;
 	color: #9399a5;
 	font: 2rem/2rem '宋体';
 }
@@ -87,13 +90,13 @@ body{
     border-bottom: 0.2rem solid #E4E6F0;
 }
 .agentCont{
+	margin: 0 auto;
 	width: 90%;
 	padding: 3rem;
 }
 .agentImg{
 	width: 100%;
 	height: 20rem;
-	background: pink;
 }
 /*更多场地信息*/
 .viewMore {
@@ -123,6 +126,7 @@ body{
 }
 .venuesCont{
 	width: 90%;
+	margin: 0 auto;
 	padding: 3rem;
 }
 .venTit{
@@ -199,7 +203,7 @@ body{
 /*helpSell*/
 .helpSell{
 	width: 100%;
-	height: 47rem;
+	height: 28rem;
 	border-top: 0.1rem solid #e4e6f0;
 }
 .helpCont{
