@@ -19,6 +19,13 @@ function h5Upload(config) {
     $(config.element).append('<input type="file" class="myUploadFile" style="display: none"/>');
     $(config.element).append('<textarea class="myUploadResult" name="' + (config.name || 'image') + '" style="display: none"></textarea>');
     $(config.box).css('position', 'relative');
+    if (config.default) {
+        $(config.element).find('.myUploadResult').val(config.default);
+        config.default.split(config.limit).forEach(function (src, number) {
+            $(config.element).find(config.box).append('<img src="' + src + '">');
+        });
+
+    }
     $(config.element).on('click', config.click, function () {
         if (config.max > $(config.element).find(config.box).find('img').length) {
             $(config.element).find('.myUploadFile').click();

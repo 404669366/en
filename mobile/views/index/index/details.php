@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>details</title>
+    <title>场地详情</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/foot.css"/>
@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
     <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/swiper/swiper.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/map.js" type="text/javascript" charset="utf-8"></script>
     <?php \vendor\helpers\Msg::run() ?>
 </head>
@@ -29,11 +30,25 @@
     </div>
 </div>
 <!--header end-->
-
 <!--banner start-->
 <div class="banner">
-    <img src="<?=explode(',',$model->image)[0]?>"/>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <?php foreach (explode(',',$model->image) as $v):?>
+            <div class="swiper-slide"><img src="<?=$v?>"></div>
+            <?php endforeach;?>
+        </div>
+    </div>
+    <div class="pagination"></div>
 </div>
+<script>
+    new Swiper('.swiper-container',{
+        pagination: '.pagination',
+        loop:true,
+        grabCursor: true,
+        paginationClickable: true,
+    });
+</script>
 <!--banner end-->
 
 <!--title start-->
@@ -64,18 +79,63 @@
     </div>
 </div>
 <!--title end-->
-
+<!--场地介绍开始-->
+<div class="venues">
+    <div class="venuesCont">
+        <div class="venTit">
+            场地介绍
+        </div>
+        <div class="content">
+            <?= $model->intro ?>
+        </div>
+    </div>
+</div>
+<!--场地介绍结束-->
 <!--详情开始-->
 <div class="agent">
     <div class="agentCont">
-        <!--详情图片-->
+        <div class="one">
+            <div class="venTit">
+                场地配置
+            </div>
             <img class="agentImg" src="<?= $model->configure_photo ?>" alt="配置单图片">
-        <!--更多场地信息-->
-        <div class="viewMore">
-            <a href="#">
-                更多场地信息
-            </a>
         </div>
+        <div class="more">
+            <div class="one">
+                <div class="venTit">
+                    场地配置
+                </div>
+                <img class="agentImg" src="<?= $model->configure_photo ?>" alt="配置单图片">
+            </div>
+            <div class="one">
+                <div class="venTit">
+                    场地配置
+                </div>
+                <img class="agentImg" src="<?= $model->configure_photo ?>" alt="配置单图片">
+            </div>
+        </div>
+        <div class="viewMore">更多场地信息</div>
+        <script>
+            $('.viewMore').click(function () {
+                if($(this).text()==='更多场地信息'){
+                    $('.more').fadeIn();
+                    $(this).text('收起更多信息');
+                }else {
+                    $(this).text('更多场地信息');
+                    var top = $(window).scrollTop();
+                    var moreTop =top - $('.more').height();
+                    $('.more').fadeOut();
+                    var t = setInterval(function(){
+                        if(top <= moreTop){
+                            clearInterval( t );
+                        }else{
+                            top -= 20;
+                            $(window).scrollTop(top);
+                        }
+                    },5);
+                }
+            });
+        </script>
     </div>
 </div>
 <!--详情结束-->
@@ -94,19 +154,6 @@
     }));
 </script>
 <!--map end-->
-
-<!--场地介绍开始-->
-<div class="venues">
-    <div class="venuesCont">
-        <div class="venTit">
-            场地介绍
-        </div>
-        <div class="content">
-            <?= $model->intro ?>
-        </div>
-    </div>
-</div>
-<!--场地介绍结束-->
 
 <!--猜你喜欢开始-->
 <div class="guesUlike">

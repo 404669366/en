@@ -5,12 +5,13 @@
 /*banner*/
 .banner{
 	width: 100%;
-	height: 40rem;
+	height: 48rem;
+	position: relative;
 }
 .banner img{
 	display: block;
 	width: 100%;
-	height: 40rem;
+	height: 48rem;
 }
 body{
 	background-color: #f8f8f9;
@@ -19,7 +20,6 @@ body{
 /*title*/
 .detTitle{
 	width: 100%;
-    /*height: 50rem;*/
     background: #fff;
 }
 .detCont{
@@ -89,9 +89,7 @@ body{
 /*详情*/
 .agent{
 	width: 100%;
-    /*height: 50rem;*/
     background: #fff;
-    border-bottom: 0.2rem solid #E4E6F0;
 }
 .agentCont{
 	margin: 0 auto;
@@ -100,25 +98,28 @@ body{
 }
 .agentImg{
 	width: 100%;
-	height: 20rem;
+	height: 40rem;
+}
+.more{
+	display: none;
+}
+.one{
+	margin-bottom:3rem;
 }
 /*更多场地信息*/
 .viewMore {
     height: 8rem;
     text-align: center;
     font: 3rem/8rem '宋体';
-    margin-top: 2rem;
     border-radius: 1rem;
     background: rgba(48,114,246,.05);
-}
-.viewMore a {
-    color: #3072F7;
+	color: #3072F7;
 }
 
 /*map*/
 .map{
 	width: 100%;
-	height: 30rem;
+	height: 36rem;
 	background: #ccc;
 }
 
@@ -139,7 +140,7 @@ body{
 }
 .content{
 	text-indent: 5rem;
-	height: 20rem;
+	height: 24rem;
 	color: #101d37;
 	font: 2.5rem/3.5rem '宋体';
 }
@@ -152,6 +153,7 @@ body{
 }
 .mod_cont{
 	width: 90%;
+	margin: 0 auto;
 	padding:3rem;
 }
 .guseTit{
