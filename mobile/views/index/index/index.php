@@ -175,7 +175,7 @@
 		<!--footer start-->
 		<div class="footer">
 			<div class="footer_cont">
-				Copyright © 2018 en.link，All Rights Reserved.
+				Copyright © 2018 en.ink，All Rights Reserved.
 				<br /> 四川亿能天成科技有限公司
 			</div>
 		</div>
