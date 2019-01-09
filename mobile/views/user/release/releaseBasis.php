@@ -10,7 +10,6 @@
         <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="/resources/js/area.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/upload/h5-upload.js" type="text/javascript" charset="utf-8"></script>
         <?php \vendor\helpers\Msg::run() ?>
 	</head>
 	<body>
@@ -30,7 +29,7 @@
             </div>
 		</div>
 		<!--header end-->
-		
+
 		<!--certified_Partners start-->
 		<div class="certified">
 			<div class="partnersBox">

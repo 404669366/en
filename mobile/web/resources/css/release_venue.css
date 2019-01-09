@@ -35,7 +35,7 @@
 	display: inline-block;
 	width: 23%;
 	height: 6rem;
-	font-size: 2.2rem;
+	font-size: 1.8rem;
 	text-align: center;
 	text-align-last: center;
 	padding: 0 1rem;
@@ -69,6 +69,16 @@
 .field_info .fieldTit{
 	font: 2.3rem/6rem "微软雅黑";
 }
+.fieldTit .add{
+	margin-left: 0.4rem;
+	width: 16%;
+	height: 5rem;
+	color: #fff;
+	text-align: center;
+	font: 2.3rem/5rem "微软雅黑";
+	border: none;
+	background-color: #3072f6;
+}
 .field_info .field_cont{
 	width: 100%;
 	font-size: 2.3rem;
@@ -76,4 +86,29 @@
 .field_cont,.field_img{
 	height: 20rem;
 	border: dashed  .1rem #2F3130;
+	padding: 2rem;
+}
+
+.field_info .field_img>img{
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.field_info .field_imgs{
+	min-height: 20rem;
+	border: dashed  .1rem #2F3130;
+	padding: 2rem;
+	font-size: 1.2rem;
+}
+
+.field_info .field_imgs>img{
+	display: block;
+	margin: 0 auto 2rem auto;
+	max-width: 100%;
+	max-height: 20rem;
+}
+.field_info .field_imgs>img:last-child{
+	margin-bottom: 0;
 }
