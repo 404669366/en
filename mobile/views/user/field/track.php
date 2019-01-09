@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>site_tracking</title>
+		<title>场地跟踪</title>
 		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/site_tracking.css"/>

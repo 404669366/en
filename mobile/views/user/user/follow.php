@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>attention_field</title>
+		<title>关注场地</title>
 		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/attention_field.css"/>

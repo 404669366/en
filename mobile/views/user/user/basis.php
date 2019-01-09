@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>foundation_site</title>
+		<title>基础场地</title>
 		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/foundation_site.css"/>
@@ -31,7 +31,7 @@
 			<div class="siteList">
 				<!--title-->
 				<div class="userTit">  
-					共发布<span><?=count($basis)?></span>个基础场地<a href="#"><span style="float: right;color: #3072F6">发布场地</span></a>
+					共发布<span><?=count($basis)?></span>个基础场地<a href="/user/release/release-basis.html"><span style="float: right;color: #3072F6">发布场地</span></a>
             	</div>
             	<!--siteCont-->
             	<div class="siteCont1">

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>foundation_site</title>
+		<title>意向管理</title>
 		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/foundation_site.css"/>
