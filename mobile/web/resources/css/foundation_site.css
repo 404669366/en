@@ -29,7 +29,7 @@
 	width: 33.3%;
 	height: 8rem;
 	text-align: center;
-	font: 2.35rem/8rem "微软雅黑";
+	font: 1.88rem/8rem "微软雅黑";
 	float: left;
 	box-sizing: border-box;
 	padding: 1rem;
@@ -38,7 +38,7 @@
 	width: 33.3%;
 	height: 8rem;
 	text-align: center;
-	font: 2.15rem/2.6rem "微软雅黑";
+	font: 1.8rem/2.6rem "微软雅黑";
 	word-wrap:break-word;
 	display: -webkit-box;/*多行文本超出隐藏用省略号代替*/
     -webkit-box-orient: vertical;/*多行文本超出隐藏用省略号代替*/

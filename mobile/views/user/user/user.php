@@ -74,7 +74,7 @@
 				</a>
 			</div>
 			<div class="mainBox">
-				<a href="#">
+				<a href="/user/release/release.html">
 					<div class="mainLeft" style="color:#FFCE44;">
 						<i class="fa fa-paper-plane" aria-hidden="true"></i>
 					</div>
