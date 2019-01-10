@@ -32,9 +32,14 @@ class Msg
     {
         if ($msg = \Yii::$app->session->get(\Yii::$app->params['entryName'], false)) {
             \Yii::$app->session->set(\Yii::$app->params['entryName'], null);
-            echo "<script>$(function() {
-  layer.msg('$msg');
-})</script>";
+            $str = <<<HTML
+<script>
+    $(function() {
+      layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">$msg</span>');
+    })
+</script>
+HTML;
+            echo $str;
         }
     }
 }

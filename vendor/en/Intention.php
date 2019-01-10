@@ -172,6 +172,7 @@ class Intention extends \yii\db\ActiveRecord
                 ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
                 ->select(['i.*', 'f.no field_no'])
                 ->where(['i.user_id' => $user_id])
+                ->orderBy('i.created DESC')
                 ->asArray()->all();
             return $data;
         }

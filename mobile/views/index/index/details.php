@@ -103,15 +103,27 @@
         <div class="more">
             <div class="one">
                 <div class="venTit">
-                    场地配置
+                    预算报表
                 </div>
-                <img class="agentImg" src="<?= $model->configure_photo ?>" alt="配置单图片">
+                <?php foreach (explode(',', $model->budget_photo) as $k=>$v): ?>
+                    <img class="agentImg" src="<?= $v ?>" alt="预算报表<?=$k+1?>">
+                <?php endforeach; ?>
             </div>
             <div class="one">
                 <div class="venTit">
-                    场地配置
+                    施工图纸
                 </div>
-                <img class="agentImg" src="<?= $model->configure_photo ?>" alt="配置单图片">
+                <?php foreach (explode(',', $model->field_drawing) as $k=>$v): ?>
+                    <img class="agentImg" src="<?= $v ?>" alt="施工图纸<?=$k+1?>">
+                <?php endforeach; ?>
+            </div>
+            <div class="one">
+                <div class="venTit">
+                    场地备案
+                </div>
+                <?php foreach (explode(',', $model->record_photo) as $k=>$v): ?>
+                    <img class="agentImg" src="<?= $v ?>" alt="场地备案<?=$k+1?>">
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="viewMore">更多场地信息</div>
@@ -152,6 +164,42 @@
         anchor: BMAP_ANCHOR_TOP_RIGHT,
         type: BMAP_NAVIGATION_CONTROL_SMALL
     }));
+</script>
+<div class="broker">
+    <div class="agent">
+        <span><img src="/resources/img/agent_none.png"/><br><?= $model->cobber->ident->name ?></span>
+    </div>
+    <div class="buttons">
+        <span>
+            <button type="button" class="haveIntent" style="background:#3bc48b;margin-right: 2rem">有意向</button>
+            <a href="tel:<?= $model->cobber->tel ?>">打电话</a>
+        </span>
+    </div>
+</div>
+
+<div class="intent">
+    <div>
+        <span>
+            <div class="intentInfo">
+                <div class="intentTitle">我的意向</div>
+                <form action="/user/intention/add.html" method="post">
+                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->csrfToken?>">
+                    <input type="hidden" name="no" value="<?=$model->no?>">
+                    <input type="text" name="money" placeholder="意向金额" class="intentMoney">
+                    <button type="submit" class="intentButton">提交意向</button>
+                </form>
+                <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+        </span>
+    </div>
+</div>
+<script>
+    $('.haveIntent').click(function () {
+        $('.intent').fadeIn();
+    });
+    $('.intent .close').click(function () {
+        $('.intent').fadeOut();
+    });
 </script>
 <!--map end-->
 
@@ -200,6 +248,7 @@
         <br/> 四川亿能天成科技有限公司
     </div>
 </div>
+<div class="nullBox"></div>
 <!--footer end-->
 </body>
 </html>
