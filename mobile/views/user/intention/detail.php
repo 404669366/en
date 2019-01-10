@@ -44,6 +44,12 @@
         <form action="/user/intention/detail.html?no=<?= $data->no ?>" method="post">
             <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
             <div class="oldPwd">
+                <span>意向状态:</span>
+                <input type="text"
+                       placeholder="<?= \vendor\helpers\Constant::getIntentionStatus()[$data->status] ?>"
+                       readonly>
+            </div>
+            <div class="oldPwd">
                 <span>意向编号:</span>
                 <input type="text" placeholder="<?= $data->no ?>" readonly>
             </div>
@@ -132,12 +138,6 @@
                             readonly><?= $data->remark ?></textarea>
                 </div>
             <?php endif; ?>
-            <div class="oldPwd">
-                <span>意向状态:</span>
-                <input type="text"
-                       placeholder="<?= \vendor\helpers\Constant::getIntentionStatus()[$data->status] ?>"
-                       readonly>
-            </div>
             <?php if (in_array($data->status, [0, 4])): ?>
                 <button type="submit" style="font-size: 2rem">确认提交</button>
             <?php if ($data->status == 0): ?>
