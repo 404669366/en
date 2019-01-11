@@ -283,10 +283,10 @@
     <ul class="form_list">
         <li>
             <span class="list_names" style="width: 80px">投建功率 :</span>
-            <input type="text" placeholder="请填写预计投建功率" minlength="1"/>
+            <input type="text" class="powers" placeholder="请填写预计投建功率(kw)"/>
         </li>
         <li>
-            <div style="100%;height: 300px;font-size: 14px;border: 1px solid;">
+            <div style="100%;height: 300px;font-size: 14px;border: 1px solid;" class="estimate">
 
             </div>
         </li>
@@ -304,7 +304,22 @@
     </div>
 </div>
 <!--去估价按钮结束-->
-
+<script>
+    $('.btn_submit').click(function () {
+        var power = $('.powers').val();
+        if (!power || isNaN(power)) {
+            layer.msg('请填写正确的功率');
+            return;
+        }
+        $.getJSON('/estimate/estimate/data.html',{power:power},function (re) {
+            if(re.type){
+                $('.estimate').append();
+            }else {
+                layer.msg(re.msg);
+            }
+        });
+    });
+</script>
 
 <!--脚部start-->
 <div class="footer marginTop80">
