@@ -13,9 +13,6 @@
 	width: 100%;
 	height: 48rem;
 }
-body{
-	background-color: #f8f8f9;
-}
 
 /*title*/
 .detTitle{
@@ -42,9 +39,11 @@ body{
 	text-align: center;
 	float: right;
 }
+.follow a{
+	color: #222;
+}
 .follow .heart{
 	font: 3.5rem/2rem "宋体";
-	margin-top: 2rem;
 }
 
 .follow .txt{
@@ -99,6 +98,8 @@ body{
 .agentImg{
 	width: 100%;
 	height: 40rem;
+	padding: 2rem;
+	box-sizing: border-box;
 }
 .more{
 	display: none;
@@ -252,4 +253,165 @@ body{
     color: #CDCFD0;
     letter-spacing: -.55px;
 	font: 2rem/2.7rem '宋体';
+}
+/**
+底部按钮
+ */
+.nullBox{
+	width: 100%;
+	height: 16rem;
+}
+.broker{
+	position: fixed;
+	bottom: 0;
+	z-index: 99;
+	width: 100%;
+	height: 16rem;
+	background: white;
+	padding: 2rem 3rem;
+	box-sizing: border-box;
+	box-shadow: 0 -0.0625rem 0.125rem rgba(0,0,0,.1);
+}
+.broker .agent{
+	float: left;
+	width: 30%;
+	height: 100%;
+	text-align: center;
+	display: table;
+}
+.broker .agent img{
+	width: 7rem;
+	height: 7rem;
+}
+.broker .agent>span{
+	font-size: 2.2rem;
+	display: table-cell;
+	vertical-align:middle;
+}
+.broker .buttons{
+	float: right;
+	width: 66%;
+	height: 100%;
+	display: table;
+	text-align: center;
+}
+.broker .buttons span{
+	display: table-cell;
+	vertical-align:middle;
+}
+.broker span>button,.broker span>a{
+	height: 8rem;
+	display: inline-block;
+	width: 40%;
+	text-align: center;
+	font: 3rem/8rem '宋体';
+	border-radius: 1rem;
+	border: 0;
+	background: #3072F6;
+	color: white;
+}
+/**
+意向弹窗
+ */
+.intent{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 100;
+	top:0;
+	background: rgba(0,0,0,0.5);
+}
+.intent>div{
+	display: table;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+.intent>div>span{
+	display: table-cell;
+	vertical-align:middle;
+}
+.intent>div>span>.intentInfo{
+	display: inline-block;
+	width: 70%;
+	height: 30rem;
+	border-radius: 1rem;
+	background: white;
+	box-sizing: border-box;
+	padding: 3rem;
+	position: relative;
+}
+
+.intentInfo .close{
+	position: absolute;
+	width: 5rem;
+	height: 6rem;
+	right: 1.5rem;
+	top: 1.5rem;
+	line-height: 5rem;
+	font-size: 3.4rem;
+	text-align: center;
+	z-index: 101;
+}
+
+.intentInfo .intentTitle{
+	width: 100%;
+	height: 6rem;
+	line-height: 6rem;
+	font-size: 5rem;
+	text-align: center;
+}
+
+.intentInfo .intentMoney{
+	-web-kit-appearance:none;
+	-moz-appearance: none;
+	outline: 0;
+	padding:0 0.6rem;
+	border-radius: 1rem;
+	border: 1px solid #333333;
+	display: block;
+	width: 60%;
+	height: 6.4rem;
+	line-height: 6.4rem;
+	font-size: 3.2rem;
+	margin: 2rem auto;
+}
+
+.intentInfo .intentButton{
+	display: block;
+	margin: 0 auto;
+	width: 60%;
+	height: 6.4rem;
+	font-size: 3.2rem;
+	background: #3072F6;
+	border: none;
+	color: white;
+	border-radius: 0.8rem;
+}
+/**
+进度条
+ */
+.skill {
+	width: 90%;
+	margin: 1rem auto;
+	height: 4rem;
+	background: silver;
+	-webkit-border-radius: 0.4rem;
+	-moz-border-radius: 0.4rem;
+	border-radius: 0.4rem;
+	overflow: hidden;
+}
+
+.skill .bar {
+	float: left;
+	height: 4rem;
+	line-height: 4rem;
+	font-size: 2.4rem;
+	text-align: center;
+	color: #f0f4f7;
+	background: #3072f6;
+	-webkit-border-radius:0.4rem;
+	-moz-border-radius:0.4rem;
+	border-radius:0.4rem;
 }
