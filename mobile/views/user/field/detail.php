@@ -240,10 +240,10 @@
             <?php endif; ?>
             <?php if (in_array($field->status, [1, 6, 11, 15, 16])): ?>
                 <?php if ($field->status != 15): ?>
-                <button type="submit" style="font-size: 2rem">确认提交</button>
+                <button type="submit" style="font-size: 2rem;background-color: #3072f6;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">确认提交</button>
             <?php endif; ?>
             <?php if ($field->status != 16): ?>
-                <button type="button" class="del" style="font-size: 2rem;background-color: red">放弃
+                <button type="button" class="del" style="font-size: 2rem;background-color: #FF4136;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">放弃
                 </button>
                 <div class="intent"
                      style="display: none;width: 100%;height: 100%;position: fixed;z-index: 998;background: rgba(0, 0, 0, 0.7);;top: 0;left: 0">

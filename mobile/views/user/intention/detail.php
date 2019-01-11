@@ -139,9 +139,14 @@
                        readonly>
             </div>
             <?php if (in_array($data->status, [0, 4])): ?>
-                <button type="submit" style="font-size: 2rem">确认提交</button>
+                <button type="submit"
+                        style="font-size: 2rem;background-color: #3072f6;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem;">
+                    确认提交
+                </button>
             <?php if ($data->status == 0): ?>
-                <button type="button" class="del" style="font-size: 2rem;background-color: red">放弃
+                <button type="button" class="del"
+                        style="font-size: 2rem;background-color: #FF4136;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">
+                    放弃
                 </button>
                 <div class="intent"
                      style="display: none;width: 100%;height: 100%;position: fixed;z-index: 998;background: rgba(0, 0, 0, 0.7);;top: 0;left: 0">
@@ -169,7 +174,6 @@
                             $('.intent').fadeIn();
                         });
                         $('.close').click(function () {
-                            console.log(111);
                             $('.intent').fadeOut();
                         });
                         $('.up').click(function () {
