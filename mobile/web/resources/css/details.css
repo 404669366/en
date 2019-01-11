@@ -13,9 +13,6 @@
 	width: 100%;
 	height: 48rem;
 }
-body{
-	background-color: #f8f8f9;
-}
 
 /*title*/
 .detTitle{
@@ -42,9 +39,11 @@ body{
 	text-align: center;
 	float: right;
 }
+.follow a{
+	color: #222;
+}
 .follow .heart{
 	font: 3.5rem/2rem "宋体";
-	margin-top: 2rem;
 }
 
 .follow .txt{
@@ -365,6 +364,12 @@ body{
 }
 
 .intentInfo .intentMoney{
+	-web-kit-appearance:none;
+	-moz-appearance: none;
+	outline: 0;
+	padding:0 0.6rem;
+	border-radius: 1rem;
+	border: 1px solid #333333;
 	display: block;
 	width: 60%;
 	height: 6.4rem;
@@ -383,4 +388,30 @@ body{
 	border: none;
 	color: white;
 	border-radius: 0.8rem;
+}
+/**
+进度条
+ */
+.skill {
+	width: 90%;
+	margin: 1rem auto;
+	height: 4rem;
+	background: silver;
+	-webkit-border-radius: 0.4rem;
+	-moz-border-radius: 0.4rem;
+	border-radius: 0.4rem;
+	overflow: hidden;
+}
+
+.skill .bar {
+	float: left;
+	height: 4rem;
+	line-height: 4rem;
+	font-size: 2.4rem;
+	text-align: center;
+	color: #f0f4f7;
+	background: #3072f6;
+	-webkit-border-radius:0.4rem;
+	-moz-border-radius:0.4rem;
+	border-radius:0.4rem;
 }

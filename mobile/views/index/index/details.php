@@ -56,10 +56,21 @@
     <div class="detCont">
         <div class="tit"><?= $model->title ?></div>
         <div class="follow">
-            <p class="heart">
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
-            </p>
-            <p class="txt">关注</p>
+            <?php if(\vendor\en\Follow::notFollow($model->no)):?>
+                <a href="/user/follow/follow.html?no=<?=$model->no?>">
+                    <p class="heart">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    </p>
+                    <p class="txt">关注</p>
+                </a>
+            <?php else:?>
+                <a href="/user/follow/cancel.html?no=<?=$model->no?>">
+                    <p class="heart" style="color: #fa604c">
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    </p>
+                    <p class="txt">取消关注</p>
+                </a>
+            <?php endif;?>
         </div>
         <!--场地价格信息-->
         <div class="priceData">
@@ -78,6 +89,12 @@
         </div>
     </div>
 </div>
+
+<div class="skill">
+    <div class="bar" style="width: <?= ((float)$model->financing_ratio) * 100 ?>%;">当前进度: <?= ((float)$model->financing_ratio) * 100 ?>%</div>
+</div>
+
+
 <!--title end-->
 <!--场地介绍开始-->
 <div class="venues">
