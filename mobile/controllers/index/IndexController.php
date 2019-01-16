@@ -32,7 +32,7 @@ class IndexController extends BasisController
      */
     public function actionData($type)
     {
-        return $this->rJson(Field::getFields($type, 6));
+        return $this->rJson(Field::getFields($type, 4));
     }
 
     /**
