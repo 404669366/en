@@ -57,7 +57,7 @@ class IndexController extends BasisController
     public function actionDetails($no)
     {
         if ($model = Field::getDetailFields($no)) {
-            return $this->render('details', ['model' => $model, 'recommends' => Field::getRecommendField(8)]);
+            return $this->render('details', ['model' => $model, 'recommends' => Field::getRecommendField(4)]);
         }
         return $this->redirect(['not-find'], '场地不见了');
     }
