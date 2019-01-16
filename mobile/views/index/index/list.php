@@ -47,7 +47,7 @@
 <div class="slideList">
     <div class="slits">
         <span type="1">最新</span>
-        <span type="2">融资</span>
+        <span type="2">火热</span>
         <span type="3">人气</span>
         <span type="4">点击</span>
         <span type="5">面积</span>
