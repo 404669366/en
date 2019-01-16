@@ -1,6 +1,6 @@
-function getRem(designWidth,ratio) {
+function getRem(ratio) {
     var width = document.documentElement.getBoundingClientRect().width;
-    var rem = width * (ratio || 100) / designWidth;
+    var rem = width * (ratio || 0.1);
     document.documentElement.style.fontSize = rem + "px";
 }
 

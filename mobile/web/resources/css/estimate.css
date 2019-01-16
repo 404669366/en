@@ -1,0 +1,69 @@
+.Left {
+    float: left;
+}
+
+.Right {
+    float: right;
+}
+
+.header {
+    width: 10rem;
+    height: 1.2rem;
+    padding: 0 0.3rem;
+    border-bottom: 0.01rem solid #E4E6F0;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.header img {
+    width: 1.74rem;
+    height: 0.8rem;
+    margin: 0.2rem auto 0.2rem 0.2rem;
+}
+
+.header .picFont {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    color: #3072F3;
+    font-size: 0.8rem;
+}
+
+.estimate {
+    text-align: center;
+    width: 10rem;
+    height: 12rem;
+    background: #fff;
+    box-sizing: border-box;
+    margin: 0 auto 0.4rem auto;
+}
+
+.estimate td {
+    min-width: 0.712rem;
+    font-size: 0.18rem;
+}
+.estimate .tit{
+    height: 0.8rem;
+    font-size: 0.32rem;
+    font-weight: 600;
+}
+.powers {
+    padding: 0 0.2rem;
+    display: block;
+    border: 1px solid #333333;
+    width: 4.8rem;
+    height: 0.8rem;
+    margin: 0.1rem auto;
+    font-size: 0.36rem;
+}
+
+.click {
+    background: #3072F3;
+    text-align: center;
+    color: white;
+    height: 1rem;
+    width: 4rem;
+    border-radius: 0.1rem;
+    line-height: 1rem;
+    font-size: 0.4rem;
+    margin: 0.46rem auto;
+}
