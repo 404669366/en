@@ -279,6 +279,6 @@ class Constant
      */
     public static function getServiceTel()
     {
-        return '0000-0000';
+        return '18581501718';
     }
 }
