@@ -32,10 +32,12 @@
 				</div>
 			</div>
 			<!--搜索框-->
-			<div class="search_box">
-				<i class="fa fa-search" aria-hidden="true"></i>
-				<input type="text" name="" id="" value="" placeholder="搜索场地" />
-			</div>
+            <a href="/index/index/list.html">
+                <div class="search_box">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="搜索场地" readonly/>
+                </div>
+            </a>
 		</div>
 		<!--head结束-->
 

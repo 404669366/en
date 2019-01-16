@@ -8,7 +8,6 @@ body{
 
 /*search*/
 .search{
-	width: 95%;
 	height: 5rem;
 	padding: 1.5rem;
 	background: #F9F9F9;
@@ -19,10 +18,9 @@ body{
 	margin: auto;
 	background: #E8E8E9;
 	color: #B1B1B1;
-	font: 3rem/1rem "微软雅黑";
-	text-indent: 1rem;
 }
 .inputBox input{
+	float: left;
 	width: 90%;
 	height: 5rem;
 	border: none;
@@ -30,6 +28,17 @@ body{
 	font:500 2rem/5rem "微软雅黑";
 	letter-spacing: 0.2rem;
 	text-indent: 1rem;
+	padding-left: 1rem;
+	box-sizing: border-box;
+}
+.inputBox .searchBtn{
+	background: #a6a6a6;
+	color: #f3f3f3;
+	text-align: center;
+	float: right;
+	width: 10%;
+	height: 5rem;
+	font: 3rem/5rem "微软雅黑";
 }
 
 /*slideList*/

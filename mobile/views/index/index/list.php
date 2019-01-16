@@ -35,8 +35,10 @@
 <!--search start-->
 <div class="search">
     <div class="inputBox">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input type="text" placeholder="请输入小区或商圈名称">
+        <input type="text" class="searchKey" placeholder="请输入小区或商圈名称">
+        <div class="searchBtn">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
     </div>
 </div>
 <!--search end-->
@@ -44,22 +46,30 @@
 <!--Slide list start-->
 <div class="slideList">
     <div class="slits">
-        <a href="?type=1"><span>最新</span></a>
-        <a href="?type=2"><span>融资</span></a>
-        <a href="?type=3"><span>人气</span></a>
-        <a href="?type=4"><span>点击</span></a>
-        <a href="?type=5"><span>面积</span></a>
-        <a href="?type=6"><span>总价</span></a>
+        <span type="1">最新</span>
+        <span type="2">融资</span>
+        <span type="3">人气</span>
+        <span type="4">点击</span>
+        <span type="5">面积</span>
+        <span type="6">总价</span>
     </div>
 </div>
 <script>
     $(function () {
         var now = getParams('type', 1);
-        $('.slits span').removeClass('active');
-        $.each($('.slits>a'), function (k, v) {
-            if ($(this).attr('href') === '?type=' + now) {
-                $(this).find('span').addClass('active');
+        $('.searchKey').val(getParams('search', ''));
+        $('.slits span').removeClass('active').click(function () {
+            var search = $('.searchKey').val();
+            window.location.href = '?search=' + search + '&type=' + $(this).attr('type');
+        });
+        $.each($('.slits>span'), function (k, v) {
+            if ($(this).attr('type') == now) {
+                $(this).addClass('active');
             }
+        });
+        $('.searchBtn').click(function () {
+            var search = $('.searchKey').val();
+            window.location.href = '?search=' + search + '&type=' + now;
         });
     });
 </script>
