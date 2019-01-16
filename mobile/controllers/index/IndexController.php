@@ -12,6 +12,7 @@ namespace app\controllers\index;
 use app\controllers\basis\BasisController;
 use vendor\en\Field;
 use vendor\helpers\BasisData;
+use vendor\helpers\Msg;
 
 class IndexController extends BasisController
 {
@@ -40,9 +41,10 @@ class IndexController extends BasisController
      */
     public function actionList()
     {
+        $fields = Field::getFieldData(\Yii::$app->request->get());
+        Msg::set("共为您找到{$fields['total']}个场地");
         return $this->render('list', [
-            'fields' => Field::getFieldData(\Yii::$app->request->get()),
-            'recommend' => Field::getRecommendField()
+            'fields' => $fields,
         ]);
     }
 
