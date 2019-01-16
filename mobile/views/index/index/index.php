@@ -108,7 +108,7 @@
 					</a>
 				</div>
 				<div class="tool_list" title="客服电话">
-					<a href="#">
+					<a href="tel:<?=\vendor\helpers\Constant::getServiceTel()?>">
 						<div class="lisTs"><img src="/resources/img/tool_09.png" /></div>
 						<div class="listName">客服电话</div>
 					</a>
