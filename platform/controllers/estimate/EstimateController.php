@@ -9,6 +9,7 @@
 namespace app\controllers\estimate;
 
 use app\controllers\basis\BasisController;
+use vendor\en\Field;
 
 class EstimateController extends BasisController
 {
@@ -28,6 +29,6 @@ class EstimateController extends BasisController
      */
     public function actionData($power)
     {
-        return $this->rJson([], false, 'error');
+        return $this->rJson(Field::budget($power));
     }
 }

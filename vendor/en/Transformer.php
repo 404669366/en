@@ -51,11 +51,19 @@ class Transformer extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * 获取分页数据
+     * @return mixed
+     */
     public static function getPageData()
     {
         return self::find()->page();
     }
 
+    /**
+     * 获取适配最小值
+     * @return int|mixed
+     */
     public static function getMin()
     {
         $data = self::find()->select(['max(max) as min'])->asArray()->one();

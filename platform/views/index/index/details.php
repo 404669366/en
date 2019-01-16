@@ -260,7 +260,7 @@
             </li>
             <li>
                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                &nbsp; 热线电话：0000-0000
+                &nbsp; 热线电话：<?=\vendor\helpers\Constant::getServiceTel()?>
             </li>
         </ul>
         <!--清除浮动-->
@@ -592,9 +592,5 @@
     </div>
 </div>
 <!--脚部end-->
-<script type="text/javascript">
-    $(function () {
-    });
-</script>
 </body>
 </html>

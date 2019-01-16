@@ -470,6 +470,11 @@ class Field extends \yii\db\ActiveRecord
         return $data;
     }
 
+    /**
+     * 场地跟踪列表
+     * @param int $user_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
     public static function getTrack($user_id = 0)
     {
         if ($user_id) {
@@ -482,5 +487,87 @@ class Field extends \yii\db\ActiveRecord
             return $data;
         }
         return [];
+    }
+
+    /**
+     * 收益预测
+     * @param int $power 单位kw
+     * @return array
+     */
+    public static function budget($power = 0)
+    {
+        $data = [];
+        $config = Constant::getBudgetNew();
+        $config['power'] = $power;
+        $config['total'] = Univalent::find()->where([
+            'and',
+            ['>=', 'min', $power],
+            ['<', 'max', $power],
+        ])->asArray()->one();
+        $config['total'] = $config['total'] ? $config['total']['price'] * $power : $config['defPrice'] * $power;
+        $transformer = Transformer::find()->where([
+            'and',
+            ['>=', 'min', $power],
+            ['<', 'max', $power],
+        ])->asArray()->one();
+        $config['transformer'] = $transformer ? $transformer['name'] : '';
+        $config['total'] = $transformer ? $config['total'] + $transformer['price'] : $config['total'];
+        $config['total'] = $config['total'] / 10000;
+        $data['depreciation'] = $config['total'] / 8;
+        $data['serviceCharge'][1] = $power * $config['dayHours'] * $config['yearDay'] * $config['servers'] / 10000;
+        $data['serviceCharge'][2] = $data['serviceCharge'][1] * pow($config['raiseRatio'] + 1, 1);
+        $data['serviceCharge'][3] = $data['serviceCharge'][1] * pow($config['raiseRatio'] + 1, 2);
+        $data['serviceCharge'][4] = $data['serviceCharge'][1] * pow($config['raiseRatio'] + 1, 3);
+        $data['serviceCharge'][5] = $data['serviceCharge'][4];
+        $data['serviceCharge'][6] = $data['serviceCharge'][4];
+        $data['serviceCharge'][7] = $data['serviceCharge'][4];
+        $data['serviceCharge'][8] = $data['serviceCharge'][4];
+        $data['serviceChargeAll'] = array_sum($data['serviceCharge']);
+        $data['powerLoss'][1] = $power * $config['dayHours'] * $config['yearDay'] * $config['pLoss'] * $config['price'] * $config['tax'] / (1 - $config['pLoss']) / 10000;
+        $data['powerLoss'][2] = $data['powerLoss'][1] * pow($config['raiseRatio'] + 1, 1);
+        $data['powerLoss'][3] = $data['powerLoss'][1] * pow($config['raiseRatio'] + 1, 2);
+        $data['powerLoss'][4] = $data['powerLoss'][1] * pow($config['raiseRatio'] + 1, 3);
+        $data['powerLoss'][5] = $data['powerLoss'][4];
+        $data['powerLoss'][6] = $data['powerLoss'][4];
+        $data['powerLoss'][7] = $data['powerLoss'][4];
+        $data['powerLoss'][8] = $data['powerLoss'][4];
+        $data['powerLossAll'] = array_sum($data['powerLoss']);
+        $data['fieldCommission'][1] = $data['serviceCharge'][1] * $config['field'];
+        $data['fieldCommission'][2] = $data['fieldCommission'][1] * pow($config['raiseRatio'] + 1, 1);
+        $data['fieldCommission'][3] = $data['fieldCommission'][1] * pow($config['raiseRatio'] + 1, 2);
+        $data['fieldCommission'][4] = $data['fieldCommission'][1] * pow($config['raiseRatio'] + 1, 3);
+        $data['fieldCommission'][5] = $data['fieldCommission'][4];
+        $data['fieldCommission'][6] = $data['fieldCommission'][4];
+        $data['fieldCommission'][7] = $data['fieldCommission'][4];
+        $data['fieldCommission'][8] = $data['fieldCommission'][4];
+        $data['fieldCommissionAll'] = array_sum($data['fieldCommission']);
+        $data['roofCommission'][1] = $data['serviceCharge'][1] * $config['roof'];
+        $data['roofCommission'][2] = $data['roofCommission'][1] * pow($config['raiseRatio'] + 1, 1);
+        $data['roofCommission'][3] = $data['roofCommission'][1] * pow($config['raiseRatio'] + 1, 2);
+        $data['roofCommission'][4] = $data['roofCommission'][1] * pow($config['raiseRatio'] + 1, 3);
+        $data['roofCommission'][5] = $data['roofCommission'][4];
+        $data['roofCommission'][6] = $data['roofCommission'][4];
+        $data['roofCommission'][7] = $data['roofCommission'][4];
+        $data['roofCommission'][8] = $data['roofCommission'][4];
+        $data['roofCommissionAll'] = array_sum($data['roofCommission']);
+        $data['moneyFlow'][1] = $data['serviceCharge'][1] - $data['powerLoss'][1] - $data['fieldCommission'][1] - $data['roofCommission'][1];
+        $data['moneyFlow'][2] = $data['serviceCharge'][2] - $data['powerLoss'][2] - $data['fieldCommission'][2] - $data['roofCommission'][2];
+        $data['moneyFlow'][3] = $data['serviceCharge'][3] - $data['powerLoss'][3] - $data['fieldCommission'][3] - $data['roofCommission'][3];
+        $data['moneyFlow'][4] = $data['serviceCharge'][4] - $data['powerLoss'][4] - $data['fieldCommission'][4] - $data['roofCommission'][4];
+        $data['moneyFlow'][5] = $data['moneyFlow'][4];
+        $data['moneyFlow'][6] = $data['moneyFlow'][4];
+        $data['moneyFlow'][7] = $data['moneyFlow'][4];
+        $data['moneyFlow'][8] = $data['moneyFlow'][4];
+        $data['moneyFlowAll'] = array_sum($data['moneyFlow']);
+        $data['yearProfit'][1] = $data['moneyFlow'][1] - $data['depreciation'];
+        $data['yearProfit'][2] = $data['moneyFlow'][2] - $data['depreciation'];
+        $data['yearProfit'][3] = $data['moneyFlow'][3] - $data['depreciation'];
+        $data['yearProfit'][4] = $data['moneyFlow'][4] - $data['depreciation'];
+        $data['yearProfit'][5] = $data['yearProfit'][4];
+        $data['yearProfit'][6] = $data['yearProfit'][4];
+        $data['yearProfit'][7] = $data['yearProfit'][4];
+        $data['yearProfit'][8] = $data['yearProfit'][4];
+        $data['yearProfitAll'] = array_sum($data['yearProfit']);
+        return ['config' => $config, 'data' => $data];
     }
 }

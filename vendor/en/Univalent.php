@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property string $min 功率最小值
  * @property string $max 功率最大值
- * @property string $price 范围单价
+ * @property string $price 范围单价(kw)
  */
 class Univalent extends \yii\db\ActiveRecord
 {
@@ -42,15 +42,23 @@ class Univalent extends \yii\db\ActiveRecord
             'id' => 'ID',
             'min' => '功率最小值',
             'max' => '功率最大值',
-            'price' => '范围单价',
+            'price' => '范围单价(kw)',
         ];
     }
 
+    /**
+     * 获取分页数据
+     * @return mixed
+     */
     public static function getPageData()
     {
         return self::find()->page();
     }
 
+    /**
+     * 获取功率最小值
+     * @return int|mixed
+     */
     public static function getMin()
     {
         $data = self::find()->select(['max(max) as min'])->asArray()->one();

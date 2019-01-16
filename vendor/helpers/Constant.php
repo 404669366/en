@@ -101,6 +101,8 @@ class Constant
     {
         return [
             'yearDay' => 330,//年计算日
+            'raiseRatio' => 0.2,//盈利增值
+            'defPrice' => 909.1,//默认功率单价(kw)
             'dayHours' => 2,//日均满功率时间
             'servers' => 0.6,//服务费
             'price' => 0.62,//基础电价
@@ -269,5 +271,14 @@ class Constant
             9 => '中国光大银行',
             10 => '中国邮政储蓄银行',
         ];
+    }
+
+    /**
+     * 返回客服电话
+     * @return string
+     */
+    public static function getServiceTel()
+    {
+        return '0000-0000';
     }
 }

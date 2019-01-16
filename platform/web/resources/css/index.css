@@ -8,8 +8,11 @@
     width: 100%;
     height: 566px;
     padding-top: 20px;
-    background: #333;
-    /*background: #ccc url(../images/logo.png) no-repeat;*/
+    background: #ccc url(https://ascasc.oss-cn-hangzhou.aliyuncs.com/20181026112346fh767k51w.jpg) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center center;
     position: relative;
 }
 
