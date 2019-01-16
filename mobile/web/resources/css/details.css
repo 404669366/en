@@ -167,6 +167,9 @@
 	padding: 2rem 0;
 	border-bottom: .1rem solid #e4e6f0;
 }
+.recont:last-child{
+	border: none;
+}
 .recimg{
 	width: 20.75rem;
 	height: 15.375rem;
