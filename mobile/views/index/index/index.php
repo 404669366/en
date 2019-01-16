@@ -32,12 +32,10 @@
 				</div>
 			</div>
 			<!--搜索框-->
-            <a href="/index/index/list.html">
-                <div class="search_box">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <input type="text" placeholder="搜索场地" readonly/>
-                </div>
-            </a>
+            <div class="search_box">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" placeholder="搜索场地" readonly/>
+            </div>
 		</div>
 		<!--head结束-->
 
@@ -169,6 +167,9 @@
             <script>
                 $('.viewMore').click(function () {
                     window.location.href = '/index/index/list.html?type='+$('.reList>.active').attr('type');
+                });
+                $('.search_box').click(function () {
+                    window.location.href = '/index/index/list.html?focus=1&type='+$('.reList>.active').attr('type');
                 });
             </script>
 		</div>

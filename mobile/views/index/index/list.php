@@ -56,6 +56,10 @@
 </div>
 <script>
     $(function () {
+        var focus = getParams('focus', 0);
+        if(focus){
+            $('.searchKey').focus();
+        }
         var now = getParams('type', 1);
         $('.searchKey').val(getParams('search', ''));
         $('.slits span').removeClass('active').click(function () {
