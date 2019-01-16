@@ -53,7 +53,6 @@ body{
 	height: 6rem;
 	text-align: center;
 	font: 2.65rem/6rem '宋体';
-	/*background: yellowgreen;*/
 }
 .slits a{
 	color: #000;
@@ -65,8 +64,7 @@ body{
 
 /*main*/
 .recommend{
-	width: 90%;
-	height: 100%;
+	min-height: 92rem;
 	padding:3rem;
 }
 .recont{
@@ -74,9 +72,6 @@ body{
 	height: 16rem;
 	padding: 2rem 0;
 	border-bottom: .1rem solid #e4e6f0;
-}
-.recont:last-child{
-	border: none;
 }
 .recimg{
 	width: 20.75rem;

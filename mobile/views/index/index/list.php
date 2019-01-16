@@ -85,17 +85,14 @@
     <div class="mod_cont">
         <?php foreach ($fields['data'] as $data): ?>
             <div class="recont">
-                <a href="#">
+                <a href="/index/index/details.html?no=<?= $data['no'] ?>">
                     <div class="recimg">
-                        <a href="/index/index/details.html?no=<?= $data['no'] ?>"><img src="<?= $data['image'][0] ?>"
-                        </a>
+                        <img src="<?= $data['image'][0] ?>"/>
                     </div>
                     <div class="redadat">
-                        <a href="/index/index/details.html?no=<?= $data['no'] ?>">
-                            <p class="tit"><?= $data['title'] ?></p>
-                            <p class="tit_txt"><?= $data['full_name'] ?>/<?= $data['areas'] ?>m²</p>
-                            <p class="price"><?= $data['budget'] ?>￥</p>
-                        </a>
+                        <p class="tit"><?= $data['title'] ?></p>
+                        <p class="tit_txt"><?= $data['full_name'] ?>/<?= $data['areas'] ?>m²</p>
+                        <p class="price"><?= $data['budget'] ?>￥</p>
                     </div>
                 </a>
             </div>
