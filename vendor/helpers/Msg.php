@@ -27,15 +27,16 @@ class Msg
 
     /**
      * 渲染消息
+     * @param string $fontSize
      */
-    public static function run()
+    public static function run($fontSize = '2.8rem')
     {
         if ($msg = \Yii::$app->session->get(\Yii::$app->params['entryName'], false)) {
             \Yii::$app->session->set(\Yii::$app->params['entryName'], null);
             $str = <<<HTML
 <script>
     $(function() {
-      layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">$msg</span>');
+      layer.msg('<span style="font-size:$fontSize;height:100%;line-height:100%">$msg</span>');
     })
 </script>
 HTML;

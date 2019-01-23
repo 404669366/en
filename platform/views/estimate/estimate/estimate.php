@@ -20,7 +20,7 @@
     <script src="/resources/js/eye.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-<?php \vendor\helpers\Msg::run() ?>
+<?php \vendor\helpers\Msg::run('0.4rem') ?>
 <?php if ($basisData['isGuest']): ?>
     <div class="loninContaner">
         <div class="login_bg" style="display: none"></div>
