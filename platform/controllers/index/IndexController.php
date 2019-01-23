@@ -49,7 +49,7 @@ class IndexController extends BasisController
      */
     public function actionDetails($no)
     {
-        return $this->render('details', ['model' => Field::getDetailFields($no), 'recommends' => Field::getRecommendField(8)]);
+        return $this->render('details', ['model' => Field::getDetailFields($no), 'recommends' => Field::getRecommendField(4)]);
     }
 
 
