@@ -311,8 +311,9 @@
                 $('.yearProfit6').text(re.data.data.yearProfit[6].toFixed(2));
                 $('.yearProfit7').text(re.data.data.yearProfit[7].toFixed(2));
                 $('.yearProfit8').text(re.data.data.yearProfit[8].toFixed(2));
+                layer.msg('<span style="font-size:0.4rem;height:100%;line-height:100%">收益测算成功</span>');
             } else {
-                layer.msg(re.msg);
+                layer.msg('<span style="font-size:0.4rem;height:100%;line-height:100%">系统故障请稍后再试</span>');
             }
         });
     });
