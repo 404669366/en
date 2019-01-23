@@ -513,6 +513,11 @@
                 type: BMAP_NAVIGATION_CONTROL_SMALL
             }));
         </script>
+        <style>
+            .anchorBL{
+                display: none!important;
+            }
+        </style>
     </div>
 </div>
 

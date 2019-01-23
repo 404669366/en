@@ -182,6 +182,11 @@
         type: BMAP_NAVIGATION_CONTROL_SMALL
     }));
 </script>
+<style>
+    .anchorBL{
+        display: none!important;
+    }
+</style>
 <div class="broker">
     <div class="agent">
         <span><img src="/resources/img/agent_none.png"/><br><?= $model->cobber->ident->name ?></span>
