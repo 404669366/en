@@ -223,6 +223,22 @@
     padding-top: 10px;
 }
 
+.guan, .quguan {
+    text-decoration: none;
+    font-size: 40px;
+    float: right;
+    color: #919191;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.quguan > i, .guan > i {
+    color: #FE615A;
+}
+
 /*场地源特色*/
 .field {
     width: 730px;

@@ -370,7 +370,6 @@
 	-web-kit-appearance:none;
 	-moz-appearance: none;
 	outline: 0;
-	padding:0 0.6rem;
 	border-radius: 1rem;
 	border: 1px solid #333333;
 	display: block;
@@ -379,6 +378,7 @@
 	line-height: 6.4rem;
 	font-size: 3.2rem;
 	margin: 2rem auto;
+	text-align: center;
 }
 
 .intentInfo .intentButton{

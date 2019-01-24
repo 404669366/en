@@ -9,11 +9,14 @@
 namespace app\controllers\basis;
 
 
+use vendor\helpers\Url;
+
 class CommonController extends BasisController
 {
     public function beforeAction($action)
     {
         if (\Yii::$app->user->isGuest) {
+            Url::remember();
             return $this->redirect(['/login/login/login-t'], '请先登录')->send();
         }
         return parent::beforeAction($action);

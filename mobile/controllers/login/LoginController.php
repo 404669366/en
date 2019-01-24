@@ -7,6 +7,7 @@ use app\controllers\basis\BasisController;
 use vendor\en\User;
 use vendor\helpers\Msg;
 use vendor\helpers\Sms;
+use vendor\helpers\Url;
 
 class LoginController extends BasisController
 {
@@ -25,7 +26,7 @@ class LoginController extends BasisController
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
                         if (\Yii::$app->security->validatePassword($data['pwd'], $model->password)) {
                             \Yii::$app->user->login($model, 60 * 60 * 2);
-                            return $this->redirect(['/user/user/user'], '登录成功');
+                            return $this->redirect(Url::getUrl(), '登录成功');
                         }
                     }
                     Msg::set('账号或密码错误');
@@ -50,7 +51,7 @@ class LoginController extends BasisController
                     Msg::set('账号不存在');
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
                         \Yii::$app->user->login($model, 60 * 60 * 2);
-                        return $this->redirect(['/user/user/user'], '登录成功');
+                        return $this->redirect(Url::getUrl(), '登录成功');
                     }
                 }
             }
@@ -78,7 +79,7 @@ class LoginController extends BasisController
                         $model->password = \Yii::$app->security->generatePasswordHash($data['loginPwd']);
                         if ($model->save()) {
                             \Yii::$app->user->login($model, 60 * 60 * 2);
-                            return $this->redirect(['/user/user/user'], '注册成功');
+                            return $this->redirect(Url::getUrl(), '注册成功');
                         }
                         Msg::set($model->errors());
                     }

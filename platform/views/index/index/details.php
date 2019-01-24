@@ -353,14 +353,23 @@
                 <p class="price2 float_left">
                     <?= $model->areas ?>㎡
                 </p>
-                <a class="guan"
-                   style="text-decoration: none;font-size: 18px;float: right;margin-top: 18px;line-height: 22px;color: #919191;cursor: pointer">关注</a>
+                <?php if(\vendor\en\Follow::isFollow($model->no)):?>
+                    <a class="quguan" title="取消关注"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                <?php else:?>
+                    <a class="guan" title="关注"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                <?php endif;?>
                 <script>
                     var isGuest = '<?=$basisData['isGuest']?>';
-                    var url = '/user/follow/follow.html?no=<?= $model->no ?>';
                     $('.guan').click(function () {
                         if (!isGuest) {
-                            window.location.href = url;
+                            window.location.href = '/user/follow/follow.html?no=<?= $model->no ?>';
+                        } else {
+                            $('.goLogin').click();
+                        }
+                    });
+                    $('.quguan').click(function () {
+                        if (!isGuest) {
+                            window.location.href = '/user/follow/cancel.html?no=<?= $model->no ?>';
                         } else {
                             $('.goLogin').click();
                         }
@@ -403,7 +412,7 @@
         <div style="width: 310px;height: 200px;position: absolute;top: 35px;padding: 0 15px">
             <span style="width: 310px;text-align: center;height: 30px;line-height: 30px;font-size: 24px;display: inline-block">我的意向</span>
             <input class="intentMoney"
-                   style="width: 200px;height: 30px;line-height: 30px;font-size: 16px;display: block;margin: 45px auto 0 auto;"
+                   style="width: 200px;height: 30px;line-height: 30px;font-size: 16px;display: block;margin: 45px auto 0 auto;text-align: center"
                    placeholder="请填写意向金额"/>
             <span style="width: 310px;text-align: center;height: 30px;font-size: 16px;display: inline-block;margin-top: 30px;">
                 <button class="intentButton" type="button"

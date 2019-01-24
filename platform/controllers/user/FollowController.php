@@ -29,12 +29,13 @@ class FollowController extends CommonController
             Msg::set('错误操作');
             if ($no) {
                 Msg::set('您已关注');
-                if ($model = Follow::notFollow($no)) {
+                if (!Follow::isFollow($no)) {
+                    $model = Field::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
                     $follow = new Follow();
                     $follow->user_id = \Yii::$app->user->id;
                     $follow->field_id = $model->id;
                     $follow->created = time();
-                    $model->attention = $model->attention + 1;
+                    $model->attention += 1;
                     if ($model->save() && $follow->save()) {
                         Msg::set('关注成功');
                     } else {
@@ -57,7 +58,7 @@ class FollowController extends CommonController
         if ($no && \Yii::$app->user->id) {
             $field = Field::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
             if ($field && $field->attention > 0) {
-                $field->attention = $field->attention - 1;
+                $field->attention -= 1;
                 if ($field->save()) {
                     if ($one = Follow::findOne(['user_id' => \Yii::$app->user->id, 'field_id' => $field->id])) {
                         $one->delete();

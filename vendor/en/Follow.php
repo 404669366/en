@@ -68,20 +68,18 @@ class Follow extends \yii\db\ActiveRecord
     }
 
     /**
-     * 是否关注(关注返回false,未关注返回场地模型)
+     * 是否关注场地
      * @param string $no
-     * @return bool|mixed
+     * @return array|bool|null|\yii\db\ActiveRecord
      */
-    public static function notFollow($no = '')
+    public static function isFollow($no = '')
     {
         if ($user_id = Yii::$app->user->id) {
             $one = self::find()->alias('f1')
                 ->leftJoin(Field::tableName() . ' f2', 'f1.field_id=f2.id')
                 ->where(['f1.user_id' => $user_id, 'f2.no' => $no])
                 ->one();
-            if (!$one) {
-                return Field::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
-            }
+            return $one;
         }
         return false;
     }

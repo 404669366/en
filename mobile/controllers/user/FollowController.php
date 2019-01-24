@@ -24,26 +24,23 @@ class FollowController extends CommonController
      */
     public function actionFollow($no = '')
     {
-        Msg::set('请先登录');
-        if(!\Yii::$app->user->isGuest){
-            Msg::set('错误操作');
-            if ($no) {
-                Msg::set('您已关注');
-                if ($model = Follow::notFollow($no)) {
-                    $follow = new Follow();
-                    $follow->user_id = \Yii::$app->user->id;
-                    $follow->field_id = $model->id;
-                    $follow->created = time();
-                    $model->attention = $model->attention + 1;
-                    if ($model->save() && $follow->save()) {
-                        Msg::set('关注成功');
-                    } else {
-                        Msg::set('系统错误');
-                    }
+        Msg::set('错误操作');
+        if ($no && \Yii::$app->user->id) {
+            Msg::set('您已关注');
+            if (!Follow::isFollow($no)) {
+                $model = Field::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
+                $follow = new Follow();
+                $follow->user_id = \Yii::$app->user->id;
+                $follow->field_id = $model->id;
+                $follow->created = time();
+                $model->attention += 1;
+                Msg::set('系统错误');
+                if ($model->save() && $follow->save()) {
+                    Msg::set('关注成功');
                 }
             }
         }
-        return $this->goBack();
+        return $this->redirect('/index/index/details.html?no=' . $no);
     }
 
     /**
@@ -57,7 +54,7 @@ class FollowController extends CommonController
         if ($no && \Yii::$app->user->id) {
             $field = Field::findOne(['no' => $no, 'status' => Constant::getShowStatus()]);
             if ($field && $field->attention > 0) {
-                $field->attention = $field->attention - 1;
+                $field->attention -= 1;
                 if ($field->save()) {
                     if ($one = Follow::findOne(['user_id' => \Yii::$app->user->id, 'field_id' => $field->id])) {
                         $one->delete();

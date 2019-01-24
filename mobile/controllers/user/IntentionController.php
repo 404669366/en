@@ -29,16 +29,17 @@ class IntentionController extends CommonController
 
     /**
      * 添加意向
-     * @return string
+     * @param $no
+     * @return \yii\web\Response
      */
-    public function actionAdd()
+    public function actionAdd($no)
     {
+        $post = \Yii::$app->request->post();
         if ($user_id = \Yii::$app->user->id) {
-            $post = \Yii::$app->request->post();
             if (!isset($post['money']) || !$post['money']) {
-                return $this->goBack('请填写意向金额');
+                return $this->redirect('/index/index/details.html?no=' . $no, '请填写意向金额');
             }
-            if ($model = Field::findOne(['no' => $post['no'], 'status' => 15])) {
+            if ($model = Field::findOne(['no' => $no, 'status' => 15])) {
                 if (!Intention::findOne(['user_id' => $user_id, 'field_id' => $model->id, 'status' => [0, 2, 3, 4]])) {
                     $intention = new Intention();
                     $intention->no = Helper::createNo('I');
@@ -47,15 +48,15 @@ class IntentionController extends CommonController
                     $intention->money = $post['money'];
                     $intention->created = time();
                     if ($intention->save()) {
-                        return $this->goBack('意向发布成功,场地专员将尽快联系您');
+                        return $this->redirect('/index/index/details.html?no=' . $no, '意向发布成功,场地专员将尽快联系您');
                     }
-                    return $this->goBack($intention->errors());
+                    return $this->redirect('/index/index/details.html?no=' . $no, $intention->errors());
                 }
-                return $this->goBack('您已有该场地意向,请不要重复提交');
+                return $this->redirect('/index/index/details.html?no=' . $no, '您已有该场地意向,请不要重复提交');
             }
-            return $this->goBack('抱歉,融资已结束...');
+            return $this->redirect('/index/index/details.html?no=' . $no, '抱歉,融资已结束...');
         }
-        return $this->goBack('非法操作');
+        return $this->redirect('/index/index/details.html?no=' . $no, '非法操作');
     }
 
     /**

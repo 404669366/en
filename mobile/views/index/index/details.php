@@ -56,7 +56,7 @@
     <div class="detCont">
         <div class="tit"><?= $model->title ?></div>
         <div class="follow">
-            <?php if(\vendor\en\Follow::notFollow($model->no)):?>
+            <?php if(!\vendor\en\Follow::isFollow($model->no)):?>
                 <a href="/user/follow/follow.html?no=<?=$model->no?>">
                     <p class="heart">
                         <i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -204,9 +204,8 @@
         <span>
             <div class="intentInfo">
                 <div class="intentTitle">我的意向</div>
-                <form action="/user/intention/add.html" method="post">
+                <form action="/user/intention/add.html?no=<?=$model->no?>" method="post">
                     <input type="hidden" name="_csrf" value="<?=Yii::$app->request->csrfToken?>">
-                    <input type="hidden" name="no" value="<?=$model->no?>">
                     <input type="text" name="money" placeholder="意向金额" class="intentMoney">
                     <button type="submit" class="intentButton">提交意向</button>
                 </form>
