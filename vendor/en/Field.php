@@ -492,12 +492,14 @@ class Field extends \yii\db\ActiveRecord
     /**
      * 收益预测
      * @param int $power 单位kw
+     * @param int $hours 单位小时
      * @return array
      */
-    public static function budget($power = 0)
+    public static function budget($power = 0, $hours = 2)
     {
         $data = [];
         $config = Constant::getBudgetNew();
+        $config['dayHours'] = $hours;
         $config['power'] = $power;
         $config['total'] = Univalent::find()->where([
             'and',

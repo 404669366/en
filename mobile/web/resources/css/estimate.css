@@ -41,12 +41,14 @@
     min-width: 0.712rem;
     font-size: 0.18rem;
 }
-.estimate .tit{
+
+.estimate .tit {
     height: 0.8rem;
     font-size: 0.32rem;
     font-weight: 600;
 }
-.powers {
+
+.powers, .hours {
     padding: 0 0.2rem;
     display: block;
     border: 1px solid #333333;

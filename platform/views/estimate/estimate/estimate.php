@@ -250,7 +250,7 @@
             </li>
             <li>
                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                &nbsp; 热线电话：<?=\vendor\helpers\Constant::getServiceTel()?>
+                &nbsp; 热线电话：<?= \vendor\helpers\Constant::getServiceTel() ?>
             </li>
         </ul>
         <!--清除浮动-->
@@ -284,6 +284,10 @@
         <li>
             <span class="list_names" style="width: 80px">投建功率 :</span>
             <input type="text" class="powers" placeholder="请填写预计投建功率(kw)"/>
+        </li>
+        <li>
+            <span class="list_names" style="width: 80px">日均时长 :</span>
+            <input type="text" class="hours" placeholder="请填写日均时长(小时)"/>
         </li>
         <style>
             .estimate {
@@ -508,9 +512,9 @@
                 </tr>
             </table>
         </li>
-        <!--清除浮动-->
-        <div class="clear"></div>
     </ul>
+    <!--清除浮动-->
+    <div class="clear"></div>
 </div>
 <!--估价表单结束-->
 
@@ -529,7 +533,16 @@
             layer.msg('请填写正确的功率');
             return;
         }
-        $.getJSON('/estimate/estimate/data.html', {power: power}, function (re) {
+        var hours = $('.hours').val();
+        if (!hours || isNaN(hours)) {
+            layer.msg('请填写正确的时长');
+            return;
+        }
+        if (hours > 24) {
+            layer.msg('时长最大24小时');
+            return;
+        }
+        $.getJSON('/estimate/estimate/data.html', {power: power, hours: hours}, function (re) {
             if (re.type) {
                 $('.power').text(re.data.config.power + 'kw');
                 $('.transformer').text(re.data.config.transformer);
@@ -597,8 +610,9 @@
                 $('.yearProfit6').text(re.data.data.yearProfit[6].toFixed(2));
                 $('.yearProfit7').text(re.data.data.yearProfit[7].toFixed(2));
                 $('.yearProfit8').text(re.data.data.yearProfit[8].toFixed(2));
+                layer.msg('收益预测成功');
             } else {
-                layer.msg(re.msg);
+                layer.msg('预测错误请稍后再试');
             }
         });
     });

@@ -25,10 +25,11 @@ class EstimateController extends BasisController
     /**
      * 收益测算接口
      * @param $power
+     * @param $hours
      * @return string
      */
-    public function actionData($power)
+    public function actionData($power, $hours)
     {
-        return $this->rJson(Field::budget($power));
+        return $this->rJson(Field::budget($power, $hours));
     }
 }

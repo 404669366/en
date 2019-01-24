@@ -55,6 +55,12 @@
 .form_list li {
     padding: 10px 0;
     border-bottom: solid 1px #ccc;
+    width: 50%;
+    float: left;
+}
+.form_list li:last-child{
+    width: 100%;
+    border: none;
 }
 
 .form_list li .list_names, input {
@@ -64,13 +70,13 @@
 }
 
 .form_list li .list_names {
-    width: 145px;
+    width: 20%;
     font-weight: bold;
 }
 
 .form_list li input {
     border: none;
-    width: 500px;
+    width: 80%;
 }
 
 .form_list li select {

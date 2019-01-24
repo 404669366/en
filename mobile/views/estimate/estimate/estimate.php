@@ -235,15 +235,25 @@
     </tr>
 </table>
 <input type="text" class="powers" placeholder="请填写预计投建功率(kw)">
+<input type="text" class="hours" placeholder="请填写日均时长(小时)">
 <div class="click">立即预测</div>
 <script>
     $('.click').click(function () {
         var power = $('.powers').val();
         if (!power || isNaN(power)) {
-            layer.msg('请填写正确的功率');
+            layer.msg('<span style="font-size:0.4rem;height:100%;line-height:100%">请填写正确的功率</span>');
             return;
         }
-        $.getJSON('/estimate/estimate/data.html', {power: power}, function (re) {
+        var hours = $('.hours').val();
+        if (!hours || isNaN(hours)) {
+            layer.msg('<span style="font-size:0.4rem;height:100%;line-height:100%">请填写正确的时长</span>');
+            return;
+        }
+        if (hours > 24) {
+            layer.msg('<span style="font-size:0.4rem;height:100%;line-height:100%">时长最大24小时</span>');
+            return;
+        }
+        $.getJSON('/estimate/estimate/data.html', {power: power,hours:hours}, function (re) {
             if (re.type) {
                 $('.power').text(re.data.config.power + 'kw');
                 $('.transformer').text(re.data.config.transformer);
