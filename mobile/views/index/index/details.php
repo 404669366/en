@@ -94,7 +94,7 @@
     <?php if($model->financing_ratio):?>
     <div class="bar" style="width: <?= ((float)$model->financing_ratio) * 100 ?>%;">当前进度: <?= ((float)$model->financing_ratio) * 100 ?>%</div>
     <?php else:?>
-        <span style="width: 100%;text-align: center;font-size: 2.4rem;line-height: 4rem;color: #f0f4f7">当前进度: 0%</span>
+        <div style="width: 100%;text-align: center;font-size: 2.4rem;line-height: 4rem;color: #f0f4f7">当前进度: 0%</div>
     <?php endif;?>
 </div>
 
