@@ -34,6 +34,17 @@ function h5Upload(config) {
         }
     });
     $(config.element).on('change', '.myUploadFile', function () {
+        var path = $(this).val();
+        if (path.length == 0) {
+            return false;
+        } else {
+            var extStart = path.lastIndexOf('.'),
+                ext = path.substring(extStart, path.length).toUpperCase();
+            if (ext !== '.PNG' && ext !== '.JPG' && ext !== '.JPEG') {
+                layer.msg('图片格式错误');
+                return false;
+            }
+        }
         var formData = new FormData();
         formData.append('file', $(this)[0].files[0]);
         $.ajax({
