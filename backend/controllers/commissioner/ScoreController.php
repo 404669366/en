@@ -11,7 +11,9 @@ namespace app\controllers\commissioner;
 
 use app\controllers\basis\CommonController;
 use vendor\en\Field;
+use vendor\en\User;
 use vendor\helpers\Constant;
+use vendor\helpers\Helper;
 use vendor\helpers\Msg;
 
 class ScoreController extends CommonController
@@ -84,5 +86,40 @@ class ScoreController extends CommonController
         }
         Msg::set('场地不存在');
         return $this->redirect(['list']);
+    }
+
+    /**
+     * 专员发布场地
+     * @return string
+     */
+    public function actionAdd()
+    {
+        if (\Yii::$app->request->isPost) {
+            $post = \Yii::$app->request->post();
+            $model = new Field();
+            $model->member_id = \Yii::$app->user->id;
+            $model->type = 1;
+            $model->created = time();
+            $model->no = Helper::createNo('F');
+            if ($model->load(['Field' => $post]) && $model->validate() && $model->save()) {
+                Msg::set('场地发布成功，请等待评分结果');
+                return $this->redirect(['list']);
+            } else {
+                Msg::set($model->errors());
+            }
+        }
+        return $this->render('add');
+    }
+
+    /**
+     * 搜索场地方
+     * @param string $tel
+     * @return string
+     */
+    public function actionSearch($tel = '')
+    {
+        $data = User::find()->where(['like', 'tel', $tel])
+            ->asArray()->all();
+        return $this->rJson($data);
     }
 }

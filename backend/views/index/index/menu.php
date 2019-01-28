@@ -38,11 +38,17 @@ $this->beginPage();
                                 </span>
                             </span>
                         </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="J_menuItem" href="/index/index/index">修改密码</a></li>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs updatePasswordBox">
+                            <li><a class="J_menuItem updatePassword" href="/member/member/update">修改密码</a></li>
                             <li class="divider"></li>
                             <li><a href="/<?=Yii::$app->params['logoutRoute']?>">安全退出</a></li>
                         </ul>
+                        <script>
+                            $('.updatePassword').click(function () {
+                                $('.dropdown').removeClass('open');
+                                $('.dropdown-toggle').attr('aria-expanded',false);
+                            });
+                        </script>
                     </div>
                 </li>
                 <?=$data['menus']?>

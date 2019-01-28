@@ -21,6 +21,9 @@
                     <button class="tableReload">重置</button>
                 </span>
             </div>
+            <div class="col-sm-2">
+                <a href="/commissioner/score/add" class="btn btn-info">发布场地</a>
+            </div>
         </div>
         <table class="table table-striped table-bordered table-hover dataTable" id="table">
             <thead>

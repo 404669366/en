@@ -124,11 +124,11 @@ class Field extends \yii\db\ActiveRecord
                 return false;
             }
             if (!$this->local_id) {
-                $this->addError('local_id', '系统错误');
+                $this->addError('local_id', '请选择场地方');
                 return false;
             }
             if (!$this->area_id) {
-                $this->addError('area_id', '系统错误');
+                $this->addError('area_id', '请选择地域');
                 return false;
             }
             if (!$this->title) {
