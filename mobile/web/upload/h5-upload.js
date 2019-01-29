@@ -39,6 +39,7 @@ function h5Upload(config) {
         }
     });
     $(config.element).on('change', '.myUploadFile', function () {
+        var nowInput = $(this);
         var path = $(this).val();
         if (path.length == 0) {
             return false;
@@ -80,6 +81,7 @@ function h5Upload(config) {
             success: function (res) {
                 layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">' + res.msg + '</span>');
                 if (res.type) {
+                    nowInput.val();
                     addImg(res.data);
                 }
             }
