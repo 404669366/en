@@ -55,6 +55,7 @@ function h5Upload(config) {
         formData.append('file', $(this)[0].files[0]);
         $.ajax({
             url: config.uploadImgUrl,
+            cache:false,
             type: "post",
             data: formData,
             dataType: "json",
