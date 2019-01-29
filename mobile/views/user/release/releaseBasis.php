@@ -33,6 +33,7 @@
 <!--certified_Partners start-->
 <div class="certified">
     <form action="/user/release/add-basis.html" method="post">
+        <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
         <div class="partnersBox">
             <div class="partnersTit">
                 发布场地
