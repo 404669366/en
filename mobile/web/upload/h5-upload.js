@@ -16,6 +16,7 @@ function h5Upload(config) {
     config.limit = config.limit || ',';
     config.uploadImgUrl = config.uploadImgUrl || '/basis/file/upload.html';
     config.removeImgUrl = config.removeImgUrl || '/basis/file/delete.html';
+    $(config.box).before('<div class="jingBox" style="width: 100%;height: 2rem;background: #aaa;display: none"><div class="jingdu" style="background: #3072F3;height: 2rem;float: left"></div></div>');
     $(config.element).append('<input type="file" class="myUploadFile" accept="image/*" style="display: none"/>');
     $(config.element).append('<textarea class="myUploadResult" name="' + (config.name || 'image') + '" style="display: none"></textarea>');
     $(config.box).css('position', 'relative');
@@ -45,6 +46,8 @@ function h5Upload(config) {
                 return false;
             }
         }
+        var size = $(this)[0].files[0].size || 0;
+        $(config.element).find('.jingBox').fadeIn();
         var formData = new FormData();
         formData.append('file', $(this)[0].files[0]);
         $.ajax({
@@ -54,6 +57,22 @@ function h5Upload(config) {
             dataType: "json",
             processData: false,
             contentType: false,
+            xhr: function () {
+                myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) {
+                    myXhr.upload.addEventListener('progress', function (e) {
+                        if (e.lengthComputable) {
+                            var bili = (e.loaded / e.total * 100).toFixed(2);
+                            if (bili >= 100) {
+                                $(config.element).find('.jingBox').fadeOut();
+                            } else {
+                                $(config.element).find('.jingdu').css('width', bili + "%");
+                            }
+                        }
+                    }, false);
+                }
+                return myXhr;
+            },
             success: function (res) {
                 layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">' + res.msg + '</span>');
                 if (res.type) {
