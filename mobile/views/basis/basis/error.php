@@ -25,7 +25,7 @@
     var num = 10;
     var id = setInterval(function () {
         num--;
-        document.getElementById('notMain').innerText = num + "秒后页面将跳转到上页...";
+        document.getElementById('notMain').innerText = num + "秒后页面将跳转到上一页...";
         if (num === 0) {
             clearInterval(id);
             history.back(-1);
