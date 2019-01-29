@@ -86,7 +86,7 @@ class IntentionController extends CommonController
                     return $this->redirect(['manage'], '提交成功');
                 }
             }
-            Msg::set($model->errors(), 'PopupMsg');
+            Msg::set($model->errors());
         }
         return $this->render('detail', ['data' => $model]);
     }

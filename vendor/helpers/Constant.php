@@ -174,7 +174,7 @@ class Constant
     public static function getShowStatus()
     {
         return [
-            15, 17, 18,
+            15, 18,
         ];
     }
 
