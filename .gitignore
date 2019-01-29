@@ -1,7 +1,4 @@
 .project
-/platform/config/db.php
-/backend/config/db.php
-/mobile/config/db.php
 /platform/runtime/
 /backend/runtime/
 /mobile/runtime/

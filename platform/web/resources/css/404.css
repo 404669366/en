@@ -27,14 +27,15 @@ body{
 	padding: 20px 0 40px 0;
 }
 .notBtn{
-	width: 216px;
 	background: #007BC1;
-	border: solid 1px #fff;
-	margin-left: 370px;
-	padding: 10px 0;
+	padding-left: 230px;
 }
 .notBtn a{
+	display: inline-block;
+	padding: 10px 0;
+	width: 216px;
 	color: #fff;
+	border: solid 1px #fff;
 	letter-spacing: 2px;
 	text-decoration: none;
 }

@@ -77,4 +77,13 @@ class BasisController extends Controller
         echo json_encode(['total' => $data['total'], 'data' => $data['data']], JSON_UNESCAPED_UNICODE);
         exit();
     }
+
+    /**
+     * 自定义错误页
+     * @return string
+     */
+    public function actionError()
+    {
+        return $this->render('error');
+    }
 }

@@ -55,6 +55,9 @@ $config = [
             'identityClass' => 'vendor\en\User',
             'enableAutoLogin' => true,
         ],
+        'errorHandler' => [
+            'errorAction' => 'basis/basis/error',
+        ],
     ],
     'params' => $params,
 ];
