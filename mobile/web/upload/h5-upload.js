@@ -1,14 +1,14 @@
 function h5Upload(config) {
     if (!config.element) {
-        layer.msg('请配置根节点');
+        layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">请配置根节点</span>');
         return;
     }
     if (!config.click) {
-        layer.msg('请配置点击节点');
+        layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">请配置点击节点</span>');
         return;
     }
     if (!config.box) {
-        layer.msg('请配置上传预览节点');
+        layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">请配置上传预览节点</span>');
         return;
     }
     config.max = config.max || 1;
@@ -30,7 +30,7 @@ function h5Upload(config) {
         if (config.max > $(config.element).find(config.box).find('img').length) {
             $(config.element).find('.myUploadFile').click();
         } else {
-            layer.msg('最多上传' + config.max + '张图片');
+            layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">最多上传' + config.max + '张图片</span>');
         }
     });
     $(config.element).on('change', '.myUploadFile', function () {
@@ -41,14 +41,12 @@ function h5Upload(config) {
             var extStart = path.lastIndexOf('.'),
                 ext = path.substring(extStart, path.length).toUpperCase();
             if (ext !== '.PNG' && ext !== '.JPG' && ext !== '.JPEG') {
-                layer.msg('图片格式错误');
+                layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">图片格式错误</span>');
                 return false;
             }
         }
         var formData = new FormData();
         formData.append('file', $(this)[0].files[0]);
-        alert($(this)[0].files[0]);
-        return;
         $.ajax({
             url: config.uploadImgUrl,
             type: "post",
@@ -57,10 +55,9 @@ function h5Upload(config) {
             processData: false,
             contentType: false,
             success: function (res) {
+                layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">' + res.msg + '</span>');
                 if (res.type) {
                     addImg(res.data);
-                } else {
-                    layer.msg(res.msg);
                 }
             }
         });

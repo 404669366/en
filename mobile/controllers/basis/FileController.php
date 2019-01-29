@@ -24,7 +24,7 @@ class FileController extends CommonController
         if (\Yii::$app->request->isPost) {
             if ($_FILES) {
                 if ($re = Oss::aliUpload($_FILES['file'])) {
-                    return $this->rJson($re);
+                    return $this->rJson($re, true, '上传成功');
                 }
             }
             return $this->rJson('', false, '上传错误');
@@ -39,9 +39,9 @@ class FileController extends CommonController
     public function actionUploadFile()
     {
         if (\Yii::$app->request->isPost) {
-            $prefix = \Yii::$app->request->post('prefix','');
+            $prefix = \Yii::$app->request->post('prefix', '');
             if ($_FILES) {
-                if ($re = Oss::aliUploadFile($_FILES['file'],$prefix)) {
+                if ($re = Oss::aliUploadFile($_FILES['file'], $prefix)) {
                     return $this->rJson($re);
                 }
             }
@@ -57,7 +57,7 @@ class FileController extends CommonController
      */
     public function actionDelete($src)
     {
-        if(Oss::aliDelete($src)){
+        if (Oss::aliDelete($src)) {
             return $this->rJson();
         }
         return $this->rJson('', false, '删除错误');
