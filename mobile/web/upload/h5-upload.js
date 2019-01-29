@@ -16,7 +16,7 @@ function h5Upload(config) {
     config.limit = config.limit || ',';
     config.uploadImgUrl = config.uploadImgUrl || '/basis/file/upload.html';
     config.removeImgUrl = config.removeImgUrl || '/basis/file/delete.html';
-    $(config.box).before('<div class="jingBox" style="width: 100%;height: 2rem;background: #aaa;display: none"><div class="jingdu" style="background: #3072F3;height: 2rem;float: left"></div></div>');
+    $(config.box).before('<div class="jingBox" style="width: 100%;height: 1rem;background: #aaa;display: none"><div class="jingdu" style="background: #3072F3;height: 1rem;float: left"></div></div>');
     $(config.element).append('<input type="file" class="myUploadFile" accept="image/*" style="display: none"/>');
     $(config.element).append('<textarea class="myUploadResult" name="' + (config.name || 'image') + '" style="display: none"></textarea>');
     $(config.box).css('position', 'relative');
