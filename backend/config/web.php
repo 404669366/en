@@ -46,7 +46,7 @@ $config = [
         'redis' => [
             'class' => 'yii\redis\Connection',
             'hostname' => '127.0.0.1',
-            'password' => '',
+            'password' => 'fi9^BRLHschX%V96',
             'port' => 6379,
             'database' => 0,
         ],
