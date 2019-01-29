@@ -19,6 +19,10 @@ function h5Upload(config) {
     $(config.box).before('<div class="jingBox" style="width: 100%;height: 0.42rem;background: #aaa;display: none"><div class="jingdu" style="background: #3072F3;height: 0.42rem;float: left"></div></div>');
     $(config.element).append('<input type="file" class="myUploadFile" accept="image/*" style="display: none"/>');
     $(config.element).append('<textarea class="myUploadResult" name="' + (config.name || 'image') + '" style="display: none"></textarea>');
+    $('body').append('<div class="' + config.name + 'myDelUploadBox" style="top: 0;right: 0;width: 100%;height: 100%;position: fixed;background: rgba(0,0,0,0.6);display: none"></div>');
+    var box = $('.' + config.name + 'myDelUploadBox');
+    box.append('<img src="" style="max-width: 98%;display: block;min-height:60rem;margin: 26rem auto 0 auto" />');
+    box.append('<div style="width: 100%;text-align: center;margin-top: 4rem"><span class="myDelUploadBoxDel" style="width: 20rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: left;margin-left: 18rem">删除</span><span class="myDelUploadBoxClose" style="width: 20rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: right;margin-right: 18rem">关闭</span></div>');
     $(config.box).css('position', 'relative');
     if (config.default) {
         $(config.element).find('.myUploadResult').val(config.default);
@@ -46,7 +50,6 @@ function h5Upload(config) {
                 return false;
             }
         }
-        var size = $(this)[0].files[0].size || 0;
         $(config.element).find('.jingBox').fadeIn();
         var formData = new FormData();
         formData.append('file', $(this)[0].files[0]);
@@ -82,17 +85,17 @@ function h5Upload(config) {
         });
     });
     $(config.element).find(config.box).on('click', 'img', function () {
-        var position = $(this).position();
-        $(config.element).find(config.box).append('<div class="myDelUploadBox" style="background: rgba(0,0,0,0.7);position: absolute;left: ' + position.left + 'px;top:' + position.top + 'px;width: ' + $(this).width() + 'px;height: ' + $(this).height() + 'px;margin: ' + $(this).css('margin') + '"></div>');
-        $(config.element).find('.myDelUploadBox').append('<div class="myDelUploadBoxDel" nowSrc="' + $(this).attr('src') + '" style="width: 50%;float: left;height: ' + $(this).height() + 'px;line-height: ' + $(this).height() + 'px;font-size: 2.6rem;color: red;text-align: center;box-sizing: border-box;border-right: 1px solid white">删除</div>');
-        $(config.element).find('.myDelUploadBox').append('<div class="myDelUploadBoxClose" style="width: 50%;float: right;height: ' + $(this).height() + 'px;line-height: ' + $(this).height() + 'px;font-size: 2.6rem;color: white;text-align: center;box-sizing: border-box;border-right: 1px solid white">取消</div>');
+        box.find('img').attr('src', $(this).attr('src'));
+        box.find('.myDelUploadBoxDel').attr('nowSrc', $(this).attr('src'));
+        box.fadeIn();
     });
 
-    $(config.element).find(config.box).on('click', '.myDelUploadBoxClose', function () {
-        $(config.element).find(config.box).find('.myDelUploadBox').remove();
+    box.on('click', '.myDelUploadBoxClose', function () {
+        box.fadeOut();
     });
 
-    $(config.element).find(config.box).on('click', '.myDelUploadBoxDel', function () {
+    box.on('click', '.myDelUploadBoxDel', function () {
+        box.fadeOut();
         delImg($(this).attr('nowSrc'));
     });
 
@@ -107,12 +110,12 @@ function h5Upload(config) {
         $.getJSON(config.removeImgUrl, {src: src}, function (res) {
             if (res.type) {
                 $(config.element).find(config.box).find('[src="' + src + '"]').remove();
-                $(config.element).find(config.box).find('.myDelUploadBox').remove();
                 $(config.element).find('.myUploadResult').val(function (k, now) {
                     return replace(now, src)
                 });
+                layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">删除成功</span>');
             } else {
-                layer.msg(res.msg);
+                layer.msg('<span style="font-size:2.8rem;height:100%;line-height:100%">' + res.msg + '</span>');
             }
         });
     }

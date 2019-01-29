@@ -128,7 +128,7 @@
 	display: block;
 	margin: 0 auto 2rem auto;
 	max-width: 100%;
-	max-height: 20rem;
+	min-height: 20rem;
 }
 .field_info .field_imgs>img:last-child{
 	margin-bottom: 0;
