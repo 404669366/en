@@ -21,7 +21,7 @@ function h5Upload(config) {
     $(config.element).append('<textarea class="myUploadResult" name="' + (config.name || 'image') + '" style="display: none"></textarea>');
     $('body').append('<div class="' + config.name + 'myDelUploadBox" style="top: 0;right: 0;width: 100%;height: 100%;position: fixed;background: rgba(0,0,0,0.6);display: none"></div>');
     var box = $('.' + config.name + 'myDelUploadBox');
-    box.append('<img src="" style="max-width: 98%;display: block;min-height:60rem;margin: 26rem auto 0 auto" />');
+    box.append('<img src="" style="max-width: 98%;display: block;min-height:30rem;max-height: 60rem;margin: 26rem auto 0 auto" />');
     box.append('<div style="width: 100%;text-align: center;margin-top: 4rem"><span class="myDelUploadBoxDel" style="width: 20rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: left;margin-left: 18rem">删除</span><span class="myDelUploadBoxClose" style="width: 20rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: right;margin-right: 18rem">关闭</span></div>');
     $(config.box).css('position', 'relative');
     if (config.default) {
