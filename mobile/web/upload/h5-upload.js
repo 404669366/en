@@ -22,7 +22,7 @@ function h5Upload(config) {
     $('body').append('<div class="' + config.name + 'myDelUploadBox" style="top: 0;right: 0;width: 100%;height: 100%;position: fixed;background: rgba(0,0,0,0.6);display: none"></div>');
     var box = $('.' + config.name + 'myDelUploadBox');
     box.append('<img src="" style="width: 98%;display: block;max-height: 86%;margin: 3% auto 0 auto;" />');
-    box.append('<div style="width: 100%;text-align: center;margin-top: 4rem"><span class="myDelUploadBoxDel" style="width: 18rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: left;margin-left: 12rem">删除</span><span class="myDelUploadBoxClose" style="width: 18rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: right;margin-right: 12rem">关闭</span></div>');
+    box.append('<div style="width: 100%;text-align: center;margin-top: 4rem"><span class="myDelUploadBoxDel" style="width: 18rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: left;margin-left: 10rem">删除</span><span class="myDelUploadBoxClose" style="width: 18rem;height: 6rem;line-height: 6rem;font-size: 3.4rem;color: white;background: #3072F3;display: block;float: right;margin-right: 10rem">关闭</span></div>');
     $(config.box).css('position', 'relative');
     if (config.default) {
         $(config.element).find('.myUploadResult').val(config.default);
