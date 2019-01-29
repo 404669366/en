@@ -49,12 +49,12 @@
             </div>
             <div class="oldPwd">
                 <span>详细地址:</span>
-                <input type="text" name="" id="" value="" placeholder="请填写详细地址"/>
+                <input type="text" name="address" placeholder="请填写详细地址"/>
             </div>
             <!--场地介绍-->
             <div class="field_info">
                 <p class="fieldTit">场地介绍:</p>
-                <textarea class="field_cont" placeholder="请填写场地介绍"></textarea>
+                <textarea class="field_cont" name="intro" placeholder="请填写场地介绍"></textarea>
             </div>
             <div class="oldPwd">
                 <button type="submit">确认提交</button>
