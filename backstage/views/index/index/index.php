@@ -1,1 +1,0 @@
-<h3 style="text-align: center;margin-top: 30rem;color: pink">\ (QAQ) /</h3>

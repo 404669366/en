@@ -1,16 +1,10 @@
 .project
-/backstage/config/db.php
-/reception/config/db.php
 /platform/config/db.php
 /backend/config/db.php
 /mobile/config/db.php
-/backstage/runtime/
-/reception/runtime/
 /platform/runtime/
 /backend/runtime/
 /mobile/runtime/
-/backstage/web/assets/
-/reception/web/assets/
 /platform/web/assets/
 /backend/web/assets/
 /mobile/web/assets/
