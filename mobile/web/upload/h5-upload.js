@@ -47,6 +47,8 @@ function h5Upload(config) {
         }
         var formData = new FormData();
         formData.append('file', $(this)[0].files[0]);
+        alert($(this)[0].files[0]);
+        return;
         $.ajax({
             url: config.uploadImgUrl,
             type: "post",
