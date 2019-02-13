@@ -69,12 +69,15 @@ class LoginController extends BasisController
     public function actionLoginW()
     {
         if (\Yii::$app->request->isPost) {
-            if ($model = User::findOne(['wechat' => \Yii::$app->request->post('wechat', '')])) {
-                \Yii::$app->user->login($model, 60 * 60 * 2);
-                return $this->redirect(Url::getUrl(), '登录成功');
+            $wechat = \Yii::$app->request->post('wechat', '');
+            if ($wechat) {
+                if ($model = User::findOne(['wechat' => $wechat])) {
+                    \Yii::$app->user->login($model, 60 * 60 * 2);
+                    return $this->redirect(Url::getUrl(), '登录成功');
+                }
+                \Yii::$app->session->set('UserWechat', $wechat);
             }
-            \Yii::$app->session->set('UserWechat', \Yii::$app->request->post('wechat', ''));
-            return $this->redirect(['login/login/login-t'],'aaaaaaaaaa');
+            return $this->redirect(['login/login/login-t'], 'aaaaaaaaaa');
         }
         return $this->render('loginW');
     }
