@@ -25,8 +25,9 @@ class LoginController extends BasisController
                 Msg::set('密码不能为空');
                 if ($data['pwd']) {
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
-                        $model->wechat = \Yii::$app->session->get('UserWechat', '');
                         if (\Yii::$app->security->validatePassword($data['pwd'], $model->password)) {
+                            $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                            $model->save();
                             \Yii::$app->user->login($model, 60 * 60 * 2);
                             return $this->redirect(Url::getUrl(), '登录成功');
                         }
@@ -53,6 +54,7 @@ class LoginController extends BasisController
                     Msg::set('账号不存在');
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
                         $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                        $model->save();
                         \Yii::$app->user->login($model, 60 * 60 * 2);
                         return $this->redirect(Url::getUrl(), '登录成功');
                     }
@@ -70,7 +72,7 @@ class LoginController extends BasisController
     public function actionLoginW($code = '')
     {
         if ($code) {
-            if($info = Wechat::getUserAuthorizeAccessToken($code)){
+            if ($info = Wechat::getUserAuthorizeAccessToken($code)) {
                 if ($model = User::findOne(['wechat' => $info['openid']])) {
                     \Yii::$app->user->login($model, 60 * 60 * 2);
                     return $this->redirect(Url::getUrl(), '登录成功');
