@@ -64,22 +64,21 @@ class LoginController extends BasisController
 
     /**
      * 微信登录回调
-     * @return string|\yii\web\Response
+     * @param string $code
+     * @return \yii\web\Response
      */
-    public function actionLoginW()
+    public function actionLoginW($code = '')
     {
-        if (\Yii::$app->request->isPost) {
-            $wechat = \Yii::$app->request->post('wechat', '');
-            if ($wechat) {
-                if ($model = User::findOne(['wechat' => $wechat])) {
+        if ($code) {
+            if($info = Wechat::getUserAuthorizeAccessToken($code)){
+                if ($model = User::findOne(['wechat' => $info['openid']])) {
                     \Yii::$app->user->login($model, 60 * 60 * 2);
                     return $this->redirect(Url::getUrl(), '登录成功');
                 }
-                \Yii::$app->session->set('UserWechat', $wechat);
+                \Yii::$app->session->set('UserWechat', $info['openid']);
             }
-            return $this->redirect(['login/login/login-t'], 'aaaaaaaaaa');
         }
-        return $this->render('loginW');
+        return $this->redirect(['login/login/login-t']);
     }
 
     /**
