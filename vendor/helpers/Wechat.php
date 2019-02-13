@@ -12,7 +12,7 @@ namespace vendor\helpers;
 class Wechat
 {
     const APP_ID = 'wxf7613d39c63057cd';
-    const SECRET = '';
+    const SECRET = '26efc892fbe387d62dd131f6eedc5fd1';
 
     /**
      * 判断是否微信访问
