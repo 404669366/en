@@ -10,7 +10,7 @@
 </head>
 <body>
 <script>
-    postCall('/login/login/login-w', {_csrf: '<?=Yii::$app->request->csrfToken?>'});
+    postCall('/login/login/login-w.html', {_csrf: '<?=Yii::$app->request->csrfToken?>'});
 </script>
 </body>
 </html>
