@@ -74,7 +74,6 @@ class Wechat
         $url .= '&code=' . $code;
         $url .= '&grant_type=authorization_code';
         $re = file_get_contents($url);
-        var_dump($re);exit();
         $re = json_decode($re, true);
         if (isset($re['errcode'])) {
             return false;
