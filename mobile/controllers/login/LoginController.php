@@ -8,6 +8,7 @@ use vendor\en\User;
 use vendor\helpers\Msg;
 use vendor\helpers\Sms;
 use vendor\helpers\Url;
+use vendor\helpers\Wechat;
 
 class LoginController extends BasisController
 {
@@ -24,6 +25,7 @@ class LoginController extends BasisController
                 Msg::set('密码不能为空');
                 if ($data['pwd']) {
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
+                        $model->wechat = \Yii::$app->session->get('UserWechat', '');
                         if (\Yii::$app->security->validatePassword($data['pwd'], $model->password)) {
                             \Yii::$app->user->login($model, 60 * 60 * 2);
                             return $this->redirect(Url::getUrl(), '登录成功');
@@ -50,6 +52,7 @@ class LoginController extends BasisController
                 if (Sms::validateCode($data['loginTel'], $data['loginTelCode'])) {
                     Msg::set('账号不存在');
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
+                        $model->wechat = \Yii::$app->session->get('UserWechat', '');
                         \Yii::$app->user->login($model, 60 * 60 * 2);
                         return $this->redirect(Url::getUrl(), '登录成功');
                     }
@@ -57,6 +60,23 @@ class LoginController extends BasisController
             }
         }
         return $this->render('loginT');
+    }
+
+    /**
+     * 微信登录回调
+     * @return string|\yii\web\Response
+     */
+    public function actionLoginW()
+    {
+        if (\Yii::$app->request->isPost) {
+            if ($model = User::findOne(['wechat' => \Yii::$app->request->post('wechat', '')])) {
+                \Yii::$app->user->login($model, 60 * 60 * 2);
+                return $this->redirect(Url::getUrl(), '登录成功');
+            }
+            \Yii::$app->session->set('UserWechat', \Yii::$app->request->post('wechat', ''));
+            return $this->redirect(['login/login/login-t'],'aaaaaaaaaa');
+        }
+        return $this->render('loginW');
     }
 
     /**
@@ -77,6 +97,7 @@ class LoginController extends BasisController
                         $model->tel = $data['loginTel'];
                         $model->created = time();
                         $model->password = \Yii::$app->security->generatePasswordHash($data['loginPwd']);
+                        $model->wechat = \Yii::$app->session->get('UserWechat', '');
                         if ($model->save()) {
                             \Yii::$app->user->login($model, 60 * 60 * 2);
                             return $this->redirect(Url::getUrl(), '注册成功');
@@ -124,6 +145,12 @@ class LoginController extends BasisController
      */
     public function actionLogout()
     {
+        if (Wechat::isWechat()) {
+            if ($model = User::findOne(\Yii::$app->user->id)) {
+                $model->wechat = '';
+                $model->save();
+            }
+        }
         \Yii::$app->user->logout();
         return $this->redirect(['index/index/index'], '退出成功');
     }

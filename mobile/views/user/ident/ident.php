@@ -96,7 +96,7 @@
                                 });
                             </script>
                         </div>
-                        <!--打印凭证-->
+                        <!--打款凭证-->
                         <div class="idcard moneyIdent money_ident">
                             <p class="idTit">打款凭证:<button type="button" class="add">添加图片</button></p>
                             <p class="id_imgs"></p>
@@ -206,9 +206,9 @@
                             </script>
                         <?php endif;?>
                         <?php if (in_array($model->status,[3,4,5])):?>
-                            <!--打印凭证-->
+                            <!--打款凭证-->
                             <div class="idcard">
-                                <p class="idTit">打印凭证:</p>
+                                <p class="idTit">打款凭证:</p>
                                 <div class="id_imgs">
                                     <?php foreach (explode(',',$model->money_ident) as $k=>$v):?>
                                         <img src="<?=$v?>" alt="打印凭证<?=$k+1?>">

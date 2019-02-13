@@ -12,6 +12,7 @@ use yii\web\IdentityInterface;
  * @property string $tel 用户电话
  * @property string $password 用户密码
  * @property string $money 余额
+ * @property string $wechat 微信ID
  * @property string $created 创建时间
  */
 class User extends \yii\db\ActiveRecord implements IdentityInterface
@@ -32,7 +33,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [['tel'], 'unique', 'message' => '手机号已注册'],
             [['tel', 'created'], 'integer'],
-            [['password'], 'string', 'max' => 80],
+            [['password','wechat'], 'string', 'max' => 80],
             [['money'], 'string', 'max' => 255],
         ];
     }
@@ -46,6 +47,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'id' => 'ID',
             'tel' => '用户电话',
             'password' => '用户密码',
+            'wechat' => '微信ID',
             'money' => '余额',
             'created' => '创建时间',
         ];

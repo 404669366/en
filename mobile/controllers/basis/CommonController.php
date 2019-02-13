@@ -10,6 +10,7 @@ namespace app\controllers\basis;
 
 
 use vendor\helpers\Url;
+use vendor\helpers\Wechat;
 
 class CommonController extends BasisController
 {
@@ -17,6 +18,9 @@ class CommonController extends BasisController
     {
         if (\Yii::$app->user->isGuest) {
             Url::remember();
+            if (Wechat::isWechat()) {
+                return $this->redirect(['/login/login/login-w'])->send();
+            }
             return $this->redirect(['/login/login/login-t'], '请先登录')->send();
         }
         return parent::beforeAction($action);
