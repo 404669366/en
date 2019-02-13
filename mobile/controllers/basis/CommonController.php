@@ -19,7 +19,6 @@ class CommonController extends BasisController
         if (\Yii::$app->user->isGuest) {
             Url::remember();
             if (Wechat::isWechat()) {
-                var_dump(Wechat::getUserAuthorizeCodeUrl());exit();
                 return $this->redirect(Wechat::getUserAuthorizeCodeUrl())->send();
             }
             return $this->redirect(['/login/login/login-t'], '请先登录')->send();
