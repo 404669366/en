@@ -33,7 +33,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             [['tel'], 'unique', 'message' => '手机号已注册'],
             [['tel', 'created'], 'integer'],
-            [['password','wechat'], 'string', 'max' => 80],
+            [['wechat'], 'unique'],
+            [['password', 'wechat'], 'string', 'max' => 80],
             [['money'], 'string', 'max' => 255],
         ];
     }
