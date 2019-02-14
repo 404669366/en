@@ -159,7 +159,7 @@ class BasisField extends \yii\db\ActiveRecord
         if ($user = Yii::$app->user->id) {
             $data = self::find()->alias('b')
                 ->leftJoin(Area::tableName() . ' a', 'a.area_id=b.area_id')
-                ->select(['a.full_name', 'b.address', 'b.created'])->orderBy('b.created DESC')
+                ->select(['a.full_name', 'b.address', 'b.created', 'b.intro'])->orderBy('b.created DESC')
                 ->where(['b.user_id' => $user])->asArray()->all();
             return $data;
         }

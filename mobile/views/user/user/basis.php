@@ -28,29 +28,38 @@
             </div>
 		</div>
 		<!--header end-->
-		
-		<!--content start-->
-		<div class="foundation_site">
-			<div class="siteList">
-				<!--title-->
-				<div class="userTit">  
-					共发布<span><?=count($basis)?></span>个基础场地<a href="/user/release/release-basis.html"><span style="float: right;color: #3072F6">发布场地</span></a>
-            	</div>
-            	<!--siteCont-->
-            	<div class="siteCont1">
-            		<p>地理位置</p>
-            		<p>详细地址</p>
-            		<p>创建时间</p>
-            	</div>
+        <div class="foundation_site_new">
+            <div class="userTit">
+                共发布<span><?=count($basis)?></span>个基础场地<a href="/user/release/release-basis.html"><span style="float: right;color: #3072F6">发布基础场地</span></a>
+            </div>
+            <div class="siteListNew">
                 <?php foreach ($basis as $v):?>
-            	<div class="siteCont2">
-            		<p><?=$v['full_name']?></p>
-            		<p><?=$v['address']?></p>
-            		<p><?=date('Y-m-d H:i:s',$v['created'])?></p>
-            	</div>
+                <div class="siteCont">
+                    <div class="siteListTitle">
+                        <span class="fLeft">详细地址: <?=$v['address']?></span>
+                        <span class="fRight"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="siteListCount">
+                        <div class="siteListCountInfo">
+                            <div class="fLeft">地理位置: <?=$v['full_name']?></div>
+                            <div class="fRight">创建时间: <?=date('Y-m-d H:i:s',$v['created'])?></div>
+                        </div>
+                        <div class="siteListCountIntro">场地介绍: <?=$v['intro']?></div>
+                    </div>
+                </div>
                 <?php endforeach;?>
-			</div>
-		</div>
-		<!--content end-->
+            </div>
+        </div>
+        <script>
+            $('.siteListNew').on('click','.fRight',function () {
+                if($(this).find('i').hasClass('fa-chevron-down')){
+                    $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+                    $(this).parents('.siteCont').find('.siteListCount').fadeIn();
+                }else {
+                    $(this).find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+                    $(this).parents('.siteCont').find('.siteListCount').hide();
+                }
+            });
+        </script>
 	</body>
 </html>
