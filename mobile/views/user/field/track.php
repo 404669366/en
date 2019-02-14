@@ -16,7 +16,7 @@
         <div class="header">
             <!--个人中心-->
             <div class="personal">
-                <a href="/user/user/user.html">
+                <a href="javascript:history.back(-1)">
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <img src="/resources/img/logo.png"/>
                 </a>

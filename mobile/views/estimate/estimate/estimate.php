@@ -16,10 +16,10 @@
 <body>
 <!--header start-->
 <div class="header">
-    <a href="/index/index/index.html" class="Left picFont">
+    <a href="javascript:history.back(-1)" class="Left picFont">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
     </a>
-    <a href="/index/index/index.html" class="Left">
+    <a href="javascript:history.back(-1)" class="Left">
         <img src="/resources/img/logo.png"/>
     </a>
     <a href="/user/user/user.html" class="Right picFont">

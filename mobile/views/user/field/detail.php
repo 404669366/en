@@ -12,8 +12,6 @@
     <script src="/resources/js/area.js" type="text/javascript" charset="utf-8"></script>
     <script src="/upload/h5-upload.js" type="text/javascript" charset="utf-8"></script>
     <script src="/sinlar/sinlar.js" type="text/javascript" charset="utf-8"></script>
-
-
     <?php \vendor\helpers\Msg::run() ?>
 </head>
 <body>
@@ -21,7 +19,7 @@
 <div class="header">
     <!--个人中心-->
     <div class="personal">
-        <a href="/user/user/user.html">
+        <a href="javascript:history.back(-1)">
             <i class="fa fa-angle-left" aria-hidden="true"></i>
             <img src="/resources/img/logo.png"/>
         </a>

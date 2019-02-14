@@ -19,7 +19,7 @@
 <!--header start-->
 <div class="header">
     <div class="personal">
-        <a href="/index/index/index.html">
+        <a href="javascript:history.back(-1)">
             <i class="fa fa-angle-left" aria-hidden="true"></i>
             <img src="/resources/img/logo.png"/>
         </a>
