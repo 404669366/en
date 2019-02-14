@@ -37,7 +37,7 @@
                 <div class="siteCont">
                     <div class="siteListTitle">
                         <span class="fLeft">详细地址: <?=$v['address']?></span>
-                        <span class="fRight"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                        <span class="fRight siteListClick"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     </div>
                     <div class="siteListCount">
                         <div class="siteListCountInfo">地理位置: <?=$v['full_name']?></div>
@@ -49,7 +49,7 @@
             </div>
         </div>
         <script>
-            $('.siteListNew').on('click','.fRight',function () {
+            $('.siteListNew').on('click','.siteListClick',function () {
                 if($(this).find('i').hasClass('fa-chevron-down')){
                     $(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
                     $(this).parents('.siteCont').find('.siteListCount').fadeIn();

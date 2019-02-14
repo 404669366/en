@@ -69,9 +69,6 @@
 
 .fRight {
     float: right;
-    display: inline-block;
-    text-align: center;
-    width: 4rem;
 }
 
 .foundation_site_new {
@@ -82,6 +79,12 @@
 
 .siteCont:first-child {
     border-top: 0.1rem solid #ccc;
+}
+
+.siteListClick {
+    display: inline-block;
+    text-align: center;
+    width: 4rem;
 }
 
 .siteCont {
