@@ -25,8 +25,8 @@
 }
 .personal p{
 	float: right;
-	margin-top: 1.5rem;
-	margin-right: 0.5rem;
+	height: 8.13rem;
+	line-height: 8.13rem;
 	font-size: 4rem;
 	color: #3072F3;
 }

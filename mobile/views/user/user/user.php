@@ -13,22 +13,21 @@
 	<body>
 		<!--header start-->
 		<div class="header">
-			<!--个人中心-->
-			<div class="personal">
-				<a href="/index/index/index.html">
-					<i class="fa fa-angle-left" aria-hidden="true"></i>
-					<img src="/resources/img/logo.png"/>
-				</a>
-				<p>
-					<i class="fa fa-user-o" aria-hidden="true"></i>
-				</p>
-			</div>
-			<!--用户-->
-			<div class="userLogin">
-				<img src="/resources/img/user.png"/>
-                <span class="username"><?=Yii::$app->user->identity->tel?></span>
-			</div>
-		</div>
+            <div class="back">
+                <a href="/index/index/index.html">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <img src="/resources/img/logo.png"/>
+                </a>
+            </div>
+            <div class="userCenter">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+            </div>
+        </div>
+        <!--用户-->
+        <div class="userLogin">
+            <img src="/resources/img/user.png"/><br>
+            <span><?=Yii::$app->user->identity->tel?></span>
+        </div>
 		<!--header end-->
 		
 		<!--main start-->
