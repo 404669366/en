@@ -104,13 +104,9 @@
     display: none;
     margin-top: 0.2rem;
     min-height: 3.6rem;
+    font: 1.8rem/3.6rem "微软雅黑";
 }
 
 .siteListCountInfo {
     height: 3.6rem;
-    font: 1.8rem/3.6rem "微软雅黑";
-}
-
-.siteListCountIntro {
-    font: 1.8rem/3.6rem "微软雅黑";
 }

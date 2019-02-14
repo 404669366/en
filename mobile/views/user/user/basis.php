@@ -42,7 +42,7 @@
                     <div class="siteListCount">
                         <div class="siteListCountInfo">地理位置: <?=$v['full_name']?></div>
                         <div class="siteListCountInfo">创建时间: <?=date('Y-m-d H:i:s',$v['created'])?></div>
-                        <div class="siteListCountIntro">场地介绍: <?=$v['intro']?></div>
+                        <div>场地介绍: <?=$v['intro']?></div>
                     </div>
                 </div>
                 <?php endforeach;?>
