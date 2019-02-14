@@ -69,6 +69,9 @@
 
 .fRight {
     float: right;
+    display: inline-block;
+    text-align: center;
+    width: 4rem;
 }
 
 .foundation_site_new {
@@ -90,7 +93,7 @@
 .siteListTitle {
     height: 4rem;
     line-height: 4rem;
-    padding-right: 4rem;
+    padding-right: 2rem;
 }
 
 .siteListCount {
