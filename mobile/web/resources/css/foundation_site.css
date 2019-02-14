@@ -90,11 +90,11 @@
 .siteListTitle {
     height: 4rem;
     line-height: 4rem;
-    padding-right: 6rem;
+    padding-right: 4rem;
 }
 
 .siteListCount {
-    padding: 1rem 4rem;
+    padding: 1rem 2rem;
     display: none;
     margin-top: 0.2rem;
     min-height: 3.6rem;
