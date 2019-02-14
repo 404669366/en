@@ -88,22 +88,22 @@
 }
 
 .siteCont {
-    font: 2rem/4rem "微软雅黑";
     padding: 2rem 0;
     border-bottom: 0.1rem solid #ccc;
 }
 
 .siteListTitle {
+    font: 2rem/4rem "微软雅黑";
     height: 4rem;
-    line-height: 4rem;
     padding-right: 2rem;
 }
 
 .siteListCount {
-    padding: 1rem 2rem;
     display: none;
+    padding: 1rem 2rem;
     margin-top: 0.2rem;
     min-height: 3.6rem;
+    max-height: 9999999rem;
     font: 1.8rem/3.6rem "微软雅黑";
 }
 
