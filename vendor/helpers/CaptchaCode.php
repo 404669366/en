@@ -121,6 +121,7 @@ class CaptchaCode
         $this->createFont();
         $this->outPut();
         if ($model) {
+            var_dump($model);exit();
             $this->setCode($model);
         }
     }
@@ -136,7 +137,6 @@ class CaptchaCode
     {
         if ($code && $model) {
             $old = \Yii::$app->session->get($model);
-            var_dump($old,$code);exit();
             if ($old == strtolower($code)) {
                 return true;
             }
