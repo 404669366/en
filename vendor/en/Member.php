@@ -96,7 +96,6 @@ class Member extends \yii\db\ActiveRecord implements IdentityInterface
         $data = self::find()->alias('m')
             ->leftJoin(Job::tableName() . ' j', 'm.job_id=j.id')
             ->where(['not in', 'm.username', Yii::$app->params['rootName']])
-            ->andWhere(['<>', 'm.id', Yii::$app->user->id])
             ->select(['m.*', 'j.job'])
             ->page([
                 'username' => ['like', 'm.username'],
