@@ -94,6 +94,13 @@ mag.prototype = {
                     marginTop: -bei * oy
                 })
         });
+
+        $(that.show).mouseover(function () {
+            $('.mainRight').hide();
+        });
+        $(that.show).mouseout(function () {
+            $('.mainRight').show();
+        });
     },
     prevClick: function () {
         var that = this;
