@@ -12,9 +12,10 @@ $(function () {
         percentage: true
     });
     var map = $('.map').offset().top - 500;
+    var rightMargin = $(document).width() - $('.mainRight').width() - $('.mainRight').offset().left;
     //默认
     if ($(window).scrollTop() > 270 && $(window).scrollTop() <= map) {
-        $('.mainRight').css({'position': 'fixed', 'right': 351.5, 'top': 0});
+        $('.mainRight').css({'position': 'fixed', 'right': rightMargin, 'top': 0});
         $('#cycle').css({'top': 110});
 
     } else if ($(window).scrollTop() > map) {
@@ -27,7 +28,7 @@ $(function () {
     //滚动
     $(window).scroll(function () {
         if ($(window).scrollTop() > 270 && $(window).scrollTop() <= map) {
-            $('.mainRight').css({'position': 'fixed', 'right': 351.5, 'top': 0});
+            $('.mainRight').css({'position': 'fixed', 'right': rightMargin, 'top': 0});
             $('#cycle').css({'top': 110});
         } else if ($(window).scrollTop() > map) {
             $('.mainRight').css({'position': 'absolute', 'right': 0, 'top': map - 250});
