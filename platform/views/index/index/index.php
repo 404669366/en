@@ -260,12 +260,12 @@
         <div class="head_Tit">
             <div class="title_small">
                 <span>省心</span>
-                &nbsp;/&nbsp;
+                &nbsp;/
                 <span>放心</span>
-                &nbsp;/&nbsp;
+                &nbsp;/
                 <span>安心</span>
             </div>
-            <div class="title_big">海量场地源 省心上亿能</div>
+            <div class="title_big">快速投桩 亿能建桩</div>
         </div>
         <!--search-->
         <div class="search">
