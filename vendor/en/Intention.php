@@ -69,12 +69,16 @@ class Intention extends \yii\db\ActiveRecord
      */
     public function validateIntention()
     {
+        if (!$this->money) {
+            $this->addError('money', '请填写融资金额');
+            return false;
+        }
+        $model = Field::findOne($this->field_id);
+        if ($this->money < $model->minimal) {
+            $this->addError('money', '意向金额不能小于起投金额');
+            return false;
+        }
         if ($this->status == 2) {
-            if (!$this->money) {
-                $this->status = $this->oldAttributes['status'];
-                $this->addError('money', '请填写融资金额');
-                return false;
-            }
             if (!$this->ratio || $this->ratio > 1) {
                 $this->status = $this->oldAttributes['status'];
                 $this->addError('ratio', '请填写正确的分成比例(大于0且不大于1)');
