@@ -76,7 +76,7 @@
         <div class="priceData">
             <div class="priceTxt">
                 <p class="price"><?= $model->budget ?>￥</p>
-                <p class="gray">金额</p>
+                <p class="gray">总额</p>
             </div>
             <div class="similar_data">
                 <p class="price"><?= $model->minimal ?>￥</p>
