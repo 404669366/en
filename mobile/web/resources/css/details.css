@@ -27,10 +27,12 @@
 }
 .detTitle .tit{
 	width:86%;
-	height: 10rem;
+	height: 9.6rem;
 	color: #101D37;
 	font: bold 3.5rem/4.8rem "宋体";
 	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
 	float: left;
 }
 .detTitle .follow{
@@ -186,8 +188,10 @@
 }
 .redadat .tit{
     margin-bottom: 1rem;
-    line-height: 1.2em;
+    line-height: 3.2rem;
     overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
     font-size: 2.7rem;
     color: #101d37;
 }

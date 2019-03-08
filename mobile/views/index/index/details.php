@@ -74,17 +74,17 @@
         </div>
         <!--场地价格信息-->
         <div class="priceData">
-            <div class="similar_data">
-                <p class="price"><?= $model->area->full_name ?></p>
-                <p class="gray">地理位置</p>
-            </div>
-            <div class="priceTxt">
-                <p class="price"><?= $model->areas ?>m²</p>
-                <p class="gray">面积</p>
-            </div>
             <div class="priceTxt">
                 <p class="price"><?= $model->budget ?>￥</p>
                 <p class="gray">金额</p>
+            </div>
+            <div class="similar_data">
+                <p class="price"><?= $model->minimal ?>￥</p>
+                <p class="gray">起投</p>
+            </div>
+            <div class="priceTxt">
+                <p class="price"><?= $model->park ?></p>
+                <p class="gray">车位</p>
             </div>
         </div>
     </div>
@@ -245,7 +245,8 @@
                 <a href="/index/index/details.html?no=<?= $recommend['no'] ?>">
                     <div class="redadat">
                         <p class="tit"><?= $recommend['title'] ?></p>
-                        <p class="tit_txt"><?= $recommend['full_name'] ?>/<?= $recommend['areas'] ?>m²</p>
+                        <p class="tit_txt"><?= $recommend['full_name'] ?> / <?= $recommend['park'] ?>车位</p>
+                        <p class="tit_txt"><?= $recommend['minimal'] ?>￥起投</p>
                         <p class="price"><?= $recommend['budget'] ?>￥</p>
                     </div>
                 </a>

@@ -141,7 +141,8 @@
                         </li>
                         <li>
                             <span>场地分成比例：</span>
-                            <input type="text" name="field_ratio" placeholder="不填默认为0" value="<?=$field->field_ratio?>">
+                            <input type="text" name="field_ratio" placeholder="不填默认为0"
+                                   value="<?= $field->field_ratio ?>">
                         </li>
                     <?php endif; ?>
                     <?php if (in_array($field->status, [4, 5]) || $field->status >= 8): ?>
@@ -216,12 +217,16 @@
                             </script>
                         </li>
                         <li>
-                            <span>场地面积：</span>
-                            <input type="text" placeholder="<?= $field->areas ?>" readonly>
+                            <span>规划车位：</span>
+                            <input type="text" placeholder="<?= $field->park ?>" readonly>
                         </li>
                         <li>
                             <span>预算总金额：</span>
                             <input type="text" placeholder="<?= $field->budget ?>" readonly>
+                        </li>
+                        <li>
+                            <span>最低起投金额：</span>
+                            <input type="text" placeholder="<?= $field->minimal ?>" readonly>
                         </li>
                     <?php endif; ?>
                     <?php if (in_array($field->status, [11, 16])): ?>

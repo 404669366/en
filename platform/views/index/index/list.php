@@ -254,7 +254,7 @@
             </li>
             <li>
                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                &nbsp; 热线电话：<?=\vendor\helpers\Constant::getServiceTel()?>
+                &nbsp; 热线电话：<?= \vendor\helpers\Constant::getServiceTel() ?>
             </li>
         </ul>
         <!--清除浮动-->
@@ -301,7 +301,7 @@
             <li type="2">融资</li>
             <li type="3">人气</li>
             <li type="4">点击</li>
-            <li type="5">面积</li>
+            <li type="5">车位</li>
             <li type="6">总价</li>
         </ul>
         <script>
@@ -331,17 +331,12 @@
                                               aria-hidden="true"></i>&nbsp;<?= $data['no'] ?>
                         <p class="address">&nbsp;<i class="fa fa-map-marker"
                                                     aria-hidden="true"></i>&nbsp;<?= $data['full_name'] ?></p>
-                        <p class="address"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;<?= $data['address'] ?>
-                            &nbsp;<?= $data['areas'] ?>㎡</p>
+                        <p class="address">
+                            <i class="fa fa-home" aria-hidden="true"></i>&nbsp;<?= $data['address'] ?>
+                            &nbsp;/&nbsp;<?= $data['park'] ?>车位</p>
                         <p class="address"><i class="fa fa-star-o"
                                               aria-hidden="true"></i>&nbsp;<?= $data['attention'] ?>人关注
                             / 共<?= $data['click'] ?>次点击 / <?= $data['created'] ?>发布</p>
-                        <div class="spans" style="display: none">
-                            <span>随时看房</span>
-                            <span>随时看房</span>
-                            <span>随时看房</span>
-                            <span>随时看房</span>
-                        </div>
                     </div>
                 </a>
                 <!--清除浮动-->
@@ -368,7 +363,15 @@
                         <img src="<?= $v['image'][0] ?>"/>
                         <div class="description"><?= $v['full_name'] ?></div>
                     </a>
-                    <p class="rec_price"><?= $v['areas'] ?><span>㎡</span></p>
+                    <div class="rec_price" style="width: 100%">
+                        <div style="float: left">
+                            <?= $data['budget'] ?><span>￥</span>
+                        </div>
+                        <div style="float: right">
+                            <?= $v['park'] ?><span>车位</span>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
                 </li>
             <?php endforeach; ?>
         </ul>

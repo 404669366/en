@@ -114,9 +114,9 @@
                 </div>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地面积</label>
+                    <label class="col-sm-3 control-label">规划车位</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->areas . '㎡' ?>" readonly>
+                        <input type="text" class="form-control" placeholder="<?= $model->park ?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -183,10 +183,9 @@
                 </script>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地面积</label>
+                    <label class="col-sm-3 control-label">规划车位</label>
                     <div class="col-sm-4">
-                        <input type="text" name="areas" class="form-control" value="<?= $model->areas ?>"
-                               placeholder="㎡">
+                        <input type="text" name="park" class="form-control" value="<?= $model->park ?>">
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>

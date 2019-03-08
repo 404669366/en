@@ -77,8 +77,8 @@
                             </div>
                         </a>
                         <div class="ps2">
-                            <?= $v['budget'] ?><span class="w">￥</span>
-                            <span class="fl"><?= $v['areas'] ?>㎡</span>
+                            <?= $v['budget'] ?><span class="w">￥</span><br>
+                            <span class="fl"><?= $v['minimal'] ?>￥起投</span>
                             <a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="bbtn">取消关注</a>
                         </div>
                     </li>

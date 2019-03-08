@@ -58,7 +58,7 @@ class Follow extends \yii\db\ActiveRecord
             $data = self::find()->alias('f1')
                 ->leftJoin(Field::tableName() . ' f2', 'f1.field_id=f2.id')
                 ->leftJoin(Area::tableName() . ' a', 'f2.area_id=a.area_id')
-                ->select(['f1.created', 'f2.no', 'f2.address', 'f2.budget', 'f2.areas', 'f2.title', 'a.full_name', 'f2.image'])
+                ->select(['f1.created', 'f2.no', 'f2.address', 'f2.budget', 'f2.minimal', 'f2.title', 'a.full_name', 'f2.image'])
                 ->where(['f2.status' => Constant::getShowStatus(), 'f1.user_id' => $user_id])
                 ->orderBy('f1.created DESC')
                 ->asArray()->all();
