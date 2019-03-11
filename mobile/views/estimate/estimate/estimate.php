@@ -26,7 +26,6 @@
         <i class="fa fa-user-o" aria-hidden="true"></i>
     </a>
 </div>
-<div></div>
 <table border="1" class="estimate">
     <tr>
         <td colspan="13" class="tit">充电站收益测算表</td>

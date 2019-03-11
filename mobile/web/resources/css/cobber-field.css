@@ -1,0 +1,148 @@
+.Left {
+    float: left;
+}
+
+.Right {
+    float: right;
+}
+
+.header {
+    width: 10rem;
+    height: 1rem;
+    padding: 0 0.32rem;
+    border-bottom: 0.01rem solid #E4E6F0;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.header img {
+    width: 1.74rem;
+    height: 0.6rem;
+    margin: 0.2rem auto 0.2rem 0.2rem;
+}
+
+.header .picFont {
+    height: 1rem;
+    line-height: 1rem;
+    color: #3072F3;
+    font-size: 0.6rem;
+}
+
+.background {
+    width: 10rem;
+    height: 3rem;
+    background-color: #3072F3;
+    position: relative;
+}
+
+.cobberInfo {
+    width: 7.2rem;
+    height: 3.2rem;
+    float: left;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.4rem;
+    background-color: #ffffff;
+    border-radius: 0.1rem;
+    border: 1px solid #c4d2ed;
+}
+
+.cobberHead {
+    float: left;
+    background: url("../img/agent_none.png") no-repeat;
+    background-size: 100% auto;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+.cobberName {
+    float: right;
+    width: 5.4rem;
+    height: 1.8rem;
+    line-height: 1.8rem;
+    font-size: 0.4rem;
+    text-indent: 0.4rem;
+}
+
+.cobberMsg {
+    float: left;
+    width: 7.2rem;
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.22rem;
+    color: #9c9da2;
+}
+
+.ident {
+    width: 7.2rem;
+    height: 1.6rem;
+    margin: 2.6rem auto 0.4rem auto;
+    border-radius: 0.1rem;
+    border: 1px solid #c4d2ed;
+    padding: 0.4rem;
+
+}
+
+.identInfo {
+    font-size: 0.38rem;
+    line-height: 0.8rem;
+
+}
+
+.left {
+    float: left;
+    font-size: 0.22rem;
+    line-height: 0.8rem;
+    width: 50%;
+}
+
+.title {
+    width: 8rem;
+    height: 1rem;
+    margin: 0 auto 0.4rem auto;
+    font-size: 0.52rem;
+    line-height: 1rem;
+}
+
+.content {
+    width: 8rem;
+    height: 5rem;
+    background-color: #00aa00;
+    margin: 0 auto;
+}
+
+.btns {
+    width: 8rem;
+    height: 1.2rem;
+    position: fixed;
+    bottom: 0.2rem;
+    left: 1rem;
+}
+
+.btn1 {
+    height: 1rem;
+    line-height: 1rem;
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    font-size: 0.38rem;
+    border-radius: 1rem;
+    color: white;
+    background: #3bc48b;
+    float: left;
+}
+
+.btn2 {
+    height: 1rem;
+    line-height: 1rem;
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    font-size: 0.38rem;
+    border-radius: 1rem;
+    color: white;
+    background: #3072F6;
+    float: right;
+
+}

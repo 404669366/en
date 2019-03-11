@@ -62,6 +62,15 @@ class IndexController extends BasisController
         return $this->redirect(['not-find'], '场地不见了');
     }
 
+    /**
+     * 获取合伙人场地
+     * @param $cobber_id
+     * @return string
+     */
+    public function actionCobberField($cobber_id)
+    {
+        return $this->render('cobber-field', ['datas' => Field::getCobberField($cobber_id)]);
+    }
 
     public function actionNotFind()
     {

@@ -572,4 +572,19 @@ class Field extends \yii\db\ActiveRecord
         $data['yearProfitAll'] = array_sum($data['yearProfit']);
         return ['config' => $config, 'data' => $data];
     }
+
+    /**
+     * 获取合伙人场地
+     * @param $cobber_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getCobberField($cobber_id)
+    {
+        $data = User::find()->alias('u')
+            ->leftJoin(Field::tableName() . ' f', 'u.id=f.cobber_id')
+            ->leftJoin(Ident::tableName() . ' i', 'i.user_id=u.id')
+            ->where(['u.id' => $cobber_id, 'i.status' => [1, 4], 'f.status' => Constant::getShowStatus()])
+            ->asArray()->all();
+        return $data;
+    }
 }
