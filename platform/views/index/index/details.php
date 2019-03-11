@@ -470,6 +470,29 @@
 <div class="main2 box1200">
     <div class="site">
         <div class="h2">
+            投资详情
+        </div>
+        <div class="infors">
+            <?php foreach ($list as $v): ?>
+                <div class="intension">
+                    <div class="name"><?= substr_replace($v['tel'], '*****', 3, 5) ?></div>
+                    <div class="ratio" style="background-size: <?= ($v['money'] / $model->budget) * 100 ?>% auto">
+                        <?= ($v['money'] / $model->budget) * 100 ?>%
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="site">
+        <div class="h2">
+            场地介绍
+        </div>
+        <div class="infors" style="text-indent: 32px;">
+            <?= $model->intro ?>
+        </div>
+    </div>
+    <div class="site">
+        <div class="h2">
             配置单
         </div>
         <div class="infors">
