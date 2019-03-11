@@ -81,8 +81,8 @@
                             </p>
                         </div>
                         <div class="ps2" style="width:135px;">
-                            <?= $v['budget'] ?><span class="w">￥</span>
-                            <span class="fl"><?= $v['areas'] ?>㎡</span>
+                            <?= $v['budget'] ?><span class="w">￥</span><br>
+                            <span class="fl"><?= $v['minimal'] ?>￥起投</span>
                             <a href="/user/field/detail.html?no=<?= $v['no'] ?>" class="bbtn">详情</a>
                         </div>
                     </li>

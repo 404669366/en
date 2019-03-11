@@ -190,9 +190,9 @@
                 </script>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">场地面积</label>
+                    <label class="col-sm-3 control-label">规划车位</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="<?= $model->areas . '㎡' ?>" readonly>
+                        <input type="text" class="form-control" placeholder="<?= $model->park?>" readonly>
                     </div>
                 </div>
                 <div class="hr-line-dashed"></div>
@@ -200,6 +200,13 @@
                     <label class="col-sm-3 control-label">预算总金额</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" placeholder="<?= $model->budget ?>" readonly>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">起投金额</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" placeholder="<?= $model->minimal ?>" readonly>
                     </div>
                 </div>
             <?php endif; ?>

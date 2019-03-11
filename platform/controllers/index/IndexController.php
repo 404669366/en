@@ -11,6 +11,7 @@ namespace app\controllers\index;
 
 use app\controllers\basis\BasisController;
 use vendor\en\Field;
+use vendor\en\Intention;
 use vendor\helpers\BasisData;
 
 class IndexController extends BasisController
@@ -49,7 +50,11 @@ class IndexController extends BasisController
      */
     public function actionDetails($no)
     {
-        return $this->render('details', ['model' => Field::getDetailFields($no), 'recommends' => Field::getRecommendField(4)]);
+        return $this->render('details', [
+            'model' => Field::getDetailFields($no),
+            'list' => Intention::getFieldIntentionInfo($no),
+            'recommends' => Field::getRecommendField(4),
+        ]);
     }
 
 

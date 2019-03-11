@@ -30,9 +30,10 @@ use Yii;
  * @property string $field_drawing 施工图纸
  * @property string $transformer_drawing 变压器图纸
  * @property string $budget_photo 预算报表
- * @property string $areas 场地面积
+ * @property string $park 规划车位
  * @property string $budget 预算总金额
  * @property string $financing_ratio 融资比例
+ * @property string $minimal 最低投资金额
  * @property string $attention 关注量
  * @property string $click 点击量
  * @property string $record_file 备案文件
@@ -58,15 +59,15 @@ class Field extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created', 'click', 'attention'], 'integer'],
-            [['areas', 'financing_ratio', 'field_ratio'], 'number'],
+            [['member_id', 'local_id', 'cobber_id', 'area_id', 'type', 'status', 'created', 'click', 'attention', 'park'], 'integer'],
+            [['financing_ratio', 'field_ratio', 'budget', 'minimal'], 'number'],
             [['no'], 'string', 'max' => 20],
             [['no'], 'required'],
             [['level'], 'string', 'max' => 10],
             [['address', 'intro', 'record_file', 'remark'], 'string', 'max' => 255],
             [['lng', 'lat'], 'string', 'max' => 50],
             [['image', 'record_photo', 'configure_photo', 'field_photo', 'prove_photo', 'power_photo', 'field_drawing', 'transformer_drawing', 'budget_photo'], 'string', 'max' => 1000],
-            [['budget', 'title'], 'string', 'max' => 30],
+            [['title'], 'string', 'max' => 30],
             [['no'], 'validateField'],
         ];
     }
@@ -98,8 +99,9 @@ class Field extends \yii\db\ActiveRecord
             'field_drawing' => '施工图纸',
             'transformer_drawing' => '变压器图纸',
             'budget_photo' => '预算报表',
-            'areas' => '场地面积',
+            'park' => '规划车位',
             'budget' => '预算总金额',
+            'minimal' => '最低投资金额',
             'financing_ratio' => '融资比例',
             'attention' => '关注量',
             'click' => '点击量',
@@ -208,14 +210,26 @@ class Field extends \yii\db\ActiveRecord
                 $this->addError('budget_photo', '请添加预算报表');
                 return false;
             }
-            if (!$this->areas) {
+            if (!$this->park) {
                 $this->status = $this->oldAttributes['status'];
-                $this->addError('areas', '请填写场地面积');
+                $this->addError('park', '请填写规划车位');
                 return false;
             }
             if (!$this->budget) {
                 $this->status = $this->oldAttributes['status'];
                 $this->addError('budget', '请填写预算总金额');
+                return false;
+            }
+        }
+        if ($this->status == 11) {
+            if (!$this->minimal) {
+                $this->status = $this->oldAttributes['status'];
+                $this->addError('minimal', '请填写起投金额');
+                return false;
+            }
+            if ($this->minimal > $this->budget) {
+                $this->status = $this->oldAttributes['status'];
+                $this->addError('minimal', '起投金额不能大于预算总金额');
                 return false;
             }
         }
@@ -420,7 +434,7 @@ class Field extends \yii\db\ActiveRecord
             2 => 'f.financing_ratio',
             3 => 'f.attention',
             4 => 'f.click',
-            5 => 'f.areas',
+            5 => 'f.park',
             6 => 'f.budget',
         ];
         $data = self::find()->alias('f')

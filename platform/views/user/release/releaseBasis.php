@@ -290,43 +290,19 @@
                 <select class="city"></select>
                 <select class="county"></select>
             </li>
-            <script>
-                area({element: '.area'});
-            </script>
             <li>
                 <span class="list_names">详细地址 :</span>
                 <input type="text" name="address" placeholder="请填写场地详细地址" minlength="1"/>
             </li>
             <li>
                 <span class="list_names" style="margin-top: 0;float: left">场地描述 :</span>
-                <textarea style="width: 700px;height: 300px;margin-top: 20px;font-size: 14px" name="intro"
+                <textarea style="width: 100%;height: 300px;margin-top: 20px;font-size: 14px" name="intro"
                           maxlength="500" placeholder="请填写场地描述" minlength="10"></textarea>
             </li>
-
-            <li style="display: none">
-                <span class="list_names">场地特色</span>
-                <ul class="inputBox">
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>满五</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>唯一</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>精装修</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="" class="inputsx" id="" value=""/>
-                        <span>地铁房</span>
-                    </li>
-                </ul>
-            </li>
-            <!--清除浮动-->
-            <div class="clear"></div>
         </ul>
+        <script>
+            area({element: '.area'});
+        </script>
     </div>
     <!--估价表单结束-->
 

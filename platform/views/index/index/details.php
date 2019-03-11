@@ -260,7 +260,7 @@
             </li>
             <li>
                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                &nbsp; 热线电话：<?=\vendor\helpers\Constant::getServiceTel()?>
+                &nbsp; 热线电话：<?= \vendor\helpers\Constant::getServiceTel() ?>
             </li>
         </ul>
         <!--清除浮动-->
@@ -351,13 +351,13 @@
             <div class="tit_prc">
                 <p class="price float_left"><?= $model->budget ?><span class="span_a">￥</span></p>
                 <p class="price2 float_left">
-                    <?= $model->areas ?>㎡
+                    <?= $model->minimal ?>￥起投
                 </p>
-                <?php if(\vendor\en\Follow::isFollow($model->no)):?>
+                <?php if (\vendor\en\Follow::isFollow($model->no)): ?>
                     <a class="quguan" title="取消关注"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                <?php else:?>
+                <?php else: ?>
                     <a class="guan" title="关注"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                <?php endif;?>
+                <?php endif; ?>
                 <script>
                     var isGuest = '<?=$basisData['isGuest']?>';
                     $('.guan').click(function () {
@@ -377,13 +377,21 @@
                 </script>
             </div>
 
-            <ul class="detailed">
-                <li><span class="gray">场地编号</span><?= $model->no ?></li>
-                <li><span class="gray">所在区域</span><?= $model->area->full_name ?></li>
-                <li><span class="gray">详细地址</span><?= $model->address ?></li>
-                <li><span class="gray">发布时间</span><?= date('Y-m-d H:i:s', $model->created) ?></li>
-            </ul>
-            <div id="cycle"><?= ((float)$model->financing_ratio) * 100 ?></div>
+            <div class="detailed">
+                <div class="Left">
+                    <div><span class="gray">场地编号</span><?= $model->no ?></div>
+                    <div><span class="gray">所在区域</span><?= $model->area->full_name ?></div>
+                    <div><span class="gray">详细地址</span><?= $model->address ?></div>
+                    <div><span class="gray">规划车位</span><?= $model->park ?>个</div>
+                    <div><span class="gray">发布时间</span><?= date('Y-m-d H:i:s', $model->created) ?></div>
+                </div>
+                <div class="Right">
+                    <span>
+                        <div id="cycle"><?= ((float)$model->financing_ratio) * 100 ?></div>
+                    </span>
+                </div>
+                <div style="clear: both"></div>
+            </div>
             <!--联系人-->
             <div class="contacts">
                 <ul>
@@ -462,6 +470,30 @@
 <div class="main2 box1200">
     <div class="site">
         <div class="h2">
+            投资详情
+        </div>
+        <div class="infors">
+            <?php foreach ($list as $v): ?>
+                <div class="intension">
+                    <div class="name"><?= substr_replace($v['tel'], '*****', 3, 5) ?></div>
+                    <div class="ratio"
+                         style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
+                        <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="site">
+        <div class="h2">
+            场地介绍
+        </div>
+        <div class="infors" style="text-indent: 32px;">
+            <?= $model->intro ?>
+        </div>
+    </div>
+    <div class="site">
+        <div class="h2">
             配置单
         </div>
         <div class="infors">
@@ -523,8 +555,8 @@
             }));
         </script>
         <style>
-            .anchorBL{
-                display: none!important;
+            .anchorBL {
+                display: none !important;
             }
         </style>
     </div>
@@ -545,8 +577,8 @@
                 </a>
                 <span class="marked"><?= $recommend['budget'] ?>￥</span>
                 <p class="htitle">
-                    <span class="htitle_name"><a target="_blank" href="#"><?= $recommend['address'] ?></a></span>
-                    <span class="htitle_info"><?= $recommend['areas'] . '㎡' ?></span>
+                    <span class="htitle_name"><a target="_blank" href="#"><?= $recommend['full_name'] ?></a></span>
+                    <span class="htitle_info"><?= $recommend['minimal'] ?>￥起投</span>
                 </p>
             </li>
         <?php endforeach; ?>

@@ -53,12 +53,14 @@ class SecondController extends CommonController
     /**
      * 二审审核通过
      * @param $id
+     * @param $minimal
      * @return \yii\web\Response
      */
-    public function actionPass($id)
+    public function actionPass($id, $minimal)
     {
         Msg::set('真实场地不存在');
         if ($model = Field::findOne(['id' => $id, 'status' => 10])) {
+            $model->minimal = $minimal;
             $model->status = 11;
             if ($model->save()) {
                 if ($model->type == 1) {

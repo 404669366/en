@@ -91,7 +91,8 @@
                     </div>
                     <div class="redadat">
                         <p class="tit"><?= $data['title'] ?></p>
-                        <p class="tit_txt"><?= $data['full_name'] ?>/<?= $data['areas'] ?>m²</p>
+                        <p class="tit_txt"><?= $data['full_name'] ?> / <?= $data['park'] ?>车位</p>
+                        <p class="tit_txt"><?= $data['minimal'] ?>￥起投</p>
                         <p class="price"><?= $data['budget'] ?>￥</p>
                     </div>
                 </a>

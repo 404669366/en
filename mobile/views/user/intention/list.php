@@ -7,6 +7,9 @@
 		<link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/foundation_site.css"/>
 		<link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
+        <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
+        <?php \vendor\helpers\Msg::run() ?>
 	</head>
 	<body>
 		<!--header start-->

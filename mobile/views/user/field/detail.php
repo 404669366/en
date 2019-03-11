@@ -164,7 +164,8 @@
             <?php endif; ?>
             <?php if ($field->status == 11 || $field->status >= 14): ?>
                 <div class="oldPwd">
-                    <span style="width: 100%">备案文件:<a href="<?= $field->record_file ?>">点击下载</a></span>
+                    <span>备案文件:</span>
+                    <a href="<?= $field->record_file ?>" style="display: inline-block;width: 77%;background-color: #0B57F0">点击下载</a>
                 </div>
                 <div class="field_info">
                     <p class="fieldTit">变压器图纸:</p>
@@ -191,12 +192,16 @@
                     </p>
                 </div>
                 <div class="oldPwd">
-                    <span>场地面积:</span>
-                    <input type="text" placeholder="<?= $field->areas ?>" readonly>
+                    <span>规划车位:</span>
+                    <input type="text" placeholder="<?= $field->park ?>" readonly>
                 </div>
                 <div class="oldPwd">
                     <span>预算总金额:</span>
                     <input type="text" placeholder="<?= $field->budget ?>" readonly>
+                </div>
+                <div class="oldPwd">
+                    <span>起投金额:</span>
+                    <input type="text" placeholder="<?= $field->minimal ?>" readonly>
                 </div>
             <?php endif; ?>
             <?php if (in_array($field->status, [11, 16])): ?>
@@ -238,10 +243,15 @@
             <?php endif; ?>
             <?php if (in_array($field->status, [1, 6, 11, 15, 16])): ?>
                 <?php if ($field->status != 15): ?>
-                <button type="submit" style="font-size: 2rem;background-color: #3072f6;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">确认提交</button>
+                <button type="submit"
+                        style="font-size: 2rem;background-color: #3072f6;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">
+                    确认提交
+                </button>
             <?php endif; ?>
             <?php if ($field->status != 16): ?>
-                <button type="button" class="del" style="font-size: 2rem;background-color: #FF4136;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">放弃
+                <button type="button" class="del"
+                        style="font-size: 2rem;background-color: #FF4136;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">
+                    放弃
                 </button>
                 <div class="intent"
                      style="display: none;width: 100%;height: 100%;position: fixed;z-index: 998;background: rgba(0, 0, 0, 0.7);;top: 0;left: 0">
@@ -260,7 +270,8 @@
                         style="border: none;border-radius:3px;color: white;background-color: #3072F6;width: 50%;display: inline-block;height: 4rem;line-height: 4rem;font-size:2rem;float: none">确认</button>
             </span>
                         </div>
-                    </div>`
+                    </div>
+                    `
                 </div>
                 <script>
                     $(function () {

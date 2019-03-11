@@ -27,7 +27,7 @@
                                placeholder="<?= $model->cobber->tel ?>" readonly>
                     </div>
                 </div>
-            <?php endif;?>
+            <?php endif; ?>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
                 <label class="col-sm-3 control-label">场地电话</label>
@@ -125,10 +125,10 @@
             </div>
             <div class="hr-line-dashed"></div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">场地面积</label>
+                <label class="col-sm-3 control-label">规划车位</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control"
-                           placeholder="<?= $model->areas ?>" readonly>
+                           placeholder="<?= $model->park ?>" readonly>
                 </div>
             </div>
             <div class="hr-line-dashed"></div>
@@ -139,6 +139,16 @@
                            placeholder="<?= $model->budget ?>" readonly>
                 </div>
             </div>
+            <?php if ($model->status == 11): ?>
+                <div class="hr-line-dashed"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">起投金额</label>
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control"
+                               placeholder="<?= $model->minimal ?>" readonly>
+                    </div>
+                </div>
+            <?php endif; ?>
             <?php if ($model->status == 12): ?>
                 <div class="hr-line-dashed"></div>
                 <div class="form-group">
@@ -161,9 +171,9 @@
                 <div class="col-sm-4 col-sm-offset-3">
                     <?php if ($model->status == 10): ?>
                         <button type="button" class="btn btn-white abandon" data-toggle="modal"
-                                data-target="#myModal2">不通过
+                                data-target="#myModal1">不通过
                         </button>
-                        <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal inmodal" id="myModal1" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content animated flipInY">
                                     <div class="modal-header">
@@ -198,7 +208,40 @@
                     <?php endif; ?>
                     <button class="btn btn-white back">返回</button>
                     <?php if ($model->status == 10): ?>
-                        <a href="/audit/second/pass?id=<?= $model->id ?>" class="btn btn-white">通过</a>
+                        <button type="button" class="btn btn-white abandon" data-toggle="modal"
+                                data-target="#myModal2">通过
+                        </button>
+                        <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content animated flipInY">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span
+                                                    aria-hidden="true">&times;</span><span
+                                                    class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title">请设置起投金额</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="text" class="form-control minimal">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">关闭
+                                        </button>
+                                        <button type="button" class="btn btn-primary save2">保存</button>
+                                    </div>
+                                    <script>
+                                        $('.save2').click(function () {
+                                            var minimal = $('.minimal').val();
+                                            if (minimal) {
+                                                window.location.href = '/audit/second/pass?id=<?=$model->id?>&minimal=' + minimal;
+                                            } else {
+                                                layer.msg('请填写起投金额');
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
