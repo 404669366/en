@@ -11,6 +11,7 @@ namespace app\controllers\index;
 
 use app\controllers\basis\BasisController;
 use vendor\en\Field;
+use vendor\en\Intention;
 use vendor\helpers\BasisData;
 use vendor\helpers\Msg;
 
@@ -57,7 +58,11 @@ class IndexController extends BasisController
     public function actionDetails($no)
     {
         if ($model = Field::getDetailFields($no)) {
-            return $this->render('details', ['model' => $model, 'recommends' => Field::getRecommendField(4)]);
+            return $this->render('details', [
+                'model' => $model,
+                'list' => Intention::getFieldIntentionInfo($no),
+                'recommends' => Field::getRecommendField(4)
+            ]);
         }
         return $this->redirect(['not-find'], '场地不见了');
     }

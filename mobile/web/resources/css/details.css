@@ -455,24 +455,25 @@
 进度条
  */
 .skill {
+    margin: 0 auto;
     width: 90%;
-    margin: 1rem auto;
-    height: 4rem;
-    background: silver;
-    -webkit-border-radius: 0.4rem;
-    -moz-border-radius: 0.4rem;
-    border-radius: 0.4rem;
-    overflow: hidden;
-}
-
-.skill .bar {
-    float: left;
     height: 4rem;
     line-height: 4rem;
     font-size: 2.4rem;
     text-align: center;
     color: #f0f4f7;
-    background: #3072f6;
+    background: url("../img/blue.png") silver repeat-y;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    border-radius: 0.4rem;
+}
+
+.venuesCont .bar {
+    display: inline-block;
+    width: 83.2%;
+    text-align: center;
+    color: #f0f4f7;
+    background: url("../img/blue.png") silver repeat-y;
     -webkit-border-radius: 0.4rem;
     -moz-border-radius: 0.4rem;
     border-radius: 0.4rem;

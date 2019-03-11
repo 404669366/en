@@ -34,17 +34,17 @@
 <div class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <?php foreach (explode(',',$model->image) as $v):?>
-            <div class="swiper-slide"><img src="<?=$v?>"></div>
-            <?php endforeach;?>
+            <?php foreach (explode(',', $model->image) as $v): ?>
+                <div class="swiper-slide"><img src="<?= $v ?>"></div>
+            <?php endforeach; ?>
         </div>
     </div>
     <div class="pagination"></div>
 </div>
 <script>
-    new Swiper('.swiper-container',{
+    new Swiper('.swiper-container', {
         pagination: '.pagination',
-        loop:true,
+        loop: true,
         grabCursor: true,
         paginationClickable: true,
     });
@@ -56,21 +56,21 @@
     <div class="detCont">
         <div class="tit"><?= $model->title ?></div>
         <div class="follow">
-            <?php if(!\vendor\en\Follow::isFollow($model->no)):?>
-                <a href="/user/follow/follow.html?no=<?=$model->no?>">
+            <?php if (!\vendor\en\Follow::isFollow($model->no)): ?>
+                <a href="/user/follow/follow.html?no=<?= $model->no ?>">
                     <p class="heart">
                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                     </p>
                     <p class="txt">关注</p>
                 </a>
-            <?php else:?>
-                <a href="/user/follow/cancel.html?no=<?=$model->no?>">
+            <?php else: ?>
+                <a href="/user/follow/cancel.html?no=<?= $model->no ?>">
                     <p class="heart" style="color: #fa604c">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </p>
                     <p class="txt">取消关注</p>
                 </a>
-            <?php endif;?>
+            <?php endif; ?>
         </div>
         <!--场地价格信息-->
         <div class="priceData">
@@ -90,17 +90,26 @@
     </div>
 </div>
 
-<div class="skill">
-    <?php if($model->financing_ratio):?>
-    <div class="bar" style="width: <?= ((float)$model->financing_ratio) * 100 ?>%;">当前进度: <?= ((float)$model->financing_ratio) * 100 ?>%</div>
-    <?php else:?>
-        <div style="width: 100%;text-align: center;font-size: 2.4rem;line-height: 4rem;color: #f0f4f7">当前进度: 0%</div>
-    <?php endif;?>
+<div class="skill" style="background-size: <?= ((float)$model->financing_ratio) * 100 ?>% auto">
+    当前进度: <?= ((float)$model->financing_ratio) * 100 ?>%
 </div>
 
+<div class="venues">
+    <div class="venuesCont">
+        <div class="venTit">
+            投资概况
+        </div>
+        <?php foreach ($list as $k => $v): ?>
+            <div style="width: 100%;height: 3rem;line-height: 3rem;font-size: 2rem;margin-bottom: 0.4rem;: ">
+                <?= substr_replace($v['tel'], '*****', 3, 5) ?>
+                <div class="bar" style="background-size: <?= ($v['money'] / $model->budget) * 100 ?>% auto">
+                    <?= ($v['money'] / $model->budget) * 100 ?>%
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
-<!--title end-->
-<!--场地介绍开始-->
 <div class="venues">
     <div class="venuesCont">
         <div class="venTit">
@@ -111,8 +120,7 @@
         </div>
     </div>
 </div>
-<!--场地介绍结束-->
-<!--详情开始-->
+
 <div class="agent">
     <div class="agentCont">
         <div class="one">
@@ -126,46 +134,46 @@
                 <div class="venTit">
                     预算报表
                 </div>
-                <?php foreach (explode(',', $model->budget_photo) as $k=>$v): ?>
-                    <img class="agentImg" src="<?= $v ?>" alt="预算报表<?=$k+1?>">
+                <?php foreach (explode(',', $model->budget_photo) as $k => $v): ?>
+                    <img class="agentImg" src="<?= $v ?>" alt="预算报表<?= $k + 1 ?>">
                 <?php endforeach; ?>
             </div>
             <div class="one">
                 <div class="venTit">
                     施工图纸
                 </div>
-                <?php foreach (explode(',', $model->field_drawing) as $k=>$v): ?>
-                    <img class="agentImg" src="<?= $v ?>" alt="施工图纸<?=$k+1?>">
+                <?php foreach (explode(',', $model->field_drawing) as $k => $v): ?>
+                    <img class="agentImg" src="<?= $v ?>" alt="施工图纸<?= $k + 1 ?>">
                 <?php endforeach; ?>
             </div>
             <div class="one">
                 <div class="venTit">
                     场地备案
                 </div>
-                <?php foreach (explode(',', $model->record_photo) as $k=>$v): ?>
-                    <img class="agentImg" src="<?= $v ?>" alt="场地备案<?=$k+1?>">
+                <?php foreach (explode(',', $model->record_photo) as $k => $v): ?>
+                    <img class="agentImg" src="<?= $v ?>" alt="场地备案<?= $k + 1 ?>">
                 <?php endforeach; ?>
             </div>
         </div>
         <div class="viewMore">更多场地信息</div>
         <script>
             $('.viewMore').click(function () {
-                if($(this).text()==='更多场地信息'){
+                if ($(this).text() === '更多场地信息') {
                     $('.more').fadeIn();
                     $(this).text('收起更多信息');
-                }else {
+                } else {
                     $(this).text('更多场地信息');
                     var top = $(window).scrollTop();
-                    var moreTop =top - $('.more').height();
+                    var moreTop = top - $('.more').height();
                     $('.more').fadeOut();
-                    var t = setInterval(function(){
-                        if(top <= moreTop){
-                            clearInterval( t );
-                        }else{
+                    var t = setInterval(function () {
+                        if (top <= moreTop) {
+                            clearInterval(t);
+                        } else {
                             top -= 20;
                             $(window).scrollTop(top);
                         }
-                    },5);
+                    }, 5);
                 }
             });
         </script>
@@ -187,8 +195,8 @@
     }));
 </script>
 <style>
-    .anchorBL{
-        display: none!important;
+    .anchorBL {
+        display: none !important;
     }
 </style>
 <div class="broker">
@@ -208,8 +216,8 @@
         <span>
             <div class="intentInfo">
                 <div class="intentTitle">我的意向</div>
-                <form action="/user/intention/add.html?no=<?=$model->no?>" method="post">
-                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->csrfToken?>">
+                <form action="/user/intention/add.html?no=<?= $model->no ?>" method="post">
+                    <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
                     <input type="text" name="money" placeholder="意向金额" class="intentMoney">
                     <button type="submit" class="intentButton">提交意向</button>
                 </form>

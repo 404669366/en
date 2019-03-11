@@ -200,4 +200,21 @@ class Intention extends \yii\db\ActiveRecord
         }
         return [];
     }
+
+    /**
+     * 返回场地意向信息
+     * @param string $no
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getFieldIntentionInfo($no = '')
+    {
+        $data = self::find()->alias('i')
+            ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
+            ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id')
+            ->where(['f.no' => $no, 'i.status' => 3])
+            ->orderBy('i.created asc')
+            ->select(['i.money','u.tel'])
+            ->asArray()->all();
+        return $data;
+    }
 }
