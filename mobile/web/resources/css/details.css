@@ -69,6 +69,7 @@
 .similar_data {
     width: 32.9%;
     float: left;
+    text-align: center;
 }
 
 .priceTxt {
@@ -76,10 +77,6 @@
     float: left;
     text-align: center;
     border-left: solid 0.15rem #e4e6f0;
-}
-
-.priceTxt:first-child {
-    border: none;
 }
 
 .similar_data .price, .priceTxt .price {

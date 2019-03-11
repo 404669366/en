@@ -74,11 +74,11 @@
         </div>
         <!--场地价格信息-->
         <div class="priceData">
-            <div class="priceTxt">
+            <div class="similar_data">
                 <p class="price"><?= $model->budget ?>￥</p>
                 <p class="gray">总额</p>
             </div>
-            <div class="similar_data">
+            <div class="priceTxt">
                 <p class="price"><?= $model->minimal ?>￥</p>
                 <p class="gray">起投</p>
             </div>
