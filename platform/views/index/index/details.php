@@ -476,8 +476,9 @@
             <?php foreach ($list as $v): ?>
                 <div class="intension">
                     <div class="name"><?= substr_replace($v['tel'], '*****', 3, 5) ?></div>
-                    <div class="ratio" style="background-size: <?= ($v['money'] / $model->budget) * 100 ?>% auto">
-                        <?= ($v['money'] / $model->budget) * 100 ?>%
+                    <div class="ratio"
+                         style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
+                        <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
                     </div>
                 </div>
             <?php endforeach; ?>

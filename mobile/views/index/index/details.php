@@ -102,8 +102,8 @@
         <?php foreach ($list as $k => $v): ?>
             <div style="width: 100%;height: 3rem;line-height: 3rem;font-size: 2rem;margin-bottom: 0.4rem;: ">
                 <?= substr_replace($v['tel'], '*****', 3, 5) ?>
-                <div class="bar" style="background-size: <?= ($v['money'] / $model->budget) * 100 ?>% auto">
-                    <?= ($v['money'] / $model->budget) * 100 ?>%
+                <div class="bar" style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
+                    <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
                 </div>
             </div>
         <?php endforeach; ?>
