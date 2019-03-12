@@ -253,8 +253,8 @@
                 <a href="/index/index/details.html?no=<?= $recommend['no'] ?>">
                     <div class="redadat">
                         <p class="tit"><?= $recommend['title'] ?></p>
-                        <p class="tit_txt"><?= $recommend['full_name'] ?> / <?= $recommend['park'] ?>车位</p>
-                        <p class="tit_txt"><?= $recommend['minimal'] ?>￥起投</p>
+                        <p class="tit_txt"><?= $recommend['full_name'] ?></p>
+                        <p class="tit_txt"><?= $recommend['minimal'] ?>￥起投 / <?= $recommend['park'] ?>车位<</p>
                         <p class="price"><?= $recommend['budget'] ?>￥</p>
                     </div>
                 </a>
