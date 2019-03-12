@@ -11,11 +11,11 @@
 </head>
 <body>
 <div class="header">
-    <a href="javascript:history.back(-1)" class="left pic">
+    <a href="javascript:history.back(-1)" class="pic">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         <img src="/resources/img/logo.png"/>
     </a>
-    <a href="/user/user/user.html" class="right pic">
+    <a href="/user/user/user.html" class="pic">
         <i class="fa fa-user-o" aria-hidden="true"></i>
     </a>
 </div>
