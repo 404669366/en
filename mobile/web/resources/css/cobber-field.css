@@ -1,33 +1,3 @@
-.Left {
-    float: left;
-}
-
-.Right {
-    float: right;
-}
-
-.header {
-    width: 10rem;
-    height: 1rem;
-    padding: 0 0.32rem;
-    border-bottom: 0.01rem solid #E4E6F0;
-    background-color: #fff;
-    box-sizing: border-box;
-}
-
-.header img {
-    width: 1.74rem;
-    height: 0.6rem;
-    margin: 0.2rem auto 0.2rem 0.2rem;
-}
-
-.header .picFont {
-    height: 1rem;
-    line-height: 1rem;
-    color: #3072F3;
-    font-size: 0.6rem;
-}
-
 .background {
     width: 10rem;
     height: 3rem;
@@ -110,7 +80,7 @@
     height: 3rem;
     margin: 0 auto;
 }
-img{
+.image{
     height:2.4rem;
     width: 3.2rem;
     float: left;
