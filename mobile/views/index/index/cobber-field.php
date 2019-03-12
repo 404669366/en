@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>收益预测</title>
+    <title>合伙人详情</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/cobber-field.css"/>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script>getRem(true);</script>
@@ -54,11 +54,11 @@
         </a>
     </div>
 <?php endforeach; ?>
+<div class="addHeight"></div>
 <div class="btns">
     <a class="btn" href="">加关注</a>
     &emsp;&emsp;
     <a class="btn btnOther" href="tel:<?= $model->cobber->tel ?>">打电话</a>
-
 </div>
 </body>
 </html>

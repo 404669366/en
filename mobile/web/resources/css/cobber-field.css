@@ -18,7 +18,7 @@
     border: 1px solid #c4d2ed;
 }
 
-.cobberHead {
+.cobberInfo > .cobberHead {
     float: left;
     background: url("../img/agent_none.png") no-repeat;
     background-size: 100% auto;
@@ -26,7 +26,7 @@
     height: 1.8rem;
 }
 
-.cobberName {
+.cobberInfo > .cobberName {
     float: right;
     width: 5.4rem;
     height: 1.8rem;
@@ -35,13 +35,13 @@
     text-indent: 0.4rem;
 }
 
-.cobberMsg {
+.cobberInfo > .cobberMsg {
     float: left;
     width: 7.2rem;
     height: 0.7rem;
     line-height: 0.7rem;
-    font-size: 0.22rem;
-    color: #9c9da2;
+    font-size: 0.28rem;
+
 }
 
 .ident {
@@ -54,15 +54,15 @@
 
 }
 
-.identInfo {
+.ident > .identInfo {
     font-size: 0.38rem;
     line-height: 0.8rem;
 
 }
 
-.left {
+.ident > .left {
     float: left;
-    font-size: 0.22rem;
+    font-size: 0.28rem;
     line-height: 0.8rem;
     width: 50%;
 }
@@ -79,20 +79,59 @@
     width: 8rem;
     height: 3rem;
     margin: 0 auto;
+    border-bottom: 0.006rem solid #e4e6f0;
+    padding: 0.4rem 0 0.4rem 0;
+    box-sizing: border-box;
 }
-.image{
-    height:2.4rem;
+
+.content > a * {
+    color: #222222;
+}
+
+.content > .image {
+    height: 2.2rem;
     width: 3.2rem;
     float: left;
-
-
 }
-.contentData{
-    height:2.4rem;
+
+.contentData {
+    height: 2.2rem;
     width: 4rem;
     float: right;
-    padding: 0.4rem;
+    box-sizing: border-box;
+}
 
+.contentData > .tit {
+    width: 4rem;
+    height: 0.44rem;
+    line-height: 0.44rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.38rem;
+    padding-bottom: 0.1rem;
+}
+
+.contentData > .tit_txt {
+    width: 4rem;
+    height: 0.45rem;
+    line-height: 0.45rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.3rem;
+    padding-bottom: 0.1rem;
+}
+
+.contentData > .price {
+    width: 4rem;
+    height: 0.56rem;
+    line-height: 0.66rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.38rem;
+    color: #fa6c59;
 }
 
 .btns {
@@ -105,7 +144,7 @@
     text-align: center;
 }
 
-.btn {
+.btns > .btn {
     margin-top: 0.3rem;
     height: 1rem;
     line-height: 1rem;
@@ -118,6 +157,11 @@
     background: #3bc48b;
 }
 
-.btnOther {
+.btns > .btnOther {
     background: #3072F6;
+}
+
+.addHeight {
+    width: 10rem;
+    height: 1.6rem;
 }
