@@ -56,8 +56,8 @@
 
 .contentBox .contentTitle {
     width: 9.2rem;
-    height: 1rem;
-    line-height: 1rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
     font-size: 0.46rem;
 }
 
@@ -68,9 +68,9 @@
 .contentForm > input {
     display: inline-block;
     width: 9.2rem;
-    height: 0.8rem;
-    line-height: 0.8rem;
-    font-size: 0.32rem;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    font-size: 0.36rem;
     box-sizing: border-box;
     padding: 0 0.2rem;
     border-left: none;
@@ -84,9 +84,9 @@
     display: block;
     margin: 0.1rem auto 0 auto;
     width: 9rem;
-    height: 0.82rem;
-    line-height: 0.82rem;
-    font-size: 0.28rem;
+    height: 1.32rem;
+    line-height: 1.32rem;
+    font-size: 0.36rem;
     color: #fff;
     text-align: center;
     border: none;

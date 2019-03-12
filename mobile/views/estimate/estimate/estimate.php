@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/estimate.css"/>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script>getRem(true);</script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
 <div class="header">
@@ -249,7 +249,7 @@
             layer.msg('<span style="font-size:0.4rem;height:100%;line-height:100%">时长最大24小时</span>');
             return;
         }
-        $.getJSON('/estimate/estimate/data.html', {power: power,hours:hours}, function (re) {
+        $.getJSON('/estimate/estimate/data.html', {power: power, hours: hours}, function (re) {
             if (re.type) {
                 $('.power').text(re.data.config.power + 'kw');
                 $('.transformer').text(re.data.config.transformer);

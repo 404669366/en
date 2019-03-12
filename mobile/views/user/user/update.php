@@ -6,7 +6,7 @@
     <title>修改密码</title>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script>getRem(true);</script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
 <div class="header">
