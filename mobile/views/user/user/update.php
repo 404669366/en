@@ -13,8 +13,10 @@
     <a href="javascript:history.back(-1)" class="left picFont">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
     </a>
-    <a href="javascript:history.back(-1)" class="left">
-        <img src="/resources/img/logo.png"/>
+    <a href="javascript:history.back(-1)" class="left pic">
+        <span>
+            <img src="/resources/img/logo.png"/>
+        </span>
     </a>
     <a href="/user/user/user.html" class="right picFont">
         <i class="fa fa-user-o" aria-hidden="true"></i>

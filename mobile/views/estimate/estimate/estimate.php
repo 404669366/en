@@ -14,19 +14,19 @@
     <?php \vendor\helpers\Msg::run() ?>
 </head>
 <body>
-<!--header start-->
 <div class="header">
-    <a href="javascript:history.back(-1)" class="Left picFont">
+    <a href="javascript:history.back(-1)" class="left picFont">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
     </a>
-    <a href="javascript:history.back(-1)" class="Left">
-        <img src="/resources/img/logo.png"/>
+    <a href="javascript:history.back(-1)" class="left pic">
+        <span>
+            <img src="/resources/img/logo.png"/>
+        </span>
     </a>
-    <a href="/user/user/user.html" class="Right picFont">
+    <a href="/user/user/user.html" class="right picFont">
         <i class="fa fa-user-o" aria-hidden="true"></i>
     </a>
 </div>
-<div></div>
 <table border="1" class="estimate">
     <tr>
         <td colspan="13" class="tit">充电站收益测算表</td>
