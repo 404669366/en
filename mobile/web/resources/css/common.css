@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 微软雅黑;
+}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset, img {
+    border: 0 none
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+address, cite, dfn, em, var {
+    font-style: normal;
+}
+
+code, kbd, pre, samp {
+    font-family: courier new, courier, monospace;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+legend {
+    color: #000;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+button, input, select, textarea {
+    font-size: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input {
+    outline: none;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.header {
+    width: 10rem;
+    height: 1rem;
+    padding: 0 0.32rem;
+    border-bottom: 0.01rem solid #E4E6F0;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.header img {
+    width: 1.74rem;
+    height: 0.6rem;
+    margin: 0.2rem auto 0.2rem 0.2rem;
+}
+
+.header .picFont {
+    height: 1rem;
+    line-height: 1rem;
+    color: #3072F3;
+    font-size: 0.6rem;
+}
+
+.contentBox {
+    width: 10rem;
+    padding: 0.2rem 0.4rem;
+    box-sizing: border-box;
+}
+
+.contentBox .contentTitle {
+    width: 10rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.46rem;
+}
+
+.contentBox .contentForm {
+    width: 9.2rem;
+}
+
+.contentForm > input {
+    display: inline-block;
+    width: 9.2rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.32rem;
+    box-sizing: border-box;
+    padding: 0 0.2rem;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #c8c8c8;
+    margin-bottom: 0.2rem;
+}
+
+.contentForm > button, .contentForm > a {
+    display: block;
+    margin: 0.1rem auto 0 auto;
+    width: 9rem;
+    height: 0.82rem;
+    line-height: 0.82rem;
+    font-size: 0.28rem;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-color: #3072f6;
+    text-decoration: none;
+    border-radius: 0.04rem;
+}

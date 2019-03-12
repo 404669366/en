@@ -78,7 +78,7 @@
 						<i class="fa fa-paper-plane" aria-hidden="true"></i>
 					</div>
 					<div class="mainRit">
-						发布真实场地
+						发布场地
 						<p class="gt">
 							<i class="fa fa-angle-right" aria-hidden="true"></i>
 						</p>
