@@ -12,7 +12,7 @@
 
 .header {
     width: 10rem;
-    height: 1.6rem;
+    height: 1.5rem;
     padding: 0 0.32rem;
     border-bottom: 0.01rem solid #E4E6F0;
     background-color: #fff;
@@ -20,8 +20,8 @@
 }
 
 .header .picFont {
-    height: 1.6rem;
-    line-height: 1.6rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
     color: #3072F3;
     font-size: 0.6rem;
 }
@@ -31,8 +31,8 @@
 }
 
 .header .pic {
-    height: 1.6rem;
-    line-height: 1.6rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
     margin-left: 0.2rem;
     display: table;
 }
