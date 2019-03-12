@@ -26,15 +26,15 @@
     font-size: 0.6rem;
 }
 
-.header .pic:first-child {
+.header .pic:first-child * {
     font-size: 1rem;
+    vertical-align: middle;
 }
 
 .header .pic > img {
     display: inline-block;
     width: 1.7rem;
     height: 0.78rem;
-    margin: 0.36rem auto 0.36rem 0.2rem;
 }
 
 .contentBox {
