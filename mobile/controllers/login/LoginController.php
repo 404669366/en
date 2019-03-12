@@ -26,7 +26,9 @@ class LoginController extends BasisController
                 if ($data['pwd']) {
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
                         if (\Yii::$app->security->validatePassword($data['pwd'], $model->password)) {
-                            $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                            if (Wechat::isWechat()) {
+                                $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                            }
                             $model->save();
                             \Yii::$app->user->login($model, 60 * 60 * 2);
                             return $this->redirect(Url::getUrl(), '登录成功');
@@ -53,7 +55,9 @@ class LoginController extends BasisController
                 if (Sms::validateCode($data['loginTel'], $data['loginTelCode'])) {
                     Msg::set('账号不存在');
                     if ($model = User::findOne(['tel' => $data['loginTel']])) {
-                        $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                        if (Wechat::isWechat()) {
+                            $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                        }
                         $model->save();
                         \Yii::$app->user->login($model, 60 * 60 * 2);
                         return $this->redirect(Url::getUrl(), '登录成功');
@@ -101,7 +105,9 @@ class LoginController extends BasisController
                         $model->tel = $data['loginTel'];
                         $model->created = time();
                         $model->password = \Yii::$app->security->generatePasswordHash($data['loginPwd']);
-                        $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                        if (Wechat::isWechat()) {
+                            $model->wechat = \Yii::$app->session->get('UserWechat', '');
+                        }
                         if ($model->save()) {
                             \Yii::$app->user->login($model, 60 * 60 * 2);
                             return $this->redirect(Url::getUrl(), '注册成功');

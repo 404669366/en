@@ -151,8 +151,8 @@
                         '</div>\n' +
                         '<div class="redadat">\n' +
                         '<p class="tit">' + v.title + '</p>\n' +
-                        '<p class="tit_txt">' + v.full_name + ' / ' + v.park + '车位</p>\n' +
-                        '<p class="tit_txt">' + v.minimal + '￥起投</p>\n' +
+                        '<p class="tit_txt">' + v.full_name + '</p>\n' +
+                        '<p class="tit_txt">' + v.minimal + '￥起投 / ' + v.park + '车位</p>\n' +
                         '<p class="price">' + v.budget + '￥</p>\n' +
                         '</div>\n' +
                         '</a>\n' +

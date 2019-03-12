@@ -57,7 +57,7 @@
 <script>
     $(function () {
         var focus = getParams('focus', 0);
-        if(focus){
+        if (focus) {
             $('.searchKey').focus();
         }
         var now = getParams('type', 1);
@@ -91,8 +91,8 @@
                     </div>
                     <div class="redadat">
                         <p class="tit"><?= $data['title'] ?></p>
-                        <p class="tit_txt"><?= $data['full_name'] ?> / <?= $data['park'] ?>车位</p>
-                        <p class="tit_txt"><?= $data['minimal'] ?>￥起投</p>
+                        <p class="tit_txt"><?= $data['full_name'] ?></p>
+                        <p class="tit_txt"><?= $data['minimal'] ?>￥起投 / <?= $data['park'] ?>车位</p>
                         <p class="price"><?= $data['budget'] ?>￥</p>
                     </div>
                 </a>

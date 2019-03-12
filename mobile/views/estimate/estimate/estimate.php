@@ -4,25 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>收益预测</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/estimate.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-    <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
-    <script>getRem();</script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <script>getRem(true);</script>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
-<!--header start-->
 <div class="header">
-    <a href="javascript:history.back(-1)" class="Left picFont">
+    <a href="javascript:history.back(-1)" class="left pic">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
-    </a>
-    <a href="javascript:history.back(-1)" class="Left">
         <img src="/resources/img/logo.png"/>
     </a>
-    <a href="/user/user/user.html" class="Right picFont">
+    <a href="/user/user/user.html" class="right pic">
         <i class="fa fa-user-o" aria-hidden="true"></i>
     </a>
 </div>
@@ -252,7 +245,7 @@
             layer.msg('<span style="font-size:0.4rem;height:100%;line-height:100%">时长最大24小时</span>');
             return;
         }
-        $.getJSON('/estimate/estimate/data.html', {power: power,hours:hours}, function (re) {
+        $.getJSON('/estimate/estimate/data.html', {power: power, hours: hours}, function (re) {
             if (re.type) {
                 $('.power').text(re.data.config.power + 'kw');
                 $('.transformer').text(re.data.config.transformer);

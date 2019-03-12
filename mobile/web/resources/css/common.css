@@ -1,0 +1,85 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.header {
+    width: 10rem;
+    height: 1.5rem;
+    padding: 0 0.32rem;
+    border-bottom: 0.01rem solid #E4E6F0;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.header .pic {
+    height: 1.5rem;
+    line-height: 1.5rem;
+    color: #3072F3;
+    font-size: 0.6rem;
+}
+
+.header .pic:first-child * {
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+.header .pic > img {
+    display: inline-block;
+    width: 1.7rem;
+    height: 0.78rem;
+}
+
+.contentBox {
+    width: 10rem;
+    padding: 0.2rem 0.4rem;
+    box-sizing: border-box;
+}
+
+.contentBox .contentTitle {
+    width: 9.2rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    font-size: 0.48rem;
+}
+
+.contentBox .contentForm {
+    width: 9.2rem;
+}
+
+.contentForm > input {
+    display: inline-block;
+    width: 9.2rem;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    font-size: 0.4rem;
+    box-sizing: border-box;
+    padding: 0 0.2rem;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #c8c8c8;
+    margin-bottom: 0.2rem;
+}
+
+.contentForm > button, .contentForm > a {
+    display: block;
+    margin: 0.1rem auto 0 auto;
+    width: 9rem;
+    height: 1.32rem;
+    line-height: 1.32rem;
+    font-size: 0.4rem;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-color: #3072f6;
+    text-decoration: none;
+    border-radius: 0.04rem;
+}
