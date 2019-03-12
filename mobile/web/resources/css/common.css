@@ -26,6 +26,10 @@
     font-size: 0.6rem;
 }
 
+.header .picFont:first-child {
+    font-size: 0.8rem;
+}
+
 .header .pic {
     height: 1.6rem;
     line-height: 1.6rem;
@@ -41,7 +45,7 @@
 
 .header .pic > span > img {
     width: 1.8rem;
-    height: auto;
+    height: 0.8rem;
 }
 
 .contentBox {
