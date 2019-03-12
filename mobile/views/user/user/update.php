@@ -10,15 +10,10 @@
 </head>
 <body>
 <div class="header">
-    <a href="javascript:history.back(-1)" class="left picFont">
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
-    </a>
     <a href="javascript:history.back(-1)" class="left pic">
-        <span>
-            <img src="/resources/img/logo.png"/>
-        </span>
+        <i class="fa fa-angle-left" aria-hidden="true"></i><img src="/resources/img/logo.png"/>
     </a>
-    <a href="/user/user/user.html" class="right picFont">
+    <a href="/user/user/user.html" class="right pic">
         <i class="fa fa-user-o" aria-hidden="true"></i>
     </a>
 </div>

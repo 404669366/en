@@ -19,33 +19,23 @@
     box-sizing: border-box;
 }
 
-.header .picFont {
+.header .pic {
     height: 1.5rem;
     line-height: 1.5rem;
     color: #3072F3;
     font-size: 0.6rem;
 }
 
-.header .picFont:first-child {
-    font-size: 1rem;
+.header .pic:first-child{
+    font-size: 0.9rem;
 }
 
-.header .pic {
-    height: 1.5rem;
-    line-height: 1.5rem;
-    margin-left: 0.2rem;
-    display: table;
-}
-
-.header .pic > span {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.header .pic > span > img {
+.header .pic > img {
+    display: inline-block;
     width: 1.7rem;
     height: 0.78rem;
+    vertical-align: inherit;
+    margin-left: 0.2rem;
 }
 
 .contentBox {
