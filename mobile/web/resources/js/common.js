@@ -3,10 +3,10 @@ function getRem(need, ratio) {
     var rem = width * (ratio || 0.1);
     document.documentElement.style.fontSize = rem + "px";
     if (need) {
-        document.write("<script src='/resources/js/jquery-3.3.1.min.js' type='text/javascript' charset='utf-8'></script>");
-        document.write("<script src='/resources/js/layer/layer.min.js' type='text/javascript' charset='utf-8'></script>");
         document.write("<link href='/resources/css/font-awesome.min.css' rel='stylesheet'>");
         document.write("<link href='/resources/css/common.css' rel='stylesheet'>");
+        document.write("<script src='/resources/js/jquery-3.3.1.min.js' type='text/javascript' charset='utf-8'></script>");
+        document.write("<script src='/resources/js/layer/layer.min.js' type='text/javascript' charset='utf-8'></script>");
     }
 }
 
