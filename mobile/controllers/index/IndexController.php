@@ -11,6 +11,7 @@ namespace app\controllers\index;
 
 use app\controllers\basis\BasisController;
 use vendor\en\Field;
+use vendor\en\Ident;
 use vendor\en\Intention;
 use vendor\helpers\BasisData;
 use vendor\helpers\Msg;
@@ -74,7 +75,7 @@ class IndexController extends BasisController
      */
     public function actionCobberField($cobber_id)
     {
-        return $this->render('cobber-field', ['datas' => Field::getCobberField($cobber_id)]);
+        return $this->render('cobber-field', ['datas' => Field::getCobberField($cobber_id),'model'=>Ident::findOne(['user_id'=>$cobber_id])]);
     }
 
     public function actionNotFind()

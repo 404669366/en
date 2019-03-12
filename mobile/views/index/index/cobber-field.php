@@ -29,9 +29,9 @@
 <div class="background">
     <div class="cobberInfo">
         <div class="cobberHead"></div>
-        <div class="cobberName">吴磊</div>
-        <div class="cobberMsg">电话:18308416357</div>
-        <div class="cobberMsg">地址:大股东认购人的公告的郭德纲的若干</div>
+        <div class="cobberName"><?=$model->name?></div>
+        <div class="cobberMsg">电话:<?=$model->cobber->tel?></div>
+        <div class="cobberMsg">地址:<?=$model->address?></div>
     </div>
 </div>
 
@@ -43,14 +43,28 @@
     </div>
 </div>
 <div class="title">
-TA的场地源
+    TA的场地源
 </div>
-<div class="content">
-
-</div>
+<?php foreach ($datas as $data): ?>
+    <div class="content">
+            <a href="/index/index/details.html?no=<?= $data['no'] ?>">
+                <div class="contentImg">
+                    <img src="<?= explode(',',$data['image'])[0] ?>"/>
+                </div>
+                <div class="contentData">
+                    <p class="tit"><?= $data['title'] ?></p>
+                    <p class="tit_txt"><?= $data['full_name'] ?> / <?= $data['park'] ?>车位</p>
+                    <p class="tit_txt"><?= $data['minimal'] ?>￥起投</p>
+                    <p class="price"><?= $data['budget'] ?>￥</p>
+                </div>
+            </a>
+    </div>
+<?php endforeach; ?>
 <div class="btns">
-    <a class="btn1" href="">加关注</a>
-    <a class="btn2" href="">打电话</a>
+    <a class="btn" href="">加关注</a>
+    &emsp;&emsp;
+    <a class="btn btnOther" href="tel:<?=$model->cobber->tel?>">打电话</a>
+
 </div>
 </body>
 </html>

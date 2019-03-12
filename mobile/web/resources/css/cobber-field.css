@@ -107,42 +107,47 @@
 
 .content {
     width: 8rem;
-    height: 5rem;
-    background-color: #00aa00;
+    height: 3rem;
     margin: 0 auto;
+}
+img{
+    height:2.4rem;
+    width: 3.2rem;
+    float: left;
+
+
+}
+.contentData{
+    height:2.4rem;
+    width: 4rem;
+    float: right;
+    padding: 0.4rem;
+
 }
 
 .btns {
-    width: 8rem;
-    height: 1.2rem;
+    width: 10rem;
+    height: 1.6rem;
     position: fixed;
-    bottom: 0.2rem;
-    left: 1rem;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    text-align: center;
 }
 
-.btn1 {
+.btn {
+    margin-top: 0.3rem;
     height: 1rem;
     line-height: 1rem;
     display: inline-block;
-    width: 40%;
+    width: 3rem;
     text-align: center;
     font-size: 0.38rem;
-    border-radius: 1rem;
+    border-radius: 0.1rem;
     color: white;
     background: #3bc48b;
-    float: left;
 }
 
-.btn2 {
-    height: 1rem;
-    line-height: 1rem;
-    display: inline-block;
-    width: 40%;
-    text-align: center;
-    font-size: 0.38rem;
-    border-radius: 1rem;
-    color: white;
+.btnOther {
     background: #3072F6;
-    float: right;
-
 }
