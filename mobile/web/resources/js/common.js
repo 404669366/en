@@ -5,16 +5,31 @@ function getRem(need, ratio) {
         document.write("<link href='/resources/css/font-awesome.min.css' rel='stylesheet'>");
         document.write("<script src='/resources/js/jquery-3.3.1.min.js' type='text/javascript' charset='utf-8'></script>");
         document.write("<script src='/resources/js/layer/layer.min.js' type='text/javascript' charset='utf-8'></script>");
+        document.write("<script src='/resources/js/modal.js' type='text/javascript' charset='utf-8'></script>");
     }
     var width = document.documentElement.getBoundingClientRect().width;
     var rem = width * (ratio || 0.1);
     document.documentElement.style.fontSize = rem + "px";
 }
 
+
+function load(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload !== 'function') {
+        window.onload = func;
+    }
+    else {
+        window.onload = function () {
+            oldonload();
+            func();
+        }
+    }
+}
+
 function getParams(name, def) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var re = window.location.search.substr(1).match(reg);
-    if (re != null) {
+    if (re !== null) {
         return decodeURI(re[2]);
     }
     if (def) {
@@ -24,26 +39,20 @@ function getParams(name, def) {
 }
 
 function postCall(url, params, target) {
-    var tempform = document.createElement("form");
-    tempform.action = url;
-    tempform.method = "post";
-    tempform.style.display = "none";
-    if (target) {
-        tempform.target = target;
-    }
-
+    var form = document.createElement("form");
+    form.style.display = "none";
+    form.action = url || '';
+    form.method = "post";
+    form.target = target || '_self';
+    var opt;
     for (var x in params) {
-        var opt = document.createElement("input");
+        opt = document.createElement("input");
         opt.name = x;
         opt.value = params[x];
-        tempform.appendChild(opt);
+        form.appendChild(opt);
     }
-
-    var opt = document.createElement("input");
-    opt.type = "submit";
-    tempform.appendChild(opt);
-    document.body.appendChild(tempform);
-    tempform.submit();
-    document.body.removeChild(tempform);
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
 }
 
