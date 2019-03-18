@@ -56,7 +56,11 @@
 <?php endforeach; ?>
 <div class="addHeight"></div>
 <div class="btns">
-    <a class="btn" href="">加关注</a>
+    <?php if (\vendor\en\FollowIdent::getFollowIdent($model->user_id, Yii::$app->user->id)): ?>
+        <a class="btn" href="/user/follow/follow-cancel.html?cobber_id=<?= $model->user_id ?>">取消关注</a>
+    <?php else: ?>
+        <a class="btn" href="/user/follow/follow-cobber.html?cobber_id=<?= $model->user_id ?>">加关注</a>
+    <?php endif; ?>
     &emsp;&emsp;
     <a class="btn btnOther" href="tel:<?= $model->cobber->tel ?>">打电话</a>
 </div>

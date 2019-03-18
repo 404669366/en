@@ -233,6 +233,9 @@
     $('.intent .close').click(function () {
         $('.intent').fadeOut();
     });
+    $('.agent').click(function () {
+        window.location.href = '/index/index/cobber-field.html?cobber_id=<?=$model->cobber_id?>';
+    });
 </script>
 <!--map end-->
 
