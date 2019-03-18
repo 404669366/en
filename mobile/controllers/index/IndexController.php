@@ -11,6 +11,7 @@ namespace app\controllers\index;
 
 use app\controllers\basis\BasisController;
 use vendor\en\Field;
+use vendor\en\Ident;
 use vendor\en\Intention;
 use vendor\helpers\BasisData;
 use vendor\helpers\Msg;
@@ -67,6 +68,15 @@ class IndexController extends BasisController
         return $this->redirect(['not-find'], '场地不见了');
     }
 
+    /**
+     * 获取合伙人场地
+     * @param $cobber_id
+     * @return string
+     */
+    public function actionCobberField($cobber_id)
+    {
+        return $this->render('cobber-field', ['datas' => Field::getCobberField($cobber_id),'model'=>Ident::findOne(['user_id'=>$cobber_id])]);
+    }
 
     public function actionNotFind()
     {
