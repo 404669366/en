@@ -70,4 +70,5 @@ class IdentController extends CommonController
         }
         return $this->redirect(['ident']);
     }
+
 }

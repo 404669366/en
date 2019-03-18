@@ -2,6 +2,7 @@
 
 namespace vendor\en;
 
+use vendor\helpers\Constant;
 use Yii;
 use yii\web\IdentityInterface;
 
@@ -95,6 +96,19 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             }
         }
         return false;
+    }
+
+    /**
+     * 获取合伙人场地源数量
+     * @param $cobber_id
+     * @return int|string
+     */
+    public static function getCobberFieldCount($cobber_id)
+    {
+        $count = Field::find()
+            ->where(['status' => Constant::getShowStatus(), 'cobber_id' => $cobber_id])
+            ->count();
+        return $count;
     }
 
     //todo**********************  登录接口实现  ***************************

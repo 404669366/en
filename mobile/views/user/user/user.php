@@ -34,18 +34,31 @@
 		<div class="main">
 			<!--列表内容-->
 			<div class="mainBox">
-				<a href="/user/user/follow.html">
+				<a href="/user/user/follow-cobber.html">
 					<div class="mainLeft">
 						<i class="fa fa-star-half-o" aria-hidden="true"></i>
 					</div>
 					<div class="mainRit">
-						关注场地
+						关注合伙人
 						<p class="gt">
 							<i class="fa fa-angle-right" aria-hidden="true"></i>
 						</p>
 					</div>
 				</a>
 			</div>
+            <div class="mainBox">
+                <a href="/user/user/follow.html">
+                    <div class="mainLeft">
+                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="mainRit">
+                        关注场地
+                        <p class="gt">
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
 			<div class="mainBox">
 				<a href="/user/user/basis-field.html">
 					<div class="mainLeft" style="color: #84CB7F;">

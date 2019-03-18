@@ -599,7 +599,8 @@ class Field extends \yii\db\ActiveRecord
             ->leftJoin(Ident::tableName() . ' i', 'i.user_id=u.id')
             ->leftJoin(Area::tableName() . ' a', 'a.area_id=f.area_id')
             ->where(['u.id' => $cobber_id, 'i.status' => [1, 4], 'f.status' => Constant::getShowStatus()])
-            ->select(['f.no', 'a.full_name', 'f.title', 'f.image', 'f.park', 'f.minimal', 'f.budget','u.tel','i.name','i.address'])
+            ->select(['f.no', 'a.full_name', 'f.title', 'f.image', 'f.park', 'f.minimal', 'f.budget', 'u.tel', 'i.name', 'i.address'])
+            ->orderBy('f.created DESC')
             ->asArray()->all();
         return $data;
     }
