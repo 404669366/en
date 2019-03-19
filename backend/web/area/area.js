@@ -3,8 +3,8 @@ function area(config) {
         .append('<input type="hidden" name="' + (config.latName || 'lat') + '">')
         .append('<input type="hidden" name="' + (config.lngName || 'lng') + '">')
         .append('<style>.form-my{height: 34px;line-height: 1.42857;background-color: rgb(255, 255, 255);background-image: none;color: inherit;display: block;font-size: 14px;border-width: 1px;border-style: solid;border-color: rgb(229, 230, 231);border-image: initial;border-radius: 1px;padding: 6px 12px;transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;}</style>')
+        .append('<select class="form-my col-sm-3 province"><option value="">-- 省份 --</option></select>')
         .append('<select class="form-my col-sm-3 city"><option value="">-- 城市 --</option></select>')
-        .append('<select class="form-my col-sm-3 county"><option value="">-- 区县 --</option></select>')
         .append('<select class="form-my col-sm-3 county"><option value="">-- 区县 --</option></select>');
     $(config.element).after('<div><div class="col-sm-9" id="' + (config.areaName || 'area') + 'Map" style="height: ' + (config.mapHeight ? config.mapHeight + 'rem' : '32rem') + '"></div></div>');
     if (config.area) {
@@ -76,6 +76,8 @@ function area(config) {
                         str += '<option value="' + v.area_id + '">' + v.area_name + '</option>';
                     }
                 });
+                console.log(str);
+                console.log(model ? '.' + model : '.province');
                 $(config.element).find(model ? '.' + model : '.province').html(str);
             }
         });
