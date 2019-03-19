@@ -128,32 +128,45 @@
             <div class="venTit">
                 场地配置
             </div>
-            <img class="agentImg" src="<?= $model->configure_photo ?>" alt="配置单图片">
-        </div>
+            <img class="agentImg" src="<?= $model->configure_photo ? $model->configure_photo : '/resources/img/a1.png'?>" alt="配置单图片">
+    </div>
         <div class="more">
             <div class="one">
                 <div class="venTit">
                     预算报表
                 </div>
+                <?php if (!empty($model->budget_photo)):?>
                 <?php foreach (explode(',', $model->budget_photo) as $k => $v): ?>
                     <img class="agentImg" src="<?= $v ?>" alt="预算报表<?= $k + 1 ?>">
                 <?php endforeach; ?>
+                <?php else:?>
+                <img class="agentImg" src="/resources/img/a1.png" alt="预算报表">
+                <?php endif;?>
             </div>
             <div class="one">
                 <div class="venTit">
                     施工图纸
                 </div>
+                <?php if (!empty($model->field_drawing)):?>
                 <?php foreach (explode(',', $model->field_drawing) as $k => $v): ?>
                     <img class="agentImg" src="<?= $v ?>" alt="施工图纸<?= $k + 1 ?>">
                 <?php endforeach; ?>
+                <?php else:?>
+                    <img class="agentImg" src="/resources/img/a1.png" alt="施工图纸">
+                <?php endif;?>
+
             </div>
             <div class="one">
                 <div class="venTit">
                     场地备案
                 </div>
+                <?php if (!empty($model->record_photo)):?>
                 <?php foreach (explode(',', $model->record_photo) as $k => $v): ?>
                     <img class="agentImg" src="<?= $v ?>" alt="场地备案<?= $k + 1 ?>">
                 <?php endforeach; ?>
+                <?php else:?>
+                    <img class="agentImg" src="/resources/img/a1.png" alt="场地备案">
+                <?php endif;?>
             </div>
         </div>
         <div class="viewMore">更多场地信息</div>

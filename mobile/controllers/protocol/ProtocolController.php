@@ -17,7 +17,7 @@ class ProtocolController extends BasisController
     {
         return $this->render('protocol');
     }
-
+    
     public function actionUse()
     {
         return $this->render('useProtocol');
