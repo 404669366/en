@@ -36,7 +36,11 @@ class IdentController extends CommonController
                 $post = \Yii::$app->request->post();
                 if ($model = Ident::findOne(['id' => $id, 'user_id' => $user_id])) {
                     if ($model->status == 5 || $model->status == 1) {
-                        $model->status = 3;
+                        if ($post['money_ident']) {
+                            $model->status = 3;
+                        } else {
+                            return $this->redirect(['ident'], '请上传打款凭证');
+                        }
                     } else {
                         $model->status = 0;
                     }

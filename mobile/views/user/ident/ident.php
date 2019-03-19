@@ -31,7 +31,7 @@
             <input type="text" class="area" placeholder="请选择: 省>市>区/县"/>
             <input type="text" name="address" placeholder="请填写详细地址"/>
             <input type="text" class="bankType" placeholder="请选择: 开户银行"
-                   data="<?= json_encode(\vendor\helpers\Constant::getBankType()) ?>"/>
+                   data='<?= json_encode(\vendor\helpers\Constant::getBankType()) ?>'/>
             <input type="text" name="bank_no" placeholder="请填写收款银行卡号"/>
             <input type="text" class="card_positive" placeholder="身份证正面: 点击上传"/>
             <input type="text" class="card_opposite" placeholder="身份证反面: 点击上传"/>
@@ -42,10 +42,12 @@
                 $('.isNow').click(function () {
                     $(this).hide();
                     $('.isNowShow').fadeIn();
+                    $('[name="now_type"]').val(2);
                     $('body').animate({scrollTop: $('.contentForm').prop("scrollHeight")}, 800);
                 });
                 $('.notNow').click(function () {
                     $('.isNow').fadeIn();
+                    $('[name="now_type"]').val(1);
                     $('.isNowShow').hide();
                 });
             </script>
@@ -56,7 +58,7 @@
             window.select().load('.bankType', 'bank_type');
             window.uploadImg().load('.card_positive', 'card_positive');
             window.uploadImg().load('.card_opposite', 'card_opposite');
-            window.uploadImg().load('.money_ident', 'money_ident');
+            window.uploadImg().load('.money_ident', 'money_ident', 3);
         </script>
     <?php else: ?>
         <form class="contentForm" action="/user/ident/add-ident.html?id=<?= $model->id ?>" method="post">
@@ -76,8 +78,10 @@
             <?php if ($model->status == 1): ?>
                 <div class="smallTitle isNow">申请正式合伙人</div>
                 <div class="smallTitle notNow isNowShow" style="display: none">暂不申请</div>
+                <input type="text" class="money_ident isNowShow" style="display: none" placeholder="打款凭证: 点击上传"/>
                 <button class="isNowShow" type="submit" style="display: none">保存修改</button>
                 <script>
+                    window.uploadImg().load('.money_ident', 'money_ident', 3);
                     $('.isNow').click(function () {
                         $(this).hide();
                         $('.isNowShow').fadeIn();

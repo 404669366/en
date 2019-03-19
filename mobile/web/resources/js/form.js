@@ -251,27 +251,180 @@ window.wall = function () {
     };
 };
 window.uploadImg = function () {
-    window.load(function () {
-        $('.uploadImgModalClose').click(function () {
-            window.modal.close('.uploadImgModalBox');
-        });
-    });
-
     function add() {
         if (!$('.uploadImgModalBox').length) {
-            $('body').append('' +
-                '<div class="uploadImgModalBox" style="display: none;">' +
-                '    <div class="uploadImgModalTitle">内容详情</div>' +
-                '    <div class="uploadImgModalClose"><i class="fa fa-times" aria-hidden="true"></i></div>' +
-                '    <div class="uploadImgModalContent"></div>' +
-                '</div>');
+            $('body')
+                .append(
+                    '<div class="uploadImgModalBox" style="display: none;">' +
+                    '    <div class="uploadImgModalTitle">内容详情</div>' +
+                    '    <div class="uploadImgModalClose"><i class="fa fa-times" aria-hidden="true"></i></div>' +
+                    '    <div class="uploadImgModalContent"></div>' +
+                    '    <input type="file" class="uploadImgModalFileNode" style="display: none"/>' +
+                    '</div>')
+                .append(
+                    '<div class="uploadImgModalLookBox">' +
+                    '   <div class="uploadImgModalLookClose"><i class="fa fa-times" aria-hidden="true"></i></div>' +
+                    '   <div class="uploadImgModalLookContent">' +
+                    '       <span><img src=""></span>' +
+                    '   </div>' +
+                    '</div>')
+                .append(
+                    '<div class="uploadImgModalLookSureBox">' +
+                    '   <div><span>' +
+                    '       <div class="uploadImgModalLookSureContent">' +
+                    '           <div class="uploadImgModalLookSureTitle">您确定要删除此图片吗?</div>' +
+                    '           <div class="uploadImgModalLookSureBtn">' +
+                    '               <button class="uploadImgModalLookSureClose" type="button">取消</button>' +
+                    '               <button class="uploadImgModalLookSureDel" type="button">删除</button>' +
+                    '           </div>' +
+                    '       </div>' +
+                    '   </span></div>' +
+                    '</div>');
+
+            $('.uploadImgModalClose').click(function () {
+                window.modal.close('.uploadImgModalBox');
+            });
+
+            $('.uploadImgModalLookClose').click(function () {
+                window.modal.close('.uploadImgModalLookBox');
+            });
+            $('.uploadImgModalLookSureClose').click(function () {
+                window.modal.close('.uploadImgModalLookSureBox');
+            });
+
+            $('.uploadImgModalContent').on('click', 'img', function () {
+                if ($(this).hasClass('uploadImgModalAdd')) {
+                    var nowValue = $('[name="' + $(this).attr('inputName') + '"]').val();
+                    nowValue = $.grep(nowValue.split(','), function (n, i) {
+                        return n;
+                    }, false);
+                    if ($(this).attr('fileMax') > nowValue.length) {
+                        $('.uploadImgModalFileNode')
+                            .attr('node', $(this).attr('node'))
+                            .attr('inputName', $(this).attr('inputName'))
+                            .val('')
+                            .click();
+                    } else {
+                        layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">最多上传' + $(this).attr('fileMax') + '张图片</span>');
+                    }
+                } else {
+                    $('.uploadImgModalLookContent>span>img')
+                        .attr('src', $(this).attr('src'))
+                        .attr('node', $(this).attr('node'))
+                        .attr('inputName', $(this).attr('inputName'));
+                    window.modal.open('.uploadImgModalLookBox');
+                }
+            });
+
+            $('.uploadImgModalFileNode').on('change', function () {
+                var inputName = $(this).attr('inputName');
+                var nodeName = $(this).attr('node');
+                var path = $(this).val();
+                if (path.length === 0) {
+                    layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">请上传图片</span>');
+                    return false;
+                } else {
+                    var extStart = path.lastIndexOf('.'),
+                        ext = path.substring(extStart, path.length).toUpperCase();
+                    if (ext !== '.PNG' && ext !== '.JPG' && ext !== '.JPEG') {
+                        layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">图片格式错误</span>');
+                        return false;
+                    }
+                }
+
+                var formData = new FormData();
+                formData.append('file', $(this)[0].files[0]);
+                $.ajax({
+                    url: '/basis/file/upload.html',
+                    cache: false,
+                    type: "post",
+                    data: formData,
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">' + res.msg + '</span>');
+                        if (res.type) {
+                            $('[name="' + inputName + '"]').val(function (i, ovl) {
+                                ovl = $.grep(ovl.split(','), function (n, i) {
+                                    return n;
+                                }, false);
+                                ovl.push(res.data);
+                                ovl = ovl.join(',');
+                                $(nodeName).attr('data', ovl);
+                                return ovl;
+                            });
+                            $('.uploadImgModalAdd').before('<img node="' + nodeName + '" inputName="' + inputName + '" src="' + res.data + '" />');
+                        }
+                    }
+                });
+            });
+
+            $('.uploadImgModalLookContent').on('click', 'img', function () {
+                if ($(this).attr('inputName')) {
+                    $('.uploadImgModalLookSureDel')
+                        .attr('node', $(this).attr('node'))
+                        .attr('inputName', $(this).attr('inputName'))
+                        .attr('imgUrl', $(this).attr('src'));
+                    window.modal.open('.uploadImgModalLookSureBox');
+                }
+            });
+
+            $('.uploadImgModalLookSureDel').on('click', function () {
+                var nodeName = $(this).attr('node');
+                var inputName = $(this).attr('inputName');
+                var src = $(this).attr('imgUrl');
+                $.getJSON('/basis/file/delete.html', {src: src}, function (res) {
+                    if (res.type) {
+                        $('[name="' + inputName + '"]').val(function (i, ovl) {
+                            ovl = ovl.replace(src, '');
+                            ovl = $.grep(ovl.split(','), function (n, i) {
+                                return n;
+                            }, false);
+                            ovl = ovl.join(',');
+                            $(nodeName).attr('data', ovl);
+                            return ovl;
+                        });
+                        $('.uploadImgModalContent').find('[src="' + src + '"]').remove();
+                        window.modal.close('.uploadImgModalLookSureBox');
+                        window.modal.close('.uploadImgModalLookBox');
+                        layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">删除成功</span>');
+                    } else {
+                        window.modal.close('.uploadImgModalLookSureBox');
+                        window.modal.close('.uploadImgModalLookBox');
+                        layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">' + res.msg + '</span>');
+                    }
+                })
+            });
+
         }
     }
 
     return {
-        load: function (node) {
+        load: function (node, name, max) {
             add();
+            if (name) {
+                $(node)
+                    .attr('node', node)
+                    .attr('inputName', name)
+                    .attr('fileMax', max || 1)
+                    .after('<input type="hidden" name="' + name + '" value="' + ($(node).attr('data') || '') + '">');
+            }
+
             $(node).on('click', function () {
+                var nodeName = $(this).attr('node') || '';
+                var inputName = $(this).attr('inputName') || '';
+                var str = '';
+                var data = $(this).attr('data') || '';
+                $.each(data.split(','), function (k, v) {
+                    if (v) {
+                        str += '<img node="' + nodeName + '" inputName="' + inputName + '" src="' + v + '" />';
+                    }
+                });
+                if ($(this).attr('inputName')) {
+                    str += '<img class="uploadImgModalAdd" node="' + nodeName + '" inputName="' + inputName + '" fileMax="' + $(this).attr('fileMax') + '" src="/resources/img/add.jpg" />';
+                }
+                $('.uploadImgModalContent').html(str);
                 window.modal.open('.uploadImgModalBox');
             });
         }

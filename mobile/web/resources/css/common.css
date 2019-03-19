@@ -400,19 +400,134 @@
 }
 
 .uploadImgModalBox > .uploadImgModalContent {
-    box-sizing: border-box;
-    border: 1px solid silver;
     display: block;
-    width: 100%;
+    width: 7.2rem;
     height: 100%;
     overflow-y: scroll;
-    font-size: 0.4rem;
-    line-height: 0.72rem;
-    text-indent: 0.8rem;
 }
 
 .uploadImgModalContent::-webkit-scrollbar {
     display: none;
 }
+
+.uploadImgModalContent > img {
+    float: left;
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.uploadImgModalContent > .uploadImgModalAdd {
+    box-sizing: border-box;
+    border: 1px dashed silver;
+}
+
+.uploadImgModalContent > img:nth-child(3n) {
+    margin-right: 0;
+}
+
+.uploadImgModalLookBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 10rem;
+    display: none;
+}
+
+.uploadImgModalLookBox > .uploadImgModalLookClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.64rem;
+    color: coral;
+}
+
+.uploadImgModalLookBox > .uploadImgModalLookContent {
+    width: 10rem;
+    height: 100%;
+    display: table;
+}
+
+.uploadImgModalLookContent > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.uploadImgModalLookContent > span > img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.uploadImgModalLookSureBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    box-sizing: border-box;
+    height: 100%;
+    width: 10rem;
+    display: none;
+}
+
+.uploadImgModalLookSureBox > div {
+    width: 10rem;
+    height: 100%;
+    display: table;
+}
+
+.uploadImgModalLookSureBox > div > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.uploadImgModalLookSureBox .uploadImgModalLookSureContent {
+    box-sizing: border-box;
+    padding: 0.6rem;
+    margin: 0 auto;
+    width: 7.2rem;
+    height: 6rem;
+    background: white;
+    border-radius: 0.1rem;
+}
+
+.uploadImgModalLookSureBox .uploadImgModalLookSureTitle {
+    width: 100%;
+    height: 2.8rem;
+    line-height: 1.4rem;
+    font-size: 0.6rem;
+}
+
+.uploadImgModalLookSureBox .uploadImgModalLookSureBtn {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0.4rem;
+    text-align: center;
+}
+
+.uploadImgModalLookSureBox .uploadImgModalLookSureBtn > button {
+    width: 2rem;
+    height: 1rem;
+    border: none;
+    border-radius: 0.1rem;
+    color: ghostwhite;
+    background: #3072f6;
+}
+
+.uploadImgModalLookSureBox .uploadImgModalLookSureBtn > .uploadImgModalLookSureDel {
+    background: coral;
+}
+
+
 
 
