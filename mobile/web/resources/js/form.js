@@ -1,3 +1,5 @@
+document.write("<link href='/swiper/swiper.min.css' rel='stylesheet'>");
+document.write("<script src='/swiper/swiper.min.js' type='text/javascript' charset='utf-8'></script>");
 window.select = function () {
 
     window.load(function () {
@@ -191,16 +193,9 @@ window.area = function () {
     };
 };
 window.wall = function () {
-
     window.load(function () {
         $('.wallModalClose').click(function () {
             window.modal.close('.wallModalBox');
-        });
-        new Swiper('.swiper-container', {
-            pagination: '.pagination',
-            loop: true,
-            grabCursor: true,
-            paginationClickable: true
         });
     });
 
@@ -209,16 +204,16 @@ window.wall = function () {
             $('body').append(
                 '<div class="wallModalBox">' +
                 '   <div class="wallModalClose"><i class="fa fa-times" aria-hidden="true"></i></div>' +
+                '   <div class="pagination"></div>' +
                 '   <div class="wallModalContent">' +
                 '       <span>' +
                 '           <div class="swiper-container"><div class="swiper-wrapper"></div></div>' +
-                '           <div class="pagination"></div>' +
                 '       </span>' +
                 '   </div>' +
                 '</div>');
-            document.write("<link href='/swiper/idangerous.swiper.css' rel='stylesheet'>");
-            document.write("<script src='/swiper/idangerous.swiper.js' type='text/javascript' charset='utf-8'></script>");
-
+            $('.swiper-wrapper').on('click', 'img', function () {
+                console.log($(this).attr('src'));
+            })
         }
     }
 
@@ -227,13 +222,57 @@ window.wall = function () {
             add();
             $(node).on('click', function () {
                 var str = '';
+                var count = 0;
                 $.each($(this).attr('data').split(','), function (k, v) {
                     if (v) {
-                        str += '<div class="swiper-slide"><img src="' + v + '"/></div>';
+                        count++;
+                        str += '<span class="swiper-slide"><img src="' + v + '"/></span>';
                     }
                 });
                 $('.wallModalContent').find('.swiper-wrapper').html(str);
                 window.modal.open('.wallModalBox');
+                new Swiper('.swiper-container', {
+                    initialSlide: count - 1,
+                    pagination: {
+                        el: '.pagination',
+                        type: 'fraction',
+                        renderFraction: function (currentClass, totalClass) {
+                            return '<span class="' + currentClass + '"></span>' +
+                                ' / ' +
+                                '<span class="' + totalClass + '"></span>';
+                        },
+                    },
+                    loop: true,
+                    observer: true,
+                    observeParents: true,
+                });
+            });
+        }
+    };
+};
+window.uploadImg = function () {
+    window.load(function () {
+        $('.uploadImgModalClose').click(function () {
+            window.modal.close('.uploadImgModalBox');
+        });
+    });
+
+    function add() {
+        if (!$('.uploadImgModalBox').length) {
+            $('body').append('' +
+                '<div class="uploadImgModalBox" style="display: none;">' +
+                '    <div class="uploadImgModalTitle">内容详情</div>' +
+                '    <div class="uploadImgModalClose"><i class="fa fa-times" aria-hidden="true"></i></div>' +
+                '    <div class="uploadImgModalContent"></div>' +
+                '</div>');
+        }
+    }
+
+    return {
+        load: function (node) {
+            add();
+            $(node).on('click', function () {
+                window.modal.open('.uploadImgModalBox');
             });
         }
     };

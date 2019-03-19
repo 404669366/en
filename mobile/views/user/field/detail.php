@@ -88,7 +88,7 @@
                                 name: 'configure_photo',
                                 click: '.add',
                                 box: '.field_imgs',
-                                default: `<?=$field->configure_photo?>`
+                                default: '<?=$field->configure_photo?>'
                             });
                         </script>
                     </p>
@@ -105,7 +105,7 @@
                                 name: 'prove_photo',
                                 click: '.add',
                                 box: '.field_imgs',
-                                default: `<?=$field->prove_photo?>`
+                                default: '<?=$field->prove_photo?>'
                             });
                         </script>
                     </p>
@@ -122,7 +122,7 @@
                                 name: 'field_photo',
                                 click: '.add',
                                 box: '.field_imgs',
-                                default: `<?=$field->field_photo?>`
+                                default: '<?=$field->field_photo?>'
                             });
                         </script>
                     </p>
@@ -165,7 +165,8 @@
             <?php if ($field->status == 11 || $field->status >= 14): ?>
                 <div class="oldPwd">
                     <span>备案文件:</span>
-                    <a href="<?= $field->record_file ?>" style="display: inline-block;width: 77%;background-color: #0B57F0">点击下载</a>
+                    <a href="<?= $field->record_file ?>"
+                       style="display: inline-block;width: 77%;background-color: #0B57F0">点击下载</a>
                 </div>
                 <div class="field_info">
                     <p class="fieldTit">变压器图纸:</p>
@@ -217,7 +218,7 @@
                                 name: 'power_photo',
                                 click: '.add',
                                 box: '.field_imgs',
-                                default: `<?=$field->power_photo?>`
+                                default: <?=$field->power_photo?>
                             });
                         </script>
                     </p>

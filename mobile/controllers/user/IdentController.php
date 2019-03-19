@@ -64,7 +64,7 @@ class IdentController extends CommonController
     public function actionDelIdent()
     {
         Msg::set('非法操作');
-        if ($model = Ident::findOne(['user_id' => \Yii::$app->user->id, 'status' => [2, 5]])) {
+        if ($model = Ident::findOne(['user_id' => \Yii::$app->user->id, 'status' => [0, 2, 5]])) {
             $model->delete();
             Msg::set('撤销成功');
         }
