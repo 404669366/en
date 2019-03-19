@@ -196,6 +196,12 @@ window.wall = function () {
         $('.wallModalClose').click(function () {
             window.modal.close('.wallModalBox');
         });
+        new Swiper('.swiper-container', {
+            pagination: '.pagination',
+            loop: true,
+            grabCursor: true,
+            paginationClickable: true
+        });
     });
 
     function add() {
@@ -203,8 +209,16 @@ window.wall = function () {
             $('body').append(
                 '<div class="wallModalBox">' +
                 '   <div class="wallModalClose"><i class="fa fa-times" aria-hidden="true"></i></div>' +
-                '   <div class="wallModalContent"></div>' +
+                '   <div class="wallModalContent">' +
+                '       <span>' +
+                '           <div class="swiper-container"><div class="swiper-wrapper"></div></div>' +
+                '           <div class="pagination"></div>' +
+                '       </span>' +
+                '   </div>' +
                 '</div>');
+            document.write("<link href='/swiper/idangerous.swiper.css' rel='stylesheet'>");
+            document.write("<script src='/swiper/idangerous.swiper.js' type='text/javascript' charset='utf-8'></script>");
+
         }
     }
 
@@ -215,10 +229,10 @@ window.wall = function () {
                 var str = '';
                 $.each($(this).attr('data').split(','), function (k, v) {
                     if (v) {
-                        str += '<img src="' + v + '"/>';
+                        str += '<div class="swiper-slide"><img src="' + v + '"/></div>';
                     }
                 });
-                $('.wallModalContent').html(str);
+                $('.wallModalContent').find('.swiper-wrapper').html(str);
                 window.modal.open('.wallModalBox');
             });
         }
