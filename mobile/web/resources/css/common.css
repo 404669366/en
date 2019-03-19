@@ -528,6 +528,76 @@
     background: coral;
 }
 
+.intentModalBox {
+    position: fixed;
+    bottom: -0.1rem;
+    left: 0.4rem;
+    z-index: 999;
+    background: white;
+    height: 8.1rem;
+    width: 9.2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: 0.1rem;
+    border: 1px solid silver;
+    border-bottom: none;
+    display: none;
+    text-align: center;
+}
+
+.intentModalBox > .intentModalTitle {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 7.2rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.5rem;
+}
+
+.intentModalBox > .intentModalClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.64rem;
+    color: coral;
+}
+
+.intentModalBox > .intentModalOk {
+    width: 3rem;
+    height: 1.2rem;
+    font-size: 0.4rem;
+    line-height: 1.2rem;
+    margin-top: 0.2rem;
+    border-radius: 0.1rem;
+    border: none;
+    background: #3072f6;
+    color: #f0f4f7;
+}
+
+.intentModalBox > .intentModalContent {
+    box-sizing: border-box;
+    border: 1px solid silver;
+    display: block;
+    height: calc(100% - 1.2rem);
+    height: -moz-calc(100% - 1.2rem);
+    height: -webkit-calc(100% - 1.2rem);
+    width: 100%;
+    overflow-y: scroll;
+    font-size: 0.4rem;
+    line-height: 0.72rem;
+    text-indent: 0.8rem;
+}
+
+.intentModalContent::-webkit-scrollbar {
+    display: none;
+}
+
 
 
 

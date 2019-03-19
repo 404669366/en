@@ -64,16 +64,16 @@
         <form class="contentForm" action="/user/ident/add-ident.html?id=<?= $model->id ?>" method="post">
             <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
             <input type="text" readonly
-                   placeholder="认证状态: <?= \vendor\helpers\Constant::getCobberStatus()[$model->status] ?>"/>
-            <input type="text" readonly placeholder="真实姓名: <?= $model->name ?>"/>
-            <input type="text" readonly placeholder="所在地域: <?= $model->area->full_name ?>"/>
-            <input type="text" readonly placeholder="详细地址: <?= $model->address ?>"/>
+                   value="认证状态: <?= \vendor\helpers\Constant::getCobberStatus()[$model->status] ?>"/>
+            <input type="text" readonly value="真实姓名: <?= $model->name ?>"/>
+            <input type="text" readonly value="所在地域: <?= $model->area->full_name ?>"/>
+            <input type="text" readonly value="详细地址: <?= $model->address ?>"/>
             <input type="text" readonly
-                   placeholder="开户银行: <?= \vendor\helpers\Constant::getBankType()[$model->bank_type] ?>"/>
-            <input type="text" readonly placeholder="银行卡号: <?= $model->bank_no ?>"/>
-            <input type="text" class="card_positive" readonly placeholder="身份证正面: 点击查看"
+                   value="开户银行: <?= \vendor\helpers\Constant::getBankType()[$model->bank_type] ?>"/>
+            <input type="text" readonly value="银行卡号: <?= $model->bank_no ?>"/>
+            <input type="text" class="card_positive" readonly value="身份证正面: 点击查看"
                    data="<?= $model->card_positive ?>?>"/>
-            <input type="text" class="card_opposite" readonly placeholder="身份证反面: 点击查看"
+            <input type="text" class="card_opposite" readonly value="身份证反面: 点击查看"
                    data="<?= $model->card_opposite ?>?>"/>
             <?php if ($model->status == 1): ?>
                 <div class="smallTitle isNow">申请正式合伙人</div>
@@ -94,7 +94,7 @@
                 </script>
             <?php endif; ?>
             <?php if (in_array($model->status, [3, 4, 5])): ?>
-                <input type="text" class="money_ident" readonly placeholder="打款凭证: 点击查看"
+                <input type="text" class="money_ident" readonly value="打款凭证: 点击查看"
                        data="<?= $model->money_ident ?>?>"/>
                 <script>
                     window.wall().load('.money_ident');

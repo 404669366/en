@@ -2,312 +2,147 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>场地跟踪详情</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/release_venue.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-    <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/resources/js/area.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/upload/h5-upload.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/sinlar/sinlar.js" type="text/javascript" charset="utf-8"></script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>认证合伙人</title>
+    <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script>getRem(true);</script>
+    <script src="/resources/js/form.js" type="text/javascript" charset="utf-8"></script>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
-<!--header start-->
 <div class="header">
-    <!--个人中心-->
-    <div class="personal">
-        <a href="javascript:history.back(-1)">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            <img src="/resources/img/logo.png"/>
-        </a>
-        <p>
-            <a href="/user/user/user.html">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-            </a>
-        </p>
-    </div>
+    <a href="javascript:history.back(-1)" class="pic">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <img src="/resources/img/logo.png"/>
+    </a>
+    <a href="/user/user/user.html" class="pic">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+    </a>
 </div>
-<!--header end-->
 
-<!--certified_Partners start-->
-<div class="certified">
-    <div class="partnersBox">
-        <div class="partnersTit">
-            场地跟踪详情
-        </div>
-        场地编号:
-        <?= $field->no ?>&emsp;<?= \vendor\helpers\Constant::getFieldStatus()[$field->status] ?>
-        <form action="/user/field/update.html?no=<?= $field->no ?>" method="post">
-            <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
-            <div class="oldPwd">
-                <span>场地类型:</span>
-                <input type="text" placeholder="<?= \vendor\helpers\Constant::getFieldType()[$field->type] ?>"
-                       readonly>
-            </div>
-            <div class="oldPwd">
-                <span>场地标题:</span>
-                <input type="text" placeholder="<?= $field->title ?>" readonly>
-            </div>
-            <div class="oldPwd">
-                <span>场地地域:</span>
-                <input type="text" placeholder="<?= $field->area->full_name ?>" readonly>
-            </div>
-            <div class="oldPwd">
-                <span>详细地址:</span>
-                <input type="text" placeholder="<?= $field->address ?>" readonly>
-            </div>
-            <!--场地介绍-->
-            <div class="field_info">
-                <p class="fieldTit">场地介绍:</p>
-                <textarea
-                        style="height: 20rem;width: 100%;margin-top: 4px;text-indent: 24px;border: 1px dashed rgb(17, 17, 17);"
-                        readonly><?= $field->intro ?></textarea>
-            </div>
-            <!--场地图片-->
-            <div class="field_info">
-                <p class="fieldTit">场地图片:</p>
-                <p class="field_imgs">
-                    <?php foreach (explode(',', $field->image) as $k => $v): ?>
-                        <img src="<?= $v ?>" alt="场地图片<?= $k + 1 ?>">
-                    <?php endforeach; ?>
-                </p>
-            </div>
-            <?php if (in_array($field->status, [1, 6])): ?>
-                <div class="field_info configure_photo">
-                    <p class="fieldTit">配置单图片:
-                        <button type="button" class="add">添加图片</button>
-                    </p>
-                    <p class="field_imgs">
-                        <script>
-                            h5Upload({
-                                max: 4,
-                                element: '.configure_photo',
-                                name: 'configure_photo',
-                                click: '.add',
-                                box: '.field_imgs',
-                                default: '<?=$field->configure_photo?>'
-                            });
-                        </script>
-                    </p>
-                </div>
-                <div class="field_info prove_photo">
-                    <p class="fieldTit">场地证明图片:
-                        <button type="button" class="add">添加图片</button>
-                    </p>
-                    <p class="field_imgs">
-                        <script>
-                            h5Upload({
-                                max: 4,
-                                element: '.prove_photo',
-                                name: 'prove_photo',
-                                click: '.add',
-                                box: '.field_imgs',
-                                default: '<?=$field->prove_photo?>'
-                            });
-                        </script>
-                    </p>
-                </div>
-                <div class="field_info field_photo">
-                    <p class="fieldTit">场地合同图片:
-                        <button type="button" class="add">添加图片</button>
-                    </p>
-                    <p class="field_imgs">
-                        <script>
-                            h5Upload({
-                                max: 4,
-                                element: '.field_photo',
-                                name: 'field_photo',
-                                click: '.add',
-                                box: '.field_imgs',
-                                default: '<?=$field->field_photo?>'
-                            });
-                        </script>
-                    </p>
-                </div>
-                <div class="oldPwd">
-                    <span>分成比例:</span>
-                    <input type="text" name="field_ratio" value="<?= $field->field_ratio ?>">
-                </div>
-            <?php endif; ?>
-            <?php if (in_array($field->status, [4, 5]) || $field->status >= 8): ?>
-                <div class="field_info">
-                    <p class="fieldTit">配置单图片:</p>
-                    <?php foreach (explode(',', $field->configure_photo) as $k => $v): ?>
-                        <p class="field_imgs">
-                            <img src="<?= $v ?>" alt="配置单图片<?= $k + 1 ?>">
-                        </p>
-                    <?php endforeach; ?>
-                </div>
-                <div class="field_info">
-                    <p class="fieldTit">场地证明图片:</p>
-                    <p class="field_imgs">
-                        <?php foreach (explode(',', $field->prove_photo) as $k => $v): ?>
-                            <img src="<?= $v ?>" alt="场地证明图片<?= $k + 1 ?>">
-                        <?php endforeach; ?>
-                    </p>
-                </div>
-                <div class="field_info">
-                    <p class="fieldTit">场地合同图片:</p>
-                    <p class="field_imgs">
-                        <?php foreach (explode(',', $field->field_photo) as $k => $v): ?>
-                            <img src="<?= $v ?>" alt="场地合同图片<?= $k + 1 ?>">
-                        <?php endforeach; ?>
-                    </p>
-                </div>
-                <div class="oldPwd">
-                    <span>分成比例:</span>
-                    <input type="text" value="<?= $field->field_ratio ?>" readonly>
-                </div>
-            <?php endif; ?>
-            <?php if ($field->status == 11 || $field->status >= 14): ?>
-                <div class="oldPwd">
-                    <span>备案文件:</span>
-                    <a href="<?= $field->record_file ?>"
-                       style="display: inline-block;width: 77%;background-color: #0B57F0">点击下载</a>
-                </div>
-                <div class="field_info">
-                    <p class="fieldTit">变压器图纸:</p>
-                    <p class="field_imgs">
-                        <?php foreach (explode(',', $field->transformer_drawing) as $k => $v): ?>
-                            <img src="<?= $v ?>" alt="变压器图纸<?= $k + 1 ?>">
-                        <?php endforeach; ?>
-                    </p>
-                </div>
-                <div class="field_info">
-                    <p class="fieldTit">施工图纸:</p>
-                    <p class="field_imgs">
-                        <?php foreach (explode(',', $field->field_drawing) as $k => $v): ?>
-                            <img src="<?= $v ?>" alt="施工图纸<?= $k + 1 ?>">
-                        <?php endforeach; ?>
-                    </p>
-                </div>
-                <div class="field_info">
-                    <p class="fieldTit">预算报表:</p>
-                    <p class="field_imgs">
-                        <?php foreach (explode(',', $field->budget_photo) as $k => $v): ?>
-                            <img src="<?= $v ?>" alt="预算报表<?= $k + 1 ?>">
-                        <?php endforeach; ?>
-                    </p>
-                </div>
-                <div class="oldPwd">
-                    <span>规划车位:</span>
-                    <input type="text" placeholder="<?= $field->park ?>" readonly>
-                </div>
-                <div class="oldPwd">
-                    <span>预算总金额:</span>
-                    <input type="text" placeholder="<?= $field->budget ?>" readonly>
-                </div>
-                <div class="oldPwd">
-                    <span>起投金额:</span>
-                    <input type="text" placeholder="<?= $field->minimal ?>" readonly>
-                </div>
-            <?php endif; ?>
-            <?php if (in_array($field->status, [11, 16])): ?>
-                <div class="field_info power_photo">
-                    <p class="fieldTit">电力证明:
-                        <button type="button" class="add">添加图片</button>
-                    </p>
-                    <p class="field_imgs">
-                        <script>
-                            h5Upload({
-                                max: 4,
-                                element: '.power_photo',
-                                name: 'power_photo',
-                                click: '.add',
-                                box: '.field_imgs',
-                                default: <?=$field->power_photo?>
-                            });
-                        </script>
-                    </p>
-                </div>
-            <?php endif; ?>
-            <?php if (in_array($field->status, [14, 15])): ?>
-                <div class="field_info">
-                    <p class="fieldTit">电力证明:</p>
-                    <p class="field_imgs">
-                        <?php foreach (explode(',', $field->power_photo) as $k => $v): ?>
-                            <img src="<?= $v ?>" alt="电力证明<?= $k + 1 ?>">
-                        <?php endforeach; ?>
-                    </p>
-                </div>
-            <?php endif; ?>
-            <?php if (in_array($field->status, [6, 16])): ?>
-                <div class="oldPwd">
-                    <span>驳回说明:</span>
-                    <textarea
-                            style="height: 20rem;width: 100%;margin-top: 4px;text-indent: 24px;border: 1px dashed rgb(17, 17, 17);"
-                            readonly><?= $field->remark ?></textarea>
-                </div>
-            <?php endif; ?>
-            <?php if (in_array($field->status, [1, 6, 11, 15, 16])): ?>
-                <?php if ($field->status != 15): ?>
-                <button type="submit"
-                        style="font-size: 2rem;background-color: #3072f6;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">
-                    确认提交
-                </button>
-            <?php endif; ?>
-            <?php if ($field->status != 16): ?>
-                <button type="button" class="del"
-                        style="font-size: 2rem;background-color: #FF4136;border-radius: 5px;width: 18%;height: 5rem;color: white;margin-top: 1rem">
-                    放弃
-                </button>
-                <div class="intent"
-                     style="display: none;width: 100%;height: 100%;position: fixed;z-index: 998;background: rgba(0, 0, 0, 0.7);;top: 0;left: 0">
-                    <div style="width: 68%;height: 48rem;background: #fcfcfc;margin: 30rem auto;border-radius: 3px;position: relative">
-                        <div class="close"
-                             style="position: absolute;right: 1.5rem;top: 1.5rem;height: 3rem;line-height: 3rem;width: 3rem;text-align: center;cursor: pointer;z-index: 999">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </div>
-                        <div style="width: 100%;height: 50rem;position: absolute;top: 35px;padding: 0 1rem;box-sizing: border-box">
-                            <span style="width: 100%;text-align: center;height: 4rem;line-height: 4rem;font-size: 2rem;display: inline-block">放弃说明</span>
-                            <textarea class="explain"
-                                      style="width: 80%;height: 33rem;line-height: 2rem;font-size: 1.6rem;display: block;margin: 1rem auto;"
-                                      placeholder="请填写放弃说明"></textarea>
-                            <span style="width: 100%;text-align: center;font-size: 16px;display: inline-block;">
-                <button class="up" type="button"
-                        style="border: none;border-radius:3px;color: white;background-color: #3072F6;width: 50%;display: inline-block;height: 4rem;line-height: 4rem;font-size:2rem;float: none">确认</button>
-            </span>
-                        </div>
-                    </div>
-                    `
-                </div>
-                <script>
-                    $(function () {
-                        $('.del').click(function () {
-                            $('.intent').fadeIn();
-                        });
-                        $('.close').click(function () {
-                            console.log(111);
-                            $('.intent').fadeOut();
-                        });
-                        $('.up').click(function () {
-                            if ($('.explain').val()) {
-                                $.getJSON('/user/field/del.html', {
-                                    no: '<?=$field->no?>',
-                                    remark: $('.explain').val()
-                                }, function (re) {
-                                    if (re.type) {
-                                        layer.msg('提交成功');
-                                        window.location.href = '/user/field/track-field.html';
-                                    } else {
-                                        layer.msg(re.msg);
-                                    }
-                                    $('.intent').fadeOut();
-                                })
-                            } else {
-                                layer.msg('请填写放弃说明');
-                            }
-                        });
-                    });
-                </script>
-            <?php endif; ?>
-            <?php endif; ?>
-        </form>
+<div class="contentBox">
+    <div class="contentTitle">
+        场地跟踪详情
     </div>
+    <form class="contentForm" action="/user/field/update.html?no=<?= $field->no ?>" method="post">
+        <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+        <input type="text" readonly
+               value="场地编号: <?= $field->no ?>&emsp;<?= \vendor\helpers\Constant::getFieldStatus()[$field->status] ?>"/>
+        <input type="text" readonly
+               value="场地类型: <?= \vendor\helpers\Constant::getFieldType()[$field->type] ?>"/>
+        <input type="text" readonly
+               value="场地标题: <?= $field->title ?>"/>
+        <input type="text" readonly
+               value="场地地域: <?= $field->area->full_name ?>"/>
+        <input type="text" readonly
+               value="详细地址: <?= $field->address ?>"/>
+        <input type="text" class="intro" readonly value="场地介绍: 点击查看" data="<?= $field->intro ?>"/>
+        <input type="text" class="image" readonly value="场地图片: 点击查看" data="<?= $field->image ?>"/>
+        <?php if (in_array($field->status, [1, 6])): ?>
+            <input type="text" readonly class="configure_photo" value="配置单图片: 点击编辑"
+                   data="<?= $field->configure_photo ?>"/>
+            <input type="text" readonly class="prove_photo" value="场地证明图片: 点击编辑" data="<?= $field->prove_photo ?>"/>
+            <input type="text" readonly class="field_photo" value="场地合同图片: 点击编辑" data="<?= $field->field_photo ?>"/>
+            <input type="text" placeholder="请填写分成比例" value="<?= $field->field_ratio ?>"/>
+            <script>
+                window.uploadImg().load('.configure_photo', 'configure_photo', 4);
+                window.uploadImg().load('.prove_photo', 'prove_photo', 4);
+                window.uploadImg().load('.field_photo', 'field_photo', 4);
+            </script>
+        <?php endif; ?>
+        <?php if (in_array($field->status, [4, 5]) || $field->status >= 8): ?>
+            <input type="text" readonly class="configure_photo" value="配置单图片: 点击查看"
+                   data="<?= $field->configure_photo ?>"/>
+            <input type="text" readonly class="prove_photo" value="场地证明图片: 点击查看" data="<?= $field->prove_photo ?>"/>
+            <input type="text" readonly class="field_photo" value="场地合同图片: 点击查看" data="<?= $field->field_photo ?>"/>
+            <input type="text" readonly value="分成比例: <?= $field->field_ratio ?>"/>
+            <script>
+                window.wall().load('.configure_photo');
+                window.wall().load('.prove_photo');
+                window.wall().load('.field_photo');
+            </script>
+        <?php endif; ?>
+        <?php if ($field->status == 11 || $field->status >= 14): ?>
+            <input type="text" readonly class="transformer_drawing" value="变压器图纸: 点击查看"
+                   data="<?= $field->transformer_drawing ?>"/>
+            <input type="text" readonly class="field_drawing" value="施工图纸: 点击查看" data="<?= $field->field_drawing ?>"/>
+            <input type="text" readonly class="budget_photo" value="预算报表: 点击查看" data="<?= $field->budget_photo ?>"/>
+            <input type="text" readonly value="规划车位: <?= $field->park ?>"/>
+            <input type="text" readonly value="预算总金额: <?= $field->budget ?>"/>
+            <input type="text" readonly value="起投金额: <?= $field->minimal ?>"/>
+            <script>
+                window.wall().load('.transformer_drawing');
+                window.wall().load('.field_drawing');
+                window.wall().load('.budget_photo');
+            </script>
+        <?php endif; ?>
+        <?php if (in_array($field->status, [11, 16])): ?>
+            <input type="text" readonly class="power_photo" placeholder="电力证明: 点击编辑"
+                   data="<?= $field->power_photo ?>"/>
+            <script>
+                window.uploadImg().load('.power_photo', 'power_photo', 4);
+            </script>
+        <?php endif; ?>
+        <?php if (in_array($field->status, [14, 15])): ?>
+            <input type="text" readonly class="power_photo" value="电力证明: 点击查看"
+                   data="<?= $field->power_photo ?>"/>
+            <script>
+                window.wall().load('.power_photo');
+            </script>
+        <?php endif; ?>
+        <?php if (in_array($field->status, [6, 16])): ?>
+            <input type="text" class="remark" readonly value="驳回说明: 点击查看" data="<?= $field->remark ?>"/>
+            <script>
+                window.intro().load('.remark');
+            </script>
+        <?php endif; ?>
+        <?php if (in_array($field->status, [1, 6, 11, 15, 16])): ?>
+            <?php if ($field->status != 15): ?>
+            <button type="submit">确认提交</button>
+        <?php endif; ?>
+        <?php if ($field->status != 16): ?>
+            <button style="background:#FF4136" class="del" type="button">放弃</button>
+            <div class="intentModalBox">
+                <div class="intentModalTitle">放弃说明</div>
+                <div class="intentModalClose"><i class="fa fa-times" aria-hidden="true"></i></div>
+                <textarea class="intentModalContent"></textarea>
+                <button type="button" class="intentModalOk">确认提交</button>
+            </div>
+            <script>
+                $(function () {
+                    $('.del').click(function () {
+                        window.modal.open('.intentModalBox');
+                    });
+                    $('.intentModalClose').click(function () {
+                        window.modal.close('.intentModalBox');
+                    });
+                    $('.intentModalOk').click(function () {
+                        if ($('.intentModalContent').val()) {
+                            $.getJSON('/user/field/del.html', {
+                                no: '<?=$field->no?>',
+                                remark: $('.intentModalContent').val()
+                            }, function (re) {
+                                if (re.type) {
+                                    layer.msg('提交成功');
+                                    window.location.href = '/user/field/track-field.html';
+                                } else {
+                                    layer.msg(re.msg);
+                                }
+                                window.modal.close('.intentModalBox');
+                            })
+                        } else {
+                            layer.msg('请填写放弃说明');
+                        }
+                    });
+                });
+            </script>
+        <?php endif; ?>
+        <?php endif; ?>
+    </form>
+    <script>
+        window.intro().load('.intro');
+        window.wall().load('.image');
+    </script>
 </div>
-<!--certified_Partners end-->
 </body>
 </html>
