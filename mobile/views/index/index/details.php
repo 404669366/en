@@ -46,7 +46,7 @@
         pagination: '.pagination',
         loop: true,
         grabCursor: true,
-        paginationClickable: true,
+        paginationClickable: true
     });
 </script>
 <!--banner end-->
@@ -93,23 +93,24 @@
 <div class="skill" style="background-size: <?= ((float)$model->financing_ratio) * 100 ?>% auto">
     当前进度: <?= ((float)$model->financing_ratio) * 100 ?>%
 </div>
-
-<div class="venues">
-    <div class="venuesCont">
-        <div class="venTit">
-            投资概况
-        </div>
-        <?php foreach ($list as $k => $v): ?>
-            <div style="width: 100%;height: 3rem;line-height: 3rem;font-size: 2rem;margin-bottom: 0.4rem;: ">
-                <?= substr_replace($v['tel'], '*****', 3, 5) ?>
-                <div class="bar" style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
-                    <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
-                </div>
+<?php if ($list): ?>
+    <div class="venues">
+        <div class="venuesCont">
+            <div class="venTit">
+                投资概况
             </div>
-        <?php endforeach; ?>
+            <?php foreach ($list as $k => $v): ?>
+                <div style="width: 100%;height: 3rem;line-height: 3rem;font-size: 2rem;margin-bottom: 0.4rem;: ">
+                    <?= substr_replace($v['tel'], '*****', 3, 5) ?>
+                    <div class="bar"
+                         style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
+                        <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-</div>
-
+<?php endif; ?>
 <div class="venues">
     <div class="venuesCont">
         <div class="venTit">
@@ -213,7 +214,7 @@
     }
 </style>
 <div class="broker">
-    <div class="agent">
+    <div class="agent identInfo">
         <span><img src="/resources/img/agent_none.png"/><br><?= $model->cobber->ident->name ?></span>
     </div>
     <div class="buttons">
@@ -246,7 +247,7 @@
     $('.intent .close').click(function () {
         $('.intent').fadeOut();
     });
-    $('.agent').click(function () {
+    $('.identInfo').click(function () {
         window.location.href = '/index/index/cobber-field.html?cobber_id=<?=$model->cobber_id?>';
     });
 </script>

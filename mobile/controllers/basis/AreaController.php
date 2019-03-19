@@ -22,6 +22,7 @@ class AreaController extends CommonController
     {
         return $this->rJson(Area::getData($pid));
     }
+
     /**
      * 获取默认数据
      * @param $area_id
@@ -29,7 +30,7 @@ class AreaController extends CommonController
      */
     public function actionDef($area_id)
     {
-        return $this->rJson(Area::getDefault($area_id));
+        return $this->rJson(Area::getDef($area_id));
     }
 
 }

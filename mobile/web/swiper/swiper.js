@@ -1,1 +1,2 @@
-$('head').append('<link rel="stylesheet" type="text/css" href="/swiper/idangerous.swiper.css"/>').append('<script src="/swiper/idangerous.swiper.js" type="text/javascript" charset="utf-8"></script>');
+document.write("<link href='/swiper/idangerous.swiper.css' rel='stylesheet'>");
+document.write("<script src='/swiper/idangerous.swiper.js' type='text/javascript' charset='utf-8'></script>");

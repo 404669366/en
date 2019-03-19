@@ -50,7 +50,7 @@
         <span type="2">火热</span>
         <span type="3">人气</span>
         <span type="4">点击</span>
-        <span type="5">面积</span>
+        <span type="5">车位</span>
         <span type="6">总价</span>
     </div>
 </div>
