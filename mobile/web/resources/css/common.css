@@ -232,7 +232,7 @@
 
 .swiper-wrapper > span > img {
     width: 10rem;
-    height: auto;
+    max-height: 14rem;
 }
 
 .selectModalBox {
