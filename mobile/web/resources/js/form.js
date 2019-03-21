@@ -86,7 +86,6 @@ window.intro = function () {
                 window.modal.open('.introModalBox');
                 $('.introModalContent').text($(this).attr('data') || '');
                 if ($(this).attr('inputName')) {
-                    $('.introModalTitle').text('关闭保存内容');
                     $('.introModalContent').attr('inputName', $(this).attr('inputName')).prop('readonly', false);
                 }
             });
