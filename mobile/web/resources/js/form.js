@@ -1,3 +1,4 @@
+document.write("<link href='/resources/css/form.css' rel='stylesheet'>");
 document.write("<link href='/swiper/swiper.min.css' rel='stylesheet'>");
 document.write("<script src='/swiper/swiper.min.js' type='text/javascript' charset='utf-8'></script>");
 window.select = function () {
