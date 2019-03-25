@@ -70,7 +70,7 @@
         <div class="box_col" title="面积">
             <a href="/index/index/list.html?type=5">
                 <div class="ico"><img src="/resources/img/icon_05.png"/></div>
-                <div class="name">面积</div>
+                <div class="name">车位</div>
             </a>
         </div>
     </div>
