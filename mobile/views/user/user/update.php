@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>修改密码</title>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
-    <script>getRem(true);</script>
     <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>

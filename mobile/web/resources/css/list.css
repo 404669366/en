@@ -1,115 +1,113 @@
-*{
-	padding: 0;
-	margin: 0;
-}
-body{
-	font-family: "宋体";
-}
-
-/*search*/
-.search{
-	height: 5rem;
-	padding: 1.5rem;
-	background: #F9F9F9;
-}
-.inputBox{
-	width: 100%;
-	height: 5rem;
-	margin: auto;
-	background: #E8E8E9;
-	color: #B1B1B1;
-}
-.inputBox input{
-	float: left;
-	width: 90%;
-	height: 5rem;
-	border: none;
-	background: #E8E8E9;
-	font:500 2rem/5rem "微软雅黑";
-	letter-spacing: 0.2rem;
-	text-indent: 1rem;
-	padding-left: 1rem;
-	box-sizing: border-box;
-}
-.inputBox .searchBtn{
-	background: #a6a6a6;
-	color: #f3f3f3;
-	text-align: center;
-	float: right;
-	width: 10%;
-	height: 5rem;
-	font: 3rem/5rem "微软雅黑";
+.searchBox {
+    position: fixed;
+    left: 0;
+    top: 1.5rem;
+    width: 10rem;
+    height: 2.6rem;
+    border-bottom: 1px solid #cccccc;
 }
 
-/*slideList*/
-.slideList{
-	width: 100%;
-	height: 6rem;
-	border-bottom: 0.1rem solid #ccc;
-}
-.slits span{
-	display: inline-block;
-	width: 16.1%;
-	height: 6rem;
-	text-align: center;
-	font: 2.65rem/6rem '宋体';
-}
-.slits a{
-	color: #000;
-}
-.slits .active{
-	color: #fff;
-	background-color: #3072F6;
+.searchBox > .searchInput {
+    background: #F9F9F9;
+    padding: 0.4rem;
+    height: 1.6rem;
+    box-sizing: border-box;
 }
 
-/*main*/
-.recommend{
-	min-height: 92rem;
-	padding:3rem;
-}
-.recont{
-	width: 100%;
-	height: 16rem;
-	padding: 2rem 0;
-	border-bottom: .1rem solid #e4e6f0;
-}
-.recimg{
-	width: 20.75rem;
-	height: 15.375rem;
-	float: left;
+.searchBox > .searchInput > div {
+    width: 9.2rem;
+    height: 0.8rem;
 }
 
-.recimg img{
-	width: 20.75rem;
-	height: 15.375rem;
+.searchBox > .searchInput .searchKey {
+    width: 8rem;
+    height: 0.8rem;
+    border: none;
+    display: block;
+    float: left;
+    font-size: 0.36rem;
+    padding: 0 0.2rem;
+    background: #E8E8E9;
+    box-sizing: border-box;
 }
-.redadat{
-	width: 56%;
-	height: 16rem;
-	float: right;
+
+.searchBox > .searchInput .searchBtn {
+    width: 1.2rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    font-size: 0.5rem;
+    float: right;
+    background: #a6a6a6;
+    color: #f3f3f3;
 }
-.redadat .tit{
-    margin-bottom: 1rem;
-    line-height: 3.2rem;
+
+.searchBox > .clickBtn {
+    margin-top: -1px;
+    width: 10rem;
+    height: 1rem;
+    background: white;
+}
+
+.searchBox > .clickBtn > div {
+    float: left;
+    width: 1.66666rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.36rem;
+}
+
+.searchBox > .clickBtn > .active {
+    color: #fff;
+    background-color: #3072F6;
+}
+
+.recommend {
+    box-sizing: border-box;
+    padding: 0.2rem 0.4rem;
+    width: 10rem;
+    margin-top: 4.1rem;
+}
+
+.recommend > .one {
+    width: 9.2rem;
+    height: 2.8rem;
+    border-bottom: 1px solid #e4e6f0;
+    padding: 0.2rem 0;
+    box-sizing: border-box;
+}
+
+.recommend > .one > img {
+    float: left;
+    width: 3.2rem;
+    height: 2.4rem;
+}
+
+.recommend > .one > .oneInfo {
+    float: right;
+    width: 5.2rem;
+    height: 2.4rem;
+}
+
+.recommend > .one > .oneInfo > .title {
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.4rem;
     overflow: hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
-    font-size: 2.7rem;
-    color: #101d37;
-}
-.redadat .tit_txt{
-    margin-bottom: 1rem;
-    font-size: 2.1rem;
-    font-family: "微软雅黑";
-    color: #101d37;
-}
-.redadat .price{
-	font-size: 3rem;
-	color: #fa5741;
-	font-weight: 600;
-}
-.none_border{
-	border: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
+.recommend > .one > .oneInfo > .info {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.3rem;
+}
 
+.recommend > .one > .oneInfo > .price {
+    height: 0.7rem;
+    line-height: 0.7rem;
+    color: #fa5741;
+    font-size: 0.4rem;
+}

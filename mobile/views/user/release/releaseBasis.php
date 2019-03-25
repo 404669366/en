@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>认证合伙人</title>
+    <title>发布基础场地</title>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
-    <script>getRem(true);</script>
     <script src="/resources/js/form.js" type="text/javascript" charset="utf-8"></script>
     <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
@@ -22,7 +21,7 @@
 
 <div class="contentBox">
     <div class="contentTitle">
-        发布场地
+        发布基础场地
     </div>
     <form class="contentForm" action="/user/release/add-basis.html" method="post">
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">

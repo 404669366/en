@@ -1,57 +1,37 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>场地列表</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/foot.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/list.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-    <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
-
 <body>
-<!--header start-->
 <div class="header">
-    <div class="personal">
-        <a href="javascript:history.back(-1)">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            <img src="/resources/img/logo.png"/>
-        </a>
-        <p>
-            <a href="/user/user/user.html">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-            </a>
-        </p>
-    </div>
+    <a href="javascript:history.back(-1)" class="pic">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <img src="/resources/img/logo.png"/>
+    </a>
+    <a href="/user/user/user.html" class="pic">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+    </a>
 </div>
-<!--header end-->
-
-<!--search start-->
-<div class="search">
-    <div class="inputBox">
-        <input type="text" class="searchKey" placeholder="请输入小区或商圈名称">
-        <div class="searchBtn">
-            <i class="fa fa-search" aria-hidden="true"></i>
+<div class="searchBox">
+    <div class="searchInput">
+        <div>
+            <input type="text" class="searchKey" placeholder="请输入小区或商圈名称">
+            <div class="searchBtn"><i class="fa fa-search" aria-hidden="true"></i></div>
         </div>
     </div>
-</div>
-<!--search end-->
-
-<!--Slide list start-->
-<div class="slideList">
-    <div class="slits">
-        <span type="1">最新</span>
-        <span type="2">火热</span>
-        <span type="3">人气</span>
-        <span type="4">点击</span>
-        <span type="5">车位</span>
-        <span type="6">总价</span>
+    <div class="clickBtn">
+        <div type="1" class="active">最新</div>
+        <div type="2">火热</div>
+        <div type="3">人气</div>
+        <div type="4">点击</div>
+        <div type="5">车位</div>
+        <div type="6">总价</div>
     </div>
 </div>
 <script>
@@ -61,54 +41,40 @@
             $('.searchKey').focus();
         }
         var now = getParams('type', 1);
+
         $('.searchKey').val(getParams('search', ''));
-        $('.slits span').removeClass('active').click(function () {
+
+        $('.clickBtn>div').removeClass('active').click(function () {
             var search = $('.searchKey').val();
             window.location.href = '?search=' + search + '&type=' + $(this).attr('type');
-        });
-        $.each($('.slits>span'), function (k, v) {
-            if ($(this).attr('type') == now) {
+        }).each(function (k, v) {
+            if ($(this).attr('type') === now) {
                 $(this).addClass('active');
             }
         });
+
         $('.searchBtn').click(function () {
             var search = $('.searchKey').val();
             window.location.href = '?search=' + search + '&type=' + now;
         });
     });
 </script>
-<!--Slide list end-->
-
-<!--main start-->
 <div class="recommend">
-    <!--列表-->
-    <div class="mod_cont">
-        <?php foreach ($fields['data'] as $data): ?>
-            <div class="recont">
-                <a href="/index/index/details.html?no=<?= $data['no'] ?>">
-                    <div class="recimg">
-                        <img src="<?= $data['image'][0] ?>"/>
-                    </div>
-                    <div class="redadat">
-                        <p class="tit"><?= $data['title'] ?></p>
-                        <p class="tit_txt"><?= $data['full_name'] ?></p>
-                        <p class="tit_txt"><?= $data['minimal'] ?>￥起投 / <?= $data['park'] ?>车位</p>
-                        <p class="price"><?= $data['budget'] ?>￥</p>
-                    </div>
-                </a>
+    <?php foreach ($fields['data'] as $data): ?>
+        <div class="one jump" url="/index/index/details.html?no=<?= $data['no'] ?>">
+            <img src="<?= $data['image'][0] ?>">
+            <div class="oneInfo">
+                <div class="title"><?= $data['title'] ?></div>
+                <div class="info"><?= $data['full_name'] ?></div>
+                <div class="info"><?= $data['minimal'] ?>￥起投 / <?= $data['park'] ?>车位</div>
+                <div class="price"><?= $data['budget'] ?>￥</div>
             </div>
-        <?php endforeach; ?>
-    </div>
+        </div>
+    <?php endforeach; ?>
 </div>
-<!--main end-->
+<div class="foot">
+    <span>Copyright © 2018 en.ink, All Rights Reserved.<br>四川亿能天成科技有限公司</span>
+</div>
 
-<!--footer start-->
-<div class="footer">
-    <div class="footer_cont">
-        Copyright © 2018 en.ink，All Rights Reserved.
-        <br/> 四川亿能天成科技有限公司
-    </div>
-</div>
-<!--footer end-->
 </body>
 </html>

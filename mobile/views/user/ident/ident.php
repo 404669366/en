@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>认证合伙人</title>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
-    <script>getRem(true);</script>
     <script src="/resources/js/form.js" type="text/javascript" charset="utf-8"></script>
     <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>

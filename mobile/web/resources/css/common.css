@@ -73,7 +73,7 @@
     height: 1.32rem;
     line-height: 1.32rem;
     font-size: 0.4rem;
-    color: #fff;
+    color: #FFFFFF;
     text-align: center;
     border: none;
     background-color: #3072f6;
@@ -87,4 +87,19 @@
     line-height: 1rem;
     font-size: 0.32rem;
     text-align: center;
+}
+
+.foot {
+    width: 10rem;
+    height: 1.6rem;
+    display: table;
+    background: #2f3130;
+}
+
+.foot > span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.24rem;
+    color: #FFFFFF;
 }

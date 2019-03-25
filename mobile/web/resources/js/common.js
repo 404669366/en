@@ -1,26 +1,29 @@
-function getRem(need, ratio) {
-    if (need) {
-        document.write("<link href='/resources/css/reset.css' rel='stylesheet'>");
-        document.write("<link href='/resources/css/common.css' rel='stylesheet'>");
-        document.write("<link href='/resources/css/font-awesome.min.css' rel='stylesheet'>");
-        document.write("<script src='/resources/js/jquery-3.3.1.min.js' type='text/javascript' charset='utf-8'></script>");
-        document.write("<script src='/resources/js/layer/layer.min.js' type='text/javascript' charset='utf-8'></script>");
-        document.write("<script src='/resources/js/modal.js' type='text/javascript' charset='utf-8'></script>");
-    }
-    var width = document.documentElement.getBoundingClientRect().width;
-    var rem = width * (ratio || 0.1);
-    document.documentElement.style.fontSize = rem + "px";
-}
+document.write("<link href='/resources/css/reset.css' rel='stylesheet'>");
+document.write("<link href='/resources/css/common.css' rel='stylesheet'>");
+document.write("<link href='/resources/css/font-awesome.min.css' rel='stylesheet'>");
+document.write("<script src='/resources/js/jquery-3.3.1.min.js' type='text/javascript' charset='utf-8'></script>");
+document.write("<script src='/resources/js/layer/layer.min.js' type='text/javascript' charset='utf-8'></script>");
+document.write("<script src='/resources/js/modal.js' type='text/javascript' charset='utf-8'></script>");
+var width = document.documentElement.getBoundingClientRect().width;
+var rem = width * 0.1;
+document.documentElement.style.fontSize = rem + "px";
 
+load(function () {
+    $('.jump').click(function () {
+        if ($(this).attr('url')) {
+            window.location.href = $(this).attr('url');
+        }
+    });
+});
 
 function load(func) {
-    var oldonload = window.onload;
+    var oldLoad = window.onload;
     if (typeof window.onload !== 'function') {
         window.onload = func;
     }
     else {
         window.onload = function () {
-            oldonload();
+            oldLoad();
             func();
         }
     }

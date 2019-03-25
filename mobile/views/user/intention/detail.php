@@ -104,7 +104,7 @@
                                 name: 'contract_photo',
                                 click: '.add',
                                 box: '.field_imgs',
-                                default: `<?=$data->contract_photo?>`
+                                default: '<?=$data->contract_photo?>'
                             });
                         </script>
                     </p>
@@ -121,7 +121,7 @@
                                 name: 'money_audit',
                                 click: '.add',
                                 box: '.field_imgs',
-                                default: `<?=$data->money_audit?>`
+                                default: '<?=$data->money_audit?>'
                             });
                         </script>
                     </p>

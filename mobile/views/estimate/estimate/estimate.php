@@ -6,7 +6,6 @@
     <title>收益预测</title>
     <link rel="stylesheet" type="text/css" href="/resources/css/estimate.css"/>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
-    <script>getRem(true);</script>
     <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
