@@ -9,23 +9,23 @@
 
 .searchBox > .searchInput {
     background: #F9F9F9;
-    padding: 0.4rem;
+    padding: 0.2rem;
     height: 1.6rem;
     box-sizing: border-box;
 }
 
 .searchBox > .searchInput > div {
-    width: 9.2rem;
-    height: 0.8rem;
+    width: 9.6rem;
+    height: 1.2rem;
 }
 
 .searchBox > .searchInput .searchKey {
-    width: 8rem;
-    height: 0.8rem;
+    width: 8.4rem;
+    height: 1.2rem;
     border: none;
     display: block;
     float: left;
-    font-size: 0.36rem;
+    font-size: 0.40rem;
     padding: 0 0.2rem;
     background: #E8E8E9;
     box-sizing: border-box;
@@ -33,8 +33,8 @@
 
 .searchBox > .searchInput .searchBtn {
     width: 1.2rem;
-    height: 0.8rem;
-    line-height: 0.8rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
     text-align: center;
     font-size: 0.5rem;
     float: right;
@@ -43,7 +43,6 @@
 }
 
 .searchBox > .clickBtn {
-    margin-top: -1px;
     width: 10rem;
     height: 1rem;
     background: white;
