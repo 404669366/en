@@ -1,5 +1,6 @@
 .header {
     position: fixed;
+    z-index: 99;
     top: 0;
     left: 0;
     width: 10rem;
@@ -36,18 +37,27 @@
 .contentBox {
     margin-top: 1.5rem;
     width: 10rem;
-    padding: 0.2rem 0.4rem;
+    padding: 0 0.4rem;
     box-sizing: border-box;
 }
 
-.contentBox .contentTitle {
+.contentBox > .contentTitle {
     width: 9.2rem;
-    height: 1.4rem;
-    line-height: 1.4rem;
+    height: 1.32rem;
+    line-height: 1.32rem;
     font-size: 0.48rem;
 }
 
-.contentBox .contentForm {
+.contentBox > .contentTitle > p {
+    float: right;
+    color: #3072F6
+}
+
+.contentBox > .contentTitle > span {
+    color: #E4393C;
+}
+
+.contentBox > .contentForm {
     width: 9.2rem;
 }
 
@@ -87,6 +97,88 @@
     line-height: 1rem;
     font-size: 0.32rem;
     text-align: center;
+}
+
+.contentBox > .contentList {
+    width: 9.2rem;
+}
+
+.contentBox > .contentList > .one {
+    height: 2.8rem;
+    width: 9.2rem;
+    background: #F8F8F9;
+    padding: 0.2rem;
+    box-sizing: border-box;
+    margin-bottom: 0.2rem;
+}
+
+.one > .oneImg {
+    float: left;
+    width: 3.6rem;
+    height: 2.4rem;
+}
+
+.one > .oneImg > img {
+    max-width: 3.6rem;
+    height: 2.4rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.one > .oneInfo {
+    float: right;
+    width: 5rem;
+    height: 2.4rem;
+}
+
+.one > .oneInfo > .title {
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .info {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .price {
+    height: 0.7rem;
+    line-height: 0.7rem;
+    color: #fa5741;
+    font-size: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .four {
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .five {
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo span {
+    color: #fa5741;
 }
 
 .foot {

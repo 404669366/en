@@ -2,58 +2,36 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>关注合伙人</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/attention_field.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-    <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>关注合伙人列表</title>
+    <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
-<!--header start-->
 <div class="header">
-    <!--个人中心-->
-    <div class="personal">
-        <a href="javascript:history.back(-1)">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            <img src="/resources/img/logo.png"/>
-        </a>
-        <p>
-            <a href="/user/user/user.html">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-            </a>
-        </p>
-    </div>
+    <a href="javascript:history.back(-1)" class="pic">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <img src="/resources/img/logo.png"/>
+    </a>
+    <a href="/user/user/user.html" class="pic">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+    </a>
 </div>
-<!--header end-->
-
-<!--main start-->
-<div class="main">
-    <div class="mainList">
-        <!--title-->
-        <div class="mainTit">
-            共<span><?= count($follow) ?></span>个 关注合伙人
-        </div>
+<div class="contentBox">
+    <div class="contentTitle">共关注<span> <?= count($follow) ?> </span>个合伙人</div>
+    <div class="contentList">
         <?php foreach ($follow as $v): ?>
-            <div class="listCont">
-                <a href="/index/index/cobber-field.html?cobber_id=<?= $v['cobber_id'] ?>">
-                    <img src="/resources/img/agent_none.png"/>
-                    <div class="information">
-                        <p><span>手机号:</span><?= $v['tel'] ?></p>
-                        <p><span>姓名:</span><?= $v['name'] ?></p>
-                        <p><span>关注时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?></p>
-                        <p><span>场地源数量:</span><?= \vendor\en\User::getCobberFieldCount(Yii::$app->user->id) ?></p>
-                    </div>
-                </a>
-                <a href="/user/follow/follow-cancel.html?cobber_id=<?= $v['cobber_id'] ?>" class="cancel">
-                    取消关注
-                </a>
+            <div class="one jump" url="/index/index/cobber-field.html?cobber_id=<?= $v['cobber_id'] ?>">
+                <div class="oneImg"><img src="/resources/img/agent_none.png"></div>
+                <div class="oneInfo">
+                    <div class="four">手机号: <?= $v['tel'] ?></div>
+                    <div class="four">姓&emsp;名: <?= $v['name'] ?></div>
+                    <div class="four">场地数量: <?= \vendor\en\User::getCobberFieldCount(Yii::$app->user->id) ?></div>
+                    <div class="four">关注时间: <?= date('Y-m-d H:i:s', $v['created']) ?></div>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
-<!--main end-->
 </body>
 </html>

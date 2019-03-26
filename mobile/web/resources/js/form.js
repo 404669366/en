@@ -59,7 +59,10 @@ window.intro = function () {
 
     window.load(function () {
         $('.introModalClose').on('click', function () {
-            $('[name="' + $('.introModalContent').attr('inputName') + '"]').val($('.introModalContent').val());
+            if ($('.introModalContent').attr('inputName')) {
+                $($('.introModalContent').attr('node')).val($('.introModalContent').val());
+                $('[name="' + $('.introModalContent').attr('inputName') + '"]').val($('.introModalContent').val());
+            }
             window.modal.close('.introModalBox');
         });
     });
@@ -80,6 +83,7 @@ window.intro = function () {
             add();
             if (name) {
                 $(node)
+                    .attr('node', node)
                     .attr('inputName', name)
                     .after('<input type="hidden" name="' + name + '" value="' + ($(node).attr('data') || '') + '">');
             }
@@ -87,7 +91,10 @@ window.intro = function () {
                 window.modal.open('.introModalBox');
                 $('.introModalContent').text($(this).attr('data') || '');
                 if ($(this).attr('inputName')) {
-                    $('.introModalContent').attr('inputName', $(this).attr('inputName')).prop('readonly', false);
+                    $('.introModalContent')
+                        .attr('node', $(this).attr('node'))
+                        .attr('inputName', $(this).attr('inputName'))
+                        .prop('readonly', false);
                 }
             });
         }

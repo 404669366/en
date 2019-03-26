@@ -1,59 +1,37 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>关注场地</title>
-		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/css/attention_field.css"/>
-	    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-        <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
-        <?php \vendor\helpers\Msg::run() ?>
-	</head>
-	<body>
-		<!--header start-->
-		<div class="header">
-			<!--个人中心-->
-			<div class="personal">
-				<a href="javascript:history.back(-1)">
-					<i class="fa fa-angle-left" aria-hidden="true"></i>
-					<img src="/resources/img/logo.png"/>
-				</a>
-				<p>
-                    <a href="/user/user/user.html">
-					<i class="fa fa-user-o" aria-hidden="true"></i>
-                    </a>
-				</p>
-			</div>
-		</div>
-		<!--header end-->
-
-		<!--main start-->
-		<div class="main">
-			<div class="mainList">
-				<!--title-->
-				<div class="mainTit">
-                	共<span><?=count($follow)?></span>个 关注场地
-				</div>
-				<?php foreach ($follow as $v):?>
-				<div class="listCont">
-					<a href="/index/index/details.html?no=<?= $v['no'] ?>">
-						<img src="<?=explode(',',$v['image'])[0]?>"/>
-						<div class="information">
-							<p><span>场地编号:</span><?= $v['no'] ?></p>
-							<p><span>场地地域:</span><?= $v['full_name'] ?></p>
-							<p><span>关注时间:</span><?=date('Y-m-d H:i:s',$v['created'])?></p>
-							<p style="color: red;"><?= $v['budget'] ?><span class="small">&yen;</span></p>
-						</div>
-					</a>
-					<a href="/user/follow/cancel.html?no=<?= $v['no'] ?>" class="cancel">
-						取消关注
-					</a>
-				</div>
-                <?php endforeach;?>
-			</div>
-		</div>
-		<!--main end-->
-	</body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>关注场地列表</title>
+    <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
+</head>
+<body>
+<div class="header">
+    <a href="javascript:history.back(-1)" class="pic">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <img src="/resources/img/logo.png"/>
+    </a>
+    <a href="/user/user/user.html" class="pic">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+    </a>
+</div>
+<div class="contentBox">
+    <div class="contentTitle">共关注<span> <?= count($follow) ?> </span>个场地</div>
+    <div class="contentList">
+        <?php foreach ($follow as $v): ?>
+            <div class="one jump" url="/index/index/details.html?no=<?= $v['no'] ?>">
+                <div class="oneImg"><img src="<?= explode(',', $v['image'])[0] ?>"></div>
+                <div class="oneInfo">
+                    <div class="four">场地编号: <?= $v['no'] ?></div>
+                    <div class="four">场地地域: <?= $v['full_name'] ?></div>
+                    <div class="four">关注时间: <?= date('Y-m-d H:i:s', $v['created']) ?></div>
+                    <div class="four">场地总额: <span><?= $v['budget'] ?>&yen;</span></div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+</body>
 </html>

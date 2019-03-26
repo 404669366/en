@@ -1,62 +1,41 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>我的意向</title>
-		<link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/css/foundation_site.css"/>
-		<link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-        <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
-        <?php \vendor\helpers\Msg::run() ?>
-	</head>
-	<body>
-		<!--header start-->
-		<div class="header">
-            <!--个人中心-->
-            <div class="personal">
-                <a href="javascript:history.back(-1)">
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <img src="/resources/img/logo.png"/>
-                </a>
-                <p>
-                    <a href="/user/user/user.html">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                    </a>
-                </p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>我的意向列表</title>
+    <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
+</head>
+<body>
+<div class="header">
+    <a href="javascript:history.back(-1)" class="pic">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <img src="/resources/img/logo.png"/>
+    </a>
+    <a href="/user/user/user.html" class="pic">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+    </a>
+</div>
+<div class="contentBox">
+    <div class="contentTitle">共有<span> <?= count($data) ?> </span>条意向</div>
+    <div class="contentList">
+        <?php foreach ($data as $v): ?>
+            <div class="one jump" url="/index/index/details.html?no=<?= $v['field_no'] ?>">
+                <div class="oneImg"><img src="<?= explode(',', $v['image'])[0] ?>"></div>
+                <div class="oneInfo">
+                    <div class="four">意向编号: <?= $v['no'] ?></div>
+                    <div class="four">场地编号: <?= $v['field_no'] ?></div>
+                    <div class="four">创建时间: <?= date('Y-m-d H:i:s', $v['created']) ?></div>
+                    <div class="four">意向金额:
+                        <span><?= $v['money'] ?>&yen;</span>
+                        /
+                        <?= \vendor\helpers\Constant::getIntentionStatus()[$v['status']] ?>
+                    </div>
+                </div>
             </div>
-		</div>
-		<!--header end-->
-		<style>
-            .siteList p{
-                width: 25%!important;
-            }
-        </style>
-		<!--content start-->
-		<div class="foundation_site">
-			<div class="siteList">
-				<!--title-->
-				<div class="userTit">  
-					共有<span><?=count($data)?></span>条意向
-            	</div>
-            	<!--siteCont-->
-            	<div class="siteCont1">
-            		<p>场地编号</p>
-            		<p>意向编号</p>
-            		<p>意向金额</p>
-            		<p>创建时间</p>
-            	</div>
-                <?php foreach ($data as $v):?>
-            	<div class="siteCont2">
-            		<p><a href="/index/index/details.html?no=<?= $v['field_no'] ?>"><?=$v['field_no']?></a></p>
-            		<p><?=$v['no']?></p>
-            		<p><?=$v['money']?></p>
-            		<p><?=date('Y-m-d H:i:s',$v['created'])?></p>
-            	</div>
-                <?php endforeach;?>
-			</div>
-		</div>
-		<!--content end-->
-	</body>
+        <?php endforeach; ?>
+    </div>
+</div>
+</body>
 </html>

@@ -27,7 +27,7 @@
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
         <input type="text" class="area" placeholder="请选择: 省>市>区/县"/>
         <input type="text" name="address" placeholder="请填写详细地址"/>
-        <input type="text" class="intro" placeholder="请填写场地介绍"/>
+        <input type="text" class="intro" placeholder="请填写场地介绍" readonly/>
         <button type="submit">确认提交</button>
     </form>
     <script>

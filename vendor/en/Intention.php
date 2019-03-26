@@ -174,7 +174,7 @@ class Intention extends \yii\db\ActiveRecord
         if ($user_id = \Yii::$app->user->id) {
             $data = self::find()->alias('i')
                 ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
-                ->select(['i.*', 'f.no field_no'])
+                ->select(['i.*', 'f.no field_no', 'f.image'])
                 ->where(['i.user_id' => $user_id])
                 ->orderBy('i.created DESC')
                 ->asArray()->all();
@@ -192,7 +192,7 @@ class Intention extends \yii\db\ActiveRecord
         if ($user_id = \Yii::$app->user->id) {
             $data = self::find()->alias('i')
                 ->leftJoin(Field::tableName() . ' f', 'f.id=i.field_id')
-                ->select(['i.*', 'f.no field_no'])
+                ->select(['i.*', 'f.no field_no', 'f.image'])
                 ->where(['f.cobber_id' => $user_id, 'i.status' => [0, 2, 3, 4]])
                 ->orderBy('i.created DESC')
                 ->asArray()->all();
@@ -213,7 +213,7 @@ class Intention extends \yii\db\ActiveRecord
             ->leftJoin(User::tableName() . ' u', 'u.id=i.user_id')
             ->where(['f.no' => $no, 'i.status' => 3])
             ->orderBy('i.created asc')
-            ->select(['i.money','u.tel'])
+            ->select(['i.money', 'u.tel'])
             ->asArray()->all();
         return $data;
     }

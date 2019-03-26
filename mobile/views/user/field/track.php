@@ -2,63 +2,46 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>场地跟踪</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/site_tracking.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-    <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>场地跟踪列表</title>
+    <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
-<!--header start-->
 <div class="header">
-    <!--个人中心-->
-    <div class="personal">
-        <a href="javascript:history.back(-1)">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            <img src="/resources/img/logo.png"/>
-        </a>
-        <p>
-            <a href="/user/user/user.html">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-            </a>
-        </p>
-    </div>
+    <a href="javascript:history.back(-1)" class="pic">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <img src="/resources/img/logo.png"/>
+    </a>
+    <a href="/user/user/user.html" class="pic">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+    </a>
 </div>
-<!--header end-->
-<!--main start-->
-<div class="main">
-    <div class="mainList">
-        <!--title-->
-        <div class="mainTit">
-            共<span><?= count($field) ?></span>个真实场地
-            <?php if (\vendor\en\User::isCobber() === 2): ?>
-                <span style="float: right;">
-                    <a href="/user/field/rob.html">
-                        抢单(<?= \vendor\helpers\redis::app()->lLen('BackendField') ?>)
-                    </a>
-                </span>
-            <?php endif; ?>
-        </div>
-        <!--列表内容-->
+<div class="contentBox">
+    <div class="contentTitle">
+        共<span> <?= count($field) ?> </span>个真实场地
+        <?php if (\vendor\en\User::isCobber() === 2): ?>
+            <p class="jump" url="/user/field/rob.html">抢单(<?= \vendor\helpers\redis::app()->lLen('BackendField') ?>)</p>
+        <?php endif; ?>
+    </div>
+    <div class="contentList">
         <?php foreach ($field as $v): ?>
-            <div class="listCont">
-                <img src="<?= explode(',', $v['image'])[0] ?>"/>
-                <div class="information">
-                    <p><span>场地编号:</span><?= $v['no'] ?></p>
-                    <p><span>场地地域:</span><?= $v['full_name'] ?></p>
-                    <p><span>详细地址:</span><?= $v['address'] ?></p>
-                    <p><span>发布时间:</span><?= date('Y-m-d H:i:s', $v['created']) ?></p>
-                    <p><span>场地状态:</span><?= \vendor\helpers\Constant::getFieldStatus()[$v['status']] ?></p>
-                    <p style="color: red;font-size: 3rem"><?= $v['budget'] ?><span class="small">&yen;</span></p>
+            <div class="one jump" url="/user/field/detail.html?no=<?= $v['no'] ?>">
+                <div class="oneImg"><img src="<?= explode(',', $v['image'])[0] ?>"></div>
+                <div class="oneInfo">
+                    <div class="five">场地编号: <?= $v['no'] ?></div>
+                    <div class="five">场地地域: <?= $v['full_name'] ?></div>
+                    <div class="five">详细地址: <?= $v['address'] ?></div>
+                    <div class="five">发布时间: <?= date('Y-m-d H:i:s', $v['created']) ?></div>
+                    <div class="five">场地总额:
+                        <span><?= $v['budget'] ?>&yen;</span>
+                        /
+                        <?= \vendor\helpers\Constant::getFieldStatus()[$v['status']] ?>
+                    </div>
                 </div>
-                <a href="/user/field/detail.html?no=<?= $v['no'] ?>" class="cancel">详情</a>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
-<!--main end-->
 </body>
 </html>
