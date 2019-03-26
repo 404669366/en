@@ -78,7 +78,7 @@
 
 .contentForm > button, .contentForm > a {
     display: block;
-    margin: 0.1rem auto 0 auto;
+    margin: 0.1rem auto 0.2rem auto;
     width: 9rem;
     height: 1.32rem;
     line-height: 1.32rem;
