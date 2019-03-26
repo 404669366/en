@@ -66,6 +66,7 @@
                    data="<?= $field->transformer_drawing ?>"/>
             <input type="text" readonly class="field_drawing" value="施工图纸: 点击查看" data="<?= $field->field_drawing ?>"/>
             <input type="text" readonly class="budget_photo" value="预算报表: 点击查看" data="<?= $field->budget_photo ?>"/>
+            <input type="text" readonly value="备案文件: 点击下载" class="jump" url="<?= $field->record_file ?>"/>
             <input type="text" readonly value="规划车位: <?= $field->park ?>"/>
             <input type="text" readonly value="预算总金额: <?= $field->budget ?>"/>
             <input type="text" readonly value="起投金额: <?= $field->minimal ?>"/>
