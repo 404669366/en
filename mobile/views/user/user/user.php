@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="header">
-    <a href="javascript:history.back(-1)" class="pic">
+    <a href="/" class="pic">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
         <img src="/resources/img/logo.png"/>
     </a>
