@@ -340,7 +340,7 @@ window.uploadImg = function () {
                     }
                 }
                 var file = $(this)[0].files[0];
-                lrz(file, {quality: 0.6}).then(function (re) {
+                lrz(file, {quality: 0.5}).then(function (re) {
                     file = new File([re.file], file.name, {type: file.type});
                     var formData = new FormData();
                     formData.append('file', file);
