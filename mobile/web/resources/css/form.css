@@ -145,12 +145,7 @@
 
 .swiper-wrapper > span > img {
     width: 10rem;
-    position: fixed;
-    top: 1rem;
-    left: 0;
-    max-height: -moz-calc(100% - 2rem);
-    max-height: -webkit-calc(100% - 2rem);
-    max-height: calc(100% - 2rem);
+    max-height: 100%;
 }
 
 .selectModalBox {
@@ -383,12 +378,7 @@
 
 .uploadImgModalLookContent > span > img {
     width: 100%;
-    position: fixed;
-    top: 1rem;
-    left: 0;
-    max-height: -moz-calc(100% - 2rem);
-    max-height: -webkit-calc(100% - 2rem);
-    max-height: calc(100% - 2rem);
+    max-height: 100%;
 }
 
 .uploadImgModalLookSureBox {

@@ -1,6 +1,7 @@
 document.write("<link href='/resources/css/form.css' rel='stylesheet'>");
 document.write("<link href='/swiper/swiper.min.css' rel='stylesheet'>");
 document.write("<script src='/swiper/swiper.min.js' type='text/javascript' charset='utf-8'></script>");
+document.write("<script src='/lrz/lrz.all.bundle.js' type='text/javascript' charset='utf-8'></script>");
 window.select = function () {
 
     window.load(function () {
@@ -338,32 +339,35 @@ window.uploadImg = function () {
                         return false;
                     }
                 }
-
-                var formData = new FormData();
-                formData.append('file', $(this)[0].files[0]);
-                $.ajax({
-                    url: '/basis/file/upload.html',
-                    cache: false,
-                    type: "post",
-                    data: formData,
-                    dataType: "json",
-                    processData: false,
-                    contentType: false,
-                    success: function (res) {
-                        layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">' + res.msg + '</span>');
-                        if (res.type) {
-                            $('[name="' + inputName + '"]').val(function (i, ovl) {
-                                ovl = $.grep(ovl.split(','), function (n, i) {
-                                    return n;
-                                }, false);
-                                ovl.push(res.data);
-                                ovl = ovl.join(',');
-                                $(nodeName).attr('data', ovl);
-                                return ovl;
-                            });
-                            $('.uploadImgModalAdd').before('<img node="' + nodeName + '" inputName="' + inputName + '" src="' + res.data + '" />');
+                lrz($(this)[0].files[0], {quality: 0.6}).then(function (re) {
+                    var formData = new FormData();
+                    formData.append('file', re.file);
+                    $.ajax({
+                        url: '/basis/file/upload.html',
+                        cache: false,
+                        type: "post",
+                        data: formData,
+                        dataType: "json",
+                        processData: false,
+                        contentType: false,
+                        success: function (res) {
+                            layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">' + res.msg + '</span>');
+                            if (res.type) {
+                                $('[name="' + inputName + '"]').val(function (i, ovl) {
+                                    ovl = $.grep(ovl.split(','), function (n, i) {
+                                        return n;
+                                    }, false);
+                                    ovl.push(res.data);
+                                    ovl = ovl.join(',');
+                                    $(nodeName).attr('data', ovl);
+                                    return ovl;
+                                });
+                                $('.uploadImgModalAdd').before('<img node="' + nodeName + '" inputName="' + inputName + '" src="' + res.data + '" />');
+                            }
                         }
-                    }
+                    });
+                }).catch(function (err) {
+                    layer.msg('<span style="font-size:0.46rem;height:100%;line-height:100%">图片压缩失败</span>');
                 });
             });
 
