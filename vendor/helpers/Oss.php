@@ -21,6 +21,7 @@ class Oss
     public static function aliUpload($file)
     {
         try {
+            var_dump($file);exit();
             $name = Helper::randStr(3, 8, 1) . strrchr($file['name'], '.');
             $ossConfig = \Yii::$app->params['AliOss'];
             $content = file_get_contents($file['tmp_name']);

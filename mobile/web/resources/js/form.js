@@ -339,11 +339,11 @@ window.uploadImg = function () {
                         return false;
                     }
                 }
-                console.log($(this)[0].files[0]);
-                lrz($(this)[0].files[0], {quality: 0.6}).then(function (re) {
-                    console.log(re.file);
+                var file = $(this)[0].files[0];
+                lrz(file, {quality: 0.6}).then(function (re) {
+                    file = new File([re.file], file.name, {type: file.type});
                     var formData = new FormData();
-                    formData.append('file', re.file);
+                    formData.append('file', file);
                     $.ajax({
                         url: '/basis/file/upload.html',
                         cache: false,
