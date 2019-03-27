@@ -14,7 +14,7 @@
 .swiper-pagination-switch {
     width: 0.3rem !important;
     height: 0.3rem !important;
-    margin: 0 0.1rem;
+    margin: 0 0.1rem!important;
 }
 
 .info {
