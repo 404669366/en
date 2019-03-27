@@ -27,10 +27,10 @@
         <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
         <input type="text" name="tel" placeholder="请填写场地方电话"/>
         <input type="text" name="title" placeholder="请填写场地标题"/>
-        <input type="text" class="area" placeholder="请选择: 省>市>区/县"/>
+        <input type="text" class="area" readonly placeholder="请选择: 省>市>区/县"/>
         <input type="text" name="address" placeholder="请填写详细地址"/>
-        <input type="text" class="intro" placeholder="请填写场地介绍"/>
-        <input type="text" class="image" placeholder="场地图片: 点击上传"/>
+        <input type="text" class="intro" readonly placeholder="请填写场地介绍"/>
+        <input type="text" class="image" readonly placeholder="场地图片: 点击上传"/>
         <button type="submit">确认提交</button>
     </form>
     <script>
