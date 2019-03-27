@@ -80,7 +80,7 @@
     </div>
 <?php endif; ?>
 
-<div class="detail">
+<div class="detail moreBefore">
     <span>场地介绍</span>
     <div class="intro">
         <?= $model->intro ?>
@@ -133,21 +133,10 @@
             $(this).text('收起更多信息');
         } else {
             $(this).text('更多场地信息');
-            var top = $(window).scrollTop();
-            var height = 0;
-            $('.moreData').each(function (k, v) {
-                height += $(v).height();
-            });
-            var moreTop = top - height;
-            $('.moreData').fadeOut();
-            var t = setInterval(function () {
-                if (top <= moreTop) {
-                    clearInterval(t);
-                } else {
-                    top -= 20;
-                    $(window).scrollTop(top);
-                }
-            }, 5);
+            $('body').animate({scrollTop: $('.moreBefore').position().top - $('.header').height() - $('.broker').height()}, 800);
+            setTimeout(function () {
+                $('.moreData').hide();
+            }, 801);
         }
     });
 </script>
