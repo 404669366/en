@@ -39,18 +39,16 @@
     TA的场地源
 </div>
 <?php foreach ($datas as $data): ?>
-    <div class="content">
-        <a href="/index/index/details.html?no=<?= $data['no'] ?>">
-            <div class="contentImg">
-                <img class="image" src="<?= explode(',', $data['image'])[0] ?>"/>
-            </div>
-            <div class="contentData">
-                <p class="tit"><?= $data['title'] ?></p>
-                <p class="tit_txt"><?= $data['full_name'] ?> / <?= $data['park'] ?>车位</p>
-                <p class="tit_txt"><?= $data['minimal'] ?>￥起投</p>
-                <p class="price"><?= $data['budget'] ?>￥</p>
-            </div>
-        </a>
+    <div class="content jump" url="/index/index/details.html?no=<?= $data['no'] ?>">
+        <div class="contentImg">
+            <img class="image" src="<?= explode(',', $data['image'])[0] ?>"/>
+        </div>
+        <div class="contentData">
+            <p class="tit"><?= $data['title'] ?></p>
+            <p class="tit_txt"><?= $data['full_name'] ?></p>
+            <p class="tit_txt"><?= $data['minimal'] ?>￥起投 / <?= $data['park'] ?>车位</p>
+            <p class="price"><?= $data['budget'] ?>￥</p>
+        </div>
     </div>
 <?php endforeach; ?>
 <div class="addHeight"></div>

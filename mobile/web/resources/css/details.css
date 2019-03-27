@@ -1,480 +1,358 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
-/*banner*/
 .banner {
-    width: 100%;
-    height: 48rem;
     position: relative;
+    margin-top: 1.5rem;
+    width: 10rem;
+    height: 5.6rem;
 }
 
 .banner img {
     display: block;
-    width: 100%;
-    height: 48rem;
+    width: 10rem;
+    height: 5.6rem;
 }
 
-/*title*/
-.detTitle {
-    width: 100%;
-    background: #fff;
+.swiper-pagination-switch {
+    width: 0.3rem !important;
+    height: 0.3rem !important;
 }
 
-.detCont {
-    height: 18rem;
-    margin: 0 auto;
-    width: 90%;
-    padding: 3rem;
+.info {
+    width: 10rem;
+    padding: 0.4rem;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1px solid #e4e6f0
 }
 
-.detTitle .tit {
-    width: 86%;
-    height: 9.6rem;
+.info > .title {
     color: #101D37;
-    font: bold 3.5rem/4.8rem "宋体";
+    width: 9.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: 0.46rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.info > .priceTitle {
+    width: 9.2rem;
+    height: 1.4rem;
+    margin-bottom: 0.2rem;
+}
+
+.info > .priceTitle > div {
     float: left;
-}
-
-.detTitle .follow {
-    width: 14%;
-    height: 10rem;
-    text-align: center;
-    float: right;
-}
-
-.follow a {
-    color: #222;
-}
-
-.follow .heart {
-    font: 3.5rem/2rem "宋体";
-}
-
-.follow .txt {
-    font: 2.5rem/3rem "宋体";
-}
-
-/*场地价格信息*/
-.priceData {
-    width: 100%;
-    height: 8rem;
-    float: left;
-}
-
-.similar_data {
-    width: 32.9%;
-    float: left;
-    text-align: center;
-}
-
-.priceTxt {
-    width: 32.9%;
-    float: left;
-    text-align: center;
-    border-left: solid 0.15rem #e4e6f0;
-}
-
-.similar_data .price, .priceTxt .price {
-    height: 6rem;
-    text-align: center;
-    color: #fa5741;
-    font: bold 2.5rem/3rem '宋体';
-}
-
-.similar_data .gray, .priceTxt .gray {
-    height: 2rem;
-    text-align: center;
+    width: 3.0666666rem;
+    height: 1.4rem;
+    border-right: 1px solid #e4e6f0;
+    display: table;
+    box-sizing: border-box;
     color: #9399a5;
-    font: 2rem/2rem '宋体';
 }
 
-.priceTxt .rigth10 {
-    padding-right: 10rem;
+.info > .priceTitle > div:last-child {
+    border-right: 0;
 }
 
-.priceTxt .rigth5 {
-    padding-right: 5rem;
+.info > .priceTitle > div > span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.3rem;
 }
 
-/*详情*/
-.agent {
-    width: 100%;
-    background: #fff;
+.info > .priceTitle > div > span > p {
+    margin-bottom: 0.1rem;
+    color: #fa5741;
+    font-size: 0.36rem;
 }
 
-.agentCont {
+.info > .skill {
     margin: 0 auto;
-    width: 90%;
-    padding: 3rem;
+    width: 8.6rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.26rem;
+    text-align: center;
+    color: #f0f4f7;
+    background: url("../img/blue.png") silver repeat-y;
+    -webkit-border-radius: 0.08rem;
+    -moz-border-radius: 0.08rem;
+    border-radius: 0.08rem;
 }
 
-.agentImg {
-    width: 100%;
-    height: 40rem;
-    padding: 2rem;
+.info > .heart {
+    position: absolute;
+    right: 0.4rem;
+    top: 0.4rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: table;
+}
+
+.info > .heart > span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.44rem;
+    color: #101D37;
+}
+
+#map {
+    width: 10rem;
+    height: 5rem;
+}
+
+.detail {
+    width: 10rem;
+    padding: 0.4rem;
     box-sizing: border-box;
 }
 
-.more {
+.detail > span {
+    display: block;
+    width: 9.2rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.4rem;
+}
+
+.detail > .box {
+    width: 9.2rem;
+}
+
+.detail > .intro {
+    width: 9.2rem;
+    font-size: 0.28rem;
+    text-indent: 0.56rem;
+    line-height: 0.6rem;
+}
+
+.detail > .images {
+    width: 9.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.detail > .images:last-child {
+    margin-bottom: 0;
+}
+
+.detail > .box > .ratio {
+    width: 9.2rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.24rem;
+}
+
+.detail > .box > .ratio > span {
+    display: block;
+    float: left;
+    width: 1.78rem;
+}
+
+.detail > .box > .ratio > .bar {
+    float: right;
+    width: 7.42rem;
+    text-align: center;
+    color: #f0f4f7;
+    background: url("../img/blue.png") silver repeat-y;
+    -webkit-border-radius: 0.08rem;
+    -moz-border-radius: 0.08rem;
+    border-radius: 0.08rem;
+}
+
+.moreData {
     display: none;
 }
 
-.one {
-    margin-bottom: 3rem;
+.detail > .one {
+    width: 9.2rem;
+    height: 2.8rem;
+    border-bottom: 1px solid #e4e6f0;
+    padding: 0.2rem 0;
+    box-sizing: border-box;
 }
 
-/*更多场地信息*/
-.viewMore {
-    height: 8rem;
-    text-align: center;
-    font: 3rem/8rem '宋体';
-    border-radius: 1rem;
-    background: rgba(48, 114, 246, .05);
-    color: #3072F7;
+.detail > .one:last-child {
+    border: 0;
 }
 
-/*map*/
-.map {
-    width: 100%;
-    height: 36rem;
-    background: #ccc;
-}
-
-/*场地介绍开始*/
-.venues {
-    width: 100%;
-    background: #fff;
-    border-bottom: 0.1rem solid #e4e6f0;
-}
-
-.venuesCont {
-    width: 90%;
-    margin: 0 auto;
-    padding: 3rem;
-}
-
-.venTit {
-    height: 7rem;
-    font: 3rem/7rem '宋体';
-}
-
-.content {
-    text-indent: 5rem;
-    height: 24rem;
-    color: #101d37;
-    font: 2.5rem/3.5rem '宋体';
-}
-
-/*猜你喜欢开始*/
-.guesUlike {
-    width: 100%;
-    height: 100%;
-    background: #fff;
-}
-
-.mod_cont {
-    width: 90%;
-    margin: 0 auto;
-    padding: 3rem;
-}
-
-.guseTit {
-    height: 8rem;
-    font: 600 3rem/8rem '宋体';
-}
-
-.recont {
-    width: 100%;
-    height: 16rem;
-    padding: 2rem 0;
-    border-bottom: .1rem solid #e4e6f0;
-}
-
-.recont:last-child {
-    border: none;
-}
-
-.recimg {
-    width: 20.75rem;
-    height: 15.375rem;
+.detail > .one > img {
     float: left;
+    width: 3.2rem;
+    height: 2.4rem;
 }
 
-.recimg img {
-    width: 20.75rem;
-    height: 15.375rem;
-}
-
-.redadat {
-    width: 56%;
-    height: 16rem;
+.detail > .one > .oneInfo {
     float: right;
+    width: 5.2rem;
+    height: 2.4rem;
 }
 
-.redadat .tit {
-    margin-bottom: 1rem;
-    line-height: 3.2rem;
+.detail > .one > .oneInfo > .title {
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.4rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 2.7rem;
-    color: #101d37;
 }
 
-.redadat .tit_txt {
-    margin-bottom: 1rem;
-    font-size: 2.1rem;
-    font-family: "微软雅黑";
-    color: #101d37;
+.detail > .one > .oneInfo > .con {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.3rem;
 }
 
-.redadat .price {
-    font-size: 3rem;
+.detail > .one > .oneInfo > .price {
+    height: 0.7rem;
+    line-height: 0.7rem;
     color: #fa5741;
-    font-weight: 600;
+    font-size: 0.4rem;
 }
 
-.none_border {
-    border: none;
+.help {
+    width: 10rem;
+    height: 3.2rem;
+    border-top: 1px solid #e4e6f0;
+    display: table;
 }
 
-/*helpSell*/
-.helpSell {
-    width: 100%;
-    height: 24rem;
-    border-top: 0.1rem solid #e4e6f0;
-}
-
-.helpCont {
+.help > span {
+    display: table-cell;
+    vertical-align: middle;
     text-align: center;
-}
-
-.helpCont h2 {
-    color: #101d37;
-    font: 3.5rem/4rem '宋体';
-    margin-top: 4rem;
-}
-
-.helpCont .help {
-    color: #9399a5;
-    text-align: center;
-    font: 2.3rem/4rem '宋体';
-}
-
-.helpBtn {
-    margin: auto;
-    width: 36%;
-    height: 7rem;
-    font: 2.65rem/7rem '宋体';
-    border-radius: 4rem;
-    border: solid 0.1rem #9399a5;
-    margin-top: 2.5rem;
-}
-
-.helpBtn a {
+    font: 0.46rem/1rem '宋体';
     color: #101d37;
 }
 
-.flexbox {
-    height: 4rem;
-    color: #9399a5;
-    margin: 8rem 3rem 0 3rem;
-    font: 2.3rem/4rem '宋体';
-}
-
-.flexbox p {
-    float: left;
-}
-
-.flexbox a {
-    display: block;
-    color: #3072f6;
-    float: right;
-}
-
-.hintStyle {
-    padding: 3rem;
-    color: #CDCFD0;
-    letter-spacing: -.55px;
-    font: 2rem/2.7rem '宋体';
-}
-
-/**
-底部按钮
- */
-.nullBox {
-    width: 100%;
-    height: 16rem;
+.help > span > .jump {
+    font: 0.32rem/0.8rem '宋体';
+    color: #101d37;
+    margin: 0 auto;
+    width: 2.6rem;
+    height: 0.8rem;
+    border-radius: 2.8rem;
+    border: 1px solid #9399a5;
 }
 
 .broker {
     position: fixed;
+    background: white;
     bottom: 0;
-    z-index: 99;
-    width: 100%;
-    height: 16rem;
-    background: white;
-    padding: 2rem 3rem;
-    box-sizing: border-box;
-    box-shadow: 0 -0.0625rem 0.125rem rgba(0, 0, 0, .1);
+    left: 0;
+    width: 10rem;
+    height: 2rem;
+    border-top: 0.01rem solid #E4E6F0;
 }
 
-.broker .agent {
+.broker span {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.broker > .head {
     float: left;
-    width: 30%;
-    height: 100%;
-    text-align: center;
+    width: 4rem;
+    height: 2rem;
     display: table;
+    font-size: 0.3rem;
 }
 
-.broker .agent img {
-    width: 7rem;
-    height: 7rem;
+.broker > .head img {
+    width: 1rem;
+    height: 1rem;
 }
 
-.broker .agent > span {
-    font-size: 2.2rem;
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.broker .buttons {
+.broker > .btns {
     float: right;
-    width: 66%;
-    height: 100%;
+    width: 6rem;
+    height: 2rem;
     display: table;
-    text-align: center;
 }
 
-.broker .buttons span {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.broker span > button, .broker span > a {
-    height: 8rem;
-    display: inline-block;
-    width: 40%;
-    text-align: center;
-    font: 3rem/8rem '宋体';
-    border-radius: 1rem;
-    border: 0;
-    background: #3072F6;
+.broker > .btns .btn {
+    width: 2.4rem;
+    height: 1rem;
+    line-height: 1rem;
+    border-radius: 0.1rem;
+    background: #3bc48b;
+    font-size: 0.36rem;
     color: white;
+    display: inline-block;
 }
 
-/**
-意向弹窗
- */
-.intent {
-    display: none;
-    width: 100%;
-    height: 100%;
+.more {
+    width: 9.2rem;
+    height: 1rem;
+    line-height: 1rem;
+    color: #3072F7;
+    background: rgba(48, 114, 246, .05);
+    border-radius: 0.06rem;
+    margin: 0 auto 0.4rem auto;
+    text-align: center;
+    font-size: 0.38rem;
+}
+
+.intentModal {
     position: fixed;
-    z-index: 100;
-    top: 0;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.intent > div {
-    display: table;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-}
-
-.intent > div > span {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.intent > div > span > .intentInfo {
-    display: inline-block;
-    width: 70%;
-    height: 30rem;
-    border-radius: 1rem;
+    bottom: -0.1rem;
+    left: 0.4rem;
+    z-index: 999;
     background: white;
+    height: 4.7rem;
+    width: 9.2rem;
+    padding: 0 1rem;
     box-sizing: border-box;
-    padding: 3rem;
-    position: relative;
-}
-
-.intentInfo .close {
-    position: absolute;
-    width: 5rem;
-    height: 6rem;
-    right: 1.5rem;
-    top: 1.5rem;
-    line-height: 5rem;
-    font-size: 3.4rem;
+    border-radius: 0.1rem;
+    border: 1px solid silver;
+    border-bottom: none;
+    display: none;
     text-align: center;
-    z-index: 101;
 }
 
-.intentInfo .intentTitle {
+.intentModal .intentModalTitle {
+    height: 1.6rem;
+    line-height: 1.6rem;
+    text-align: center;
+    font-size: 0.52rem;
     width: 100%;
-    height: 6rem;
-    line-height: 6rem;
-    font-size: 5rem;
+}
+
+.intentModal input {
+    height: 0.86rem;
+    line-height: 0.86rem;
+    width: 6rem;
+    font-size: 0.36rem;
+    border: 1px solid silver;
+    padding: 0 0.2rem;
     text-align: center;
 }
 
-.intentInfo .intentMoney {
-    -web-kit-appearance: none;
-    -moz-appearance: none;
-    outline: 0;
-    border-radius: 1rem;
-    border: 1px solid #333333;
-    display: block;
-    width: 60%;
-    height: 6.4rem;
-    line-height: 6.4rem;
-    font-size: 3.2rem;
-    margin: 2rem auto;
-    text-align: center;
+.intentModal .intentModalBtns {
+    margin-top: 0.4rem;
+    width: 100%;
+    height: 0.8rem;
 }
 
-.intentInfo .intentButton {
-    display: block;
-    margin: 0 auto;
-    width: 60%;
-    height: 6.4rem;
-    font-size: 3.2rem;
-    background: #3072F6;
-    border: none;
-    color: white;
-    border-radius: 0.8rem;
-}
-
-/**
-进度条
- */
-.skill {
-    margin: 0 auto;
-    width: 90%;
-    height: 4rem;
-    line-height: 4rem;
-    font-size: 2.4rem;
-    text-align: center;
+.intentModal .intentModalBtns > button {
+    height: 0.8rem;
+    width: 2rem;
+    line-height: 0.8rem;
+    font-size: 0.36rem;
+    border: 0;
+    border-radius: 0.06rem;
     color: #f0f4f7;
-    background: url("../img/blue.png") silver repeat-y;
-    -webkit-border-radius: 0.4rem;
-    -moz-border-radius: 0.4rem;
-    border-radius: 0.4rem;
+    background: #3072F7;
 }
 
-.venuesCont .bar {
-    display: inline-block;
-    width: 83.2%;
-    text-align: center;
-    color: #f0f4f7;
-    background: url("../img/blue.png") silver repeat-y;
-    -webkit-border-radius: 0.4rem;
-    -moz-border-radius: 0.4rem;
-    border-radius: 0.4rem;
+.intentModal .intentModalBtns > .intentModalClose {
+    background: coral
 }
+
+
+
+

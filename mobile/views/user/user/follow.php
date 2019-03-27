@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>关注场地列表</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/centerList.css"/>
     <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
     <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>

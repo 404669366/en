@@ -1,0 +1,77 @@
+.contentBox > .contentList > .one {
+    height: 2.8rem;
+    width: 9.2rem;
+    background: #F8F8F9;
+    padding: 0.2rem;
+    box-sizing: border-box;
+    margin-bottom: 0.2rem;
+}
+
+.one > .oneImg {
+    float: left;
+    width: 3.6rem;
+    height: 2.4rem;
+}
+
+.one > .oneImg > img {
+    max-width: 3.6rem;
+    height: 2.4rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.one > .oneInfo {
+    float: right;
+    width: 5rem;
+    height: 2.4rem;
+}
+
+.one > .oneInfo > .title {
+    height: 0.7rem;
+    line-height: 0.7rem;
+    font-size: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .info {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .price {
+    height: 0.7rem;
+    line-height: 0.7rem;
+    color: #fa5741;
+    font-size: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .four {
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo > .five {
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.one > .oneInfo span {
+    color: #fa5741;
+}

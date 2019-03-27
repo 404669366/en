@@ -2,35 +2,26 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>场地详情</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/head.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/foot.css"/>
     <link rel="stylesheet" type="text/css" href="/resources/css/details.css"/>
-    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css"/>
-    <script src="/resources/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/resources/js/layer/layer.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/swiper/swiper.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="/swiper/idangerous.swiper.css"/>
+    <script src="/resources/js/common.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/swiper/idangerous.swiper.js" type="text/javascript" charset="utf-8"></script>
     <script src="/resources/js/map.js" type="text/javascript" charset="utf-8"></script>
-    <?php \vendor\helpers\Msg::run() ?>
+    <?php \vendor\helpers\Msg::run('0.46rem') ?>
 </head>
 <body>
-<!--header start-->
 <div class="header">
-    <div class="personal">
-        <a href="javascript:history.back(-1)">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            <img src="/resources/img/logo.png"/>
-        </a>
-        <p>
-            <a href="/user/user/user.html">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-            </a>
-        </p>
-    </div>
+    <a href="javascript:history.back(-1)" class="pic">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <img src="/resources/img/logo.png"/>
+    </a>
+    <a href="/user/user/user.html" class="pic">
+        <i class="fa fa-user-o" aria-hidden="true"></i>
+    </a>
 </div>
-<!--header end-->
-<!--banner start-->
+
 <div class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -49,59 +40,36 @@
         paginationClickable: true
     });
 </script>
-<!--banner end-->
 
-<!--title start-->
-<div class="detTitle">
-    <div class="detCont">
-        <div class="tit"><?= $model->title ?></div>
-        <div class="follow">
-            <?php if (!\vendor\en\Follow::isFollow($model->no)): ?>
-                <a href="/user/follow/follow.html?no=<?= $model->no ?>">
-                    <p class="heart">
-                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                    </p>
-                    <p class="txt">关注</p>
-                </a>
-            <?php else: ?>
-                <a href="/user/follow/cancel.html?no=<?= $model->no ?>">
-                    <p class="heart" style="color: #fa604c">
-                        <i class="fa fa-heart" aria-hidden="true"></i>
-                    </p>
-                    <p class="txt">取消关注</p>
-                </a>
-            <?php endif; ?>
-        </div>
-        <!--场地价格信息-->
-        <div class="priceData">
-            <div class="similar_data">
-                <p class="price"><?= $model->budget ?>￥</p>
-                <p class="gray">总额</p>
-            </div>
-            <div class="priceTxt">
-                <p class="price"><?= $model->minimal ?>￥</p>
-                <p class="gray">起投</p>
-            </div>
-            <div class="priceTxt">
-                <p class="price"><?= $model->park ?></p>
-                <p class="gray">车位</p>
-            </div>
-        </div>
+<div class="info">
+    <div class="title"><?= $model->title ?></div>
+    <div class="priceTitle">
+        <div><span><p><?= $model->budget ?>￥</p>总额</span></div>
+        <div><span><p><?= $model->minimal ?>￥</p>起投</span></div>
+        <div><span><p><?= $model->park ?></p>车位</span></div>
+    </div>
+    <div class="skill" style="background-size: <?= ((float)$model->financing_ratio) * 100 ?>% auto">
+        当前进度: <?= ((float)$model->financing_ratio) * 100 ?>%
+    </div>
+    <div class="heart">
+        <?php if (!\vendor\en\Follow::isFollow($model->no)): ?>
+            <span class="jump" url="/user/follow/follow.html?no=<?= $model->no ?>">
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </span>
+        <?php else: ?>
+            <span class="jump" url="/user/follow/cancel.html?no=<?= $model->no ?>" style="color: #fa604c">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+            </span>
+        <?php endif; ?>
     </div>
 </div>
-
-<div class="skill" style="background-size: <?= ((float)$model->financing_ratio) * 100 ?>% auto">
-    当前进度: <?= ((float)$model->financing_ratio) * 100 ?>%
-</div>
 <?php if ($list): ?>
-    <div class="venues">
-        <div class="venuesCont">
-            <div class="venTit">
-                投资概况
-            </div>
+    <div class="detail">
+        <span>投资概况</span>
+        <div class="box">
             <?php foreach ($list as $k => $v): ?>
-                <div style="width: 100%;height: 3rem;line-height: 3rem;font-size: 2rem;margin-bottom: 0.4rem;: ">
-                    <?= substr_replace($v['tel'], '*****', 3, 5) ?>
+                <div class="ratio">
+                    <span><?= substr_replace($v['tel'], '*****', 3, 5) ?></span>
                     <div class="bar"
                          style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
                         <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
@@ -111,93 +79,79 @@
         </div>
     </div>
 <?php endif; ?>
-<div class="venues">
-    <div class="venuesCont">
-        <div class="venTit">
-            场地介绍
-        </div>
-        <div class="content">
-            <?= $model->intro ?>
-        </div>
+
+<div class="detail">
+    <span>场地介绍</span>
+    <div class="intro">
+        <?= $model->intro ?>
     </div>
 </div>
 
-<div class="agent">
-    <div class="agentCont">
-        <div class="one">
-            <div class="venTit">
-                场地配置
-            </div>
-            <img class="agentImg" src="<?= $model->configure_photo ? $model->configure_photo : '/resources/img/a1.png'?>" alt="配置单图片">
-    </div>
-        <div class="more">
-            <div class="one">
-                <div class="venTit">
-                    预算报表
-                </div>
-                <?php if (!empty($model->budget_photo)):?>
-                <?php foreach (explode(',', $model->budget_photo) as $k => $v): ?>
-                    <img class="agentImg" src="<?= $v ?>" alt="预算报表<?= $k + 1 ?>">
-                <?php endforeach; ?>
-                <?php else:?>
-                <img class="agentImg" src="/resources/img/a1.png" alt="预算报表">
-                <?php endif;?>
-            </div>
-            <div class="one">
-                <div class="venTit">
-                    施工图纸
-                </div>
-                <?php if (!empty($model->field_drawing)):?>
-                <?php foreach (explode(',', $model->field_drawing) as $k => $v): ?>
-                    <img class="agentImg" src="<?= $v ?>" alt="施工图纸<?= $k + 1 ?>">
-                <?php endforeach; ?>
-                <?php else:?>
-                    <img class="agentImg" src="/resources/img/a1.png" alt="施工图纸">
-                <?php endif;?>
+<div class="detail moreData">
+    <span>场地配置</span>
+    <img class="images" src="<?= $model->configure_photo ?: '/resources/img/a1.png' ?>"/>
+</div>
 
-            </div>
-            <div class="one">
-                <div class="venTit">
-                    场地备案
-                </div>
-                <?php if (!empty($model->record_photo)):?>
-                <?php foreach (explode(',', $model->record_photo) as $k => $v): ?>
-                    <img class="agentImg" src="<?= $v ?>" alt="场地备案<?= $k + 1 ?>">
-                <?php endforeach; ?>
-                <?php else:?>
-                    <img class="agentImg" src="/resources/img/a1.png" alt="场地备案">
-                <?php endif;?>
-            </div>
-        </div>
-        <div class="viewMore">更多场地信息</div>
-        <script>
-            $('.viewMore').click(function () {
-                if ($(this).text() === '更多场地信息') {
-                    $('.more').fadeIn();
-                    $(this).text('收起更多信息');
-                } else {
-                    $(this).text('更多场地信息');
-                    var top = $(window).scrollTop();
-                    var moreTop = top - $('.more').height();
-                    $('.more').fadeOut();
-                    var t = setInterval(function () {
-                        if (top <= moreTop) {
-                            clearInterval(t);
-                        } else {
-                            top -= 20;
-                            $(window).scrollTop(top);
-                        }
-                    }, 5);
-                }
+<div class="detail moreData">
+    <span>预算报表</span>
+    <?php if ($model->budget_photo): ?>
+        <?php foreach (explode(',', $model->budget_photo) as $k => $v): ?>
+            <img class="images" src="<?= $v ?>">
+        <?php endforeach; ?>
+    <?php else: ?>
+        <img class="images" src="/resources/img/a1.png">
+    <?php endif; ?>
+</div>
+
+<div class="detail moreData">
+    <span>施工图纸</span>
+    <?php if ($model->field_drawing): ?>
+        <?php foreach (explode(',', $model->field_drawing) as $k => $v): ?>
+            <img class="images" src="<?= $v ?>">
+        <?php endforeach; ?>
+    <?php else: ?>
+        <img class="images" src="/resources/img/a1.png">
+    <?php endif; ?>
+</div>
+
+<div class="detail moreData">
+    <span>场地备案</span>
+    <?php if ($model->record_photo): ?>
+        <?php foreach (explode(',', $model->record_photo) as $k => $v): ?>
+            <img class="images" src="<?= $v ?>">
+        <?php endforeach; ?>
+    <?php else: ?>
+        <img class="images" src="/resources/img/a1.png">
+    <?php endif; ?>
+</div>
+
+<div class="more">更多场地信息</div>
+<script>
+    $('.more').click(function () {
+        if ($(this).text() === '更多场地信息') {
+            $('.moreData').fadeIn();
+            $(this).text('收起更多信息');
+        } else {
+            $(this).text('更多场地信息');
+            var top = $(window).scrollTop();
+            var height = 0;
+            $('.moreData').each(function (k, v) {
+                height += $(v).height();
             });
-        </script>
-    </div>
-</div>
-<!--详情结束-->
-
-<!--map start-->
-
-<div class="map" id="map"></div>
+            var moreTop = top - height;
+            $('.moreData').fadeOut();
+            var t = setInterval(function () {
+                if (top <= moreTop) {
+                    clearInterval(t);
+                } else {
+                    top -= 20;
+                    $(window).scrollTop(top);
+                }
+            }, 5);
+        }
+    });
+</script>
+<div id="map"></div>
 <script>
     var map = new BMap.Map('map');
     var point = new BMap.Point('<?=$model->lng?>' || 116.404, '<?=$model->lat?>' || 39.915);
@@ -208,98 +162,65 @@
         type: BMAP_NAVIGATION_CONTROL_SMALL
     }));
 </script>
-<style>
-    .anchorBL {
-        display: none !important;
-    }
-</style>
+
+<div class="detail">
+    <span>更多推荐</span>
+    <?php foreach ($recommends as $data): ?>
+        <div class="one jump" url="/index/index/details.html?no=<?= $data['no'] ?>">
+            <img src="<?= $data['image'][0] ?>">
+            <div class="oneInfo">
+                <div class="title"><?= $data['title'] ?></div>
+                <div class="con"><?= $data['full_name'] ?></div>
+                <div class="con"><?= $data['minimal'] ?>￥起投 / <?= $data['park'] ?>车位</div>
+                <div class="price"><?= $data['budget'] ?>￥</div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<div class="help">
+    <span>
+        空闲场地如何处理？我们可以帮到你
+        <div class="jump" url="/user/release/release-basis.html">发布我的场地</div>
+    </span>
+</div>
+
 <div class="broker">
-    <div class="agent identInfo">
+    <div class="head jump" url="/index/index/cobber-field.html?cobber_id=<?= $model->cobber_id ?>">
         <span><img src="/resources/img/agent_none.png"/><br><?= $model->cobber->ident->name ?></span>
     </div>
-    <div class="buttons">
+    <div class="btns">
         <span>
-            <button type="button" class="haveIntent" style="background:#3bc48b;margin-right: 2rem">有意向</button>
-            <a href="tel:<?= $model->cobber->tel ?>">打电话</a>
+            <div class="btn have">有意向</div>
+            &emsp;
+            <div class="btn jump" url="tel:<?= $model->cobber->tel ?>" style="background: #3072F6">打电话</div>
         </span>
     </div>
 </div>
 
-<div class="intent">
-    <div>
-        <span>
-            <div class="intentInfo">
-                <div class="intentTitle">我的意向</div>
-                <form action="/user/intention/add.html?no=<?= $model->no ?>" method="post">
-                    <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
-                    <input type="text" name="money" placeholder="意向金额" class="intentMoney">
-                    <button type="submit" class="intentButton">提交意向</button>
-                </form>
-                <div class="close"><i class="fa fa-times" aria-hidden="true"></i></div>
-            </div>
-        </span>
-    </div>
+<div class="intentModal">
+    <form action="/user/intention/add.html?no=<?= $model->no ?>" method="post">
+        <input type="hidden" name="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+        <div class="intentModalTitle">请填写意向金额</div>
+        <input class="intent" name="money" type="text">
+        <div class="intentModalBtns">
+            <button type="submit">确认</button>
+            &emsp;&emsp;
+            <button type="button" class="intentModalClose">取消</button>
+        </div>
+    </form>
 </div>
 <script>
-    $('.haveIntent').click(function () {
-        $('.intent').fadeIn();
+    $('.have').click(function () {
+        window.modal.open('.intentModal');
     });
-    $('.intent .close').click(function () {
-        $('.intent').fadeOut();
-    });
-    $('.identInfo').click(function () {
-        window.location.href = '/index/index/cobber-field.html?cobber_id=<?=$model->cobber_id?>';
+    $('.intentModalClose').click(function () {
+        window.modal.close('.intentModal');
     });
 </script>
-<!--map end-->
 
-<!--猜你喜欢开始-->
-<div class="guesUlike">
-    <div class="mod_cont">
-        <!--title-->
-        <div class="guseTit">
-            更多推荐
-        </div>
-        <?php foreach ($recommends as $recommend): ?>
-            <div class="recont">
-                <a href="/index/index/details.html?no=<?= $recommend['no'] ?>">
-                    <div class="recimg">
-                        <img src="<?= $recommend['image'][0] ?>"/>
-                    </div>
-                </a>
-                <a href="/index/index/details.html?no=<?= $recommend['no'] ?>">
-                    <div class="redadat">
-                        <p class="tit"><?= $recommend['title'] ?></p>
-                        <p class="tit_txt"><?= $recommend['full_name'] ?></p>
-                        <p class="tit_txt"><?= $recommend['minimal'] ?>￥起投 / <?= $recommend['park'] ?>车位</p>
-                        <p class="price"><?= $recommend['budget'] ?>￥</p>
-                    </div>
-                </a>
-            </div>
-        <?php endforeach; ?>
-    </div>
+<div class="foot" style="margin-bottom: 2.01rem">
+    <span>Copyright © 2018 en.ink, All Rights Reserved.<br>四川亿能天成科技有限公司</span>
 </div>
-<!--猜你喜欢结束-->
-
-<!--帮我卖场地开始-->
-<div class="helpSell">
-    <div class="helpCont">
-        <h2>空闲场地如何处理？我们可以帮到你</h2>
-        <div class="helpBtn">
-            <a href="/user/release/release-basis.html">发布我的场地</a>
-        </div>
-    </div>
-</div>
-<!--帮我卖场地结束-->
-
-<!--footer start-->
-<div class="footer">
-    <div class="footer_cont">
-        Copyright © 2018 en.ink，All Rights Reserved.
-        <br/> 四川亿能天成科技有限公司
-    </div>
-</div>
-<div class="nullBox"></div>
-<!--footer end-->
 </body>
 </html>
