@@ -58,15 +58,15 @@ body {
 .search {
     position: absolute;
     z-index: 999;
-    top: 4.8rem;
+    top: 4.7rem;
     left: 1rem;
     width: 8rem;
-    height: 0.8rem;
-    line-height: 0.8rem;
-    font-size: 0.32rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.34rem;
     color: #BDBDBD;
-    border-radius: 0.4rem;
-    padding: 0 0.2rem;
+    border-radius: 0.5rem;
+    padding: 0 0.34rem;
     box-sizing: border-box;
     box-shadow: 0 0.02rem 0.4rem 0 rgba(0, 0, 0, .2);
     background: #ffffff;
