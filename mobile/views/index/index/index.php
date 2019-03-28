@@ -111,10 +111,9 @@
 <script>
     var type = getParams('type', 1);
     $('.recommend>.titleBox>.type').find('span').removeClass('active').each(function (k, v) {
-        var url = '/index/index/index.html?type=' + type;
-        if ($(v).attr('url') === url) {
+        if ($(v).attr('url') === ('/index/index/index.html?type=' + type)) {
             $(v).addClass('active');
-            $('.recommend>.more').attr('url', url);
+            $('.recommend>.more').attr('url', '/index/index/list.html?type=' + type);
         }
     });
 </script>
