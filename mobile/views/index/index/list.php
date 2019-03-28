@@ -48,7 +48,7 @@
             var search = $('.searchKey').val();
             window.location.href = '?search=' + search + '&type=' + $(this).attr('type');
         }).each(function (k, v) {
-            if ($(this).attr('type') === now) {
+            if ($(this).attr('type') === (now + '')) {
                 $(this).addClass('active');
             }
         });

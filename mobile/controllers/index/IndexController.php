@@ -20,21 +20,14 @@ class IndexController extends BasisController
 {
     /**
      * 渲染首页
+     * @param int $type
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($type = 1)
     {
-        return $this->render('index');
-    }
-
-    /**
-     * 首页场地数据接口
-     * @param $type
-     * @return string
-     */
-    public function actionData($type)
-    {
-        return $this->rJson(Field::getFields($type, 4));
+        return $this->render('index', [
+            'recommend' => Field::getFields($type, 4)
+        ]);
     }
 
     /**
@@ -75,7 +68,7 @@ class IndexController extends BasisController
      */
     public function actionCobberField($cobber_id)
     {
-        return $this->render('cobber-field', ['datas' => Field::getCobberField($cobber_id),'model'=>Ident::findOne(['user_id'=>$cobber_id])]);
+        return $this->render('cobber-field', ['datas' => Field::getCobberField($cobber_id), 'model' => Ident::findOne(['user_id' => $cobber_id])]);
     }
 
     public function actionNotFind()

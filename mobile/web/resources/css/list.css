@@ -102,6 +102,9 @@
     height: 0.5rem;
     line-height: 0.5rem;
     font-size: 0.3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .recommend > .one > .oneInfo > .price {
@@ -109,4 +112,7 @@
     line-height: 0.7rem;
     color: #fa5741;
     font-size: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
