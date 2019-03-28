@@ -468,22 +468,24 @@
 
 <!--内容2开始-->
 <div class="main2 box1200">
-    <div class="site">
-        <div class="h2">
-            投资详情
-        </div>
-        <div class="infors">
-            <?php foreach ($list as $v): ?>
-                <div class="intension">
-                    <div class="name"><?= substr_replace($v['tel'], '*****', 3, 5) ?></div>
-                    <div class="ratio"
-                         style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
-                        <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
+    <?php if ($list): ?>
+        <div class="site">
+            <div class="h2">
+                投资详情
+            </div>
+            <div class="infors">
+                <?php foreach ($list as $v): ?>
+                    <div class="intension">
+                        <div class="name"><?= substr_replace($v['tel'], '*****', 3, 5) ?></div>
+                        <div class="ratio"
+                             style="background-size: <?= round(($v['money'] / $model->budget) * 100, 2) ?>% auto">
+                            <?= round(($v['money'] / $model->budget) * 100, 2) ?>%
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
     <div class="site">
         <div class="h2">
             场地介绍
@@ -497,10 +499,15 @@
             配置单
         </div>
         <div class="infors">
-            <?php foreach (explode(',', $model->configure_photo) as $v): ?>
-                <img src="<?= $v ?>" alt=""
+            <?php if ($model->configure_photo): ?>
+                <?php foreach (explode(',', $model->configure_photo) as $v): ?>
+                    <img src="<?= $v ?>" alt=""
+                         style="width: 100%;margin-bottom: 20px">
+                <?php endforeach; ?>
+            <?php else: ?>
+                <img src="/resources/images/a1.png" alt=""
                      style="width: 100%;margin-bottom: 20px">
-            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
     <div class="site">
@@ -508,10 +515,15 @@
             预算报表
         </div>
         <div class="infors">
-            <?php foreach (explode(',', $model->budget_photo) as $v): ?>
-                <img src="<?= $v ?>" alt=""
+            <?php if ($model->budget_photo): ?>
+                <?php foreach (explode(',', $model->budget_photo) as $v): ?>
+                    <img src="<?= $v ?>" alt=""
+                         style="width: 100%;margin-bottom: 20px">
+                <?php endforeach; ?>
+            <?php else: ?>
+                <img src="/resources/images/a1.png" alt=""
                      style="width: 100%;margin-bottom: 20px">
-            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
     <div class="site">
@@ -519,10 +531,15 @@
             施工图纸
         </div>
         <div class="infors">
-            <?php foreach (explode(',', $model->field_drawing) as $v): ?>
-                <img src="<?= $v ?>" alt=""
+            <?php if ($model->field_drawing): ?>
+                <?php foreach (explode(',', $model->field_drawing) as $v): ?>
+                    <img src="<?= $v ?>" alt=""
+                         style="width: 100%;margin-bottom: 20px">
+                <?php endforeach; ?>
+            <?php else: ?>
+                <img src="/resources/images/a1.png" alt=""
                      style="width: 100%;margin-bottom: 20px">
-            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
     <div class="site">
@@ -530,10 +547,15 @@
             场地备案
         </div>
         <div class="infors">
-            <?php foreach (explode(',', $model->record_photo) as $v): ?>
-                <img src="<?= $v ?>" alt=""
+            <?php if ($model->record_photo): ?>
+                <?php foreach (explode(',', $model->record_photo) as $v): ?>
+                    <img src="<?= $v ?>" alt=""
+                         style="width: 100%;margin-bottom: 20px">
+                <?php endforeach; ?>
+            <?php else: ?>
+                <img src="/resources/images/a1.png" alt=""
                      style="width: 100%;margin-bottom: 20px">
-            <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 
