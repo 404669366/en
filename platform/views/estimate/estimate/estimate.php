@@ -292,7 +292,7 @@
         <style>
             .estimate {
                 width: 120%;
-                margin-left: -20%;
+                margin-left: -10%;
                 min-height: 300px;
                 font-size: 14px;
                 text-align: center;
