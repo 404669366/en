@@ -1314,7 +1314,7 @@ PATTERN;
      * @param array $pageWhere
      * @return mixed
      */
-    public function page($pageWhere = [])
+    public function  page($pageWhere = [])
     {
         if ($pageWhere) {
             foreach ($pageWhere as $k => $v) {

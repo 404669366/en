@@ -19,3 +19,5 @@
 .idea/en.iml
 .idea/modules.xml
 .idea/inspectionProfiles/Project_Default.xml
+vendor/.idea/
+vendor/helpers/.idea/
