@@ -15,7 +15,7 @@ $this->beginPage();
     <link rel="shortcut icon" href="/favicon.ico">
     <?php $this->head() ?>
 </head>
-<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+<body class="fixed-sidebar full-height-layout gray-bg">
 <?php $this->beginBody(); ?>
 <?php $this->endBody(); ?>
 <div id="wrapper">
@@ -40,8 +40,6 @@ $this->beginPage();
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs updatePasswordBox">
                             <li><a class="J_menuItem updatePassword" href="/member/member/update">修改密码</a></li>
-                            <li class="divider"></li>
-                            <li><a href="/<?=Yii::$app->params['logoutRoute']?>">安全退出</a></li>
                         </ul>
                         <script>
                             $('.updatePassword').click(function () {
@@ -83,7 +81,7 @@ $this->beginPage();
                     </a>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
-                    <li class="dropdown">
+                    <!--<li class="dropdown">
                         <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                             <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                         </a>
@@ -124,7 +122,7 @@ $this->beginPage();
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li>-->
                     <li class="dropdown">
                         <a class="right-sidebar-toggle" aria-expanded="false">
                             <i class="fa fa-tasks"></i> 主题

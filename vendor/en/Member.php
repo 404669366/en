@@ -74,11 +74,7 @@ class Member extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function accountLogin($account = '', $pwd = '')
     {
-        $member = self::findOne(['username' => $account, 'status' => 1]);
-        if (!$member) {
-            $member = self::findOne(['tel' => $account, 'status' => 1]);
-        }
-        if ($member) {
+        if ($member = self::find()->where(['status' => 1])->andWhere(['or', ['username' => $account], ['tel' => $account]])->one()) {
             if (Yii::$app->security->validatePassword($pwd, $member->password)) {
                 Yii::$app->user->login($member, 3 * 60 * 60);
                 return true;
