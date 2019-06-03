@@ -1,0 +1,190 @@
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.txt_red {
+    color: #ff0000;
+}
+
+.txt_org {
+    color: #ff6600;
+}
+
+.txt_blue {
+    color: #00A8EC;
+}
+
+.clear {
+    clear: both;
+}
+.mar_left{
+    margin-left: 0.5rem;
+}
+.mar_right{
+    margin-right: 0.5rem;
+}
+.mr_btm{
+    margin-bottom: 0.5rem;
+}
+.let_sp{
+    letter-spacing: 1rem;
+}
+.red_txt{
+    color: #FF0000;
+}
+.green_txt{
+    color: #06A156;
+}
+.gray_txt{
+    color: #909090;
+}
+
+/*背景颜色*/
+.blue_bg{
+background: #00A8EC;
+}
+
+.red_bg{
+    background: #FF4C38;
+}
+
+.mrg0{
+    margin: 0!important;
+}
+/*二级联动*/
+.head{
+    width: 10rem;
+    color: #323232;
+    font-size: 0.6rem;
+    font-family: "微软雅黑";
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+.tab{
+    width: 10rem;
+    height: 1.6rem;
+    box-shadow:0rem 0.01rem 0.1rem rgba(0,0,0,0.3);
+}
+.tab .area,.tab .select{
+    width: 4.98rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    margin-top: 0.26rem;
+}
+.tab .area{
+    border-right: solid #333 0.02rem;
+}
+.tab .select{
+    border-left: solid #333 0.02rem;
+}
+/*city_list*/
+.city_list{
+    height: 12rem;
+    text-align: center;
+}
+.city_list .list_left{
+    width: 4rem;
+}
+.city_list .list_left>p{
+    height: 1.54rem;
+    line-height: 1.54rem;
+    color:#00A8EC;
+    border-bottom: solid 0.04rem #00A8EC;
+}
+.city_list .list_left>ul{
+    height: 10rem;
+    overflow-y: auto;
+}
+.city_list .list_left>ul>li{
+    height: 1.4rem;
+    line-height: 1.4rem;
+}
+
+.city_list .list_left .hover{
+    background: #F0EFF4;
+}
+/*screen筛选项*/
+.city_right{
+    width: 9rem;
+    padding: 0.5rem;
+}
+.city_right>.screen{
+    min-height: 3rem;
+}
+.city_right>.screen_itm{
+    min-height: 5rem;
+}
+
+.city_right>.screen>p{
+    line-height: 1.48rem;
+}
+
+.city_right>.screen>li{
+    float: left;
+    width: 4.2rem;
+    height: 1.38rem;
+    color: #00A8EC;
+    text-align: center;
+    font: 0.5rem/1.38rem '微软雅黑';
+    letter-spacing: 0.05rem;
+    border: solid #00A8EC 0.01rem;
+    border-radius: 0.3rem;
+}
+.city_right>.screen>.activ{
+    background: #00A8EC;
+    color: #fff;
+}
+/*保存并提交*/
+.city_right>.submit{
+    height: 1.3rem;
+    color: #909090;
+    line-height: 1.3rem;
+    margin-top: 0.2rem;
+}
+
+.city_right>.submit>button{
+    width: 2.5rem;
+    height: 1.3rem;
+    color: #fff;
+    background: #00A8EC;
+    border: none;
+    border-radius: 0.1rem;
+    letter-spacing: 0.2rem;
+}
+
+
+
+
+
+
+
+
+
+/*列表and地图的定位*/
+.switchBox{
+    width: 1.2rem;
+    height:1.6rem;
+    color: #909090;
+    text-align: center;
+    font-size: 0.4rem;
+    font-family: "微软雅黑";
+    background: #fff;
+    position: fixed;
+    top: 1.8rem;
+    right: 0.25rem;
+    border-radius: 0.15rem;
+    box-shadow: 0rem 0rem 0.02rem rgba(0,0,0,0.4);
+    z-index: 98;
+}
+.switchBox>p{
+    font-size: 0.7rem;
+}

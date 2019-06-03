@@ -1,5 +1,5 @@
-<?php $this->registerJsFile('/h+/js/plugins/datapicker/bootstrap-datepicker.js.', ['depends' => 'app\assets\ModelAsset']); ?>
-<?php $this->registerCssFile('/h+/css/plugins/datapicker/datepicker3.css.', ['depends' => 'app\assets\ModelAsset']); ?>
+<?php $this->registerJsFile('/h+/js/plugins/datapicker/bootstrap-datepicker.js', ['depends' => 'app\assets\ModelAsset']); ?>
+<?php $this->registerCssFile('/h+/css/plugins/datapicker/datepicker3.css', ['depends' => 'app\assets\ModelAsset']); ?>
 <div class="ibox-content">
     <div class="dataTables_wrapper form-inline">
         <div class="row tableSearchBox">

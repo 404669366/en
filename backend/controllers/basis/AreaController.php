@@ -30,7 +30,7 @@ class AreaController extends CommonController
      */
     public function actionDef($area_id)
     {
-        return $this->rJson(Area::getDefault($area_id));
+        return $this->rJson(Area::getDef($area_id));
     }
 
     /**

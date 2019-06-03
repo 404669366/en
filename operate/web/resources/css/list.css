@@ -1,0 +1,61 @@
+/*list列表*/
+.list {
+    position: fixed;
+    height: 100%;
+    width: 9.5rem;
+    color: #909090;
+    background: #F6F6F6;
+    padding: 0.25rem;
+    line-height: 1rem;
+    margin-top: 1.6rem;
+    font-size: 0.45rem;
+}
+
+.list > a > li {
+    height: 3.2rem;
+    color: #909090;
+    padding: 0.3rem;
+    background: #fff;
+    border-radius: 0.1rem;
+    box-shadow: 0rem 0rem 0.1rem 0.05rem rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.25rem;
+}
+
+.list li > .list_num {
+    color: #333;
+    font-size: 0.6rem;
+}
+
+.list li > .list_charge {
+    line-height: 0.978rem;
+    font-size: 0.4rem;
+    margin-top: 0.1rem;
+}
+
+.list li > .list_tit {
+    width: 9rem;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list li > .list_charge > span {
+    display: inline-block;
+    color: #333;
+}
+
+.list li > .list_charge > .quick_charge {
+    width: 4rem;
+    text-align: center;
+    letter-spacing: 0.02rem;
+    border-radius: 0.05rem;
+    margin-right: 0.2rem;
+    background: #E1FAEB;
+    border: solid #C7F5D9 0.01rem;
+}
+
+.list > div {
+    font-size: 0.35rem;
+    text-align: center;
+    letter-spacing: 0.04rem;
+}

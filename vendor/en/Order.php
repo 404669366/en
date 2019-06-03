@@ -3,6 +3,8 @@
 namespace vendor\en;
 
 use vendor\helpers\Constant;
+use vendor\helpers\Helper;
+use vendor\helpers\Wechat;
 use Yii;
 
 /**
@@ -82,10 +84,26 @@ class Order extends \yii\db\ActiveRecord
             ]);
         foreach ($data['data'] as &$v) {
             $v['status'] = Constant::getOrderStatus()[$v['status']];
-            $v['begin_at'] = date('Y-m-d H:i:s',$v['begin_at']);
-            $v['end_at'] = date('Y-m-d H:i:s',$v['end_at']);
-            $v['created'] = date('Y-m-d H:i:s',$v['created']);
+            $v['begin_at'] = date('Y-m-d H:i:s', $v['begin_at']);
+            $v['end_at'] = date('Y-m-d H:i:s', $v['end_at']);
+            $v['created'] = date('Y-m-d H:i:s', $v['created']);
         }
         return $data;
     }
+
+    /**
+     * 获取前台数据
+     * @param $user_id
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getData($user_id)
+    {
+        $data = self::find()->alias('o')
+            ->where(['o.user_id' => $user_id])
+            ->andWhere(['o.status' => [5, 6]])
+            ->asArray()->all();
+        return $data;
+    }
+
+
 }

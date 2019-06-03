@@ -1,0 +1,26 @@
+body {
+    background: #EFEFEF !important;
+}
+
+.recharge_list {
+    width: 10rem;
+}
+
+.recharge_list > li {
+    width: 9.5rem;
+    padding: 0.25rem;
+    color: #333;
+    font-size: 0.5rem;
+    background: #fff;
+    margin-bottom: 0.05rem;
+}
+
+.recharge_list > li > p {
+    height: 1rem;
+    line-height: 1rem;
+}
+
+.recharge_list > li > p:last-child {
+    color: #A9A9A9;
+    font-size: 0.4rem;
+}

@@ -3,6 +3,8 @@
 namespace vendor\en;
 
 use vendor\helpers\Constant;
+use vendor\helpers\Helper;
+use vendor\helpers\Wechat;
 use Yii;
 
 /**
@@ -10,6 +12,7 @@ use Yii;
  *
  * @property string $id
  * @property string $user_id 用户ID
+ * @property string $no 充值编号
  * @property string $money 充值金额
  * @property string $balance 余额
  * @property int $source 充值来源
@@ -33,7 +36,7 @@ class Recharge extends \yii\db\ActiveRecord
         return [
             [['money'], 'required'],
             [['user_id', 'source', 'created'], 'integer'],
-            [['money', 'balance'], 'string', 'max' => 255],
+            [['money', 'balance', 'no'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,6 +55,10 @@ class Recharge extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * 充值订单数据
+     * @return mixed
+     */
     public static function getPageData()
     {
         $data = self::find()->alias('r')
@@ -67,5 +74,31 @@ class Recharge extends \yii\db\ActiveRecord
             $v['source'] = Constant::getSource()[$v['source']];
         }
         return $data;
+    }
+
+
+    /**
+     * 生成订单
+     * @param string $money
+     * @param string $balance
+     * @param string $way
+     * @return array
+     */
+    public static function wx($money = '', $balance = '', $way = '')
+    {
+        $model = new self();
+        $model->no = Helper::createNo('O');
+        $model->money = $money;
+        $model->balance = $balance;
+        $model->source = $way;
+        $model->user_id = Yii::$app->user->id;
+        $model->created = time();
+        if ($model->save()) {
+            $wx = Wechat::app()->getPayData($model->no, $money, $model->user_id);
+            if ($wx) {
+                return ['wx' => $wx, 'js' => Wechat::app()->getJsApiInfoByScan($wx['timestamp'], $wx['nonceStr'])];
+            }
+        }
+        return [];
     }
 }

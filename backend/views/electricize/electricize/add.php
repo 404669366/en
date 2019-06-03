@@ -61,7 +61,7 @@
             <div class="col-sm-2">
                 <select class="form-control m-b" name="section_id">
                     <?php foreach (\vendor\en\Electricize::getSection() as $k => $v): ?>
-                        <option value="<?= $k ?>"><?= $v ?></option>
+                        <option value="<?= $k ?>" <?= $k == 1 ? "selected" : "" ?>><?= $v ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

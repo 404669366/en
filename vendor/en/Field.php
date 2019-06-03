@@ -39,6 +39,7 @@ use Yii;
  * @property string $record_file 备案文件
  * @property string $record_photo 备案图片
  * @property string $remark 备注
+ * @property int $parking_fee 停车费0无停车费1有停车费
  * @property int $type 类型0合伙人发布1专员发布
  * @property int $status 状态状态0初审中1初审通过2初审不通过3二审中4二审通过5二审不通过6备案成功7备案失败8资料有误9三审中10三审通过11三审不通过12四审中13四审通过14四审不通过
  * @property string $created 创建时间
@@ -502,6 +503,7 @@ class Field extends \yii\db\ActiveRecord
         }
         return [];
     }
+
 
     /**
      * 收益预测

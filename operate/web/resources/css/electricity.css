@@ -1,0 +1,26 @@
+.ele_head{
+    width: 10rem;
+    height: 1.6rem;
+    color: #fff;
+    text-align: center;
+    font: 0.6rem/1.6rem "微软雅黑";
+    background: #00A8EC;
+}
+.electricity_list{
+    width: 9.49rem;
+    color: #333;
+    font-size: 0.45rem;
+    font-family: "微软雅黑 Light";
+    margin: 0.25rem auto 0 auto;
+    border: solid #909090 0.01rem;
+}
+.electricity_list li{
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 0.01rem solid #909090;
+}
+.electricity_list li > p{
+    float: left;
+    width: 3.16333rem;
+    text-align: center;
+}

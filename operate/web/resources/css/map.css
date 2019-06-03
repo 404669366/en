@@ -1,0 +1,11 @@
+/*百度api*/
+.mapBox{
+    width: 10rem;
+    height: 100%;
+    position: fixed;
+    z-index: 97;
+}
+#map{
+    width: 10rem;
+    height: 100%;
+}

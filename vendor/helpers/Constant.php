@@ -191,6 +191,18 @@ class Constant
     }
 
     /**
+     * 停车费状态
+     * @return array
+     */
+    public static function getParking_feeStatus()
+    {
+        return [
+            '1' => '无停车费',
+            '2' => '有停车费',
+        ];
+    }
+
+    /**
      * 场地方最高分成比例(返回百分比)
      * @return int
      */
@@ -343,7 +355,8 @@ class Constant
     {
         return [
             1 => '启动失败',
-            5 => '付款成功',
+            5 => '充电结束付款成功',
+            6 => '异常结束付款成功',
         ];
     }
 
@@ -521,6 +534,19 @@ class Constant
         return [
             1 => '微信充值',
             2 => '支付宝充值',
+        ];
+    }
+
+    /**
+     * 获取充值记录状态
+     * @return array
+     */
+    public static function getRecordStatus()
+    {
+        return [
+            0 => '待付款',
+            1 => '付款成功',
+            2 => '付款失败',
         ];
     }
 }

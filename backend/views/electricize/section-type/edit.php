@@ -72,7 +72,7 @@
                                 min: <?=$v['start'] / 60?>,
                                 max: 1440,
                                 from:<?=$v['end'] / 60?>,
-                                from_fixed:<?=($k + 1) == count($info) ? "false" : "true"?>,
+                                from_fixed:<?php if($model->id==1){echo 'true';}else{echo ($k + 1) == count($info) ? "false" : "true";} ?>,
                                 prettify: function (n) {
                                     var hours = PrefixInteger(parseInt(n / 60), 2);
                                     var min = PrefixInteger(n % 60, 2);
@@ -81,12 +81,14 @@
                             });
                         </script>
                     </div>
-                <?php endforeach; ?>
+                <?php endforeach;?>
                 <div class="col-sm-4 sgasedfaw sfesaffw">
+                    <?php if ($model->id != 1):?>
                     <span>
                         <button class="fgsfawedfa btn btn-primary" type="button" style="display: none">添加规则</button>
                         <button class="lowedfa btn btn-danger" type="button">删除规则</button>
                     </span>
+                    <?php endif;?>
                     <script>
                         function isNumber(val) {
                             var regPos = /^\d+(\.\d+)?$/; //非负浮点数

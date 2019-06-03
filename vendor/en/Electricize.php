@@ -3,6 +3,8 @@
 namespace vendor\en;
 
 use vendor\helpers\Constant;
+use vendor\helpers\Helper;
+use vendor\helpers\redis;
 use Yii;
 
 /**
@@ -35,6 +37,7 @@ class Electricize extends \yii\db\ActiveRecord
             [['gunpoint', 'field_id', 'model_id', 'section_id'], 'integer'],
             [['no', 'gunpoint', 'field_id', 'model_id', 'section_id'], 'required'],
             [['no'], 'string', 'max' => 20],
+            [['no'], 'unique'],
         ];
     }
 
@@ -53,6 +56,7 @@ class Electricize extends \yii\db\ActiveRecord
             'created' => '创建时间',
         ];
     }
+
 
     /**
      * 获取分页数据
@@ -103,5 +107,81 @@ class Electricize extends \yii\db\ActiveRecord
         return array_column($data, 'name', 'id');
     }
 
+    /**
+     * 获取场地电桩信息
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getFieldInfo($city, $lng, $lat, $parking_fee, $type, $standard)
+    {
+        $data = self::find()->alias('e')
+            ->leftJoin(Field::tableName() . ' f', 'e.field_id =f.id')
+            ->leftJoin(Model::tableName() . ' m', 'm.id =e.model_id')
+            ->leftJoin(Area::tableName() . ' a', 'a.area_id =f.area_id')
+            ->select(['f.title', 'f.no', 'f.lng', 'f.lat', 'e.no as eno'])
+            ->where(['a.parent_id' => $city]);
+        if ($parking_fee > 0) {
+            $data->andWhere(['f.parking_fee' => $parking_fee]);
+        }
+        if ($type > 0) {
+            $data->andWhere(['m.type' => $type]);
+        }
+        if ($standard > 0) {
+            $data->andWhere(['m.standard' => $standard]);
+        }
+        $data = $data->asArray()->all();
+        $arr = [];
+        foreach ($data as $v) {
+            //          $ele = redis::app()->hGet('',$v['eno']);
+//           json_decode($ele,true);
+            $ele = ['gun' => 3, 'free' => 3];
+            if (!isset($arr[$v['no']])) {
+                $v['distance'] = Helper::distance($lat, $lng, $v['lat'], $v['lng']);
+                $arr[$v['no']] = ['title' => $v['title'], 'gun' => $ele['gun'], 'free' => $ele['free'], 'distance' => $v['distance'], 'lng' => $v['lng'], 'lat' => $v['lat']];
+            } else {
+                $arr[$v['no']]['gun'] += $ele['gun'];
+                $arr[$v['no']]['free'] += $ele['free'];
+            }
+        }
+        return $arr;
+    }
 
+    /**
+     * 获取电桩数据
+     * @param $no
+     * @return array
+     */
+    public static function getEle($no)
+    {
+        $data = self::find()->alias('e')
+            ->leftJoin(Field::tableName() . ' f', 'f.id=e.field_id')
+            ->leftJoin(Model::tableName() . ' m', 'm.id=e.model_id')
+            ->select(['e.*', 'm.voltage', 'm.current'])
+            ->where(['f.no' => $no])
+            ->asArray()->all();
+        $gun = 0;
+        $free = 0;
+        foreach ($data as &$v) {
+            //          $ele = redis::app()->hGet('',$v['no']);
+//           json_decode($ele,true);
+            $ele = ['gun' => 3, 'free' => 3];
+            $v['gun'] = $ele['gun'];
+            $v['free'] = $ele['free'];
+            $now = time() - strtotime('today');
+            $one = SectionRule::find()->alias('r')
+                ->leftJoin(SectionType::tableName() . ' t', 't.id=r.section_type_id')
+                ->leftJoin(Electricize::tableName() . ' e', 'e.section_id=t.id')
+                ->select(['r.electrovalence', 'r.service'])
+                ->where(['e.id' => $v['id']])
+                ->andWhere(['<=', 'r.start', $now])
+                ->andWhere(['>', 'r.end', $now])
+                ->asArray()->one();
+            $v['electrovalence'] = $one['electrovalence'];
+            $v['service'] = $one['service'];
+            $gun += $v['gun'];
+            $free += $v['free'];
+        }
+        $num = count($data);
+        $model = Field::findOne(['no' => $no]);
+        return ['data' => $data, 'model' => $model, 'num' => $num, 'gun' => $gun, 'free' => $free];
+    }
 }

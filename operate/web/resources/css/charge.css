@@ -1,0 +1,141 @@
+.charge_head {
+    width: 10rem;
+    height: 1.6rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1.6rem;
+    font-size: 0.6rem;
+    background: #00A8EC;
+}
+
+/*正在充电显示*/
+.content {
+    width: 10rem;
+    padding: 0.5rem 0 0 0;
+    text-align: center;
+    font-size: 0.5rem;
+    font-family: "微软雅黑 Light";
+}
+
+.content > p {
+    line-height: 1rem;
+}
+
+#demo {
+    position: relative;
+    width: 100%;
+    padding-top: 0.35rem;
+}
+
+#demo > canvas {
+    width: 6.5rem;
+    height: 6.5rem;
+}
+
+#demo > .name {
+    width: 4rem;
+    height: 4rem;
+    color: #01B537;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    left: calc(50% - 2rem);
+    top: calc(50% - 1.8rem);
+    border-radius: 0.3rem;
+    margin: auto;
+    background: #fff;
+}
+
+#demo > .charge_txt {
+    width: 4rem;
+    height: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    position: absolute;
+    left: calc(50% - 2rem);
+    top: calc(50% - 0rem);
+}
+
+#demo > .bolt {
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+    background: #01B537;
+    border-radius: 0.5rem;
+    position: absolute;
+    left: calc(50% - 0.5rem);
+    top: calc(50% - -1rem);
+}
+
+#demo > .bolt > span {
+    color: #fff;
+    display: block;
+    line-height: 1rem;
+}
+
+/*电流、电压*/
+.charge_process {
+    width: 9rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+    font-size: 0.45rem;
+}
+
+.charge_process li {
+    float: left;
+    color: #909090;
+    text-align: center;
+    width: 2.99rem;
+    border-right: 0.01rem solid #909090;
+
+}
+
+.charge_process li:last-child {
+    border: none;
+}
+
+.charge_process li > p {
+    color: #333;
+    font-size: 0.55rem;
+
+}
+
+/*充电时间*/
+.charge_time {
+    width: 10rem;
+    font-size: 0.5rem;
+    font-family: "微软雅黑";
+    border-top: solid #909090 0.01rem;
+    border-bottom: solid #909090 0.01rem;
+    margin-bottom: 3rem;
+}
+
+.charge_time > li {
+    width: 9rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    margin: 0 auto;
+    border-bottom: 0.01rem solid #909090;
+}
+
+.charge_time > li:last-child {
+    border: none;
+}
+
+.charge_time > li > span:first-child {
+    margin-right: 0.2rem;
+}
+
+.charge_end {
+    width: 10rem;
+    height: 1.5rem;
+    color: #fff;
+    font-size: 0.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    background: #01B537;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}

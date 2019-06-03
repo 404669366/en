@@ -68,7 +68,7 @@ class OrderController extends CommonController
         $data['total'] = 1;
         $data['data'] = [['created' => date('Y-m-d H:i:s',time()), 'ele' => $ele, 'no' => $no, 'gun' => $gun_no, 'time' => $time, 'e' => $e,
             'electrovalence' => $info['electrovalence'], 'service' => $info['service'], 'o' => Helper::createNo('O'),
-            'status' => Constant::getOrderOnlineStatus()[2], 'end' =>date('Y-m-d H:i:s',time()), 'begin' => date('Y-m-d H:i:s',time() - $time), 'user' => \Yii::$app->user->id]];
+            'status' => Constant::getOrderOnlineStatus()[2], 'end' =>date('Y-m-d H:i:s',time()), 'begin' => date('Y-m-d H:i:s',time() - $time), 'user' => 111]];
         return $this->rTableData($data);
     }
 }

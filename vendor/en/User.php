@@ -56,6 +56,21 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
+     * 充值余额更新
+     * @param int $id
+     * @param int $money
+     * @return bool
+     */
+    public  static function addMoney($id=0,$money=0){
+        $model = self::findOne(['id'=>$id]);
+        $model->money+=$money;
+        if ($model->save()){
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 关联合伙人信息表
      * @return \yii\db\ActiveQuery
      */

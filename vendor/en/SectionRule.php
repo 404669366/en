@@ -78,4 +78,19 @@ class SectionRule extends \yii\db\ActiveRecord
         return false;
     }
 
+    /**
+     * 获取区间及电价
+     * @param $no
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public static function getInfo($no)
+    {
+        $data = self::find()->alias('r')
+            ->leftJoin(SectionType::tableName() . ' t', 't.id=r.section_type_id')
+            ->leftJoin(Electricize::tableName() . ' e', 'e.section_id=t.id')
+            ->select(['r.start', 'r.end', 'r.electrovalence', 'r.service'])
+            ->where(['e.no' => $no])
+            ->asArray()->all();
+        return $data;
+    }
 }

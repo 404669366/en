@@ -18,7 +18,8 @@
         <table class="table table-striped table-bordered table-hover dataTable" id="table">
             <thead>
             <tr role="row">
-                <th>电桩收费配置名称</th>
+                <th>ID</th>
+                <th>名称</th>
                 <th>说明</th>
                 <th>操作</th>
             </tr>
@@ -32,13 +33,16 @@
         url: '/electricize/section-type/data',
         length: 10,
         columns: [
+            {"data": "id"},
             {"data": "name"},
             {"data": "intro"},
             {
                 "data": "id", "orderable": false, "render": function (data, type, row) {
                 var str = '<a class="btn btn-sm btn-warning" href="/electricize/section-type/edit?id=' + data + '">修改</a>';
-                 str+='&emsp;<a class="btn btn-sm btn-danger" href="/electricize/section-type/del?id=' + data + '">删除</a>';
-                 return str;
+                if (data != 1) {
+                    str += '&emsp;<a class="btn btn-sm btn-danger" href="/electricize/section-type/del?id=' + data + '">删除</a>';
+                }
+                return str;
             }
             }
         ],
