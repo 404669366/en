@@ -27,14 +27,14 @@
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">电桩收费配置名称</label>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <input type="text" class="form-control name" value="">
             </div>
         </div>
         <div class="hr-line-dashed"></div>
         <div class="form-group">
             <label class="col-sm-2 control-label">说明</label>
-            <div class="col-sm-2">
+            <div class="col-sm-4">
                 <textarea class="form-control intro" rows="6"></textarea>
             </div>
         </div>
