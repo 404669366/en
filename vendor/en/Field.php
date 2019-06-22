@@ -522,7 +522,6 @@ class Field extends \yii\db\ActiveRecord
             ['>=', 'min', $power],
             ['<', 'max', $power],
         ])->asArray()->one();
-        var_dump($config['total']);exit();
         $config['total'] = $config['total'] ? $config['total']['price'] * $power : $config['defPrice'] * $power;
         $transformer = Transformer::find()->where([
             'and',
