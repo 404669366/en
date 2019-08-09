@@ -1,5 +1,5 @@
 window.modal = function () {
-    document.write("<style>body.modalOpen{position: fixed;width: 100%;}</style>");
+    document.write("<style>.modalOpen{position: fixed;width: 100%;}</style>");
     var scrollTop;
     var toDo = {
         open: function () {
