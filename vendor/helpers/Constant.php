@@ -102,7 +102,7 @@ class Constant
         return [
             'yearDay' => 330,//年计算日
             'raiseRatio' => 0.2,//盈利增值
-            'defPrice' => 909.1,//默认功率单价(kw)
+            'defPrice' => 2216.666667,//默认功率单价(kw)
             'servers' => 0.6,//服务费
             'price' => 0.62,//基础电价
             'field' => 0.2,//场地分成比例
