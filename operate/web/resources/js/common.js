@@ -4,8 +4,7 @@ document.write("<link href='/resources/css/font-awesome.min.css' rel='stylesheet
 document.write("<script src='/resources/js/jquery-3.3.1.min.js' type='text/javascript' charset='utf-8'></script>");
 document.write("<script src='/resources/js/layer/layer.min.js' type='text/javascript' charset='utf-8'></script>");
 
-var width = document.documentElement.getBoundingClientRect().width;
-var rem = width * 0.1;
+var rem = document.documentElement.getBoundingClientRect().width * 0.1;
 document.documentElement.style.fontSize = rem + "px";
 
 load(function () {
